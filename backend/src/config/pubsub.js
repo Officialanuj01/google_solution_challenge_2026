@@ -64,11 +64,17 @@ function subscribe(subscriptionName, messageHandler) {
 }
 
 /**
- * Ensure all topics exist (used during startup)
+ * Ensure all topics AND their pull subscriptions exist
  */
 async function ensureTopics() {
     const client = getPubSubClient();
     const topicNames = Object.values(gcpConfig.pubsub.topics);
+
+    // Subscriptions needed for server-side listeners
+    const subscriptionMap = {
+        [gcpConfig.pubsub.topics.predictionComplete]: 'prediction-complete-sub',
+        [gcpConfig.pubsub.topics.callStatusUpdate]: 'call-status-update-sub'
+    };
 
     for (const topicName of topicNames) {
         try {
@@ -82,6 +88,25 @@ async function ensureTopics() {
             logger.warn(`Topic creation skipped for ${topicName}:`, err.message);
         }
     }
+
+    // Create pull subscriptions for topics that need server-side listening
+    for (const [topicName, subName] of Object.entries(subscriptionMap)) {
+        try {
+            const topic = client.topic(topicName);
+            const sub = topic.subscription(subName);
+            const [subExists] = await sub.exists();
+            if (!subExists) {
+                await topic.createSubscription(subName, {
+                    ackDeadlineSeconds: 60,
+                    retainAckedMessages: false,
+                    messageRetentionDuration: { seconds: 600 } // 10 min
+                });
+                logger.info(`Created Pub/Sub subscription: ${subName}`);
+            }
+        } catch (err) {
+            logger.warn(`Subscription creation skipped for ${subName}:`, err.message);
+        }
+    }
 }
 
 module.exports = {
@@ -90,3 +115,4 @@ module.exports = {
     subscribe,
     ensureTopics
 };
+

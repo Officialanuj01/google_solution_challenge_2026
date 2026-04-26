@@ -1,11 +1,11 @@
 /**
  * Predelix — Delivery Service (Frontend)
  * Calls Dialogflow CX delivery bot endpoints via Cloud Run backend
- * Replaces: direct calls to delivery_call.py endpoints
+ * Uses the centralised api.js wrapper for auth + error handling
  */
-import config from '../config';
+import api from './api';
 
-const API_URL = `${config.apiUrl}/delivery`;
+const BASE = '/delivery';
 
 export const deliveryService = {
     /**
@@ -14,74 +14,35 @@ export const deliveryService = {
     async uploadCustomers(file) {
         const formData = new FormData();
         formData.append('file', file);
-
-        const token = localStorage.getItem('accessToken');
-        const response = await fetch(`${API_URL}/upload`, {
-            method: 'POST',
-            headers: token ? { 'Authorization': `Bearer ${token}` } : {},
-            body: formData
-        });
-
-        if (!response.ok) {
-            const error = await response.json();
-            throw new Error(error.message || 'Upload failed');
-        }
-
-        return response.json();
+        return api.post(`${BASE}/upload`, formData);
     },
 
     /**
      * Trigger delivery calls for a batch
      */
-    async triggerCalls(batchId) {
-        const token = localStorage.getItem('accessToken');
-        const response = await fetch(`${API_URL}/trigger`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            },
-            body: JSON.stringify({ batchId })
-        });
-
-        if (!response.ok) {
-            const error = await response.json();
-            throw new Error(error.message || 'Failed to trigger calls');
-        }
-
-        return response.json();
+    async triggerCalls(batchId, webhookBaseUrl = null) {
+        return api.post(`${BASE}/trigger`, { batchId, webhook_base_url: webhookBaseUrl });
     },
 
     /**
-     * Get call results and transcripts
+     * Get call results and transcripts for a batch
      */
     async getResults(batchId = null) {
         const params = batchId ? `?batch_id=${batchId}` : '';
-        const response = await fetch(`${API_URL}/results${params}`);
+        return api.get(`${BASE}/results${params}`);
+    },
 
-        if (!response.ok) throw new Error('Failed to fetch results');
-        return response.json();
+    /**
+     * Get delivery customers for a batch (from BigQuery)
+     */
+    async getCustomers(batchId) {
+        return api.get(`${BASE}/customers?batch_id=${batchId}`);
     },
 
     /**
      * Retry failed calls for a batch
      */
-    async retryCalls(batchId) {
-        const token = localStorage.getItem('accessToken');
-        const response = await fetch(`${API_URL}/retry`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            },
-            body: JSON.stringify({ batchId })
-        });
-
-        if (!response.ok) {
-            const error = await response.json();
-            throw new Error(error.message || 'Retry failed');
-        }
-
-        return response.json();
+    async retryCalls(batchId, webhookBaseUrl = null) {
+        return api.post(`${BASE}/retry`, { batchId, webhook_base_url: webhookBaseUrl });
     }
 };

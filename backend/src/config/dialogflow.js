@@ -37,6 +37,10 @@ function getAgentsClient() {
  * Get the session path for a Dialogflow CX conversation
  */
 function getSessionPath(sessionId) {
+    if (!gcpConfig.dialogflow.agentId) {
+        logger.warn('DIALOGFLOW_AGENT_ID not configured — using mock session path');
+        return `projects/${gcpConfig.projectId}/locations/global/agents/mock-agent/sessions/${sessionId}`;
+    }
     const client = getSessionsClient();
     return client.projectLocationAgentSessionPath(
         gcpConfig.projectId,
@@ -50,6 +54,15 @@ function getSessionPath(sessionId) {
  * Detect intent from text input (for testing/webhook processing)
  */
 async function detectIntent(sessionId, text, languageCode = 'en') {
+    if (!gcpConfig.dialogflow.agentId) {
+        logger.warn('Dialogflow not configured, returning mock intent response');
+        return {
+            intent: { displayName: 'mock.greeting' },
+            intentDetectionConfidence: 1.0,
+            text: { text: [text] }
+        };
+    }
+
     const client = getSessionsClient();
     const sessionPath = getSessionPath(sessionId);
 
@@ -79,3 +92,4 @@ module.exports = {
     getSessionPath,
     detectIntent
 };
+

@@ -6,6 +6,9 @@ const mongoose = require('mongoose');
 const expressWs = require('express-ws');
 const { logger } = require('./utils/logger');
 const { errorHandler } = require('./middleware/error.middleware');
+const bigqueryConfig = require('./config/bigquery');
+const pubsubConfig = require('./config/pubsub');
+const pubsubService = require('./services/pubsub.service');
 
 // ── Initialize Express + WebSocket ──────────
 const app = express();
@@ -83,10 +86,33 @@ mongoose.connect(MONGODB_URI)
 
 // ── Start Server ────────────────────────────
 const PORT = parseInt(process.env.PORT, 10) || 5000;
-app.listen(PORT, '0.0.0.0', () => {
+app.listen(PORT, '0.0.0.0', async () => {
     logger.info(`🚀 Predelix API running on port ${PORT}`);
     logger.info(`📍 Environment: ${process.env.NODE_ENV || 'development'}`);
     logger.info(`☁️  GCP Project: ${process.env.GCP_PROJECT_ID || 'not configured'}`);
+
+    // ── GCP Service Bootstrap ────────────────
+    try {
+        await bigqueryConfig.ensureSchema();
+        logger.info('✅ BigQuery schema ready');
+    } catch (err) {
+        logger.warn('⚠️ BigQuery schema bootstrap skipped:', err.message);
+    }
+
+    try {
+        await pubsubConfig.ensureTopics();
+        logger.info('✅ Pub/Sub topics ready');
+    } catch (err) {
+        logger.warn('⚠️ Pub/Sub topics bootstrap skipped:', err.message);
+    }
+
+    try {
+        pubsubService.initializeSubscriptions();
+        logger.info('✅ Pub/Sub subscriptions initialized');
+    } catch (err) {
+        logger.warn('⚠️ Pub/Sub subscriptions skipped:', err.message);
+    }
 });
 
 module.exports = app;
+
