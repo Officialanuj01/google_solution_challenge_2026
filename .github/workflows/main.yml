@@ -1,0 +1,63 @@
+name: Predelix Health Monitor
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'  # Triggers every 5 minutes
+  workflow_dispatch:        # Optional manual trigger
+
+jobs:
+  health-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Wait random time (5 to 10 minutes)
+        run: |
+          DELAY=$(( (RANDOM % 6 + 5) * 60 ))  # 300 to 600 seconds
+          echo "⏳ Sleeping for $((DELAY/60)) minutes ($DELAY seconds)..."
+          sleep $DELAY
+
+      - name: Check URL health
+        run: |
+          urls=(
+            "https://predelix-242m.onrender.com"
+            "https://predelix.onrender.com/"
+            "https://predelix-1-lcaa.onrender.com/api/auth"
+          )
+
+          failed=false
+          for url in "${urls[@]}"; do
+            echo "🔍 Checking $url"
+            status=$(curl -s -o /dev/null -w "%{http_code}" "$url")
+            if [[ "$status" -lt 200 || "$status" -ge 300 ]]; then
+              echo "❌ ERROR: $url returned status $status"
+              failed=true
+            else
+              echo "✅ $url is healthy (Status $status)"
+            fi
+          done
+
+          if $failed; then
+            echo "🔴 One or more URLs failed. Exiting with status 1."
+            exit 1
+          fi
+
+      - name: Send Failure Email Notification
+        if: failure()
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 587
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          subject: "🔴 Predelix Health Check Failed"
+          to: ${{ officialanuj004@gmail.com }}
+          from: ${{ secrets.MAIL_USERNAME }}
+          body: |
+            One or more Predelix URLs failed the health check.
+            Workflow: ${{ github.workflow }}
+            Run: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
+            URLs Checked:
+            - https://predelix-242m.onrender.com
+            - https://predelix.onrender.com/
+            - https://predelix-1-lcaa.onrender.com/api/auth

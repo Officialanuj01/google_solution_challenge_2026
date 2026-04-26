@@ -1,0 +1,25 @@
+{
+    "displayName": "provide_instructions",
+    "trainingPhrases": [
+        {"parts": [{"text": "Leave it at the door"}]},
+        {"parts": [{"text": "Ring the bell twice"}]},
+        {"parts": [{"text": "Call me when you arrive"}]},
+        {"parts": [{"text": "Give it to the security guard"}]},
+        {"parts": [{"text": "Leave it with my neighbor"}]},
+        {"parts": [{"text": "No special instructions"}]},
+        {"parts": [{"text": "Just leave it at the reception"}]},
+        {"parts": [{"text": "I'll come down, just call me"}]},
+        {"parts": [{"text": "Put it in the mailbox"}]},
+        {"parts": [{"text": "Don't ring the bell, the baby is sleeping"}]},
+        {"parts": [{"text": "Please handle it carefully, it's fragile"}]},
+        {"parts": [{"text": "Nothing special, just deliver it"}]}
+    ],
+    "parameters": [
+        {
+            "id": "delivery_instructions",
+            "entityType": "@delivery_instruction",
+            "isList": false,
+            "redact": false
+        }
+    ]
+}

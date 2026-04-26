@@ -1,0 +1,27 @@
+name: Ping with Random Delay
+
+on:
+  schedule:
+    - cron: '*/10 * * * *'  # Runs every 10 minutes
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait random time (0 to 3 minutes)
+        run: |
+          RANDOM_DELAY=$(( RANDOM % 180 ))  # 0–179 seconds
+          echo "Sleeping for $RANDOM_DELAY seconds..."
+          sleep $RANDOM_DELAY
+
+      - name: Ping all endpoints
+        run: |
+          set -e
+          for url in \
+            "https://predelix.onrender.com" \
+            "https://predelix-1-lcaa.onrender.com/api/auth" \
+            "https://predelix-242m.onrender.com"; do
+            echo "Pinging $url"
+            curl --fail --silent --show-error --max-time 15 "$url"
+          done

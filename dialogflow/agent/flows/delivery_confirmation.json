@@ -1,0 +1,109 @@
+{
+    "displayName": "Predelix Delivery Confirmation",
+    "description": "Delivery confirmation flow - greets customer, captures preferred time and delivery instructions",
+    "transitionRoutes": [
+        {
+            "intent": "Default Welcome Intent",
+            "triggerFulfillment": {
+                "messages": [
+                    {
+                        "text": {
+                            "text": [
+                                "Hello, I am calling on behalf of Predelix. We are delivering your courier today. At what time will you be available? Please state your preferred time or any delivery instructions after the beep."
+                            ]
+                        }
+                    }
+                ],
+                "tag": "greeting"
+            },
+            "targetPage": "capture_time_page"
+        }
+    ],
+    "pages": [
+        {
+            "displayName": "capture_time_page",
+            "entryFulfillment": {
+                "messages": [
+                    {
+                        "text": {
+                            "text": ["Please tell me your preferred delivery time."]
+                        }
+                    }
+                ]
+            },
+            "transitionRoutes": [
+                {
+                    "intent": "confirm_availability",
+                    "triggerFulfillment": {
+                        "messages": [
+                            {
+                                "text": {
+                                    "text": ["Thank you. I've noted your preferred time. Do you have any specific delivery instructions?"]
+                                }
+                            }
+                        ],
+                        "tag": "capture_time",
+                        "webhook": "predelix-webhook"
+                    },
+                    "targetPage": "capture_instructions_page"
+                },
+                {
+                    "intent": "Default Fallback Intent",
+                    "triggerFulfillment": {
+                        "messages": [
+                            {
+                                "text": {
+                                    "text": ["I'm sorry, I didn't quite catch that. Could you please repeat your preferred delivery time?"]
+                                }
+                            }
+                        ],
+                        "tag": "fallback"
+                    }
+                }
+            ]
+        },
+        {
+            "displayName": "capture_instructions_page",
+            "entryFulfillment": {
+                "messages": [
+                    {
+                        "text": {
+                            "text": ["Do you have any special delivery instructions?"]
+                        }
+                    }
+                ]
+            },
+            "transitionRoutes": [
+                {
+                    "intent": "provide_instructions",
+                    "triggerFulfillment": {
+                        "messages": [
+                            {
+                                "text": {
+                                    "text": ["Thank you. Your response has been recorded. Have a great day! Goodbye!"]
+                                }
+                            }
+                        ],
+                        "tag": "capture_instructions",
+                        "webhook": "predelix-webhook"
+                    },
+                    "targetPage": "END_SESSION"
+                },
+                {
+                    "condition": "true",
+                    "triggerFulfillment": {
+                        "messages": [
+                            {
+                                "text": {
+                                    "text": ["Thank you. Your response has been recorded. Goodbye!"]
+                                }
+                            }
+                        ],
+                        "tag": "capture_instructions"
+                    },
+                    "targetPage": "END_SESSION"
+                }
+            ]
+        }
+    ]
+}

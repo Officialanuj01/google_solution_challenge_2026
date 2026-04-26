@@ -1,0 +1,25 @@
+{
+    "displayName": "confirm_availability",
+    "trainingPhrases": [
+        {"parts": [{"text": "I am available at "},  {"text": "3 PM", "parameterId": "time_slot"}]},
+        {"parts": [{"text": "I'll be home at "}, {"text": "10 AM", "parameterId": "time_slot"}]},
+        {"parts": [{"text": "Deliver it at "}, {"text": "5 o'clock", "parameterId": "time_slot"}]},
+        {"parts": [{"text": "Morning is fine"}]},
+        {"parts": [{"text": "Evening is better"}]},
+        {"parts": [{"text": "Anytime after "}, {"text": "2 PM", "parameterId": "time_slot"}]},
+        {"parts": [{"text": "Yes I'll be home"}]},
+        {"parts": [{"text": "I'm available between "}, {"text": "9 to 12", "parameterId": "time_slot"}]},
+        {"parts": [{"text": "Come in the afternoon"}]},
+        {"parts": [{"text": "Around "}, {"text": "noon", "parameterId": "time_slot"}]},
+        {"parts": [{"text": "I'm free after "}, {"text": "4 PM", "parameterId": "time_slot"}]},
+        {"parts": [{"text": "Sure, "}, {"text": "6 PM", "parameterId": "time_slot"}, {"text": " works for me"}]}
+    ],
+    "parameters": [
+        {
+            "id": "time_slot",
+            "entityType": "@time_slot",
+            "isList": false,
+            "redact": false
+        }
+    ]
+}

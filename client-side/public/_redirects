@@ -1,0 +1,6 @@
+# Netlify redirects for SPA
+/*    /index.html   200
+
+# Ensure video files are served correctly
+/video.mp4  /video.mp4  200
+/vite.svg   /vite.svg   200
