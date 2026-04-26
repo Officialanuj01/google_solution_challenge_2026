@@ -30,11 +30,9 @@ echo ""
 echo "📦 Step 1: Enabling GCP APIs..."
 gcloud services enable \
     run.googleapis.com \
-    pubsub.googleapis.com \
     bigquery.googleapis.com \
     bigquerystorage.googleapis.com \
     aiplatform.googleapis.com \
-    dialogflow.googleapis.com \
     speech.googleapis.com \
     storage.googleapis.com \
     cloudbuild.googleapis.com \
@@ -61,11 +59,8 @@ fi
 ROLES=(
     "roles/bigquery.dataEditor"
     "roles/bigquery.jobUser"
-    "roles/pubsub.publisher"
-    "roles/pubsub.subscriber"
     "roles/dataflow.developer"
     "roles/aiplatform.user"
-    "roles/dialogflow.client"
     "roles/storage.objectAdmin"
     "roles/secretmanager.secretAccessor"
     "roles/run.invoker"
@@ -138,14 +133,9 @@ echo ""
 echo "📊 Step 5: Provisioning BigQuery schema..."
 GCP_PROJECT_ID="$PROJECT_ID" GCP_REGION="$REGION" bash "${SCRIPT_DIR}/setup-bigquery.sh"
 
-# ── Step 6: Pub/Sub Topics & Subscriptions ────────────────────────
+# ── Step 6: Build and Deploy Backend via Cloud Build ─────────────
 echo ""
-echo "📨 Step 6: Provisioning Pub/Sub topics and subscriptions..."
-GCP_PROJECT_ID="$PROJECT_ID" bash "${SCRIPT_DIR}/setup-pubsub.sh"
-
-# ── Step 7: Build and Deploy Backend via Cloud Build ─────────────
-echo ""
-echo "🐳 Step 7: Building and deploying backend to Cloud Run..."
+echo "🐳 Step 6: Building and deploying backend to Cloud Run..."
 cd "${ROOT_DIR}/backend"
 
 gcloud builds submit \

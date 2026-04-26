@@ -5,8 +5,8 @@
  */
 const geminiService = require('../services/gemini.service');
 const bigqueryService = require('../services/bigquery.service');
-const pubsubService = require('../services/pubsub.service');
 const { logger } = require('../utils/logger');
+
 
 const insightsController = {
     /**
@@ -40,17 +40,8 @@ const insightsController = {
 
             const insights = await geminiService.generateSalesInsights(salesData, predictions);
 
-            // Publish insights generated event
-            try {
-                await pubsubService.publishInsightsGenerated({
-                    insights: [insights],
-                    categories: ['sales', 'inventory']
-                });
-            } catch (pubsubErr) {
-                logger.warn('Pub/Sub publish skipped:', pubsubErr.message);
-            }
-
             res.json(insights);
+
         } catch (error) {
             logger.error('Generate sales insights error:', error);
             res.status(500).json({ error: error.message });

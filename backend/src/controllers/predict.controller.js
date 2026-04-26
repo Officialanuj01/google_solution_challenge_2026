@@ -5,8 +5,8 @@
  */
 const vertexaiService = require('../services/vertexai.service');
 const bigqueryService = require('../services/bigquery.service');
-const pubsubService = require('../services/pubsub.service');
 const { parseCSV, validateSalesCSV } = require('../utils/csv-parser');
+
 const { logger } = require('../utils/logger');
 const { v4: uuidv4 } = require('uuid');
 
@@ -36,17 +36,6 @@ const predictController = {
             // Submit training job to Vertex AI
             const jobResult = await vertexaiService.trainModel(data);
 
-            // Publish event
-            try {
-                await pubsubService.publishSalesUploaded({
-                    batchId: uuidv4(),
-                    rowCount: data.length,
-                    fileName: req.file.originalname,
-                    userId: req.user?.userId
-                });
-            } catch (pubsubErr) {
-                logger.warn('Pub/Sub publish skipped:', pubsubErr.message);
-            }
 
             res.json({
                 message: 'Training data uploaded and job submitted',
@@ -86,17 +75,6 @@ const predictController = {
             // Generate predictions using Vertex AI
             const predictions = await vertexaiService.predictDemand(data);
 
-            // Publish prediction complete event
-            try {
-                await pubsubService.publishPredictionComplete({
-                    batchId,
-                    predictionCount: predictions.length,
-                    modelVersion: 'v2.0',
-                    predictions
-                });
-            } catch (pubsubErr) {
-                logger.warn('Pub/Sub publish skipped:', pubsubErr.message);
-            }
 
             // Return as CSV if requested
             if (req.query.format === 'csv') {
