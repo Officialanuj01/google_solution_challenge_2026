@@ -1,7 +1,6 @@
 /**
  * Predelix — Insights Routes
  * Endpoints for Gemini API-powered AI insights
- * NEW — not present in original codebase
  */
 const express = require('express');
 const router = express.Router();
@@ -24,8 +23,5 @@ router.get('/store/:storeId', authMiddleware, insightsController.getStoreSummary
 
 // POST /api/insights/chat — Conversational AI insights
 router.post('/chat', authMiddleware, insightsController.chat);
-
-// GET /api/insights/recent — Get recent stored insights
-router.get('/recent', insightsController.getRecent);
 
 module.exports = router;

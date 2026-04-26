@@ -4,7 +4,6 @@
  * Migrated from: server_side/predictor/app.py (Random Forest model)
  */
 const vertexaiConfig = require('../config/vertexai');
-const bigqueryService = require('./bigquery.service');
 const { logger } = require('../utils/logger');
 const { v4: uuidv4 } = require('uuid');
 
@@ -92,13 +91,6 @@ const vertexaiService = {
                     )),
                     confidence: pred.confidence || null
                 });
-            }
-
-            // Store predictions in BigQuery
-            try {
-                await bigqueryService.insertPredictions(predictions);
-            } catch (bqError) {
-                logger.warn('Failed to store predictions in BigQuery:', bqError.message);
             }
 
             return predictions;

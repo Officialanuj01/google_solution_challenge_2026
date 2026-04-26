@@ -105,7 +105,7 @@ export const usePersistedFileState = (key, defaultState) => {
   // Custom update function that handles File objects properly
   const updateFileState = useCallback((updates) => {
     updateState(currentState => {
-      const newState = typeof updates === 'function' ? updates(currentState) : { ...currentState, ...updates };
+      const newState = typeof updates === 'function' ? { ...currentState, ...updates(currentState) } : { ...currentState, ...updates };
       
       // Handle File objects - we can't serialize them, so we store metadata instead
       if (newState.file && newState.file instanceof File) {

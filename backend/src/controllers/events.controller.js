@@ -1,9 +1,11 @@
 /**
  * Predelix — Events Controller
- * Handles real-time events via Pub/Sub + WebSocket
+ * Handles real-time events via WebSocket
  */
-const pubsubService = require('../services/pubsub.service');
 const { logger } = require('../utils/logger');
+
+// WebSocket clients for real-time push to frontend
+const wsClients = new Map();
 
 const eventsController = {
     /**
@@ -15,7 +17,7 @@ const eventsController = {
         logger.info('WebSocket connection established', { userId });
 
         // Register this client for broadcasts
-        pubsubService.registerClient(userId, ws);
+        wsClients.set(userId, ws);
 
         // Send initial connection confirmation
         ws.send(JSON.stringify({
@@ -33,7 +35,6 @@ const eventsController = {
                 const message = JSON.parse(msg);
                 logger.info('WebSocket message received', { userId, type: message.type });
 
-                // Handle client-side events
                 switch (message.type) {
                     case 'SUBSCRIBE':
                         ws.send(JSON.stringify({
@@ -54,9 +55,36 @@ const eventsController = {
             }
         });
 
+        ws.on('close', () => {
+            wsClients.delete(userId);
+            logger.info(`WebSocket client disconnected: ${userId}`);
+        });
+
         ws.on('error', (err) => {
             logger.error('WebSocket error:', { userId, error: err.message });
         });
+    },
+
+    /**
+     * Broadcast event to connected WebSocket clients
+     */
+    broadcastToClients(eventType, data) {
+        const message = JSON.stringify({ type: eventType, data, timestamp: new Date().toISOString() });
+        let sentCount = 0;
+        
+        wsClients.forEach((ws, userId) => {
+            try {
+                if (ws.readyState === 1) { // WebSocket.OPEN
+                    ws.send(message);
+                    sentCount++;
+                }
+            } catch (err) {
+                logger.warn(`Failed to send to client ${userId}:`, err.message);
+                wsClients.delete(userId);
+            }
+        });
+
+        logger.info(`Broadcast ${eventType} to ${sentCount} clients`);
     },
 
     /**
@@ -72,7 +100,7 @@ const eventsController = {
             }
 
             // Broadcast to WebSocket clients
-            pubsubService.broadcastToClients(topic, data);
+            eventsController.broadcastToClients(topic, data);
 
             res.json({
                 status: 'published',
@@ -92,14 +120,7 @@ const eventsController = {
     getStatus: (req, res) => {
         res.json({
             status: 'active',
-            connectedClients: pubsubService.wsClients?.size || 0,
-            topics: [
-                'sales-data-uploaded',
-                'delivery-data-uploaded',
-                'prediction-complete',
-                'call-status-update',
-                'insights-generated'
-            ],
+            connectedClients: wsClients.size,
             timestamp: new Date().toISOString()
         });
     }

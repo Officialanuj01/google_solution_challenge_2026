@@ -1,6 +1,6 @@
 /**
  * Predelix — Delivery Service (Frontend)
- * Calls Dialogflow CX delivery bot endpoints via Cloud Run backend
+ * Calls Twilio delivery bot endpoints via Cloud Run backend
  * Replaces: direct calls to delivery_call.py endpoints
  */
 import config from '../config';

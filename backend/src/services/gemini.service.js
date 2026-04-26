@@ -4,7 +4,6 @@
  * NEW capability — generates natural language insights from sales data
  */
 const geminiConfig = require('../config/gemini');
-const bigqueryService = require('./bigquery.service');
 const { logger } = require('../utils/logger');
 
 const geminiService = {
@@ -67,35 +66,6 @@ Provide your analysis in the following JSON structure:
 
         try {
             const insights = await geminiConfig.generateJSON(prompt);
-            
-            // Store insights in BigQuery
-            if (insights.trends) {
-                for (const trend of insights.trends) {
-                    await bigqueryService.insertInsight({
-                        type: 'trend',
-                        category: 'sales',
-                        title: trend.title,
-                        summary: trend.description,
-                        details: trend,
-                        severity: trend.direction === 'down' ? 'warning' : 'info'
-                    });
-                }
-            }
-
-            if (insights.anomalies) {
-                for (const anomaly of insights.anomalies) {
-                    await bigqueryService.insertInsight({
-                        type: 'anomaly',
-                        category: 'inventory',
-                        title: anomaly.title,
-                        summary: anomaly.description,
-                        details: anomaly,
-                        severity: anomaly.severity,
-                        storeId: anomaly.storeId,
-                        productId: anomaly.productId
-                    });
-                }
-            }
 
             logger.info('Sales insights generated', {
                 trends: insights.trends?.length || 0,
@@ -163,16 +133,8 @@ Provide your analysis in the following JSON structure:
     /**
      * Generate a natural language summary of store performance
      */
-    async generateStoreSummary(storeId) {
+    async generateStoreSummary(storeId, salesData = [], predictions = []) {
         try {
-            const salesData = await bigqueryService.getSalesData(
-                storeId,
-                new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
-                new Date().toISOString().split('T')[0]
-            );
-
-            const predictions = await bigqueryService.getLatestPredictions(storeId);
-
             const prompt = `Generate a brief, natural language performance summary for Store ${storeId} based on this data:
 
 Sales Data (last 30 days): ${JSON.stringify(salesData.slice(0, 30))}

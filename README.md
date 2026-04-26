@@ -19,9 +19,9 @@
 ## 🚀 Project Overview
 **Predelix** is an intelligent, end-to-end AI solution designed to transform modern retail supply chains. It addresses two key operational pain points:
 1. **Inventory Demand Forecasting** – helping vendors prevent stockouts and overstocking.
-2. **Last-Mile Delivery Coordination** – automating customer communication via AI-powered voice bots.
+2. **Last-Mile Delivery Coordination** – automating customer communication via Twilio-powered voice bots.
 
-Built for scale and real-world usability, Predelix leverages **Google Cloud Platform** services including Vertex AI, Dialogflow CX, BigQuery, and Gemini to help businesses operate smarter and faster.
+Built for scale and real-world usability, Predelix leverages **Google Cloud Platform** services including Vertex AI and Gemini, along with **Twilio** for telephony, to help businesses operate smarter and faster.
 
 ---
 
@@ -42,17 +42,15 @@ These issues occur daily across all stores and delivery zones—especially durin
 ### 📊 **1. Intelligent Stock Optimization**
 - Accepts CSV sales data from retail stores.
 - Predicts store-level demand by date and SKU using **Vertex AI**.
-- Data processed through **Cloud Dataflow** pipelines and stored in **BigQuery**.
 - **Gemini API** generates actionable insights from predictions.
 - Ensures vendors always stock the right quantity, at the right time, in the right store.
 
 ### 📞 **2. Automated Delivery Coordination**
 - Accepts CSV input of customers from delivery partners.
-- **Dialogflow CX** calling bot automatically contacts each customer to:
+- **Twilio** calling bot automatically contacts each customer to:
   - Confirm delivery availability time.
   - Ask for specific delivery instructions.
-- **Google Speech-to-Text API** transcribes user responses.
-- Real-time call status updates via **Cloud Pub/Sub**.
+- Twilio records customer responses for review.
 - Missed/disconnected calls are queued for retry.
 
 ### 🤖 **3. AI-Powered Insights (NEW)**
@@ -66,11 +64,8 @@ These issues occur daily across all stores and delivery zones—especially durin
 
 - 📁 Upload CSVs for both sales and delivery data.
 - 🤖 AI prediction for store-level stock needs via **Vertex AI**.
-- 📞 Voice bot integration via **Dialogflow CX + Speech APIs**.
+- 📞 Voice bot integration via **Twilio**.
 - 🧠 **Gemini-powered insights** — trends, anomalies, recommendations.
-- 📨 Real-time event streaming via **Cloud Pub/Sub**.
-- 📊 Data pipeline processing via **Cloud Dataflow**.
-- 🗄️ Enterprise-grade storage with **BigQuery**.
 - 🔌 WebSocket real-time dashboard updates.
 - 🛠️ REST APIs via **Cloud Run** backend.
 - 📊 Intuitive dashboards for vendors and delivery partners.
@@ -85,11 +80,8 @@ These issues occur daily across all stores and delivery zones—especially durin
 |---|---|
 | Frontend | React, Tailwind CSS, Vite |
 | Backend API | Node.js, Express (Cloud Run) |
-| Messaging | Google Cloud Pub/Sub |
-| Data Processing | Google Cloud Dataflow (Apache Beam) |
-| Data Storage | Google BigQuery |
 | ML / Prediction | Google Vertex AI |
-| Calling Bot | Dialogflow CX + Google Speech-to-Text |
+| Calling Bot | Twilio |
 | AI Insights | Google Gemini API |
 | Authentication | JWT + Google OAuth 2.0 |
 | File Storage | Google Cloud Storage |
@@ -105,15 +97,9 @@ Frontend (React Dashboard)
         ↓
 Cloud Run / Backend API
         ↓
-Pub/Sub (real-time events)
-        ↓
-Dataflow (processing)
-        ↓
-BigQuery (data storage)
-        ↓
 Vertex AI (prediction)
         ↓
-Dialogflow + Speech APIs (calling bot)
+Twilio (calling bot)
         ↓
 Gemini API (insights)
 ```
@@ -128,15 +114,14 @@ Predelix/
 │       ├── services/     # API service layer
 │       │   ├── auth.service.js
 │       │   ├── prediction.service.js    (Vertex AI)
-│       │   ├── delivery.service.js      (Dialogflow CX)
+│       │   ├── delivery.service.js      (Twilio)
 │       │   ├── insights.service.js      (Gemini API)
-│       │   ├── bigquery.service.js      (BigQuery)
-│       │   └── realtime.service.js      (Pub/Sub WebSocket)
+│       │   └── realtime.service.js      (WebSocket)
 │       └── context/      # React context providers
 │
 ├── backend/              # Cloud Run Backend API
 │   ├── src/
-│   │   ├── config/       # GCP service configurations
+│   │   ├── config/       # Service configurations
 │   │   ├── routes/       # Express routes
 │   │   ├── controllers/  # Request handlers
 │   │   ├── services/     # Business logic
@@ -145,22 +130,10 @@ Predelix/
 │   ├── Dockerfile        # Cloud Run container
 │   └── cloudbuild.yaml   # CI/CD pipeline
 │
-├── dataflow/             # Cloud Dataflow pipelines
-│   └── pipelines/
-│       ├── sales_ingestion.py
-│       ├── delivery_processing.py
-│       └── feature_engineering.py
-│
 ├── vertex-ai/            # Vertex AI model training
 │   └── training/
 │       ├── train_demand_model.py
 │       └── config.yaml
-│
-├── dialogflow/           # Dialogflow CX agent config
-│   └── agent/
-│       ├── flows/
-│       ├── intents/
-│       └── entity-types/
 │
 └── infrastructure/       # Deployment scripts
     └── deploy.sh
@@ -172,18 +145,17 @@ Predelix/
 
 ### 🧮 Stock Prediction Workflow:
 1. Vendor uploads sales CSV via React dashboard.
-2. Backend publishes event to **Pub/Sub** (`sales-data-uploaded`).
-3. **Dataflow** pipeline processes CSV → feature engineering → writes to **BigQuery**.
-4. **Vertex AI** model predicts next 7 days of demand per store/product.
-5. Results stored in BigQuery and pushed to dashboard via WebSocket.
-6. **Gemini API** generates insights and recommendations.
+2. Backend sends data to **Vertex AI** model for prediction.
+3. **Vertex AI** model predicts next 7 days of demand per store/product.
+4. Results returned to dashboard via API response.
+5. **Gemini API** generates insights and recommendations.
 
 ### 📞 Delivery Workflow:
 1. Delivery partner uploads customer CSV.
-2. Data processed via **Dataflow** → stored in **BigQuery**.
-3. **Dialogflow CX** agent makes automated calls via telephony integration.
-4. **Speech-to-Text API** transcribes customer responses.
-5. Call status updates stream through **Pub/Sub** → WebSocket → dashboard.
+2. Backend stores customer data and triggers **Twilio** calls.
+3. **Twilio** makes automated calls with TwiML voice prompts.
+4. Customer responses are recorded via Twilio.
+5. Call status and recordings available on dashboard.
 6. Failed calls queued for retry via dashboard "Retry Call" button.
 
 ---
@@ -194,11 +166,12 @@ Predelix/
 - Node.js 18+
 - Google Cloud SDK (`gcloud`)
 - GCP Project with billing enabled
+- Twilio account with verified phone number
 
 ### Backend Setup:
 ```bash
 cd backend
-cp .env.example .env  # Configure your GCP credentials
+cp .env.example .env  # Configure your credentials
 npm install
 npm run dev
 ```
@@ -238,14 +211,14 @@ chmod +x infrastructure/deploy.sh
 |--------|----------|-------------|
 | POST | `/api/predict` | Upload sales CSV & get predictions |
 | POST | `/api/predict/train` | Submit training job to Vertex AI |
-| GET | `/api/predict/results` | Fetch prediction results from BigQuery |
+| GET | `/api/predict/results` | Fetch prediction results |
 
-### Delivery (Dialogflow CX)
+### Delivery (Twilio)
 | Method | Endpoint | Description |
 |--------|----------|-------------|
 | POST | `/api/delivery/upload` | Upload delivery customer CSV |
 | POST | `/api/delivery/trigger` | Trigger automated calls |
-| GET | `/api/delivery/results` | Fetch call status & transcripts |
+| GET | `/api/delivery/results` | Fetch call status & recordings |
 | POST | `/api/delivery/retry` | Retry failed calls |
 
 ### Insights (Gemini API)
@@ -256,15 +229,7 @@ chmod +x infrastructure/deploy.sh
 | GET | `/api/insights/store/:id` | Get store performance summary |
 | POST | `/api/insights/chat` | Conversational AI chat |
 
-### Data (BigQuery)
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/api/data/sales` | Query sales data |
-| GET | `/api/data/predictions` | Query predictions |
-| GET | `/api/data/call-logs` | Query call logs |
-| GET | `/api/data/summary` | Dashboard summary |
-
-### Events (Pub/Sub + WebSocket)
+### Events (WebSocket)
 | Method | Endpoint | Description |
 |--------|----------|-------------|
 | WS | `/api/events/ws` | Real-time WebSocket |

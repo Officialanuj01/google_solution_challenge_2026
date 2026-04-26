@@ -71,13 +71,31 @@ export const usePredictState = () => {
   
   const setSortDirection = (sortDirection) => updateState({ sortDirection });
   
-  const setCurrentPage = (currentPage) => updateState({ currentPage });
+  const setCurrentPage = (currentPageOrFn) => {
+    if (typeof currentPageOrFn === 'function') {
+      updateState((prev) => ({ currentPage: currentPageOrFn(prev.currentPage) }));
+    } else {
+      updateState({ currentPage: currentPageOrFn });
+    }
+  };
   
-  const setStoreCurrentPage = (storeCurrentPage) => updateState({ storeCurrentPage });
+  const setStoreCurrentPage = (storeCurrentPageOrFn) => {
+    if (typeof storeCurrentPageOrFn === 'function') {
+      updateState((prev) => ({ storeCurrentPage: storeCurrentPageOrFn(prev.storeCurrentPage) }));
+    } else {
+      updateState({ storeCurrentPage: storeCurrentPageOrFn });
+    }
+  };
   
   const setShowUploadSection = (showUploadSection) => updateState({ showUploadSection });
   
-  const setPredictionHistory = (predictionHistory) => updateState({ predictionHistory });
+  const setPredictionHistory = (predictionHistoryOrFn) => {
+    if (typeof predictionHistoryOrFn === 'function') {
+      updateState((prev) => ({ predictionHistory: predictionHistoryOrFn(Array.isArray(prev.predictionHistory) ? prev.predictionHistory : []) }));
+    } else {
+      updateState({ predictionHistory: predictionHistoryOrFn });
+    }
+  };
   
   const setActivePredictionId = (activePredictionId) => updateState({ activePredictionId });
 

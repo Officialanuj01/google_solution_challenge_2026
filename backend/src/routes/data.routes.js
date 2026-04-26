@@ -1,6 +1,6 @@
 /**
  * Predelix — Data Routes
- * Endpoints for BigQuery data queries and Dataflow job management
+ * Endpoints for data queries
  */
 const express = require('express');
 const router = express.Router();
@@ -9,7 +9,7 @@ const authMiddleware = require('../middleware/auth.middleware');
 
 // Health check
 router.get('/', (req, res) => {
-    res.json({ message: 'Data service is running (BigQuery + Dataflow)' });
+    res.json({ message: 'Data service is running' });
 });
 
 // GET /api/data/sales — Query sales data
@@ -26,11 +26,5 @@ router.get('/summary', authMiddleware, dataController.getSummary);
 
 // GET /api/data/insights — Stored insights
 router.get('/insights', authMiddleware, dataController.getInsights);
-
-// POST /api/data/dataflow/sales — Trigger Dataflow job
-router.post('/dataflow/sales', authMiddleware, dataController.triggerSalesDataflow);
-
-// GET /api/data/dataflow/status/:jobId — Check Dataflow job status
-router.get('/dataflow/status/:jobId', authMiddleware, dataController.getDataflowStatus);
 
 module.exports = router;

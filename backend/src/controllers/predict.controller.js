@@ -4,8 +4,6 @@
  * Replaces: server_side/predictor/app.py
  */
 const vertexaiService = require('../services/vertexai.service');
-const bigqueryService = require('../services/bigquery.service');
-const pubsubService = require('../services/pubsub.service');
 const { parseCSV, validateSalesCSV } = require('../utils/csv-parser');
 const { logger } = require('../utils/logger');
 const { v4: uuidv4 } = require('uuid');
@@ -26,27 +24,8 @@ const predictController = {
             const { data, fields } = await parseCSV(req.file.buffer);
             validateSalesCSV(fields);
 
-            // Store training data in BigQuery
-            try {
-                await bigqueryService.insertSalesData(data);
-            } catch (bqErr) {
-                logger.warn('BigQuery insert skipped:', bqErr.message);
-            }
-
             // Submit training job to Vertex AI
             const jobResult = await vertexaiService.trainModel(data);
-
-            // Publish event
-            try {
-                await pubsubService.publishSalesUploaded({
-                    batchId: uuidv4(),
-                    rowCount: data.length,
-                    fileName: req.file.originalname,
-                    userId: req.user?.userId
-                });
-            } catch (pubsubErr) {
-                logger.warn('Pub/Sub publish skipped:', pubsubErr.message);
-            }
 
             res.json({
                 message: 'Training data uploaded and job submitted',
@@ -74,29 +53,8 @@ const predictController = {
             const { data, fields } = await parseCSV(req.file.buffer);
             validateSalesCSV(fields);
 
-            const batchId = uuidv4();
-
-            // Store sales data in BigQuery
-            try {
-                await bigqueryService.insertSalesData(data);
-            } catch (bqErr) {
-                logger.warn('BigQuery insert skipped:', bqErr.message);
-            }
-
             // Generate predictions using Vertex AI
             const predictions = await vertexaiService.predictDemand(data);
-
-            // Publish prediction complete event
-            try {
-                await pubsubService.publishPredictionComplete({
-                    batchId,
-                    predictionCount: predictions.length,
-                    modelVersion: 'v2.0',
-                    predictions
-                });
-            } catch (pubsubErr) {
-                logger.warn('Pub/Sub publish skipped:', pubsubErr.message);
-            }
 
             // Return as CSV if requested
             if (req.query.format === 'csv') {
@@ -119,13 +77,12 @@ const predictController = {
 
     /**
      * GET /api/predict/results
-     * Get latest prediction results from BigQuery
+     * Get latest prediction results
      */
     getResults: async (req, res) => {
         try {
-            const storeId = req.query.store_id || null;
-            const predictions = await bigqueryService.getLatestPredictions(storeId);
-            res.json(predictions);
+            // Return cached predictions from Vertex AI service
+            res.json({ message: 'Prediction results - use POST /api/predict to generate predictions' });
         } catch (error) {
             logger.error('Get predictions error:', error);
             res.status(500).json({ error: error.message });
@@ -138,8 +95,7 @@ const predictController = {
      */
     getSummary: async (req, res) => {
         try {
-            const summary = await bigqueryService.getSalesSummary();
-            res.json(summary);
+            res.json({ message: 'Summary endpoint - upload sales data to get predictions' });
         } catch (error) {
             logger.error('Get summary error:', error);
             res.status(500).json({ error: error.message });

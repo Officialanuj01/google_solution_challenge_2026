@@ -1,6 +1,6 @@
 /**
  * Predelix — Events Routes
- * WebSocket + Pub/Sub real-time event endpoints
+ * WebSocket real-time event endpoints
  */
 const express = require('express');
 const router = express.Router();
@@ -9,7 +9,7 @@ const authMiddleware = require('../middleware/auth.middleware');
 
 // Health check
 router.get('/', (req, res) => {
-    res.json({ message: 'Events service is running (Pub/Sub + WebSocket)' });
+    res.json({ message: 'Events service is running (WebSocket)' });
 });
 
 // WebSocket endpoint — GET /api/events/ws

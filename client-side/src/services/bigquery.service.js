@@ -1,6 +1,6 @@
 /**
- * Predelix — BigQuery Data Service (Frontend)
- * Calls BigQuery data endpoints via Cloud Run backend
+ * Predelix — Data Service (Frontend)
+ * Calls data endpoints via Cloud Run backend
  */
 import config from '../config';
 
@@ -64,37 +64,6 @@ export const bigqueryDataService = {
         });
 
         if (!response.ok) throw new Error('Failed to fetch summary');
-        return response.json();
-    },
-
-    /**
-     * Trigger a Dataflow job
-     */
-    async triggerDataflowJob(gcsPath, batchId) {
-        const token = localStorage.getItem('accessToken');
-        const response = await fetch(`${API_URL}/dataflow/sales`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            },
-            body: JSON.stringify({ gcsPath, batchId })
-        });
-
-        if (!response.ok) throw new Error('Failed to trigger Dataflow job');
-        return response.json();
-    },
-
-    /**
-     * Check Dataflow job status
-     */
-    async getDataflowStatus(jobId) {
-        const token = localStorage.getItem('accessToken');
-        const response = await fetch(`${API_URL}/dataflow/status/${jobId}`, {
-            headers: { 'Authorization': `Bearer ${token}` }
-        });
-
-        if (!response.ok) throw new Error('Failed to get job status');
         return response.json();
     }
 };

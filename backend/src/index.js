@@ -56,9 +56,6 @@ app.get('/', (req, res) => {
         version: '2.0.0',
         architecture: {
             compute: 'Cloud Run',
-            messaging: 'Pub/Sub',
-            processing: 'Dataflow',
-            storage: 'BigQuery',
             ml: 'Vertex AI',
             calling: 'Twilio',
             insights: 'Gemini API'
