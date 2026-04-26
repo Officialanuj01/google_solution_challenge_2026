@@ -7,9 +7,9 @@ import { useTheme } from '../context/ThemeContext';
 import { useLoading } from '../context/LoadingContext';
 import { useModal } from '../context/ModalContext';
 import { motion } from 'motion/react';
-import PredictionChart from '../components/PredictionChart';
 import PredictionDashboard from '../components/PredictionDashboard';
 import { SectionTransition } from '../components/PageTransition';
+
 import { OptimizedCard } from '../components/OptimizedComponents';
 import { usePredictState } from '../hooks/usePredictState';
 import { feedbackService, localFeedbackStorage } from '../services/feedback.service';
@@ -311,7 +311,10 @@ function Predict() {
 
   // Prediction: send file to backend, get response, set predictions
   const handlePredict = async () => {
-    if (!file) return;
+    if (!file) {
+      alert("Please upload a file to generate predictions.");
+      return;
+    }
     setLoading(true);
     showLoading("Analyzing data with AI...");
     try {
@@ -696,7 +699,7 @@ function Predict() {
                 <button
                   type="button"
                   onClick={() => setStoreCurrentPage(prev => Math.min((Number(prev) || 1) + 1, totalStorePages))}
-                  disabled={safeStoreCurrentPage === totalStorePages}
+                  disabled={safeStoreCurrentPage >= totalStorePages}
                   className="inline-flex items-center px-4 py-2 text-sm font-medium text-cyan-700 bg-cyan-50 border border-cyan-200 rounded-lg hover:bg-cyan-100 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200"
                 >
                   Next
@@ -720,16 +723,6 @@ function Predict() {
     </PredictSectionErrorBoundary>
   )}
 
-          {/* Prediction Chart Section */}
-          {normalizedPredictions.length > 0 && (
-            <PredictSectionErrorBoundary>
-              <PredictionChart 
-                predictions={normalizedPredictions} 
-                actuals={actuals}
-                onFeedback={handlePredictionFeedback}
-              />
-            </PredictSectionErrorBoundary>
-          )}
 
           {/* Data Restoration Notification */}
           {isReturningSession && (file || predictions || selectedStore) && (
@@ -830,9 +823,9 @@ function Predict() {
                   <button
                     type="button"
                     onClick={handlePredict}
-                    disabled={!file || loading}
+                    disabled={loading}
                     className={`group relative w-full py-4 px-6 rounded-xl font-bold flex items-center justify-center gap-3 transition-all duration-300 transform hover:scale-105 overflow-hidden
-                      ${!file || loading 
+                      ${loading 
                         ? 'bg-gray-200 cursor-not-allowed text-gray-400' 
                         : 'bg-gradient-to-r from-cyan-500 via-blue-500 to-sky-500 hover:from-cyan-600 hover:via-blue-600 hover:to-sky-600 text-white shadow-xl hover:shadow-2xl'
                       }`}
@@ -1086,7 +1079,7 @@ function Predict() {
                     <button
                       type="button"
                       onClick={() => setCurrentPage(prev => Math.min((Number(prev) || 1) + 1, totalPages))}
-                      disabled={safeCurrentPage === totalPages}
+                      disabled={safeCurrentPage >= totalPages}
                       className="inline-flex items-center px-3 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 hover:text-gray-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200"
                     >
                       Next

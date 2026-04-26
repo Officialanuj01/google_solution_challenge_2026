@@ -44,13 +44,22 @@ export const usePredictState = () => {
   // Mark that user has left the page when component unmounts
   useEffect(() => {
     // Update session ID on mount
-    updateState({ sessionId: currentSessionId });
+    updateState({ 
+      sessionId: currentSessionId,
+      // Clear active predictions so we don't show old data before clicking Predict
+      predictions: null,
+      file: null,
+      csvBlob: null,
+      activePredictionId: null,
+      showUploadSection: true
+    });
     
     return () => {
       // Mark that user has left the page
       updateState({ hasLeftPage: true });
     };
-  }, [currentSessionId, updateState]);
+  }, [currentSessionId]);
+
 
   // Helper functions for common operations
   const setFile = (file) => updateState({ 
