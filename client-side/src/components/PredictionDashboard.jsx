@@ -12,6 +12,7 @@ const PredictionDashboard = ({ predictions = [], actuals = [] }) => {
       const key = `${a.store_id}|${a.product_id}|${a.date}`;
       actualsMap.set(key, a);
     });
+    
     const predictionsMap = new Map();
     predictions.forEach(p => {
       const key = `${p.store_id}|${p.product_id}|${p.date}`;
@@ -37,10 +38,12 @@ const PredictionDashboard = ({ predictions = [], actuals = [] }) => {
   const chartData = useMemo(() => {
     if (!matchedPairs.length) return [];
     const byDate = {};
+    
     matchedPairs.forEach(({ date, predicted_stock, actual_sales, hasPrediction, hasActual }) => {
       if (!byDate[date]) byDate[date] = { date, predicted: 0, actual: 0, predCount: 0, actCount: 0 };
       const predicted = parseFloat(predicted_stock ?? 0);
       const actual = parseFloat(actual_sales ?? 0);
+      
       if (hasPrediction) {
         byDate[date].predicted += predicted;
         byDate[date].predCount++;
@@ -50,6 +53,7 @@ const PredictionDashboard = ({ predictions = [], actuals = [] }) => {
         byDate[date].actCount++;
       }
     });
+    
     return Object.values(byDate)
       .map(d => ({
         date: d.date,

@@ -5,6 +5,7 @@
  */
 const vertexaiService = require('../services/vertexai.service');
 const { parseCSV, validateSalesCSV } = require('../utils/csv-parser');
+
 const { logger } = require('../utils/logger');
 const { v4: uuidv4 } = require('uuid');
 

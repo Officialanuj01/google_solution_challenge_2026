@@ -5,6 +5,7 @@
 const geminiService = require('../services/gemini.service');
 const { logger } = require('../utils/logger');
 
+
 const insightsController = {
     /**
      * POST /api/insights/sales
@@ -23,6 +24,7 @@ const insightsController = {
             const insights = await geminiService.generateSalesInsights(salesData || [], predictions || []);
 
             res.json(insights);
+
         } catch (error) {
             logger.error('Generate sales insights error:', error);
             res.status(500).json({ error: error.message });

@@ -3,13 +3,12 @@ const express = require('express');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
-const expressWs = require('express-ws');
 const { logger } = require('./utils/logger');
 const { errorHandler } = require('./middleware/error.middleware');
+const bigqueryConfig = require('./config/bigquery');
 
-// ── Initialize Express + WebSocket ──────────
+// ── Initialize Express ──────────
 const app = express();
-expressWs(app);
 
 // ── Middleware ───────────────────────────────
 app.use(cors({
@@ -39,14 +38,13 @@ const predictRoutes = require('./routes/predict.routes');
 const deliveryRoutes = require('./routes/delivery.routes');
 const insightsRoutes = require('./routes/insights.routes');
 const dataRoutes = require('./routes/data.routes');
-const eventsRoutes = require('./routes/events.routes');
 
 app.use('/api/auth', authRoutes);
 app.use('/api/predict', predictRoutes);
 app.use('/api/delivery', deliveryRoutes);
 app.use('/api/insights', insightsRoutes);
 app.use('/api/data', dataRoutes);
-app.use('/api/events', eventsRoutes);
+
 
 // ── Health Check ────────────────────────────
 app.get('/', (req, res) => {
@@ -80,10 +78,19 @@ mongoose.connect(MONGODB_URI)
 
 // ── Start Server ────────────────────────────
 const PORT = parseInt(process.env.PORT, 10) || 5000;
-app.listen(PORT, '0.0.0.0', () => {
+app.listen(PORT, '0.0.0.0', async () => {
     logger.info(`🚀 Predelix API running on port ${PORT}`);
     logger.info(`📍 Environment: ${process.env.NODE_ENV || 'development'}`);
     logger.info(`☁️  GCP Project: ${process.env.GCP_PROJECT_ID || 'not configured'}`);
+
+    // ── GCP Service Bootstrap ────────────────
+    try {
+        await bigqueryConfig.ensureSchema();
+        logger.info('✅ BigQuery schema ready');
+    } catch (err) {
+        logger.warn('⚠️ BigQuery schema bootstrap skipped:', err.message);
+    }
 });
 
 module.exports = app;
+

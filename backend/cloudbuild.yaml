@@ -1,11 +1,21 @@
 # ────────────────────────────────────────────────
 # Predelix — Cloud Build CI/CD Pipeline
 # Builds and deploys backend to Cloud Run
+# Requires: Cloud Build SA with roles:
+#   - roles/run.admin
+#   - roles/secretmanager.secretAccessor
+#   - roles/iam.serviceAccountUser
 # ────────────────────────────────────────────────
 steps:
   # Step 1: Build the Docker image
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'gcr.io/$PROJECT_ID/predelix-api:$SHORT_SHA', '-t', 'gcr.io/$PROJECT_ID/predelix-api:latest', './backend']
+    args:
+      - 'build'
+      - '-t'
+      - 'gcr.io/$PROJECT_ID/predelix-api:$SHORT_SHA'
+      - '-t'
+      - 'gcr.io/$PROJECT_ID/predelix-api:latest'
+      - './backend'
 
   # Step 2: Push to Container Registry
   - name: 'gcr.io/cloud-builders/docker'
@@ -24,11 +34,15 @@ steps:
       - '--region=us-central1'
       - '--platform=managed'
       - '--allow-unauthenticated'
-      - '--memory=512Mi'
+      - '--memory=1Gi'
       - '--cpu=1'
+      - '--concurrency=80'
       - '--min-instances=0'
       - '--max-instances=10'
-      - '--set-env-vars=NODE_ENV=production,GCP_PROJECT_ID=$PROJECT_ID'
+      - '--timeout=300'
+      - '--set-env-vars=NODE_ENV=production,GCP_PROJECT_ID=$PROJECT_ID,GCP_REGION=us-central1'
+      - '--set-secrets=GEMINI_API_KEY=PREDELIX_GEMINI_API_KEY:latest,JWT_ACCESS_SECRET=PREDELIX_JWT_ACCESS_SECRET:latest,JWT_REFRESH_SECRET=PREDELIX_JWT_REFRESH_SECRET:latest,MONGODB_URI=PREDELIX_MONGODB_URI:latest,TWILIO_ACCOUNT_SID=PREDELIX_TWILIO_ACCOUNT_SID:latest,TWILIO_AUTH_TOKEN=PREDELIX_TWILIO_AUTH_TOKEN:latest'
+      - '--service-account=predelix-run-sa@$PROJECT_ID.iam.gserviceaccount.com'
 
 images:
   - 'gcr.io/$PROJECT_ID/predelix-api:$SHORT_SHA'

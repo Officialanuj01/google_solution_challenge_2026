@@ -101,24 +101,78 @@ const vertexaiService = {
     },
 
     /**
-     * Train a new model on Vertex AI
-     * Replaces: Flask /api/train endpoint
+     * Submit a Custom Training Job to Vertex AI
+     * Triggers training of RandomForestRegressor on BigQuery ml_features data
+     * Uses the training image from vertex-ai/training/
      */
     async trainModel(trainingData) {
-        // In production, this would trigger a Vertex AI Custom Training Job
-        // For now, return training metadata
-        logger.info('Model training requested', {
-            rowCount: trainingData.length
+        const jobId = uuidv4();
+        const projectId = gcpConfig.projectId;
+        const location = gcpConfig.vertexAI.location;
+        const trainingImageUri = process.env.VERTEX_TRAINING_IMAGE_URI ||
+            `gcr.io/${projectId}/predelix-trainer:latest`;
+
+        const jobDisplayName = `predelix-demand-train-${Date.now()}`;
+
+        logger.info('Submitting Vertex AI Custom Training Job', {
+            rowCount: trainingData.length,
+            jobDisplayName
         });
 
-        return {
-            status: 'submitted',
-            message: 'Training job submitted to Vertex AI',
-            jobId: uuidv4(),
-            rowCount: trainingData.length,
-            estimatedTime: '15-30 minutes',
-            note: 'Configure Vertex AI Custom Training Job in GCP Console for production use'
-        };
+        try {
+            const jobClient = new JobServiceClient({
+                apiEndpoint: `${location}-aiplatform.googleapis.com`
+            });
+
+            const parent = `projects/${projectId}/locations/${location}`;
+
+            const customJob = {
+                displayName: jobDisplayName,
+                jobSpec: {
+                    workerPoolSpecs: [{
+                        machineSpec: {
+                            machineType: 'n1-standard-4'
+                        },
+                        replicaCount: 1,
+                        containerSpec: {
+                            imageUri: trainingImageUri,
+                            env: [
+                                { name: 'GCP_PROJECT_ID', value: projectId },
+                                { name: 'BIGQUERY_DATASET', value: gcpConfig.bigquery.dataset },
+                                { name: 'AIP_MODEL_DIR', value: `gs://${process.env.GCS_UPLOAD_BUCKET || 'predelix-uploads'}/models/${jobId}/` }
+                            ]
+                        }
+                    }]
+                }
+            };
+
+            const [job] = await jobClient.createCustomJob({ parent, customJob });
+
+            logger.info('\u2705 Vertex AI training job submitted', {
+                jobName: job.name,
+                state: job.state
+            });
+
+            return {
+                status: 'submitted',
+                jobId: job.name,
+                displayName: job.displayName,
+                state: job.state,
+                rowCount: trainingData.length,
+                estimatedTime: '15–30 minutes',
+                modelOutputUri: `gs://${process.env.GCS_UPLOAD_BUCKET || 'predelix-uploads'}/models/${jobId}/`
+            };
+        } catch (jobError) {
+            logger.warn('Vertex AI job submission failed, returning metadata:', jobError.message);
+            return {
+                status: 'fallback',
+                message: 'Training job could not be submitted to Vertex AI. Configure VERTEX_TRAINING_IMAGE_URI and ensure Vertex AI API is enabled.',
+                jobId,
+                rowCount: trainingData.length,
+                estimatedTime: 'N/A',
+                error: jobError.message
+            };
+        }
     },
 
     /**
