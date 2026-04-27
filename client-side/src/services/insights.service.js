@@ -9,21 +9,23 @@ const BASE = '/insights';
 
 export const insightsService = {
     /**
-     * Generate AI insights from sales data
+     * Generate AI insights from sales data and predictions
      */
-    async generateSalesInsights(storeId = null, dateRange = {}) {
+    async generateSalesInsights(storeId = null, dateRange = {}, salesData = [], predictions = []) {
         return api.post(`${BASE}/sales`, {
             storeId,
             startDate: dateRange.startDate,
-            endDate: dateRange.endDate
+            endDate: dateRange.endDate,
+            salesData,
+            predictions
         });
     },
 
     /**
      * Generate AI insights from delivery call data
      */
-    async generateDeliveryInsights(batchId) {
-        return api.post(`${BASE}/delivery`, { batchId });
+    async generateDeliveryInsights(callLogs = []) {
+        return api.post(`${BASE}/delivery`, { callLogs });
     },
 
     /**

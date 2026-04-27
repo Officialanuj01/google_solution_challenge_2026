@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { useDemoModal } from '../context/DemoModalContext';
-import { UploadCloud, PhoneCall, FileSpreadsheet, Loader2, CheckCircle, AlertCircle, Users, ArrowLeft, Package, Download, Brain, Target, TrendingUp, Search, Eye, Filter, ChevronLeft, ChevronRight, ArrowUpDown, ArrowUp, ArrowDown, RefreshCw, DatabaseIcon } from 'lucide-react';
+import { UploadCloud, PhoneCall, FileSpreadsheet, Loader2, CheckCircle, AlertCircle, Users, ArrowLeft, Package, Download, Brain, Target, TrendingUp, Search, Eye, Filter, ChevronLeft, ChevronRight, ArrowUpDown, ArrowUp, ArrowDown, RefreshCw, DatabaseIcon, Sparkles } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useLoading } from '../context/LoadingContext';
 import { motion } from 'motion/react';
@@ -8,6 +8,9 @@ import { useSmartDropState } from '../hooks/useSmartDropState';
 import { SectionTransition } from '../components/PageTransition';
 import { OptimizedCard } from '../components/OptimizedComponents';
 import { useDebounce, useSmoothScroll } from '../hooks/usePerformance';
+import { insightsService } from '../services/insights.service';
+import GeminiInsightsModal from '../components/GeminiInsightsModal';
+
 
 // Floating elements for SmartDrop page
 const FloatingSmartDropElements = ({ scrollY }) => {
@@ -92,6 +95,9 @@ function SmartDrop() {
   const [waitingForResults, setWaitingForResults] = useState(false);
   const [retrying, setRetrying] = useState(false);
   const [retryResult, setRetryResult] = useState(null);
+  const [analyzing, setAnalyzing] = useState(false);
+  const [showInsightsModal, setShowInsightsModal] = useState(false);
+  const [deliveryInsights, setDeliveryInsights] = useState(null);
   // Use global demo modal context
   const { showDemoModal, setShowDemoModal } = useDemoModal();
   
@@ -415,6 +421,22 @@ function SmartDrop() {
     } finally {
       setRetrying(false);
     }
+  };
+
+  const handleAnalyzeDelivery = async () => {
+    if (!responses || responses.length === 0) return;
+    
+    setAnalyzing(true);
+    showLoading("Gemini is analyzing delivery feedback...");
+    try {
+      const data = await insightsService.generateDeliveryInsights(responses);
+      setDeliveryInsights(data);
+      setShowInsightsModal(true);
+    } catch (err) {
+      alert(`Analysis failed: ${err.message}`);
+    }
+    setAnalyzing(false);
+    hideLoading();
   };
 
   const handleSort = (field) => {
@@ -990,6 +1012,10 @@ function SmartDrop() {
                       className="px-4 py-2 bg-cyan-500 hover:bg-cyan-600 text-white font-medium rounded-lg transition-colors flex items-center gap-2">
                       <RefreshCw className="w-4 h-4" /> Refresh
                     </button>
+                    <button onClick={handleAnalyzeDelivery} disabled={analyzing}
+                      className="px-4 py-2 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-medium rounded-lg transition-all flex items-center gap-2 shadow-md hover:shadow-lg transform hover:scale-105 disabled:opacity-50">
+                      <Brain className={`w-4 h-4 ${analyzing ? 'animate-pulse' : ''}`} /> Analyze Insights <Sparkles className="w-4 h-4" />
+                    </button>
                   </div>
                 </div>
               </div>
@@ -1129,6 +1155,13 @@ function SmartDrop() {
         .animation-delay-500 { animation-delay: 0.5s; }
         .animation-delay-600 { animation-delay: 0.6s; }
       `}</style>
+
+      <GeminiInsightsModal 
+        isOpen={showInsightsModal} 
+        onClose={() => setShowInsightsModal(false)} 
+        insights={deliveryInsights}
+        type="delivery"
+      />
     </div>
   );
 }

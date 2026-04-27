@@ -1,0 +1,64 @@
+@startuml PulseUseCases
+
+header Pulse - Google Solution Challenge 2026
+footer Page %page% of %lastpage%
+title Pulse: Use Case Diagram
+
+left to right direction
+
+skinparam actorStyle awesome
+skinparam packageStyle rectangle
+skinparam shadowing true
+
+' Actors
+actor "Retail Vendor" as Vendor
+actor "Delivery Partner" as DeliveryPartner
+actor "Customer" as Customer
+actor "Google Gemini" << System >> as Gemini
+actor "Vertex AI" << System >> as Vertex
+actor "Twilio" << System >> as Twilio
+
+rectangle "Pulse Platform" {
+    ' Inventory Management
+    usecase "Upload Sales CSV" as UC1
+    usecase "Generate Demand Forecast" as UC2
+    usecase "Get AI Summarized Insights" as UC3
+    usecase "Chat with AI Assistant" as UC4
+    
+    ' Delivery Coordination
+    usecase "Upload Customer CSV" as UC5
+    usecase "Trigger Automated Calls" as UC6
+    usecase "Confirm Delivery Availability" as UC7
+    usecase "Provide Delivery Instructions" as UC8
+    usecase "Monitor Call Status/Results" as UC9
+    
+    ' Authentication
+    usecase "Login via Google OAuth" as UC10
+}
+
+' Relationships - Vendor
+Vendor --> UC10
+Vendor --> UC1
+Vendor --> UC2
+Vendor --> UC3
+Vendor --> UC4
+
+' Relationships - Delivery Partner
+DeliveryPartner --> UC10
+DeliveryPartner --> UC5
+DeliveryPartner --> UC6
+DeliveryPartner --> UC9
+
+' Relationships - Customer
+Customer --> UC7
+Customer --> UC8
+
+' System Interconnections
+UC2 -- Vertex : "Prediction Logic"
+UC3 -- Gemini : "Summarization"
+UC4 -- Gemini : "Conversational AI"
+UC6 -- Twilio : "Place Call"
+UC7 -- Twilio : "Capture Input"
+UC8 -- Twilio : "Record Audio"
+
+@enduml

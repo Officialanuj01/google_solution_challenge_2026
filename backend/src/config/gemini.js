@@ -1,7 +1,7 @@
 /**
  * Pulse — Gemini API Client Setup
  * Manages connection to Google Gemini for AI-powered insights
- * Model: gemini-1.5-flash-001 (fast, cost-efficient, JSON-native)
+ * Model: gemini-pro (fast, cost-efficient, widely supported)
  */
 const { GoogleGenerativeAI } = require('@google/generative-ai');
 const aiConfig = require('./ai');
@@ -50,8 +50,7 @@ function getJsonModel() {
                 temperature: 0.2,
                 topK: 32,
                 topP: 0.9,
-                maxOutputTokens: 8192,
-                responseMimeType: 'application/json'
+                maxOutputTokens: 8192
             }
         });
     }

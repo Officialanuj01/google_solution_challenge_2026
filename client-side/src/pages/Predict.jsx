@@ -1,10 +1,12 @@
 import React, { useState, useMemo, useCallback, useEffect } from 'react';
-import { UploadCloud, BarChart2, DatabaseIcon, RefreshCw, Package, Brain, Download, Store, Calendar, FileSpreadsheet, Search, ChevronLeft, ChevronRight, ArrowUpDown, ArrowUp, ArrowDown, Filter, Eye, Trash2 } from 'lucide-react';
+import { UploadCloud, BarChart2, DatabaseIcon, RefreshCw, Package, Brain, Download, Store, Calendar, FileSpreadsheet, Search, ChevronLeft, ChevronRight, ArrowUpDown, ArrowUp, ArrowDown, Filter, Eye, Trash2, Sparkles } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import { useLoading } from '../context/LoadingContext';
 import { useModal } from '../context/ModalContext';
 import { usePredictState } from '../hooks/usePredictState';
 import { predictionService } from '../services/prediction.service';
+import { insightsService } from '../services/insights.service';
+import GeminiInsightsModal from '../components/GeminiInsightsModal';
 
 function Predict() {
   const NAVBAR_HEIGHT = 66;
@@ -25,6 +27,9 @@ function Predict() {
   } = usePredictState();
   
   const [loading, setLoading] = useState(false);
+  const [analyzing, setAnalyzing] = useState(false);
+  const [showInsightsModal, setShowInsightsModal] = useState(false);
+  const [predictionInsights, setPredictionInsights] = useState(null);
   const [itemsPerPage] = useState(8);
   const [storesPerPage] = useState(6);
   
@@ -110,6 +115,22 @@ function Predict() {
     link.click();
     link.remove();
     window.URL.revokeObjectURL(url);
+  };
+
+  const handleAnalyzePredictions = async () => {
+    if (!predictions || predictions.length === 0) return;
+    
+    setAnalyzing(true);
+    showLoading("Gemini is analyzing your predictions...");
+    try {
+      const data = await insightsService.generateSalesInsights(null, {}, [], predictions);
+      setPredictionInsights(data);
+      setShowInsightsModal(true);
+    } catch (err) {
+      alert(`Analysis failed: ${err.message}`);
+    }
+    setAnalyzing(false);
+    hideLoading();
   };
 
   const handleSelectPrediction = (entry) => {
@@ -202,10 +223,14 @@ function Predict() {
 
           {/* Download button when predictions exist */}
           {normalizedPredictions.length > 0 && csvBlob && (
-            <div className="mt-6">
+            <div className="mt-6 flex flex-wrap justify-center gap-4">
               <button type="button" onClick={handleDownloadCSV}
                 className="inline-flex items-center gap-3 px-8 py-3 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
                 <Download className="w-5 h-5" /> Download CSV Results <FileSpreadsheet className="w-5 h-5" />
+              </button>
+              <button type="button" onClick={handleAnalyzePredictions} disabled={analyzing}
+                className="inline-flex items-center gap-3 px-8 py-3 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 disabled:opacity-50">
+                <Brain className={`w-5 h-5 ${analyzing ? 'animate-pulse' : ''}`} /> Analyze with Gemini <Sparkles className="w-5 h-5" />
               </button>
             </div>
           )}
@@ -440,6 +465,13 @@ function Predict() {
           )}
         </div>
       </div>
+
+      <GeminiInsightsModal 
+        isOpen={showInsightsModal} 
+        onClose={() => setShowInsightsModal(false)} 
+        insights={predictionInsights}
+        type="prediction"
+      />
     </div>
   );
 }

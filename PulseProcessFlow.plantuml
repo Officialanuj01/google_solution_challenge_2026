@@ -1,0 +1,25 @@
+@startuml PulseProcessFlow
+
+header Pulse - Google Solution Challenge 2026
+title Pulse: Core Process Flows (Horizontal Layout)
+
+left to right direction
+
+' Partition 1: Stock optimization
+partition "Stock Optimization" {
+    (*) --> "Upload Sales CSV"
+    --> "Vertex AI Forecast"
+    --> "Gemini Insights"
+    --> "Vendor Dashboard"
+}
+
+' Partition 2: Delivery coordination
+partition "Last-Mile Delivery" {
+    (*) --> "Upload Customer CSV"
+    --> "Twilio Call Trigger"
+    --> "Customer Voice Response"
+    --> "Gemini Call Analysis"
+    --> "Delivery Dashboard"
+}
+
+@enduml
