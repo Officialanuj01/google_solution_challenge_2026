@@ -202,7 +202,7 @@ export function Navbar({ onLoginClick, isLoggedIn, user, onLogout }) {
               backgroundClip: 'text',
             }}
           >
-            Predelix
+            Pulse
             {/* Shimmer overlay */}
             <div 
               className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-30 animate-shimmer"

@@ -1,7 +1,7 @@
 {
   "name": "authentication",
   "version": "1.0.0",
-  "description": "Authentication service for Predelix",
+  "description": "Authentication service for Pulse",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",

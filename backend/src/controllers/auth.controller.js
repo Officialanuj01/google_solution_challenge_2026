@@ -1,5 +1,5 @@
 /**
- * Predelix — Auth Controller
+ * Pulse — Auth Controller
  * Migrated from: authentication/controllers/auth.controller.js
  * Handles user registration, login, Google OAuth, and role management
  */

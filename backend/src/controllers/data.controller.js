@@ -1,5 +1,5 @@
 /**
- * Predelix — Data Controller
+ * Pulse — Data Controller
  * Handles data querying endpoints
  */
 const { logger } = require('../utils/logger');

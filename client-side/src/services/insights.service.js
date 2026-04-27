@@ -1,6 +1,6 @@
 /**
- * Predelix — Insights Service (Frontend)
- * Calls Gemini API-powered insights endpoints via Cloud Run backend
+ * Pulse — Insights Service (Frontend)
+ * Calls Gemini API-powered insights endpoints via backend API
  * Uses the centralised api.js wrapper for auth + error handling
  */
 import api from './api';
@@ -34,7 +34,7 @@ export const insightsService = {
     },
 
     /**
-     * Chat with Predelix AI Assistant (Gemini-powered)
+     * Chat with Pulse AI Assistant (Gemini-powered)
      * @param {string} query - User's question
      * @param {Object} context - { storeId, role, salesData?, predictions? }
      */
@@ -43,7 +43,7 @@ export const insightsService = {
     },
 
     /**
-     * Get recent stored insights from BigQuery
+    * Get recent stored insights
      */
     async getRecent(limit = 20) {
         return api.get(`${BASE}/recent?limit=${limit}`);

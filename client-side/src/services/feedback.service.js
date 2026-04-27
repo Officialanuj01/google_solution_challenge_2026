@@ -1,5 +1,5 @@
 // Service for handling prediction feedback
-const API_BASE_URL = 'https://predelix.onrender.com/api';
+const API_BASE_URL = 'https://Pulse.onrender.com/api';
 
 export const feedbackService = {
   // Submit feedback for a prediction

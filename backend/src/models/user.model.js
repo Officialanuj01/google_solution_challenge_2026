@@ -1,5 +1,5 @@
 /**
- * Predelix — User Model
+ * Pulse — User Model
  * Migrated from: authentication/models/user.model.js
  * MongoDB/Mongoose user schema with password hashing
  */

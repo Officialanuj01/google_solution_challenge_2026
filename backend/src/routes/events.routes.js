@@ -1,5 +1,5 @@
 /**
- * Predelix — Events Routes
+ * Pulse — Events Routes
  * WebSocket real-time event endpoints
  */
 const express = require('express');

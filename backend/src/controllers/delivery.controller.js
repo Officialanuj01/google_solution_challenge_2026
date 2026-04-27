@@ -1,12 +1,11 @@
 /**
- * Predelix — Delivery Controller
+ * Pulse — Delivery Controller
  * Handles delivery calling bot endpoints using Twilio
  * Ported from: server_side/delivery_helper/delivery_call.py
  */
 const twilioService = require('../services/twilio.service');
 const { parseCSV, validateDeliveryCSV } = require('../utils/csv-parser');
 const { logger } = require('../utils/logger');
-const { v4: uuidv4 } = require('uuid');
 
 const deliveryController = {
     /**
@@ -27,17 +26,22 @@ const deliveryController = {
             const { data, fields } = await parseCSV(req.file.buffer);
             validateDeliveryCSV(fields);
 
-            const batchId = uuidv4();
+            const normalized = data.map(row => ({
+                name: row.name || row.Name || '',
+                mobile_number: String(row.mobile_number || row.Mobile_Number || row.phone || ''),
+                response: '',
+                recording_duration: '',
+                recording_sid: '',
+                transcription: ''
+            }));
 
-            // Store customers in memory for this batch
-            twilioService.storeCustomers(data, batchId);
+            twilioService.saveInput(normalized);
 
-            logger.info(`CSV uploaded: ${data.length} customers, batch ${batchId}`);
+            logger.info(`CSV uploaded: ${data.length} customers`);
 
             res.json({
                 status: 'success',
                 message: 'CSV uploaded and validated.',
-                batchId,
                 customerCount: data.length,
                 customers: data.map(c => ({
                     name: c.name || c.Name,
@@ -57,14 +61,7 @@ const deliveryController = {
      */
     triggerCalls: async (req, res) => {
         try {
-            const { batchId, webhook_base_url } = req.body;
-
-            if (!batchId) {
-                return res.status(400).json({
-                    status: 'error',
-                    message: 'batchId is required'
-                });
-            }
+            const { webhook_base_url } = req.body;
 
             // Use PUBLIC_BASE_URL env var if set, otherwise use request value
             const webhookBaseUrl = process.env.PUBLIC_BASE_URL || webhook_base_url;
@@ -75,7 +72,7 @@ const deliveryController = {
                 });
             }
 
-            const results = await twilioService.initiateDeliveryCalls(batchId, webhookBaseUrl);
+            const results = await twilioService.initiateDeliveryCalls(webhookBaseUrl);
 
             res.json({
                 status: 'completed',
@@ -94,8 +91,7 @@ const deliveryController = {
      */
     getResults: async (req, res) => {
         try {
-            const batchId = req.query.batch_id || null;
-            const results = twilioService.getResults(batchId);
+            const results = twilioService.getResults();
             res.json(results);
         } catch (error) {
             logger.error('Get results error:', error);
@@ -110,14 +106,7 @@ const deliveryController = {
      */
     retryCalls: async (req, res) => {
         try {
-            const { batchId, webhook_base_url } = req.body;
-
-            if (!batchId) {
-                return res.status(400).json({
-                    status: 'error',
-                    message: 'batchId is required'
-                });
-            }
+            const { webhook_base_url } = req.body;
 
             const webhookBaseUrl = process.env.PUBLIC_BASE_URL || webhook_base_url;
             if (!webhookBaseUrl) {
@@ -127,7 +116,7 @@ const deliveryController = {
                 });
             }
 
-            const results = await twilioService.retryFailedCalls(batchId, webhookBaseUrl);
+            const results = await twilioService.retryFailedCalls(webhookBaseUrl);
             res.json(results);
         } catch (error) {
             logger.error('Retry calls error:', error);
@@ -142,14 +131,14 @@ const deliveryController = {
      */
     voice: async (req, res) => {
         try {
-            const { batchId, rowIndex } = req.params;
+            const { rowIndex } = req.params;
             const idx = parseInt(rowIndex, 10);
 
-            // Build the recording callback URL
+            // Build the gather/recording callback URL
             const baseUrl = `${req.protocol}://${req.get('host')}`;
-            const recordingUrl = `${baseUrl}/api/delivery/recording/${batchId}/${idx}`;
+            const gatherCallbackUrl = `${baseUrl}/api/delivery/recording/${idx}`;
 
-            const twiml = twilioService.generateVoiceTwiml(batchId, idx, recordingUrl);
+            const twiml = twilioService.generateVoiceTwiml(idx, gatherCallbackUrl);
             res.type('text/xml').send(twiml);
         } catch (error) {
             logger.error('Voice webhook error:', error);
@@ -166,17 +155,19 @@ const deliveryController = {
      */
     recording: async (req, res) => {
         try {
-            const { batchId, rowIndex } = req.params;
+            const { rowIndex } = req.params;
             const idx = parseInt(rowIndex, 10);
 
-            // Twilio sends data in either query params or form body
+            // Twilio sends SpeechResult from <Gather> or RecordingUrl from <Record>
             const recordingData = {
+                SpeechResult: req.body.SpeechResult || req.query.SpeechResult || '',
+                Confidence: req.body.Confidence || req.query.Confidence || '',
                 RecordingUrl: req.body.RecordingUrl || req.query.RecordingUrl || '',
                 RecordingDuration: req.body.RecordingDuration || req.query.RecordingDuration || '',
                 RecordingSid: req.body.RecordingSid || req.query.RecordingSid || ''
             };
 
-            const twiml = await twilioService.handleRecording(batchId, idx, recordingData);
+            const twiml = await twilioService.handleRecording(idx, recordingData);
             res.type('text/xml').send(twiml);
         } catch (error) {
             logger.error('Recording webhook error:', error);

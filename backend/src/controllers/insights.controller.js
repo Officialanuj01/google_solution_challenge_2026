@@ -1,5 +1,5 @@
 /**
- * Predelix — Insights Controller
+ * Pulse — Insights Controller
  * Handles AI-powered insights endpoints using Gemini API
  */
 const geminiService = require('../services/gemini.service');

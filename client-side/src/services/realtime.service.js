@@ -1,7 +1,7 @@
 /**
- * Predelix — Realtime Service (Frontend)
- * WebSocket client for Pub/Sub real-time events
- * NEW — enables live dashboard updates via Pub/Sub → WebSocket bridge
+ * Pulse — Realtime Service (Frontend)
+ * WebSocket client for real-time events
+ * NEW — enables live dashboard updates via a WebSocket bridge
  */
 import config from '../config';
 
@@ -31,7 +31,7 @@ class RealtimeService {
             this.ws = new WebSocket(url);
 
             this.ws.onopen = () => {
-                console.log('🔌 WebSocket connected to Predelix events');
+                console.log('🔌 WebSocket connected to Pulse events');
                 this.reconnectAttempts = 0;
                 this.isConnecting = false;
                 this._notifyListeners('CONNECTION_ESTABLISHED', { connected: true });

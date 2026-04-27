@@ -1,12 +1,12 @@
 /**
- * Predelix — Data Service (Frontend)
- * Calls data endpoints via Cloud Run backend
+ * Pulse — Data Service (Frontend)
+ * Calls data endpoints via backend API
  */
 import config from '../config';
 
 const API_URL = `${config.apiUrl}/data`;
 
-export const bigqueryDataService = {
+export const dataService = {
     /**
      * Get sales data for a store
      */

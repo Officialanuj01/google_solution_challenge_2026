@@ -32,8 +32,8 @@ const RoleSelectionDialog = ({ open, onRoleSelect, onClose }) => {
           <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-2xl mx-auto mb-4 flex items-center justify-center shadow-lg">
             <Store className="w-8 h-8 text-white" />
           </div>
-          <h2 className="text-2xl font-bold text-sky-800 mb-2">Welcome to Predelix!</h2>
-          <p className="text-sky-600">How do you plan to use Predelix? This helps us customize your experience.</p>
+          <h2 className="text-2xl font-bold text-sky-800 mb-2">Welcome to Pulse!</h2>
+          <p className="text-sky-600">How do you plan to use Pulse? This helps us customize your experience.</p>
         </div>
 
         {/* Role Options */}

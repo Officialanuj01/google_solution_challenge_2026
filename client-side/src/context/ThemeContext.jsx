@@ -193,7 +193,7 @@ export const ThemeProvider = ({ children }) => {
 
   // Load theme from localStorage on mount
   useEffect(() => {
-    const savedTheme = localStorage.getItem('predelix-theme') || 'light';
+    const savedTheme = localStorage.getItem('Pulse-theme') || 'light';
     setCurrentTheme(savedTheme);
     applyTheme(savedTheme);
   }, []);
@@ -203,7 +203,7 @@ export const ThemeProvider = ({ children }) => {
     if (themes[themeId]) {
       setCurrentTheme(themeId);
       applyTheme(themeId);
-      localStorage.setItem('predelix-theme', themeId);
+      localStorage.setItem('Pulse-theme', themeId);
     }
   };
 

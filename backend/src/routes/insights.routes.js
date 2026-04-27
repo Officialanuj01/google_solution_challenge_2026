@@ -1,5 +1,5 @@
 /**
- * Predelix — Insights Routes
+ * Pulse — Insights Routes
  * Endpoints for Gemini API-powered AI insights
  */
 const express = require('express');

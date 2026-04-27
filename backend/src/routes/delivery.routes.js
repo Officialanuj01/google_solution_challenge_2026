@@ -1,14 +1,13 @@
 /**
- * Predelix — Delivery Routes
+ * Pulse — Delivery Routes
  * Twilio-based delivery calling bot endpoints
  */
 const express = require('express');
 const router = express.Router();
 const multer = require('multer');
 const deliveryController = require('../controllers/delivery.controller');
-const authMiddleware = require('../middleware/auth.middleware');
 
-// Multer config for CSV upload (memory buffer for Cloud Run)
+// Multer config for CSV upload (memory buffer)
 const upload = multer({
     storage: multer.memoryStorage(),
     limits: { fileSize: 10 * 1024 * 1024 },
@@ -21,14 +20,14 @@ const upload = multer({
     }
 });
 
-// ── Protected Endpoints (require auth) ─────────
-router.post('/upload', authMiddleware, upload.single('file'), deliveryController.uploadCustomers);
-router.post('/trigger', authMiddleware, deliveryController.triggerCalls);
-router.get('/results', authMiddleware, deliveryController.getResults);
-router.post('/retry', authMiddleware, deliveryController.retryCalls);
+// ── Public Endpoints ─────────
+router.post('/upload', upload.single('file'), deliveryController.uploadCustomers);
+router.post('/trigger', deliveryController.triggerCalls);
+router.get('/results', deliveryController.getResults);
+router.post('/retry', deliveryController.retryCalls);
 
 // ── Twilio Webhook Endpoints (public, called by Twilio) ──
-router.all('/voice/:batchId/:rowIndex', deliveryController.voice);
-router.all('/recording/:batchId/:rowIndex', deliveryController.recording);
+router.all('/voice/:rowIndex', deliveryController.voice);
+router.all('/recording/:rowIndex', deliveryController.recording);
 
 module.exports = router;

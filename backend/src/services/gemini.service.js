@@ -1,5 +1,5 @@
 /**
- * Predelix — Gemini AI Service
+ * Pulse — Gemini AI Service
  * Business logic for AI-powered retail insights
  * NEW capability — generates natural language insights from sales data
  */
@@ -11,7 +11,7 @@ const geminiService = {
      * Generate comprehensive insights from sales data and predictions
      */
     async generateSalesInsights(salesData, predictions) {
-        const prompt = `You are an expert AI retail supply chain analyst for Predelix, a platform that helps vendors optimize inventory and delivery.
+        const prompt = `You are an expert AI retail supply chain analyst for Pulse, a platform that helps vendors optimize inventory and delivery.
 
 Analyze the following data and provide actionable insights:
 
@@ -85,7 +85,7 @@ Provide your analysis in the following JSON structure:
      * Generate delivery optimization insights
      */
     async generateDeliveryInsights(callLogs) {
-        const prompt = `You are an AI delivery logistics analyst for Predelix.
+        const prompt = `You are an AI delivery logistics analyst for Pulse.
 
 Analyze the following delivery call logs and provide optimization insights:
 
@@ -164,7 +164,7 @@ Provide a JSON response with:
      * Chat with Gemini about inventory/delivery data (conversational insights)
      */
     async chatInsight(userQuery, context = {}) {
-        const prompt = `You are Predelix AI Assistant, helping retail store owners and delivery partners optimize their supply chain.
+        const prompt = `You are Pulse AI Assistant, helping retail store owners and delivery partners optimize their supply chain.
 
 Context about the user:
 - Role: ${context.role || 'store owner'}

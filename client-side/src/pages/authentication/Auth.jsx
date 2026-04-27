@@ -65,7 +65,7 @@ export function Auth({ open, onOpenChange, onLogin, showTrigger = true }) {
               <BarChart2 className="w-5 h-5 text-white" />
             </div>
             <DialogTitle className="text-2xl font-bold bg-gradient-to-r from-cyan-600 via-blue-600 to-sky-600 bg-clip-text text-transparent">
-              {mode === 'login' ? 'Welcome to Predelix' : 'Join Predelix'}
+              {mode === 'login' ? 'Welcome to Pulse' : 'Join Pulse'}
             </DialogTitle>
           </div>
           <DialogDescription className="text-sky-600 leading-relaxed">

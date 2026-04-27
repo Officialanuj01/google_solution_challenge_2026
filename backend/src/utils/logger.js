@@ -1,6 +1,6 @@
 /**
- * Predelix — Structured Logger
- * Cloud Run compatible with JSON structured logging
+ * Pulse — Structured Logger
+ * JSON structured logging compatible with hosted deployments
  */
 const winston = require('winston');
 

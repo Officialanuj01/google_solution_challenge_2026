@@ -1,6 +1,6 @@
 /**
- * Predelix — Prediction Service (Frontend)
- * Calls Vertex AI prediction endpoints via Cloud Run backend
+ * Pulse — Prediction Service (Frontend)
+ * Calls prediction endpoints via backend API
  * Replaces: direct Flask API calls in Predict.jsx
  */
 import config from '../config';
@@ -65,7 +65,7 @@ export const predictionService = {
     },
 
     /**
-     * Get latest prediction results from BigQuery
+    * Get latest prediction results
      */
     async getResults(storeId = null) {
         const params = storeId ? `?store_id=${storeId}` : '';

@@ -1,6 +1,6 @@
 /**
- * Predelix — Error Handling Middleware
- * Centralized error handling for Cloud Run
+ * Pulse — Error Handling Middleware
+ * Centralized error handling for the backend API
  */
 const { logger } = require('../utils/logger');
 

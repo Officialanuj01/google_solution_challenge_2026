@@ -208,9 +208,9 @@ export const authService = {
             }
         });
         
-        // Also explicitly clear known Predelix cookies
-        const predelixCookies = ['predelix_name', 'predelix_email', 'predelix_password', 'refreshToken', 'accessToken'];
-        predelixCookies.forEach(cookieName => {
+        // Also explicitly clear known Pulse cookies
+        const PulseCookies = ['Pulse_name', 'Pulse_email', 'Pulse_password', 'refreshToken', 'accessToken'];
+        PulseCookies.forEach(cookieName => {
             document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/;`;
             document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=${window.location.hostname};`;
         });

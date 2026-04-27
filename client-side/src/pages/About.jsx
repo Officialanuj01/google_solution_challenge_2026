@@ -19,7 +19,7 @@ const achievements = [
 const technologies = [
   { icon: Brain, name: 'AI & ML', desc: 'Advanced algorithms for prediction and optimization', color: 'from-purple-500 to-indigo-600' },
   { icon: Database, name: 'MongoDB', desc: 'Flexible NoSQL database powering our backend', color: 'from-green-500 to-emerald-600' },
-  { icon: Cpu, name: 'Cloud Infra', desc: 'Scalable, reliable, modern architecture on Google Cloud', color: 'from-orange-500 to-red-600' },
+  { icon: Cpu, name: 'Cloud Infra', desc: 'Scalable, reliable, modern architecture for production deployments', color: 'from-orange-500 to-red-600' },
   { icon: Shield, name: 'Security', desc: 'Enterprise-grade protection and privacy', color: 'from-blue-500 to-cyan-600' },
   { icon: Code, name: 'React', desc: 'Modern UI library for fast, interactive experiences', color: 'from-cyan-500 to-blue-600' },
   { icon: Rocket, name: 'Vite', desc: 'Lightning-fast build tool for rapid development', color: 'from-pink-500 to-yellow-500' },
@@ -41,7 +41,7 @@ const team = [
 ];
 
 const timeline = [
-  { year: '2024', event: 'Predelix founded', icon: Rocket },
+  { year: '2024', event: 'Pulse founded', icon: Rocket },
   { year: '2024 Q2', event: 'First AI model deployed', icon: Brain },
   { year: '2024 Q3', event: 'Beta launch', icon: Globe },
   { year: '2025', event: '500+ dev hours, 10K+ lines', icon: Code },
@@ -68,7 +68,7 @@ function About() {
             <Brain className="w-12 h-12 text-white relative z-10" />
           </div>
           <h1 className="text-4xl md:text-6xl font-extrabold bg-gradient-to-r from-cyan-600 via-blue-600 to-purple-600 bg-clip-text text-transparent mb-6 tracking-tight drop-shadow-lg">
-            About Predelix
+            About Pulse
           </h1>
           <p className="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto leading-relaxed mb-6">
             Pioneering the future of logistics with <span className="text-cyan-600 font-bold">AI-powered intelligence</span>—transforming how businesses predict, optimize, and deliver in the global supply chain.
@@ -106,10 +106,10 @@ function About() {
         </div>
       </section>
 
-      {/* Why Predelix Section */}
+      {/* Why Pulse Section */}
       <section className="py-10 px-4 relative z-10">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">Why Predelix?</h2>
+          <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">Why Pulse?</h2>
           <div className="grid md:grid-cols-3 gap-7">
             <motion.div whileHover={{ scale: 1.05 }} className="p-6 text-center bg-white/80 rounded-2xl shadow-lg backdrop-blur-md">
               <Star className="w-8 h-8 text-yellow-500 mx-auto mb-2" />
@@ -184,7 +184,7 @@ function About() {
               <Rocket className="w-7 h-7 text-white relative z-10 animate-bounce" />
             </div>
             <h2 className="text-2xl md:text-3xl font-bold mb-4 drop-shadow-lg">Ready to Explore Our Platform?</h2>
-            <p className="text-lg mb-6 text-cyan-50">Experience how Predelix can help optimize your logistics operations with our AI-powered prediction and smart delivery solutions.</p>
+            <p className="text-lg mb-6 text-cyan-50">Experience how Pulse can help optimize your logistics operations with our AI-powered prediction and smart delivery solutions.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button className="px-8 py-4 bg-white text-cyan-600 rounded-xl font-bold hover:bg-gray-50 transition-colors duration-300 flex items-center justify-center text-base shadow-lg border border-cyan-400/30 active:scale-95">
                 Try Demo

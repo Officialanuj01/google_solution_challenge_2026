@@ -1,5 +1,5 @@
 /**
- * Predelix — Prediction Routes
+ * Pulse — Prediction Routes
  * Endpoints for Vertex AI stock demand prediction
  * Replaces: /api/predict and /api/train from predictor/app.py
  */
@@ -9,7 +9,7 @@ const multer = require('multer');
 const predictController = require('../controllers/predict.controller');
 const authMiddleware = require('../middleware/auth.middleware');
 
-// Configure multer for file uploads (memory storage for Cloud Run)
+// Configure multer for file uploads (memory storage)
 const upload = multer({
     storage: multer.memoryStorage(),
     limits: { fileSize: 50 * 1024 * 1024 }, // 50MB limit
@@ -33,7 +33,7 @@ router.post('/', upload.single('file'), predictController.predict);
 // POST /api/predict/train — Upload CSV and submit training job
 router.post('/train', authMiddleware, upload.single('file'), predictController.train);
 
-// GET /api/predict/results — Get latest predictions from BigQuery
+// GET /api/predict/results — Get latest predictions
 router.get('/results', predictController.getResults);
 
 // GET /api/predict/summary — Get dashboard summary

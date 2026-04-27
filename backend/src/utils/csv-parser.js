@@ -1,5 +1,5 @@
 /**
- * Predelix — CSV Parser Utility
+ * Pulse — CSV Parser Utility
  * Handles CSV file parsing, validation, and transformation
  */
 const Papa = require('papaparse');
@@ -60,20 +60,9 @@ function validateDeliveryCSV(fields) {
     return validateColumns(fields, ['name', 'mobile_number']);
 }
 
-/**
- * Convert parsed CSV data to BigQuery-compatible row format
- */
-function toBigQueryRows(data, transformFn = null) {
-    return data.map((row, index) => {
-        const transformed = transformFn ? transformFn(row, index) : row;
-        return { insertId: `row_${Date.now()}_${index}`, json: transformed };
-    });
-}
-
 module.exports = {
     parseCSV,
     validateColumns,
     validateSalesCSV,
-    validateDeliveryCSV,
-    toBigQueryRows
+    validateDeliveryCSV
 };

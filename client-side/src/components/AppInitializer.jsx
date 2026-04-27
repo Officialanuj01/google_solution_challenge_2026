@@ -14,7 +14,7 @@ const AppInitializer = ({ children }) => {
   }, []);
 
   if (isInitializing) {
-    return <LoadingAnimation message="Loading Predelix..." />;
+    return <LoadingAnimation message="Loading Pulse..." />;
   }
 
   return children;

@@ -1,5 +1,5 @@
 # ────────────────────────────────────────────────
-# Predelix Backend — Cloud Run Dockerfile
+# Pulse Backend — Dockerfile
 # Multi-stage build for optimized container image
 # ────────────────────────────────────────────────
 
@@ -16,7 +16,7 @@ FROM node:20-slim
 
 WORKDIR /app
 
-# Security: run as non-root user (required for Cloud Run best practices)
+# Security: run as non-root user
 RUN chown -R node:node /app
 USER node
 
@@ -24,7 +24,7 @@ USER node
 COPY --chown=node:node --from=builder /app/node_modules ./node_modules
 COPY --chown=node:node . .
 
-# Cloud Run expects PORT env variable
+# Render and other platforms commonly use PORT env variable
 ENV PORT=8080
 ENV NODE_ENV=production
 

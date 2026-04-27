@@ -5,9 +5,6 @@ import { useNavigate } from 'react-router-dom';
 import { useLoading } from '../context/LoadingContext';
 import { motion } from 'motion/react';
 import { useSmartDropState } from '../hooks/useSmartDropState';
-import SmartDropStatistics from '../components/SmartDropStatistics';
-import SmartDropDashboard from '../components/SmartDropDashboard';
-import TimeSavingsTracker from '../components/TimeSavingsTracker';
 import { SectionTransition } from '../components/PageTransition';
 import { OptimizedCard } from '../components/OptimizedComponents';
 import { useDebounce, useSmoothScroll } from '../hooks/usePerformance';
@@ -55,7 +52,7 @@ const FloatingSmartDropElements = ({ scrollY }) => {
   );
 };
 
-const API_BASE = 'https://predelix-242m.onrender.com/api';
+const API_BASE = '/api/delivery';
 
 function SmartDrop() {
   // Navbar height (px)
@@ -93,6 +90,8 @@ function SmartDrop() {
   const [timer, setTimer] = useState(0);
   const [timerActive, setTimerActive] = useState(false);
   const [waitingForResults, setWaitingForResults] = useState(false);
+  const [retrying, setRetrying] = useState(false);
+  const [retryResult, setRetryResult] = useState(null);
   // Use global demo modal context
   const { showDemoModal, setShowDemoModal } = useDemoModal();
   
@@ -214,14 +213,14 @@ function SmartDrop() {
       const formData = new FormData();
       formData.append('file', csvFile);
       
-      console.log('Attempting upload to:', `${API_BASE}/upload_customers`);
+      console.log('Attempting upload to:', `${API_BASE}/upload`);
       console.log('File details:', {
         name: csvFile.name,
         size: csvFile.size,
         type: csvFile.type
       });
 
-      const res = await fetch(`${API_BASE}/upload_customers`, {
+      const res = await fetch(`${API_BASE}/upload`, {
         method: 'POST',
         body: formData,
       });
@@ -305,7 +304,7 @@ function SmartDrop() {
       const formData = new FormData();
       formData.append('file', demoFile);
       
-      const uploadRes = await fetch(`${API_BASE}/upload_customers`, {
+      const uploadRes = await fetch(`${API_BASE}/upload`, {
         method: 'POST',
         body: formData,
       });
@@ -344,10 +343,10 @@ function SmartDrop() {
     showLoading("Initiating customer calls...");
     
     try {
-      const res = await fetch(`${API_BASE}/trigger_calls`, {
+      const res = await fetch(`${API_BASE}/trigger`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ webhook_base_url: window.location.origin }),
+        body: JSON.stringify({}),
       });
       if (!res.ok) throw new Error('Call trigger failed');
       
@@ -395,6 +394,27 @@ function SmartDrop() {
 
   const handleViewResponses = async () => {
     handleFetchResults();
+  };
+
+  const handleRetryCalls = async () => {
+    setRetrying(true);
+    setRetryResult(null);
+    try {
+      const res = await fetch(`${API_BASE}/retry`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({}),
+      });
+      if (!res.ok) throw new Error('Retry failed');
+      const data = await res.json();
+      setRetryResult(data);
+      // Refresh results after retry
+      setTimeout(() => handleFetchResults(), 3000);
+    } catch (err) {
+      setRetryResult({ message: 'Retry failed', failed: 1, successful: 0 });
+    } finally {
+      setRetrying(false);
+    }
   };
 
   const handleSort = (field) => {
@@ -711,7 +731,7 @@ function SmartDrop() {
                       <div className="text-left">
                         <div className="font-medium text-sm">{uploadError}</div>
                         <div className="text-xs text-red-600 mt-1">
-                          API Endpoint: {API_BASE}/upload_customers
+                          API Endpoint: {API_BASE}/upload
                         </div>
                       </div>
                     </div>
@@ -945,94 +965,45 @@ function SmartDrop() {
             </div>
           )}
 
-          {/* Time Savings Tracker - Only show when we have actual response data */}
-          {responses && responses.length > 0 && (
-            <TimeSavingsTracker 
-              responses={responses} 
-              csvData={csvData} 
-              callDone={callDone}
-            />
-          )}
-
-          {/* SmartDrop Dashboard */}
-          {responses && responses.length > 0 && (
-            <SmartDropDashboard 
-              responses={responses} 
-              csvData={csvData} 
-              callDone={callDone}
-            />
-          )}
-
-          {/* SmartDrop Statistics */}
-          {responses && responses.length > 0 && (
-            <SmartDropStatistics 
-              responses={responses} 
-              csvData={csvData} 
-              callDone={callDone}
-            />
-          )}
-
-          {/* Step 4: Response Table */}
+          {/* Customer Responses Table */}
           {showResponses && responses && responses.length > 0 && (
-            <div className="bg-white/95 backdrop-blur-xl rounded-2xl shadow-xl border border-cyan-200/50 overflow-hidden animate-slideInUp animation-delay-600">
-              {/* Header with Stats and Controls */}
-              <div className="bg-gradient-to-r from-cyan-50 to-blue-50 px-8 py-6 border-b border-cyan-200">
-                <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between space-y-4 lg:space-y-0">
-                  <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl flex items-center justify-center">
-                      <FileSpreadsheet className="w-6 h-6 text-white" />
+            <div className="bg-white/95 backdrop-blur-xl rounded-2xl shadow-xl border border-cyan-200/50 overflow-hidden">
+              <div className="bg-gradient-to-r from-cyan-50 to-blue-50 px-6 py-4 border-b border-cyan-200">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-10 h-10 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl flex items-center justify-center">
+                      <Users className="w-5 h-5 text-white" />
                     </div>
                     <div>
-                      <h3 className="text-2xl font-bold text-sky-700">Call Results</h3>
-                      <div className="flex items-center gap-4 mt-1">
-                        <p className="text-sm text-sky-600">
-                          {filteredAndSortedData.length} of {responses.length} responses
-                          {searchTerm && ` matching "${searchTerm}"`}
-                        </p>
-                        <div className="flex items-center gap-2 px-3 py-1 bg-cyan-100 rounded-full">
-                          <div className="w-2 h-2 bg-cyan-500 rounded-full animate-pulse"></div>
-                          <span className="text-xs font-medium text-cyan-700">{responses.length} total responses</span>
-                        </div>
-                      </div>
+                      <h3 className="text-xl font-bold text-sky-700">Customer Responses</h3>
+                      <p className="text-sm text-sky-600">{filteredAndSortedData.length} of {responses.length} responses</p>
                     </div>
                   </div>
-                  
-                  {/* Search and Filter Controls */}
-                  <div className="flex items-center space-x-4">
+                  <div className="flex items-center gap-3">
                     <div className="relative">
-                      <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
-                      <input
-                        type="text"
-                        placeholder="Search responses..."
-                        value={searchTerm}
-                        onChange={(e) => {
-                          setSearchTerm(e.target.value);
-                          setCurrentPage(1);
-                        }}
-                        className="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent bg-white"
-                      />
+                      <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+                      <input type="text" placeholder="Search..." value={searchTerm}
+                        onChange={(e) => { setSearchTerm(e.target.value); setCurrentPage(1); }}
+                        className="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500 bg-white w-full sm:w-auto" />
                     </div>
-                    <div className="flex items-center gap-2 text-sm text-gray-600">
-                      <Filter className="w-4 h-4" />
-                      <span>Page {currentPage} of {totalPages}</span>
-                    </div>
+                    <button onClick={handleFetchResults}
+                      className="px-4 py-2 bg-cyan-500 hover:bg-cyan-600 text-white font-medium rounded-lg transition-colors flex items-center gap-2">
+                      <RefreshCw className="w-4 h-4" /> Refresh
+                    </button>
                   </div>
                 </div>
               </div>
 
-              {/* Data Table */}
               <div className="overflow-x-auto">
                 <table className="w-full">
                   <thead className="bg-gray-50 border-b border-gray-200">
                     <tr>
-                      {responses.length > 0 && Object.keys(responses[0])
-                        .filter(key => !['recording_sid', 'recording_duration', 'response'].includes(key.toLowerCase()))
+                      {Object.keys(responses[0])
+                        .filter(key => !['recording_sid', 'recording_duration', 'confidence', 'response'].includes(key))
                         .map((key, idx) => (
-                        <th key={idx} className="px-6 py-4 text-left">
-                          <button
-                            onClick={() => handleSort(key)}
-                            className="flex items-center space-x-2 font-semibold text-gray-700 hover:text-cyan-600 transition-colors duration-200"
-                          >
+                        <th key={idx} className="px-6 py-3 text-left">
+                          <button onClick={() => handleSort(key)}
+                            className="flex items-center space-x-2 font-semibold text-gray-700 hover:text-cyan-600 transition-colors">
                             <span>{key.replace(/_/g, ' ').toUpperCase()}</span>
                             {getSortIcon(key)}
                           </button>
@@ -1042,18 +1013,19 @@ function SmartDrop() {
                   </thead>
                   <tbody className="divide-y divide-gray-200">
                     {paginatedData.map((row, idx) => (
-                      <tr key={idx} className="hover:bg-cyan-50/50 transition-colors duration-200">
+                      <tr key={idx} className="hover:bg-cyan-50/50 transition-colors">
                         {Object.entries(row)
-                          .filter(([key]) => !['recording_sid', 'recording_duration', 'response'].includes(key.toLowerCase()))
-                          .map(([key, value], valueIdx) => (
-                          <td key={valueIdx} className="px-6 py-4 text-sm">
-                            <div className={`
-                              ${key.includes('phone') || key.includes('number') ? 'font-mono text-blue-600' : 'text-gray-900'}
-                              ${key.includes('name') || key.includes('customer') ? 'font-semibold text-cyan-600' : ''}
-                              ${key.includes('status') || key.includes('transcription') ? 'font-medium' : ''}
-                            `}>
-                              {value}
-                            </div>
+                          .filter(([key]) => !['recording_sid', 'recording_duration', 'confidence', 'response'].includes(key))
+                          .map(([key, value], vIdx) => (
+                          <td key={vIdx} className="px-6 py-3 text-sm">
+                            <span className={`${
+                              key === 'name' ? 'font-semibold text-cyan-600' :
+                              key === 'mobile_number' ? 'font-mono text-blue-600' :
+                              key === 'transcription' ? 'font-medium text-gray-900 italic' :
+                              'text-gray-900'
+                            }`}>
+                              {value || <span className="text-gray-400 italic">No response yet</span>}
+                            </span>
                           </td>
                         ))}
                       </tr>
@@ -1062,81 +1034,54 @@ function SmartDrop() {
                 </table>
               </div>
 
-              {/* Pagination */}
-              <div className="bg-gray-50 px-6 py-4 border-t border-gray-200">
-                <div className="flex items-center justify-between">
-                  <div className="text-sm text-gray-600">
-                    Showing {startIndex + 1} to {Math.min(startIndex + itemsPerPage, filteredAndSortedData.length)} of {filteredAndSortedData.length} results
-                  </div>
-                  
+              {totalPages > 1 && (
+                <div className="bg-gray-50 px-6 py-3 border-t border-gray-200 flex items-center justify-between">
+                  <span className="text-sm text-gray-600">
+                    {startIndex + 1}–{Math.min(startIndex + itemsPerPage, filteredAndSortedData.length)} of {filteredAndSortedData.length}
+                  </span>
                   <div className="flex items-center space-x-2">
-                    <button
-                      onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
-                      disabled={currentPage === 1}
-                      className="inline-flex items-center px-3 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 hover:text-gray-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200"
-                    >
-                      <ChevronLeft className="w-4 h-4 mr-1" />
-                      Previous
+                    <button onClick={() => setCurrentPage(Math.max(currentPage - 1, 1))} disabled={currentPage === 1}
+                      className="inline-flex items-center px-3 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed">
+                      <ChevronLeft className="w-4 h-4 mr-1" /> Previous
                     </button>
-                    
-                    <div className="flex items-center space-x-1">
-                      {[...Array(Math.min(totalPages, 5))].map((_, i) => {
-                        const pageNum = i + 1;
-                        return (
-                          <button
-                            key={pageNum}
-                            onClick={() => setCurrentPage(pageNum)}
-                            className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors duration-200 ${
-                              currentPage === pageNum
-                                ? 'bg-cyan-500 text-white'
-                                : 'text-gray-500 hover:bg-gray-100'
-                            }`}
-                          >
-                            {pageNum}
-                          </button>
-                        );
-                      })}
-                      {totalPages > 5 && (
-                        <>
-                          <span className="px-2 text-gray-400">...</span>
-                          <button
-                            onClick={() => setCurrentPage(totalPages)}
-                            className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors duration-200 ${
-                              currentPage === totalPages
-                                ? 'bg-cyan-500 text-white'
-                                : 'text-gray-500 hover:bg-gray-100'
-                            }`}
-                          >
-                            {totalPages}
-                          </button>
-                        </>
-                      )}
-                    </div>
-                    
-                    <button
-                      onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
-                      disabled={currentPage === totalPages}
-                      className="inline-flex items-center px-3 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 hover:text-gray-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200"
-                    >
-                      Next
-                      <ChevronRight className="w-4 h-4 ml-1" />
+                    <span className="px-3 py-2 text-sm font-medium text-gray-700">{currentPage} / {totalPages}</span>
+                    <button onClick={() => setCurrentPage(Math.min(currentPage + 1, totalPages))} disabled={currentPage === totalPages}
+                      className="inline-flex items-center px-3 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed">
+                      Next <ChevronRight className="w-4 h-4 ml-1" />
                     </button>
                   </div>
                 </div>
-              </div>
+              )}
 
-              {/* Back to Home Button */}
-              <div className="bg-gray-50 px-8 py-6 border-t border-gray-200">
-                <button
-                  onClick={() => navigate('/')}
-                  className="group relative inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-cyan-500 via-blue-500 to-sky-500 hover:from-cyan-600 hover:via-blue-600 hover:to-sky-600 text-white font-bold rounded-xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 overflow-hidden"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  <div className="relative z-10 flex items-center gap-3">
-                    <ArrowLeft className="w-5 h-5 animate-bounce" />
-                    <span>Back to Home</span>
+              {/* Retry Failed Calls */}
+              <div className="bg-gradient-to-r from-orange-50 to-red-50 px-6 py-4 border-t border-orange-200">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <AlertCircle className="w-5 h-5 text-orange-600" />
+                    <div>
+                      <p className="font-medium text-orange-800">Failed or missed calls?</p>
+                      <p className="text-sm text-orange-600">Retry all numbers from the missed calls list</p>
+                    </div>
                   </div>
-                </button>
+                  <button onClick={handleRetryCalls} disabled={retrying}
+                    className={`px-6 py-3 rounded-xl font-bold flex items-center gap-2 transition-all transform hover:scale-105 ${
+                      retrying ? 'bg-gray-200 cursor-not-allowed text-gray-400'
+                        : 'bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white shadow-lg hover:shadow-xl'
+                    }`}>
+                    {retrying ? (
+                      <><Loader2 className="w-4 h-4 animate-spin" /> Retrying...</>
+                    ) : (
+                      <><RefreshCw className="w-4 h-4" /> Retry Failed Calls</>
+                    )}
+                  </button>
+                </div>
+                {retryResult && (
+                  <div className={`mt-3 p-3 rounded-lg text-sm ${
+                    retryResult.failed > 0 ? 'bg-red-100 text-red-700' : 'bg-green-100 text-green-700'
+                  }`}>
+                    {retryResult.message} — {retryResult.successful || 0} succeeded, {retryResult.failed || 0} failed
+                  </div>
+                )}
               </div>
             </div>
           )}

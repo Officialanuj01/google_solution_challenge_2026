@@ -1,9 +1,9 @@
-# 🧠 Predelix: AI-Powered Retail Supply Chain & Last-Mile Delivery Platform
+# 🧠 Pulse: AI-Powered Retail Supply Chain & Last-Mile Delivery Platform
 
 ## 📚 Table of Contents
 - [🚀 Project Overview](#-project-overview)
 - [🏆 Problem Statement](#-problem-statement)
-- [💡 What Does Predelix Do?](#-what-does-predelix-do)
+- [💡 What Does Pulse Do?](#-what-does-Pulse-do)
 - [📦 Features](#-features)
 - [🛠️ Tech Stack](#️-tech-stack)
 - [🏗️ Architecture](#️-architecture)
@@ -17,11 +17,11 @@
 ---
 
 ## 🚀 Project Overview
-**Predelix** is an intelligent, end-to-end AI solution designed to transform modern retail supply chains. It addresses two key operational pain points:
+**Pulse** is an intelligent, end-to-end AI solution designed to transform modern retail supply chains. It addresses two key operational pain points:
 1. **Inventory Demand Forecasting** – helping vendors prevent stockouts and overstocking.
 2. **Last-Mile Delivery Coordination** – automating customer communication via Twilio-powered voice bots.
 
-Built for scale and real-world usability, Predelix leverages **Google Cloud Platform** services including Vertex AI and Gemini, along with **Twilio** for telephony, to help businesses operate smarter and faster.
+Built for scale and real-world usability, Pulse uses **Vertex AI** and the **Gemini API** for intelligence, along with **Twilio** for telephony, to help businesses operate smarter and faster.
 
 ---
 
@@ -37,7 +37,7 @@ These issues occur daily across all stores and delivery zones—especially durin
 
 ---
 
-## 💡 What Does Predelix Do?
+## 💡 What Does Pulse Do?
 
 ### 📊 **1. Intelligent Stock Optimization**
 - Accepts CSV sales data from retail stores.
@@ -67,7 +67,7 @@ These issues occur daily across all stores and delivery zones—especially durin
 - 📞 Voice bot integration via **Twilio**.
 - 🧠 **Gemini-powered insights** — trends, anomalies, recommendations.
 - 🔌 WebSocket real-time dashboard updates.
-- 🛠️ REST APIs via **Cloud Run** backend.
+- 🛠️ REST APIs via **Render** backend.
 - 📊 Intuitive dashboards for vendors and delivery partners.
 - 🔐 Secure authentication with JWT + Google OAuth.
 - 💻 Responsive, modern frontend using React + Tailwind.
@@ -79,14 +79,12 @@ These issues occur daily across all stores and delivery zones—especially durin
 | Layer | Technology |
 |---|---|
 | Frontend | React, Tailwind CSS, Vite |
-| Backend API | Node.js, Express (Cloud Run) |
+| Backend API | Node.js, Express (Render) |
 | ML / Prediction | Google Vertex AI |
 | Calling Bot | Twilio |
 | AI Insights | Google Gemini API |
 | Authentication | JWT + Google OAuth 2.0 |
-| File Storage | Google Cloud Storage |
-| CI/CD | Cloud Build |
-| Deployment | Cloud Run (containerized) |
+| Deployment | Render (backend), Vercel (frontend) |
 
 ---
 
@@ -95,7 +93,7 @@ These issues occur daily across all stores and delivery zones—especially durin
 ```
 Frontend (React Dashboard)
         ↓
-Cloud Run / Backend API
+Render / Backend API
         ↓
 Vertex AI (prediction)
         ↓
@@ -106,7 +104,7 @@ Gemini API (insights)
 
 ### Project Structure:
 ```
-Predelix/
+Pulse/
 ├── client-side/          # React Dashboard (Vite + Tailwind)
 │   └── src/
 │       ├── components/   # UI components
@@ -119,7 +117,7 @@ Predelix/
 │       │   └── realtime.service.js      (WebSocket)
 │       └── context/      # React context providers
 │
-├── backend/              # Cloud Run Backend API
+├── backend/              # Render Backend API
 │   ├── src/
 │   │   ├── config/       # Service configurations
 │   │   ├── routes/       # Express routes
@@ -127,16 +125,14 @@ Predelix/
 │   │   ├── services/     # Business logic
 │   │   ├── middleware/   # Auth, CORS, error handling
 │   │   └── models/       # Data models
-│   ├── Dockerfile        # Cloud Run container
-│   └── cloudbuild.yaml   # CI/CD pipeline
+│   └── Dockerfile        # Backend container
 │
 ├── vertex-ai/            # Vertex AI model training
 │   └── training/
 │       ├── train_demand_model.py
 │       └── config.yaml
-│
-└── infrastructure/       # Deployment scripts
-    └── deploy.sh
+```
+
 ```
 
 ---
@@ -164,8 +160,10 @@ Predelix/
 
 ### Prerequisites
 - Node.js 18+
-- Google Cloud SDK (`gcloud`)
-- GCP Project with billing enabled
+- MongoDB connection string
+- Gemini API key
+- Vertex AI project/endpoint (if using hosted model)
+- Google OAuth client ID
 - Twilio account with verified phone number
 
 ### Backend Setup:
@@ -183,15 +181,9 @@ npm install
 npm run dev
 ```
 
-### Deploy to GCP:
-```bash
-# Set your project ID
-export GCP_PROJECT_ID=your-project-id
-
-# Run the deployment script
-chmod +x infrastructure/deploy.sh
-./infrastructure/deploy.sh
-```
+### Deploy (Render + Vercel):
+- Backend: deploy the `backend/` service to Render with your `.env` values.
+- Frontend: deploy `client-side/` to Vercel and set `VITE_API_URL`, `VITE_WS_URL`, and `VITE_GOOGLE_CLIENT_ID`.
 
 ---
 
@@ -238,11 +230,11 @@ chmod +x infrastructure/deploy.sh
 ---
 
 ## 🤝 Contributing
-We welcome contributions to improve Predelix! Here's how to get started:
+We welcome contributions to improve Pulse! Here's how to get started:
 
 ```bash
 # Fork the repo
-git fork https://github.com/DSAops/Predelix.git
+git fork https://github.com/DSAops/Pulse.git
 
 # Clone and create a new branch
 git checkout -b feature/amazing-feature
@@ -262,12 +254,12 @@ We are continuously working on expanding the platform with:
 - 🗺️ Google Maps integration for delivery optimization
 
 Track progress here:
-📌 GitHub Repo: [https://github.com/DSAops/Predelix](https://github.com/DSAops/Predelix)
+📌 GitHub Repo: [https://github.com/DSAops/Pulse](https://github.com/DSAops/Pulse)
 
 ---
 
 ## 👥 Team & Credits
-**Team Predelix**
+**Team Pulse**
 - Anuj Sahu – Fullstack Developer
 - Devraj Patil – Fullstack Developer
 - Saksham Gupta – Fullstack Developer
@@ -280,7 +272,7 @@ Need a demo or have questions?
 
 ---
 
-Predelix: Powering the future of retail supply chains with AI.
+Pulse: Powering the future of retail supply chains with AI.
 
 > 🚧 **Disclaimer:** This repository contains a hackathon prototype built for learning and demo purposes only.
 >

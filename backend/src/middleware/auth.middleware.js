@@ -1,5 +1,5 @@
 /**
- * Predelix — Authentication Middleware
+ * Pulse — Authentication Middleware
  * JWT verification for protected routes
  * Migrated from: authentication/middleware/auth.middleware.js
  */

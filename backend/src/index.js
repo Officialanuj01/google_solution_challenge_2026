@@ -5,7 +5,6 @@ const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
 const { logger } = require('./utils/logger');
 const { errorHandler } = require('./middleware/error.middleware');
-const bigqueryConfig = require('./config/bigquery');
 
 // ── Initialize Express ──────────
 const app = express();
@@ -50,10 +49,10 @@ app.use('/api/data', dataRoutes);
 app.get('/', (req, res) => {
     res.json({
         status: 'healthy',
-        service: 'Predelix API',
+        service: 'Pulse API',
         version: '2.0.0',
         architecture: {
-            compute: 'Cloud Run',
+            compute: 'Render',
             ml: 'Vertex AI',
             calling: 'Twilio',
             insights: 'Gemini API'
@@ -70,7 +69,7 @@ app.get('/health', (req, res) => {
 app.use(errorHandler);
 
 // ── Database Connection ─────────────────────
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/predelix';
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/Pulse';
 
 mongoose.connect(MONGODB_URI)
     .then(() => logger.info('✅ Connected to MongoDB'))
@@ -79,17 +78,9 @@ mongoose.connect(MONGODB_URI)
 // ── Start Server ────────────────────────────
 const PORT = parseInt(process.env.PORT, 10) || 5000;
 app.listen(PORT, '0.0.0.0', async () => {
-    logger.info(`🚀 Predelix API running on port ${PORT}`);
+    logger.info(`🚀 Pulse API running on port ${PORT}`);
     logger.info(`📍 Environment: ${process.env.NODE_ENV || 'development'}`);
-    logger.info(`☁️  GCP Project: ${process.env.GCP_PROJECT_ID || 'not configured'}`);
 
-    // ── GCP Service Bootstrap ────────────────
-    try {
-        await bigqueryConfig.ensureSchema();
-        logger.info('✅ BigQuery schema ready');
-    } catch (err) {
-        logger.warn('⚠️ BigQuery schema bootstrap skipped:', err.message);
-    }
 });
 
 module.exports = app;

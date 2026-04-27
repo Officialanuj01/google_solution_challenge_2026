@@ -1,5 +1,5 @@
 /**
- * Predelix — Data Routes
+ * Pulse — Data Routes
  * Endpoints for data queries
  */
 const express = require('express');

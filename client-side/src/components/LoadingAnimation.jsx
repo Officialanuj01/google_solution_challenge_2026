@@ -55,7 +55,7 @@ const LoadingAnimation = ({ message = "Loading..." }) => {
         {/* Loading text */}
         <div className="space-y-3">
           <h2 className="text-2xl font-bold bg-gradient-to-r from-emerald-600 via-teal-600 to-purple-600 bg-clip-text text-transparent animate-pulse">
-            PREDELIX
+            Pulse
           </h2>
           
           <p className="theme-text-secondary text-lg font-medium">

@@ -1,10 +1,10 @@
 /**
- * Predelix — Gemini API Client Setup
+ * Pulse — Gemini API Client Setup
  * Manages connection to Google Gemini for AI-powered insights
  * Model: gemini-1.5-flash-001 (fast, cost-efficient, JSON-native)
  */
 const { GoogleGenerativeAI } = require('@google/generative-ai');
-const gcpConfig = require('./gcp');
+const aiConfig = require('./ai');
 const { logger } = require('../utils/logger');
 
 let genAIClient = null;
@@ -13,12 +13,12 @@ let jsonModel = null;
 
 function getGenAIClient() {
     if (!genAIClient) {
-        if (!gcpConfig.gemini.apiKey) {
+        if (!aiConfig.gemini.apiKey) {
             logger.warn('Gemini API key not configured — insights will be unavailable');
             return null;
         }
-        genAIClient = new GoogleGenerativeAI(gcpConfig.gemini.apiKey);
-        logger.info('Gemini AI client initialized', { model: gcpConfig.gemini.model });
+        genAIClient = new GoogleGenerativeAI(aiConfig.gemini.apiKey);
+        logger.info('Gemini AI client initialized', { model: aiConfig.gemini.model });
     }
     return genAIClient;
 }
@@ -28,7 +28,7 @@ function getTextModel() {
         const client = getGenAIClient();
         if (!client) return null;
         textModel = client.getGenerativeModel({
-            model: gcpConfig.gemini.model,
+            model: aiConfig.gemini.model,
             generationConfig: {
                 temperature: 0.4,
                 topK: 32,
@@ -45,7 +45,7 @@ function getJsonModel() {
         const client = getGenAIClient();
         if (!client) return null;
         jsonModel = client.getGenerativeModel({
-            model: gcpConfig.gemini.model,
+            model: aiConfig.gemini.model,
             generationConfig: {
                 temperature: 0.2,
                 topK: 32,

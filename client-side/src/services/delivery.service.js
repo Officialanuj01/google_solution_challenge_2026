@@ -1,6 +1,6 @@
 /**
- * Predelix — Delivery Service (Frontend)
- * Calls Twilio delivery bot endpoints via Cloud Run backend
+ * Pulse — Delivery Service (Frontend)
+ * Calls Twilio delivery bot endpoints via backend API
  * Replaces: direct calls to delivery_call.py endpoints
  */
 import api from './api';
@@ -20,20 +20,19 @@ export const deliveryService = {
     /**
      * Trigger delivery calls for a batch
      */
-    async triggerCalls(batchId, webhookBaseUrl = null) {
-        return api.post(`${BASE}/trigger`, { batchId, webhook_base_url: webhookBaseUrl });
+    async triggerCalls(webhookBaseUrl = null) {
+        return api.post(`${BASE}/trigger`, { webhook_base_url: webhookBaseUrl });
     },
 
     /**
      * Get call results and transcripts for a batch
      */
-    async getResults(batchId = null) {
-        const params = batchId ? `?batch_id=${batchId}` : '';
-        return api.get(`${BASE}/results${params}`);
+    async getResults() {
+        return api.get(`${BASE}/results`);
     },
 
     /**
-     * Get delivery customers for a batch (from BigQuery)
+    * Get delivery customers for a batch
      */
     async getCustomers(batchId) {
         return api.get(`${BASE}/customers?batch_id=${batchId}`);
@@ -42,7 +41,7 @@ export const deliveryService = {
     /**
      * Retry failed calls for a batch
      */
-    async retryCalls(batchId, webhookBaseUrl = null) {
-        return api.post(`${BASE}/retry`, { batchId, webhook_base_url: webhookBaseUrl });
+    async retryCalls(webhookBaseUrl = null) {
+        return api.post(`${BASE}/retry`, { webhook_base_url: webhookBaseUrl });
     }
 };

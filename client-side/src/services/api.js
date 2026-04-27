@@ -1,5 +1,5 @@
 /**
- * Predelix — Centralised API Fetch Wrapper
+ * Pulse — Centralised API Fetch Wrapper
  * Provides consistent auth header injection, token refresh on 401,
  * and unified error normalisation across all service modules.
  */

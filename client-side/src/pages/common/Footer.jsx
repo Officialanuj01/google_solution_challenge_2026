@@ -86,7 +86,7 @@ export function Footer() {
                 <Truck className="w-5 h-5 text-white" />
               </div>
               <h2 className="text-2xl font-bold bg-gradient-to-r from-cyan-500 via-blue-500 to-sky-500 bg-clip-text text-transparent">
-                Predelix
+                Pulse
               </h2>
             </div>
             <p className="text-sky-600 text-sm leading-relaxed">
@@ -94,7 +94,7 @@ export function Footer() {
             </p>
             <div className="flex items-center space-x-4">
               <a
-                href="https://github.com/DSAops/Predelix"
+                href="https://github.com/DSAops/Pulse"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group p-2 rounded-lg bg-gradient-to-br from-cyan-100 to-blue-100 hover:from-cyan-200 hover:to-blue-200 text-cyan-600 hover:text-cyan-700 transition-all duration-300 transform hover:scale-110"
@@ -102,7 +102,7 @@ export function Footer() {
                 <Github className="h-5 w-5 group-hover:animate-bounce" />
               </a>
               <a
-                href="mailto:contact@predelix.com"
+                href="mailto:contact@Pulse.com"
                 className="group p-2 rounded-lg bg-gradient-to-br from-blue-100 to-sky-100 hover:from-blue-200 hover:to-sky-200 text-blue-600 hover:text-blue-700 transition-all duration-300 transform hover:scale-110"
               >
                 <Mail className="h-5 w-5 group-hover:animate-pulse" />
@@ -174,11 +174,11 @@ export function Footer() {
         <div className="border-t border-cyan-200/50 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-sky-600">
           <div className="flex items-center space-x-2">
             <div className="w-4 h-4 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-sm animate-pulse"></div>
-            <p>© 2025 Predelix. All rights reserved.</p>
+            <p>© 2025 Pulse. All rights reserved.</p>
           </div>
           <div className="flex items-center space-x-4 mt-4 md:mt-0">
             <a
-              href="https://github.com/DSAops/Predelix"
+              href="https://github.com/DSAops/Pulse"
               target="_blank"
               rel="noopener noreferrer"
               className="group hover:text-cyan-600 transition-all duration-300 flex items-center space-x-2 px-3 py-2 rounded-lg hover:bg-gradient-to-r hover:from-cyan-50 hover:to-blue-50 transform hover:scale-105"

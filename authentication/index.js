@@ -24,7 +24,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/api/auth', authRoutes);
 
 // Database connection
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/predelix', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/Pulse', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })

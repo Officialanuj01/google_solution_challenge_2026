@@ -14,19 +14,19 @@ function Profile({ onClose }) {
     }, {});
 
     setUser({
-      name: cookies.predelix_name || 'Guest User',
-      email: cookies.predelix_email || 'guest@example.com'
+      name: cookies.Pulse_name || 'Guest User',
+      email: cookies.Pulse_email || 'guest@example.com'
     });
     setEditData({
-      name: cookies.predelix_name || 'Guest User',
-      email: cookies.predelix_email || 'guest@example.com'
+      name: cookies.Pulse_name || 'Guest User',
+      email: cookies.Pulse_email || 'guest@example.com'
     });
   }, []);
 
   const handleSave = () => {
     // Update cookies
-    document.cookie = `predelix_name=${encodeURIComponent(editData.name)}; path=/; max-age=${60 * 60 * 24 * 7}`;
-    document.cookie = `predelix_email=${encodeURIComponent(editData.email)}; path=/; max-age=${60 * 60 * 24 * 7}`;
+    document.cookie = `Pulse_name=${encodeURIComponent(editData.name)}; path=/; max-age=${60 * 60 * 24 * 7}`;
+    document.cookie = `Pulse_email=${encodeURIComponent(editData.email)}; path=/; max-age=${60 * 60 * 24 * 7}`;
     
     setUser(editData);
     setIsEditing(false);
@@ -34,9 +34,9 @@ function Profile({ onClose }) {
 
   const handleLogout = () => {
     // Clear cookies
-    document.cookie = 'predelix_name=; path=/; max-age=0';
-    document.cookie = 'predelix_email=; path=/; max-age=0';
-    document.cookie = 'predelix_password=; path=/; max-age=0';
+    document.cookie = 'Pulse_name=; path=/; max-age=0';
+    document.cookie = 'Pulse_email=; path=/; max-age=0';
+    document.cookie = 'Pulse_password=; path=/; max-age=0';
     
     if (onClose) onClose();
   };

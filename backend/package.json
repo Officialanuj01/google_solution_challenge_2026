@@ -1,7 +1,7 @@
 {
-  "name": "predelix-backend",
+  "name": "Pulse-backend",
   "version": "1.0.0",
-  "description": "Predelix Cloud Run Backend API — AI-Powered Retail Supply Chain Platform",
+  "description": "Pulse Backend API — AI-Powered Retail Supply Chain Platform",
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
@@ -10,15 +10,12 @@
     "test": "echo 'Tests not yet configured'"
   },
   "dependencies": {
-    "@google-cloud/aiplatform": "^3.10.0",
-    "@google-cloud/storage": "^7.7.0",
     "@google/generative-ai": "^0.21.0",
     "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.21.0",
-    "google-auth-library": "^9.14.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.5.0",
     "multer": "^1.4.5-lts.1",

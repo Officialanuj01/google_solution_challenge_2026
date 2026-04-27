@@ -252,7 +252,7 @@ function HomePage() {
               <div className="mb-8 relative">
                 <div className="absolute -inset-4 bg-gradient-to-r from-cyan-400/20 to-blue-500/20 rounded-full blur-2xl animate-pulse"></div>
                 <h1 className="relative text-6xl md:text-8xl font-black mb-4 bg-gradient-to-r from-cyan-400 via-blue-400 to-sky-500 bg-clip-text text-transparent drop-shadow-lg animate-slideInUp">
-                  PREDELIX
+                  Pulse
                 </h1>
                 <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 via-blue-400 to-sky-500 bg-clip-text text-transparent opacity-50 animate-ping"></div>
               </div>
@@ -400,7 +400,7 @@ function HomePage() {
               {/* Video Description */}
               {/* <div className="absolute -bottom-16 left-1/2 transform -translate-x-1/2 text-center">
                 <p className="text-sm text-sky-600 font-medium bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg">
-                  🎬 Watch Predelix in Action
+                  🎬 Watch Pulse in Action
                 </p>
               </div> */}
             </div>
@@ -534,7 +534,7 @@ function HomePage() {
           {/* Section Header */}
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-cyan-400 via-blue-400 to-sky-500 bg-clip-text text-transparent">
-              How Predelix Transforms Logistics
+              How Pulse Transforms Logistics
             </h2>
             <p className="text-xl text-sky-600 max-w-3xl mx-auto">
               Watch our AI-powered solution solve complex logistics challenges in real-time
@@ -752,7 +752,7 @@ function HomePage() {
                 
                 <button 
                   onClick={() => {
-                    window.open('mailto:contact@predelix.com?subject=Schedule Demo&body=Hi, I would like to schedule a demo of Predelix.', '_blank');
+                    window.open('mailto:contact@Pulse.com?subject=Schedule Demo&body=Hi, I would like to schedule a demo of Pulse.', '_blank');
                   }}
                   className="group relative px-14 py-5 rounded-2xl bg-white/95 backdrop-blur-xl border-2 border-sky-300/60 hover:border-blue-400/80 font-bold text-sky-700 hover:text-blue-700 shadow-xl transform hover:scale-[1.05] transition-all duration-500 ease-out overflow-hidden hover:bg-gradient-to-r hover:from-white/95 hover:to-sky-50/95"
                 >

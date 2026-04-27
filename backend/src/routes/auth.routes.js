@@ -1,5 +1,5 @@
 /**
- * Predelix — Auth Routes
+ * Pulse — Auth Routes
  * Migrated from: authentication/routes/auth.routes.js
  */
 const express = require('express');

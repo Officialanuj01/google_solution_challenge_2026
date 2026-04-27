@@ -1,5 +1,5 @@
 /**
- * Predelix — Events Controller
+ * Pulse — Events Controller
  * Handles real-time events via WebSocket
  */
 const { logger } = require('../utils/logger');
@@ -24,7 +24,7 @@ const eventsController = {
             type: 'CONNECTION_ESTABLISHED',
             data: {
                 userId,
-                message: 'Connected to Predelix real-time events',
+                message: 'Connected to Pulse real-time events',
                 timestamp: new Date().toISOString()
             }
         }));
