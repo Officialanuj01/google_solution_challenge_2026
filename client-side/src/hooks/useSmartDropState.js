@@ -11,6 +11,7 @@ export const useSmartDropState = () => {
     csvFile: null,
     csvData: null,
     fileMetadata: null,
+    batchId: null,
     
     // Process state
     uploaded: false,
@@ -68,11 +69,13 @@ export const useSmartDropState = () => {
     uploaded: false,
     uploadError: null,
     callDone: false,
+    batchId: null,
     responses: null,
     showResponses: false
   });
   
   const setCsvData = (csvData) => updateState({ csvData });
+  const setBatchId = (batchId) => updateState({ batchId });
   
   const setUploaded = (uploaded) => updateState({ 
     uploaded,
@@ -118,6 +121,7 @@ export const useSmartDropState = () => {
     csvFile: null,
     csvData: null,
     fileMetadata: null,
+    batchId: null,
     uploaded: false,
     uploadError: null,
     callDone: false,
@@ -145,6 +149,7 @@ export const useSmartDropState = () => {
     csvFile: state.csvFile,
     csvData: state.csvData,
     fileMetadata: state.fileMetadata,
+    batchId: state.batchId,
     uploaded: state.uploaded,
     uploadError: state.uploadError,
     callDone: state.callDone,
@@ -160,6 +165,7 @@ export const useSmartDropState = () => {
     // Setters
     setCsvFile,
     setCsvData,
+    setBatchId,
     setUploaded,
     setUploadError,
     setCallDone,

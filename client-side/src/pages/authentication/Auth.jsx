@@ -70,7 +70,9 @@ export function Auth({ open, onOpenChange, onLogin, showTrigger = true }) {
           </div>
           <DialogDescription className="text-sky-600 leading-relaxed">
             {mode === 'login'
-              ? 'Access your AI-powered logistics dashboard and optimize your supply chain.'
+              ? <>
+      Access your AI-powered logistics dashboard and optimize your supply chain. Use <b>Demo</b> credentials
+    </>
               : 'Create your account and start revolutionizing your logistics operations.'}
           </DialogDescription>
         </DialogHeader>
