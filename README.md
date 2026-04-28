@@ -41,12 +41,52 @@ Retailers and dark stores face critical challenges:
 
 ### 1. Technical Sequence Architecture
 
-<img src="assets/sequence_architecture.png" alt="Technical Sequence Architecture" width="800"/>
+```mermaid
+sequenceDiagram
+    participant U as Vendor
+    participant A as API
+    participant H as Hugging Face
+    participant G as Gemini
+    participant T as Twilio
+    actor C as Customer
+
+    Note over U, C: 1. Stock Optimization
+    U->>A: Upload Sales CSV
+    A->>H: Request Forecast
+    H-->>A: 7-Day Prediction
+    A->>G: Analyze Trends
+    G-->>A: Stock Insights
+    A-->>U: Update Dashboard
+
+    Note over U, C: 2. Last-Mile Delivery
+    U->>A: Upload Delivery CSV
+    A->>T: Trigger AI Calls
+    T->>C: Voice Call
+    C-->>T: Customer Reply
+    T->>G: Parse Intent
+    G-->>A: Delivery Status
+    A-->>U: Update Dashboard
+```
 
 ### 2. Core Process Flows
 Pulse automates two primary pipelines: Stock Optimization and Last-Mile Delivery.
 
-<img src="assets/process_flows.png" alt="Core Process Flows" width="800"/>
+```mermaid
+graph TD
+    classDef ai fill:#e8f4f8,stroke:#3b82f6,stroke-width:2px;
+    classDef api fill:#f0fdf4,stroke:#22c55e,stroke-width:2px;
+    
+    A([Upload CSV]) --> B[Backend API]:::api
+    
+    B -->|Sales Data| C{Hugging Face}:::ai
+    C -->|Forecast| D[Gemini Insights]:::ai
+    D --> E([Vendor Dashboard])
+    
+    B -->|Delivery Data| F{Twilio Calls}:::api
+    F <-->|Voice Interaction| G((Customer))
+    F -->|Transcript| H[Gemini Parser]:::ai
+    H --> I([Delivery Dashboard])
+```
 
 ---
 
