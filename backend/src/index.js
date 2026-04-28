@@ -47,18 +47,7 @@ app.use('/api/data', dataRoutes);
 
 // ── Health Check ────────────────────────────
 app.get('/', (req, res) => {
-    res.json({
-        status: 'healthy',
-        service: 'Pulse API',
-        version: '2.0.0',
-        architecture: {
-            compute: 'Render',
-            ml: 'Vertex AI',
-            calling: 'Twilio',
-            insights: 'Gemini API'
-        },
-        timestamp: new Date().toISOString()
-    });
+    res.send('I am working');
 });
 
 app.get('/health', (req, res) => {
@@ -69,11 +58,11 @@ app.get('/health', (req, res) => {
 app.use(errorHandler);
 
 // ── Database Connection ─────────────────────
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/Pulse';
+const MONGODB_URI = process.env.MONGODB_URI || '';
 
 mongoose.connect(MONGODB_URI)
-    .then(() => logger.info('✅ Connected to MongoDB'))
-    .catch(err => logger.warn('⚠️ MongoDB connection error (server will continue):', err.message));
+    .then(() => logger.info('✅ Connected to MongoDB' + MONGODB_URI))
+    .catch(err => logger.warn('⚠️ MongoDB connection error (server will continue):', err.message, `this is what${MONGODB_URI}`));
 
 // ── Start Server ────────────────────────────
 const PORT = parseInt(process.env.PORT, 10) || 5000;

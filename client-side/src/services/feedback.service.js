@@ -1,5 +1,7 @@
 // Service for handling prediction feedback
-const API_BASE_URL = 'https://Pulse.onrender.com/api';
+import config from '../config';
+
+const API_BASE_URL = config.apiUrl;
 
 export const feedbackService = {
   // Submit feedback for a prediction

@@ -10,14 +10,12 @@ import { AuthProvider, useAuth } from '../context/AuthContext';
 import { useState, useEffect } from 'react';
 import LoadingAnimation from '../components/LoadingAnimation';
 import PageLoader from '../components/PageLoader';
-import RoleSelectionDialog from '../components/RoleSelectionDialog';
 import { useLoading } from '../context/LoadingContext';
 import { useDemoModal } from '../context/DemoModalContext';
 import { AlertCircle, DatabaseIcon, Users } from 'lucide-react';
 
-function ProtectedRoute({ children, requiredRole = null }) {
-  const { user, loading, updateRole } = useAuth();
-  const location = useLocation();
+function ProtectedRoute({ children }) {
+  const { user, loading } = useAuth();
   const navigate = useNavigate();
   const [authOpen, setAuthOpen] = useState(false);
   const { showLoading, hideLoading } = useLoading();
@@ -29,31 +27,9 @@ function ProtectedRoute({ children, requiredRole = null }) {
       hideLoading();
       if (!user) {
         setAuthOpen(true);
-      } else if (user.role === null && requiredRole) {
-        // User exists but has no role selected and trying to access a protected page
-        // Redirect to home and let AppContent handle the role selection dialog
-        console.log(`User has no role selected, redirecting to home from '${requiredRole}' page`);
-        navigate('/', { replace: true, state: { needsRoleSelection: true } });
-      } else if (requiredRole && !hasAccess(user.role, requiredRole)) {
-        // User doesn't have access to this page - redirect to home
-        console.log(`Access denied: User role '${user.role}' cannot access '${requiredRole}' page`);
-        navigate('/', { replace: true });
       }
     }
-  }, [user, loading, showLoading, hideLoading, requiredRole, navigate]);
-
-  // Check if user has access based on role
-  const hasAccess = (userRole, requiredRole) => {
-    if (userRole === 'demo') return true; // Demo users have access to everything
-    if (requiredRole === 'shopkeeper') return userRole === 'shopkeeper';
-    if (requiredRole === 'delivery_person') return userRole === 'delivery_person';
-    return false;
-  };
-
-  // If user doesn't have required role and we're trying to redirect, don't render anything
-  if (user && user.role !== null && requiredRole && !hasAccess(user.role, requiredRole)) {
-    return null;
-  }
+  }, [user, loading, showLoading, hideLoading, navigate]);
 
   return (
     <>
@@ -70,15 +46,14 @@ function ProtectedRoute({ children, requiredRole = null }) {
         }}
         showTrigger={false}
       />
-      {user && (user.role !== null) && (!requiredRole || hasAccess(user.role, requiredRole)) ? children : null}
+      {user ? children : null}
     </>
   );
 }
 
 function AppContent() {
   const [authOpen, setAuthOpen] = useState(false);
-  const [roleSelectionOpen, setRoleSelectionOpen] = useState(false);
-  const { user, logout, loading, updateRole } = useAuth();
+  const { user, logout, loading } = useAuth();
   const { showLoading, hideLoading } = useLoading();
   const location = useLocation();
   // Global demo modal context
@@ -93,36 +68,6 @@ function AppContent() {
     }
   }, [loading, showLoading, hideLoading]);
 
-  // Check if user needs to select role after login or redirect
-  useEffect(() => {
-    console.log('AppContent useEffect:', { 
-      user: user ? { name: user.name, role: user.role } : null, 
-      authOpen, 
-      roleSelectionOpen,
-      currentPath: location.pathname,
-      locationState: location.state
-    });
-    
-    if (user && user.role === null && !authOpen) {
-      // Show role selection dialog if:
-      // 1. User needs role selection (redirected from protected route)
-      // 2. User is on home page and has no role
-      const needsRoleSelection = location.state?.needsRoleSelection || location.pathname === '/';
-      
-      console.log('User needs role selection:', { needsRoleSelection });
-      
-      if (needsRoleSelection) {
-        console.log('Setting role selection dialog to open');
-        setRoleSelectionOpen(true);
-        
-        // Clear the state so it doesn't trigger again
-        if (location.state?.needsRoleSelection) {
-          window.history.replaceState({}, '', location.pathname);
-        }
-      }
-    }
-  }, [user, authOpen, location]);
-
   // Handler for dialog open/close
   const navigate = useNavigate();
 
@@ -134,29 +79,14 @@ function AppContent() {
   }
 
   // Called on successful login
-  function handleLoginSuccess(userData) {
+  function handleLoginSuccess() {
     setAuthOpen(false);
-    // Check if user needs to select role
-    if (userData && userData.role === null) {
-      setRoleSelectionOpen(true);
-    }
-  }
-
-  // Handle role selection
-  const handleRoleSelect = async (role) => {
-    try {
-      await updateRole(role);
-      setRoleSelectionOpen(false);
-    } catch (error) {
-      console.error('Error updating role:', error);
-    }
   };
 
   // Called on logout
   async function handleLogout() {
     await logout();
     setAuthOpen(false);
-    setRoleSelectionOpen(false);
     navigate('/');
   }
 
@@ -224,14 +154,6 @@ function AppContent() {
         onLogin={handleLoginSuccess}
         showTrigger={false}
       />
-      <RoleSelectionDialog
-        open={roleSelectionOpen}
-        onRoleSelect={handleRoleSelect}
-        onClose={() => {
-          setRoleSelectionOpen(false);
-          navigate('/');
-        }}
-      />
       <main className="flex-grow pt-[66px]">
         <Routes>
           <Route 
@@ -245,7 +167,7 @@ function AppContent() {
           <Route
             path="/predict"
             element={
-              <ProtectedRoute requiredRole="shopkeeper">
+                <ProtectedRoute>
                 <PageLoader minLoadTime={300}>
                   <Predict />
                 </PageLoader>
@@ -265,7 +187,7 @@ function AppContent() {
           <Route
             path="/smartdrop"
             element={
-              <ProtectedRoute requiredRole="delivery_person">
+                <ProtectedRoute>
                 <PageLoader minLoadTime={300}>
                   <SmartDrop />
                 </PageLoader>

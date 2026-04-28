@@ -20,15 +20,15 @@ export const deliveryService = {
     /**
      * Trigger delivery calls for a batch
      */
-    async triggerCalls(webhookBaseUrl = null) {
-        return api.post(`${BASE}/trigger`, { webhook_base_url: webhookBaseUrl });
+    async triggerCalls(batchId, webhookBaseUrl = null) {
+        return api.post(`${BASE}/trigger`, { batchId, webhook_base_url: webhookBaseUrl });
     },
 
     /**
      * Get call results and transcripts for a batch
      */
-    async getResults() {
-        return api.get(`${BASE}/results`);
+    async getResults(batchId) {
+        return api.get(`${BASE}/results?batch_id=${batchId}`);
     },
 
     /**
@@ -41,7 +41,7 @@ export const deliveryService = {
     /**
      * Retry failed calls for a batch
      */
-    async retryCalls(webhookBaseUrl = null) {
-        return api.post(`${BASE}/retry`, { webhook_base_url: webhookBaseUrl });
+    async retryCalls(batchId, webhookBaseUrl = null) {
+        return api.post(`${BASE}/retry`, { batchId, webhook_base_url: webhookBaseUrl });
     }
 };

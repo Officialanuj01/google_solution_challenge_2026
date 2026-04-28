@@ -1,0 +1,14 @@
+store_id,product_id,date,sales,stock
+FreshMart,Rice,2024-06-01,45,120
+FreshMart,Wheat Flour,2024-06-01,30,80
+FreshMart,Milk,2024-06-01,25,50
+QuickBasket,Rice,2024-06-01,60,200
+QuickBasket,Bread,2024-06-01,35,60
+QuickBasket,Eggs,2024-06-01,50,90
+DailyNeeds,Milk,2024-06-01,40,70
+DailyNeeds,Butter,2024-06-01,20,40
+DailyNeeds,Cheese,2024-06-01,15,30
+FreshMart,Rice,2024-06-02,50,110
+FreshMart,Wheat Flour,2024-06-02,28,75
+QuickBasket,Bread,2024-06-02,32,55
+DailyNeeds,Milk,2024-06-02,38,65
