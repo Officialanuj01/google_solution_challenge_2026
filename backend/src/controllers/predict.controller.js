@@ -1,9 +1,9 @@
 /**
  * Pulse — Predict Controller
  * Handles stock prediction endpoints using PULSE (HuggingFace Gradio)
- * Replaces: Vertex AI endpoint
+ * Replaces: Hugging Face endpoint
  */
-const predictionService = require('../services/vertexai.service');
+const predictionService = require('../services/huggingface.service');
 const { parseCSV, validateSalesCSV } = require('../utils/csv-parser');
 const { logger } = require('../utils/logger');
 

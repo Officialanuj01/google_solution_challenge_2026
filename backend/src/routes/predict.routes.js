@@ -1,6 +1,6 @@
 /**
  * Pulse — Prediction Routes
- * Endpoints for Vertex AI stock demand prediction
+ * Endpoints for Hugging Face stock demand prediction
  * Replaces: /api/predict and /api/train from predictor/app.py
  */
 const express = require('express');
@@ -24,7 +24,7 @@ const upload = multer({
 
 // Health check
 router.get('/', (req, res) => {
-    res.json({ message: 'Prediction service is running (Vertex AI)' });
+    res.json({ message: 'Prediction service is running (Hugging Face)' });
 });
 
 // POST /api/predict — Upload CSV and get predictions

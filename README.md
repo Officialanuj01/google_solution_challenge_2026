@@ -1,109 +1,141 @@
-# 🧠 Pulse: AI-Powered Retail Supply Chain & Last-Mile Delivery Platform
+# 🧠 Pulse: Intelligent Operations for Dark Stores & Retail Supply Chains
+
+**Event:** Google Solution Challenge 2026  
+**Team Name:** DSA  
+
+---
 
 ## 📚 Table of Contents
 - [🚀 Project Overview](#-project-overview)
 - [🏆 Problem Statement](#-problem-statement)
-- [💡 What Does Pulse Do?](#-what-does-Pulse-do)
+- [🏗️ Architecture & Process Flows](#️-architecture--process-flows)
+- [💡 What Does Pulse Do?](#-what-does-pulse-do)
+- [📈 Business Value & Cost](#-business-value--cost)
 - [📦 Features](#-features)
 - [🛠️ Tech Stack](#️-tech-stack)
-- [🏗️ Architecture](#️-architecture)
-- [⚙️ How It Works](#how-it-works)
-- [🚀 Getting Started](#-getting-started)
-- [📡 API Documentation](#-api-documentation)
-- [🤝 Contributing](#-contributing)
-- [🔭 Ongoing Development](#-ongoing-development)
+- [⚙️ How It Works](#-how-it-works)
+- [🔭 Future Development Roadmap](#-future-development-roadmap)
 - [👥 Team & Credits](#-team--credits)
 
 ---
 
 ## 🚀 Project Overview
-**Pulse** is an intelligent, end-to-end AI solution designed to transform modern retail supply chains. It addresses two key operational pain points:
-1. **Inventory Demand Forecasting** – helping vendors prevent stockouts and overstocking.
-2. **Last-Mile Delivery Coordination** – automating customer communication via Twilio-powered voice bots.
+**Pulse** is an end-to-end AI solution designed for high-speed dark store environments where demand is volatile and delivery timelines are tight. It integrates smart inventory prediction with automated last-mile delivery communication to reduce wastage and manual workload.
 
-Built for scale and real-world usability, Pulse uses **Vertex AI** and the **Gemini API** for intelligence, along with **Twilio** for telephony, to help businesses operate smarter and faster.
+Built for scale and real-world usability, Pulse uses **Hugging Face** for demand forecasting, **Gemini API** for intelligent insights, and **Twilio** for automated telephony.
 
 ---
 
 ## 🏆 Problem Statement
+**Focus Track:** Smart Supply Chains Open Innovation
 
-> **Transforming retail supply chains: From inventory management to last-mile delivery**
-Retailers contend with two critical, costly challenges:
+Retailers and dark stores face critical challenges:
+- **Overstocking:** Wastage of perishable goods due to inaccurate planning  
+- **Understocking:** Lost sales and poor customer experience  
+- **Failed Deliveries:** Lack of proactive communication  
+- **Manual Effort:** High operational overhead  
 
-Inventory Imbalance: Manual forecasting leads to stockouts (lost sales, unhappy customers) or overstock (excess capital tied up, waste).
+---
 
-Delivery Inefficiency: Unconfirmed delivery windows result in failed drop‑offs, wasted driver time, and poor customer experience.
-These issues occur daily across all stores and delivery zones—especially during peak seasons—eroding profitability and brand loyalty.
+## 🏗️ Architecture & Process Flows
+
+### 1. Technical Sequence Architecture
+
+<img src="assets/sequence_architecture.png" alt="Technical Sequence Architecture" width="800"/>
+
+### 2. Core Process Flows
+Pulse automates two primary pipelines: Stock Optimization and Last-Mile Delivery.
+
+<img src="assets/process_flows.png" alt="Core Process Flows" width="800"/>
 
 ---
 
 ## 💡 What Does Pulse Do?
 
-### 📊 **1. Intelligent Stock Optimization**
-- Accepts CSV sales data from retail stores.
-- Predicts store-level demand by date and SKU using **Vertex AI**.
-- **Gemini API** generates actionable insights from predictions.
-- Ensures vendors always stock the right quantity, at the right time, in the right store.
+### 📊 Intelligent Stock Optimization
 
-### 📞 **2. Automated Delivery Coordination**
-- Accepts CSV input of customers from delivery partners.
-- **Twilio** calling bot automatically contacts each customer to:
-  - Confirm delivery availability time.
-  - Ask for specific delivery instructions.
-- Twilio records customer responses for review.
-- Missed/disconnected calls are queued for retry.
+* Forecasts SKU-level demand using historical data
+* Reduces stockouts and wastage
+* Enables data-driven inventory planning
+<img src="assets/prediction1.png" alt="🤖">
+<img src="assets/prediction2.png" alt="🤖">
+<img src="assets/stock_optimization.png" alt="Stock Optimization Dashboard" width="800"/>
 
-### 🤖 **3. AI-Powered Insights (NEW)**
-- **Gemini API** analyzes sales patterns, anomalies, and delivery data.
-- Conversational AI assistant for supply chain questions.
-- Store performance summaries and risk assessments.
+### 📞 Automated Delivery Coordination
+
+* AI-powered voice calls to customers
+* Confirms availability and delivery instructions
+* Eliminates manual coordination
+
+<img src="assets/delivery_coordination.png" alt="Delivery Coordination Dashboard" width="800"/>
+
+### 🤖 Response Capture & Retry
+
+* Converts voice responses to structured data
+* Stores delivery instructions for drivers
+* Intelligent retry system for failed calls
+
 
 ---
 
 ## 📦 Features
 
-- 📁 Upload CSVs for both sales and delivery data.
-- 🤖 AI prediction for store-level stock needs via **Vertex AI**.
-- 📞 Voice bot integration via **Twilio**.
+- 📊 **AI Demand Forecasting**
+- 📞 **Voice bot integration** via Twilio.
 - 🧠 **Gemini-powered insights** — trends, anomalies, recommendations.
-- 🔌 WebSocket real-time dashboard updates.
-- 🛠️ REST APIs via **Render** backend.
-- 📊 Intuitive dashboards for vendors and delivery partners.
-- 🔐 Secure authentication with JWT + Google OAuth.
-- 💻 Responsive, modern frontend using React + Tailwind.
+- 🔌 **WebSocket** real-time dashboard updates.
+- 🛠️ **REST APIs** via Render backend.
+- 📊 **Intuitive dashboards** for vendors and delivery partners.
+- 🔐 **Secure authentication** with JWT + Google OAuth.
+- 💻 **Responsive, modern frontend** using React + Tailwind.
+- 🔁 **Smart Retry Logic** for failed deliveries.
+
+---
+
+## 📈 Business Value & Cost
+
+### Impact
+
+* Higher delivery success rates
+* Reduced stock wastage
+* Lower operational workload
+
+### Scalability
+
+* Works with simple CSV uploads
+* Suitable for multi-store operations
+
+### Monthly Cost Estimate (1,000 Users)
+
+| Component     | Technology                | Cost              |
+| ------------- | ------------------------- | ----------------- |
+| Communication | Twilio                    | ₹1,000 - ₹2,000   |
+| AI Processing | Gemini                    | ₹200 - ₹500       |
+| Cloud & DB    | Vercel + MongoDB + Render | ₹500 - ₹1,000     |
+| **Total**     |                           | **₹1.7k - ₹3.5k** |
+
+**Per User Cost:** ₹2 - ₹3.5/month
 
 ---
 
 ## 🛠️ Tech Stack
 
 | Layer | Technology |
-|---|---|
-| Frontend | React, Tailwind CSS, Vite |
-| Backend API | Node.js, Express (Render) |
-| ML / Prediction | Google Vertex AI |
-| Calling Bot | Twilio |
-| AI Insights | Google Gemini API |
-| Authentication | JWT + Google OAuth 2.0 |
-| Deployment | Render (backend), Vercel (frontend) |
+|-------|------------|
+| **Frontend** | React, Tailwind CSS, Vite |
+| **Backend API** | Node.js, Express (Render) |
+| **ML / Prediction** | Hugging Face, Scikit-learn, Pandas |
+| **Calling Bot** | Twilio |
+| **AI Insights** | Google Gemini API |
+| **Database** | MongoDB |
+| **Authentication** | JWT + Google OAuth 2.0 |
+| **Deployment** | Render (backend), Vercel (frontend), GitHub |
 
 ---
 
-## 🏗️ Architecture
+## 📂 Project Structure
 
-```
-Frontend (React Dashboard)
-        ↓
-Render / Backend API
-        ↓
-Vertex AI (prediction)
-        ↓
-Twilio (calling bot)
-        ↓
-Gemini API (insights)
-```
-
-### Project Structure:
-```
+```text
 Pulse/
 ├── client-side/          # React Dashboard (Vite + Tailwind)
 │   └── src/
@@ -111,7 +143,7 @@ Pulse/
 │       ├── pages/        # Route pages
 │       ├── services/     # API service layer
 │       │   ├── auth.service.js
-│       │   ├── prediction.service.js    (Vertex AI)
+│       │   ├── huggingface.service.js   (Hugging Face)
 │       │   ├── delivery.service.js      (Twilio)
 │       │   ├── insights.service.js      (Gemini API)
 │       │   └── realtime.service.js      (WebSocket)
@@ -127,12 +159,9 @@ Pulse/
 │   │   └── models/       # Data models
 │   └── Dockerfile        # Backend container
 │
-├── vertex-ai/            # Vertex AI model training
-│   └── training/
-│       ├── train_demand_model.py
-│       └── config.yaml
-```
-
+├── pulse-space/          # Hugging Face model deployment
+│   ├── app.py            # Gradio Interface & Inference
+│   └── requirements.txt
 ```
 
 ---
@@ -141,8 +170,8 @@ Pulse/
 
 ### 🧮 Stock Prediction Workflow:
 1. Vendor uploads sales CSV via React dashboard.
-2. Backend sends data to **Vertex AI** model for prediction.
-3. **Vertex AI** model predicts next 7 days of demand per store/product.
+2. Backend sends data to **Hugging Face** model for prediction.
+3. **Hugging Face** model predicts next 7 days of demand per store/product.
 4. Results returned to dashboard via API response.
 5. **Gemini API** generates insights and recommendations.
 
@@ -162,7 +191,7 @@ Pulse/
 - Node.js 18+
 - MongoDB connection string
 - Gemini API key
-- Vertex AI project/endpoint (if using hosted model)
+- Hugging Face project/endpoint
 - Google OAuth client ID
 - Twilio account with verified phone number
 
@@ -198,11 +227,11 @@ npm run dev
 | GET | `/api/auth/me` | Get current user |
 | PUT | `/api/auth/role` | Update user role |
 
-### Predictions (Vertex AI)
+### Predictions (Hugging Face)
 | Method | Endpoint | Description |
 |--------|----------|-------------|
 | POST | `/api/predict` | Upload sales CSV & get predictions |
-| POST | `/api/predict/train` | Submit training job to Vertex AI |
+| POST | `/api/predict/train` | Submit training job to Hugging Face |
 | GET | `/api/predict/results` | Fetch prediction results |
 
 ### Delivery (Twilio)
@@ -229,51 +258,27 @@ npm run dev
 
 ---
 
-## 🤝 Contributing
-We welcome contributions to improve Pulse! Here's how to get started:
+## 🔭 Future Development Roadmap
 
-```bash
-# Fork the repo
-git fork https://github.com/DSAops/Pulse.git
-
-# Clone and create a new branch
-git checkout -b feature/amazing-feature
-
-# Make changes and commit
-git commit -m "Added amazing feature"
-
-# Push and create a pull request
-git push origin feature/amazing-feature
-```
-
----
-
-## 🔭 Ongoing Development
-We are continuously working on expanding the platform with:
-- 🌍 Multilingual voice support
-- 🗺️ Google Maps integration for delivery optimization
-
-Track progress here:
-📌 GitHub Repo: [https://github.com/DSAops/Pulse](https://github.com/DSAops/Pulse)
+* 🌍 Multilingual voice support
+* 📱 WhatsApp, SMS, and app notifications
+* 🧠 Advanced anomaly detection
+* 🔗 ERP & logistics integrations
 
 ---
 
 ## 👥 Team & Credits
-**Team Pulse**
-- Anuj Sahu – Fullstack Developer
-- Devraj Patil – Fullstack Developer
-- Saksham Gupta – Fullstack Developer
+
+* Anuj Sahu
+* Devraj Patil
+* Saksham Gupta
 
 ---
 
-## 📬 Contact
-Need a demo or have questions?
-📧 Email us at: officialanuj004@gmail.com
+## ⚠️ Disclaimer
+
+This project is a hackathon prototype built for the Google Solution Challenge 2026.
 
 ---
 
-Pulse: Powering the future of retail supply chains with AI.
-
-> 🚧 **Disclaimer:** This repository contains a hackathon prototype built for learning and demo purposes only.
->
-> 💡 Made with ❤️ by Team DSA. (Devraj, Saksham, and Anuj)
+**Pulse: Powering the future of retail supply chains with AI.**
