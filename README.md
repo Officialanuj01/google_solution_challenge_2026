@@ -57,7 +57,8 @@ Pulse automates two primary pipelines: Stock Optimization and Last-Mile Delivery
 * Forecasts SKU-level demand using historical data
 * Reduces stockouts and wastage
 * Enables data-driven inventory planning
-
+<img src="assets/prediction1.png" alt="🤖">
+<img src="assets/prediction2.png" alt="🤖">
 <img src="assets/stock_optimization.png" alt="Stock Optimization Dashboard" width="800"/>
 
 ### 📞 Automated Delivery Coordination
