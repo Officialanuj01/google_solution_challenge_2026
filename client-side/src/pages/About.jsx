@@ -11,7 +11,6 @@ const heroBg = [
 
 const teamStats = [
   { icon: Users, label: 'Team Name', value: 'DSA' },
-  { icon: Star, label: 'Team Leader', value: 'Anuj Sahu' },
   { icon: Rocket, label: 'Problem Statement', value: 'Supply Chains' },
   { icon: Globe, label: 'Innovation', value: 'Open Innovation' },
 ];
@@ -67,7 +66,7 @@ function About() {
           <p className="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto leading-relaxed mb-6">
             <span className="font-bold text-cyan-600">Smart Supply Chains</span> Open Innovation
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
             {teamStats.map((a, i) => (
               <motion.div key={i} whileHover={{ scale: 1.09, boxShadow: '0 8px 32px rgba(0,0,0,0.12)' }} className="p-5 text-center bg-white/60 rounded-2xl shadow-xl backdrop-blur-lg border border-cyan-100/30 transition-all duration-300 hover:border-cyan-400/40">
                 <div className="w-12 h-12 mx-auto mb-2 rounded-full bg-gradient-to-br from-cyan-400/30 to-blue-500/30 flex items-center justify-center shadow-lg border border-white/20">
