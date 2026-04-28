@@ -133,9 +133,7 @@ function AppContent() {
             <Route
               path="/about"
               element={
-                <ProtectedRoute>
                   <About key={location.pathname} />
-                </ProtectedRoute>
               }
             />
             <Route
