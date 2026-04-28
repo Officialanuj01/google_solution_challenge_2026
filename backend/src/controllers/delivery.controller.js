@@ -149,7 +149,7 @@ const deliveryController = {
         try {
             const { recordId } = req.params;
             const baseUrl = `${req.protocol}://${req.get('host')}`;
-            const gatherCallbackUrl = `${baseUrl}/api/delivery/recording/${recordId}`;
+            const gatherCallbackUrl = `${baseUrl}/delivery/recording/${recordId}`;
 
             const twiml = twilioService.generateVoiceTwiml(recordId, gatherCallbackUrl);
             res.type('text/xml').send(twiml);
