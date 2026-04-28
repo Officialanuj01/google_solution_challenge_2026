@@ -74,7 +74,6 @@ Pulse automates two primary pipelines: Stock Optimization and Last-Mile Delivery
 * Stores delivery instructions for drivers
 * Intelligent retry system for failed calls
 
-<img src="assets/customer_responses.png" alt="Customer Responses Dashboard" width="800"/>
 
 ---
 
