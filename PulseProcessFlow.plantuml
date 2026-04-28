@@ -8,7 +8,7 @@ left to right direction
 ' Partition 1: Stock optimization
 partition "Stock Optimization" {
     (*) --> "Upload Sales CSV"
-    --> "Vertex AI Forecast"
+    --> "Hugging Face Forecast"
     --> "Gemini Insights"
     --> "Vendor Dashboard"
 }

@@ -15,7 +15,7 @@ actor "Retail Vendor" as Vendor
 actor "Delivery Partner" as DeliveryPartner
 actor "Customer" as Customer
 actor "Google Gemini" << System >> as Gemini
-actor "Vertex AI" << System >> as Vertex
+actor "Hugging Face" << System >> as HuggingFace
 actor "Twilio" << System >> as Twilio
 
 rectangle "Pulse Platform" {
@@ -54,7 +54,7 @@ Customer --> UC7
 Customer --> UC8
 
 ' System Interconnections
-UC2 -- Vertex : "Prediction Logic"
+UC2 -- HuggingFace : "Prediction Logic"
 UC3 -- Gemini : "Summarization"
 UC4 -- Gemini : "Conversational AI"
 UC6 -- Twilio : "Place Call"

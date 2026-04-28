@@ -22,7 +22,7 @@
 ## 🚀 Project Overview
 **Pulse** is an end-to-end AI solution designed for high-speed dark store environments where demand is volatile and delivery timelines are tight. It integrates smart inventory prediction with automated last-mile delivery communication to reduce wastage and manual workload.
 
-Built for scale and real-world usability, Pulse uses **Vertex AI** for demand forecasting, **Gemini API** for intelligent insights, and **Twilio** for automated telephony.
+Built for scale and real-world usability, Pulse uses **Hugging Face** for demand forecasting, **Gemini API** for intelligent insights, and **Twilio** for automated telephony.
 
 ---
 
@@ -39,60 +39,14 @@ Retailers and dark stores face critical challenges:
 
 ## 🏗️ Architecture & Process Flows
 
-### 1. Core Process Flows
+### 1. Technical Sequence Architecture
+
+<img src="assets/sequence_architecture.png" alt="Technical Sequence Architecture" width="800"/>
+
+### 2. Core Process Flows
 Pulse automates two primary pipelines: Stock Optimization and Last-Mile Delivery.
 
-```mermaid
-graph LR
-    subgraph "Stock Optimization Flow"
-    A[Upload Sales CSV] --> B[Vertex AI Forecast]
-    B --> C[Gemini Insights] --> D[Vendor Dashboard]
-    end
-
-    subgraph "Last-Mile Delivery Flow"
-    E[Upload Customer CSV] --> F[Twilio Call Trigger]
-    F --> G[Customer Voice Response] --> H[Gemini Call Analysis]
-    H --> I[Delivery Dashboard]
-    end
-````
-
-### 2. Technical Sequence Architecture
-
-```mermaid
-sequenceDiagram
-    autonumber
-    actor User as User (Vendor/Partner)
-    participant RF as React Frontend
-    participant EB as Express Backend
-    participant DB as MongoDB
-    participant VAI as Vertex AI
-    participant GAI as Gemini AI
-    participant TS as Twilio Service
-    actor C as Customer
-
-    Note over User, GAI: Stock Prediction & Summarization Flow
-    User->>RF: Upload Sales CSV
-    RF->>EB: POST /api/predict
-    EB->>VAI: Demand Forecasting
-    VAI-->>EB: Predictions (7 Days)
-    EB->>GAI: Generate Insights
-    GAI-->>EB: Recommendations
-    EB->>DB: Save Data
-    EB-->>RF: Return Results
-    RF->>User: Dashboard Display
-
-    Note over User, C: Last-Mile Delivery Coordination
-    User->>RF: Upload Delivery CSV
-    RF->>EB: POST /api/delivery/trigger
-    EB->>DB: Store Data
-    EB->>TS: Trigger Calls
-    TS->>C: Outbound Call
-    C-->>TS: Response
-    TS-->>EB: Webhook Update
-    EB->>DB: Save Status
-    EB-->>RF: Real-time Update
-    RF->>User: Show Status
-```
+<img src="assets/process_flows.png" alt="Core Process Flows" width="800"/>
 
 ---
 
@@ -104,11 +58,15 @@ sequenceDiagram
 * Reduces stockouts and wastage
 * Enables data-driven inventory planning
 
+<img src="assets/stock_optimization.png" alt="Stock Optimization Dashboard" width="800"/>
+
 ### 📞 Automated Delivery Coordination
 
 * AI-powered voice calls to customers
 * Confirms availability and delivery instructions
 * Eliminates manual coordination
+
+<img src="assets/delivery_coordination.png" alt="Delivery Coordination Dashboard" width="800"/>
 
 ### 🤖 Response Capture & Retry
 
@@ -161,7 +119,7 @@ sequenceDiagram
 
 **Frontend:** React.js, Tailwind CSS, Vite
 **Backend:** Node.js, Express
-**AI/ML:** Vertex AI, Gemini, Scikit-learn, Pandas
+**AI/ML:** Hugging Face, Gemini, Scikit-learn, Pandas
 **Communication:** Twilio API
 **Database:** MongoDB
 **Auth:** Google Auth
@@ -173,7 +131,7 @@ sequenceDiagram
 
 1. Upload sales or delivery CSV
 2. Backend processes data
-3. Vertex AI generates predictions
+3. Hugging Face generates predictions
 4. Gemini provides insights
 5. Twilio handles customer calls
 6. Results displayed on dashboard

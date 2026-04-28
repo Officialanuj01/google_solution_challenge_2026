@@ -28,7 +28,7 @@ actor "User (Vendor/Partner)" as User
 participant "React Frontend" as Frontend
 participant "Express Backend" as Backend
 database "MongoDB" as DB
-participant "Vertex AI" as VertexAI
+participant "Hugging Face" as HuggingFace
 participant "Gemini AI" as Gemini
 participant "Twilio Service" as Twilio
 actor "Customer" as Customer
@@ -38,8 +38,8 @@ actor "Customer" as Customer
 User -> Frontend: Upload Sales CSV
 Frontend -> Backend: POST /api/predict (CSV Data)
 Backend -> DB: Store CSV Metadata
-Backend -> VertexAI: Send Data for Demand Forecasting
-VertexAI --> Backend: Prediction Results (Next 7 Days)
+Backend -> HuggingFace: Send Data for Demand Forecasting
+HuggingFace --> Backend: Prediction Results (Next 7 Days)
 Backend -> Gemini: Send Predictions for Summarization
 note right of Gemini: Generates actionable insights,\ntrends, and stock recommendations
 Gemini --> Backend: AI Insights & Summaries
