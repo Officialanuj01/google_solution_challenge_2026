@@ -80,12 +80,15 @@ Pulse automates two primary pipelines: Stock Optimization and Last-Mile Delivery
 
 ## 📦 Features
 
-* 📊 AI Demand Forecasting
-* 📞 Automated Voice Call System
-* 🔁 Smart Retry Logic
-* 📈 Real-Time Dashboard
-* 🧠 AI Insights & Recommendations
-* 🔗 Scalable API Architecture
+- 📊 **AI Demand Forecasting**
+- 📞 **Voice bot integration** via Twilio.
+- 🧠 **Gemini-powered insights** — trends, anomalies, recommendations.
+- 🔌 **WebSocket** real-time dashboard updates.
+- 🛠️ **REST APIs** via Render backend.
+- 📊 **Intuitive dashboards** for vendors and delivery partners.
+- 🔐 **Secure authentication** with JWT + Google OAuth.
+- 💻 **Responsive, modern frontend** using React + Tailwind.
+- 🔁 **Smart Retry Logic** for failed deliveries.
 
 ---
 
@@ -117,13 +120,49 @@ Pulse automates two primary pipelines: Stock Optimization and Last-Mile Delivery
 
 ## 🛠️ Tech Stack
 
-**Frontend:** React.js, Tailwind CSS, Vite
-**Backend:** Node.js, Express
-**AI/ML:** Hugging Face, Gemini, Scikit-learn, Pandas
-**Communication:** Twilio API
-**Database:** MongoDB
-**Auth:** Google Auth
-**Deployment:** Vercel, Render, GitHub
+| Layer | Technology |
+|-------|------------|
+| **Frontend** | React, Tailwind CSS, Vite |
+| **Backend API** | Node.js, Express (Render) |
+| **ML / Prediction** | Hugging Face, Scikit-learn, Pandas |
+| **Calling Bot** | Twilio |
+| **AI Insights** | Google Gemini API |
+| **Database** | MongoDB |
+| **Authentication** | JWT + Google OAuth 2.0 |
+| **Deployment** | Render (backend), Vercel (frontend), GitHub |
+
+---
+
+## 📂 Project Structure
+
+```text
+Pulse/
+├── client-side/          # React Dashboard (Vite + Tailwind)
+│   └── src/
+│       ├── components/   # UI components
+│       ├── pages/        # Route pages
+│       ├── services/     # API service layer
+│       │   ├── auth.service.js
+│       │   ├── huggingface.service.js   (Hugging Face)
+│       │   ├── delivery.service.js      (Twilio)
+│       │   ├── insights.service.js      (Gemini API)
+│       │   └── realtime.service.js      (WebSocket)
+│       └── context/      # React context providers
+│
+├── backend/              # Render Backend API
+│   ├── src/
+│   │   ├── config/       # Service configurations
+│   │   ├── routes/       # Express routes
+│   │   ├── controllers/  # Request handlers
+│   │   ├── services/     # Business logic
+│   │   ├── middleware/   # Auth, CORS, error handling
+│   │   └── models/       # Data models
+│   └── Dockerfile        # Backend container
+│
+├── pulse-space/          # Hugging Face model deployment
+│   ├── app.py            # Gradio Interface & Inference
+│   └── requirements.txt
+```
 
 ---
 
