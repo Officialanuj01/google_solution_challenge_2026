@@ -262,7 +262,7 @@ function Predict() {
                       <div className="rounded-full bg-cyan-100 p-5 mb-3 group-hover:bg-cyan-200 transition-colors">
                         <Store className="w-8 h-8 text-cyan-600" />
                       </div>
-                      <span className="text-cyan-700 font-semibold group-hover:underline">Store {storeId}</span>
+                      <span className="text-cyan-700 font-semibold group-hover:underline">{storeId}</span>
                       <span className="text-sm text-gray-500 mt-1">{Object.keys(products).length} products</span>
                       <span className="text-sm text-cyan-500 group-hover:text-cyan-700 mt-2">View Predictions →</span>
                     </button>

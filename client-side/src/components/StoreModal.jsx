@@ -43,7 +43,7 @@ export default function StoreModal({ storeId, products = {}, onClose }) {
               </div>
               <div>
                 <h2 className="text-2xl font-bold">Store Predictions</h2>
-                <p className="text-cyan-100">Store ID: {storeId}</p>
+                <p className="text-cyan-100">{storeId}</p>
               </div>
             </div>
             
@@ -161,7 +161,7 @@ export default function StoreModal({ storeId, products = {}, onClose }) {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <div className="text-sm text-gray-600">
-                Showing all predictions for Store {storeId}
+                Showing all predictions for {storeId}
               </div>
             </div>
             

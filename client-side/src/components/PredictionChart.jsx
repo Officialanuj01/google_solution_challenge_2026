@@ -543,7 +543,7 @@ const PredictionChart = memo(({ predictions, actuals = [], onFeedback }) => {
             >
               <option value="">Select Store</option>
               {stores.map(store => (
-                <option key={store} value={store}>Store {store}</option>
+                <option key={store} value={store}>{store}</option>
               ))}
             </select>
             
@@ -568,7 +568,7 @@ const PredictionChart = memo(({ predictions, actuals = [], onFeedback }) => {
           {/* Data count indicator */}
           <div className="text-xs text-gray-500 ml-auto">
             Showing {getCurrentData().length} data points
-            {viewMode === 'store' && selectedStore && ` for Store ${selectedStore}`}
+            {viewMode === 'store' && selectedStore && ` for ${selectedStore}`}
             {viewMode === 'product' && selectedProduct && ` for Product ${selectedProduct}`}
           </div>
         </div>

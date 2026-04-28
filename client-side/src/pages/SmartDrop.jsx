@@ -65,6 +65,7 @@ function SmartDrop() {
   const {
     csvFile, setCsvFile,
     csvData, setCsvData,
+    batchId, setBatchId,
     uploaded, setUploaded,
     uploadError, setUploadError,
     callDone, setCallDone,
@@ -242,6 +243,12 @@ function SmartDrop() {
 
       const responseData = await res.json();
       console.log('Upload successful:', responseData);
+
+      if (!responseData?.batchId) {
+        throw new Error('Upload completed but no batchId was returned. Please try again.');
+      }
+
+      setBatchId(responseData.batchId);
       
       // Set the parsed CSV data for preview
       setCsvData({ headers, rows, totalRows: lines.length - 1 });
@@ -322,6 +329,12 @@ function SmartDrop() {
 
       const responseData = await uploadRes.json();
       console.log('Demo upload successful:', responseData);
+
+      if (!responseData?.batchId) {
+        throw new Error('Demo upload completed but no batchId was returned. Please try again.');
+      }
+
+      setBatchId(responseData.batchId);
       
       // Set the demo file and data
       setCsvFile(demoFile);
@@ -338,6 +351,11 @@ function SmartDrop() {
   };
 
   const handleMakeCalls = async () => {
+    if (!batchId) {
+      setCallError('Missing batchId. Please upload a CSV again.');
+      return;
+    }
+
     setCalling(true);
     setCallError(null);
     setCallDone(false);
@@ -352,7 +370,7 @@ function SmartDrop() {
       const res = await fetch(`${API_BASE}/trigger`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({}),
+        body: JSON.stringify({ batchId }),
       });
       if (!res.ok) throw new Error('Call trigger failed');
       
@@ -371,6 +389,11 @@ function SmartDrop() {
   };
 
   const handleFetchResults = async () => {
+    if (!batchId) {
+      setResponseError('Missing batchId. Please upload a CSV again.');
+      return;
+    }
+
     setLoadingResponses(true);
     setResponseError(null);
     setResponses(null);
@@ -378,7 +401,7 @@ function SmartDrop() {
     showLoading("Fetching call responses...");
     
     try {
-      const res = await fetch(`${API_BASE}/results`);
+      const res = await fetch(`${API_BASE}/results?batch_id=${encodeURIComponent(batchId)}`);
       if (!res.ok) throw new Error('Failed to fetch responses');
       const data = await res.json();
       
@@ -403,13 +426,18 @@ function SmartDrop() {
   };
 
   const handleRetryCalls = async () => {
+    if (!batchId) {
+      setRetryResult({ message: 'Missing batchId. Please upload a CSV again.', failed: 0, successful: 0 });
+      return;
+    }
+
     setRetrying(true);
     setRetryResult(null);
     try {
       const res = await fetch(`${API_BASE}/retry`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({}),
+        body: JSON.stringify({ batchId }),
       });
       if (!res.ok) throw new Error('Retry failed');
       const data = await res.json();
@@ -421,6 +449,61 @@ function SmartDrop() {
     } finally {
       setRetrying(false);
     }
+  };
+
+  const handleDownloadCsv = () => {
+    if (!responses || responses.length === 0) return;
+
+    const preferredOrder = [
+      'name',
+      'mobile_number',
+      'status',
+      'transcription',
+      'response',
+      'recording_duration',
+      'recording_sid',
+      'confidence',
+      'calledAt',
+      'createdAt',
+      'batchId'
+    ];
+
+    const extraKeys = new Set();
+    responses.forEach((row) => {
+      Object.keys(row || {}).forEach((key) => {
+        if (key === '__v') return;
+        if (!preferredOrder.includes(key)) {
+          extraKeys.add(key);
+        }
+      });
+    });
+
+    const headers = [...preferredOrder, ...Array.from(extraKeys)].filter((key) => key !== '__v');
+    const escapeValue = (value) => {
+      if (value === null || value === undefined) return '';
+      const str = String(value);
+      if (/["\n,\r]/.test(str)) {
+        return `"${str.replace(/"/g, '""')}"`;
+      }
+      return str;
+    };
+
+    const rows = responses.map((row) => headers.map((h) => escapeValue(row?.[h])).join(','));
+    const csvContent = `${headers.join(',')}\n${rows.join('\n')}`;
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+
+    const safeBatchId = batchId || 'batch';
+    const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+    const filename = `delivery_responses_${safeBatchId}_${timestamp}.csv`;
+
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = filename;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
   };
 
   const handleAnalyzeDelivery = async () => {
@@ -1011,6 +1094,15 @@ function SmartDrop() {
                     <button onClick={handleFetchResults}
                       className="px-4 py-2 bg-cyan-500 hover:bg-cyan-600 text-white font-medium rounded-lg transition-colors flex items-center gap-2">
                       <RefreshCw className="w-4 h-4" /> Refresh
+                    </button>
+                    <button onClick={handleDownloadCsv} disabled={!responses || responses.length === 0}
+                      className={`px-4 py-2 font-medium rounded-lg transition-colors flex items-center gap-2 ${
+                        !responses || responses.length === 0
+                          ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                          : 'bg-emerald-500 hover:bg-emerald-600 text-white'
+                      }`}
+                    >
+                      <Download className="w-4 h-4" /> Download CSV
                     </button>
                     <button onClick={handleAnalyzeDelivery} disabled={analyzing}
                       className="px-4 py-2 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-medium rounded-lg transition-all flex items-center gap-2 shadow-md hover:shadow-lg transform hover:scale-105 disabled:opacity-50">
