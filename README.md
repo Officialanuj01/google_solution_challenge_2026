@@ -43,53 +43,29 @@ Retailers and dark stores face critical challenges:
 
 ```mermaid
 sequenceDiagram
-    autonumber
-    box rgba(46, 204, 113, 0.1) Frontend & User
-        actor Vendor as Store Manager
-        participant React as Pulse Dashboard
-    end
-    box rgba(52, 152, 219, 0.1) Backend Engine
-        participant API as Node.js / Express
-        participant DB as MongoDB Cluster
-    end
-    box rgba(155, 89, 182, 0.1) AI & Communications
-        participant HF as Hugging Face
-        participant Gemini as Google Gemini
-        participant Twilio as Twilio Voice Bot
-    end
-    actor Customer as Delivery Customer
+    participant U as Vendor
+    participant A as API
+    participant H as Hugging Face
+    participant G as Gemini
+    participant T as Twilio
+    actor C as Customer
 
-    %% --- Stock Optimization Flow ---
-    rect rgb(240, 248, 255)
-    Note over Vendor, Gemini: Phase 1: AI Stock Optimization Pipeline
-    Vendor->>React: Upload Sales Data (CSV)
-    React->>API: POST /api/predict (Data Stream)
-    API->>DB: Log Upload Event
-    API->>HF: Trigger Demand Forecasting Model
-    HF-->>API: 7-Day SKU Predictions
-    API->>Gemini: Request Anomaly & Trend Analysis
-    Gemini-->>API: Structured Insights & Restock Plan
-    API->>DB: Store Forecast & Insights
-    API-->>React: Real-time UI Update (WebSocket)
-    React-->>Vendor: Display Interactive Analytics
-    end
+    Note over U, C: 1. Stock Optimization
+    U->>A: Upload Sales CSV
+    A->>H: Request Forecast
+    H-->>A: 7-Day Prediction
+    A->>G: Analyze Trends
+    G-->>A: Stock Insights
+    A-->>U: Update Dashboard
 
-    %% --- Automated Delivery Flow ---
-    rect rgb(255, 250, 240)
-    Note over Vendor, Customer: Phase 2: Automated Last-Mile Coordination
-    Vendor->>React: Upload Customer Manifest (CSV)
-    React->>API: POST /api/delivery/trigger
-    API->>DB: Queue Customers for Calling
-    API->>Twilio: Initiate Outbound Call Batch
-    Twilio->>Customer: Interactive Voice Call (TwiML)
-    Customer-->>Twilio: Voice Instructions ("Leave at door")
-    Twilio->>API: Webhook (Speech-to-Text Transcript)
-    API->>Gemini: Parse NLP Intent & Sentiment
-    Gemini-->>API: Extracted Action ("Drop-off", "Reschedule")
-    API->>DB: Update Delivery Status & Instructions
-    API-->>React: Push Live Call Updates
-    React-->>Vendor: Update Delivery Board
-    end
+    Note over U, C: 2. Last-Mile Delivery
+    U->>A: Upload Delivery CSV
+    A->>T: Trigger AI Calls
+    T->>C: Voice Call
+    C-->>T: Customer Reply
+    T->>G: Parse Intent
+    G-->>A: Delivery Status
+    A-->>U: Update Dashboard
 ```
 
 ### 2. Core Process Flows
@@ -97,28 +73,19 @@ Pulse automates two primary pipelines: Stock Optimization and Last-Mile Delivery
 
 ```mermaid
 graph TD
-    classDef ai fill:#f9e79f,stroke:#f1c40f,stroke-width:2px,color:black;
-    classDef db fill:#aed6f1,stroke:#3498db,stroke-width:2px,color:black;
-    classDef ext fill:#f5b041,stroke:#e67e22,stroke-width:2px,color:black;
-    classDef ui fill:#abebc6,stroke:#2ecc71,stroke-width:2px,color:black;
-
-    subgraph "📊 AI Stock Optimization Pipeline"
-        A1([Vendors & Store Operators]):::ui -->|Uploads CSV| B1[API Gateway: Sales Data]
-        B1 --> C1{Hugging Face Model}:::ai
-        C1 -->|7-Day Prediction| D1[(MongoDB Analytics)]:::db
-        C1 -->|Raw Trends| E1{Google Gemini AI}:::ai
-        E1 -->|Actionable Insights| D1
-        D1 --> F1([React Vendor Dashboard]):::ui
-    end
-
-    subgraph "🚚 Last-Mile Delivery Automation"
-        A2([Logistics Partners]):::ui -->|Uploads Manifest| B2[API Gateway: Customer Queue]
-        B2 --> C2{Twilio Voice Engine}:::ext
-        C2 <-->|Two-Way Voice Call| D2((End Customer))
-        C2 -->|Call Transcripts| E2{Google Gemini NLP}:::ai
-        E2 -->|Intent Extraction| F2[(MongoDB Delivery States)]:::db
-        F2 --> G2([Real-Time Delivery Tracker]):::ui
-    end
+    classDef ai fill:#e8f4f8,stroke:#3b82f6,stroke-width:2px;
+    classDef api fill:#f0fdf4,stroke:#22c55e,stroke-width:2px;
+    
+    A([Upload CSV]) --> B[Backend API]:::api
+    
+    B -->|Sales Data| C{Hugging Face}:::ai
+    C -->|Forecast| D[Gemini Insights]:::ai
+    D --> E([Vendor Dashboard])
+    
+    B -->|Delivery Data| F{Twilio Calls}:::api
+    F <-->|Voice Interaction| G((Customer))
+    F -->|Transcript| H[Gemini Parser]:::ai
+    H --> I([Delivery Dashboard])
 ```
 
 ---
