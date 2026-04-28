@@ -116,7 +116,7 @@ sequenceDiagram
 * Stores delivery instructions for drivers
 * Intelligent retry system for failed calls
 
-![Customer Responses Dashboard](./assets/customer_responses.png)
+<img src="assets/customer_responses.png" alt="Customer Responses Dashboard" width="800"/>
 
 ---
 
