@@ -1,121 +1,2701 @@
 store_id,product_id,date,sales,stock
-FreshBazaar,Toor Dal,2024-06-01,55,70
-FreshBazaar,Toor Dal,2024-06-02,60,68
-FreshBazaar,Toor Dal,2024-06-03,62,65
-FreshBazaar,Toor Dal,2024-06-04,65,63
-FreshBazaar,Toor Dal,2024-06-05,67,60
-FreshBazaar,Toor Dal,2024-06-06,70,58
-FreshBazaar,Toor Dal,2024-06-07,72,55
-FreshBazaar,Toor Dal,2024-06-08,75,53
-FreshBazaar,Toor Dal,2024-06-09,77,50
-FreshBazaar,Toor Dal,2024-06-10,80,48
-FreshBazaar,Toor Dal,2024-06-11,82,45
-FreshBazaar,Toor Dal,2024-06-12,85,43
-FreshBazaar,Toor Dal,2024-06-13,87,40
-FreshBazaar,Toor Dal,2024-06-14,90,38
-FreshBazaar,Toor Dal,2024-06-15,92,35
-FreshBazaar,Toor Dal,2024-06-16,95,33
-FreshBazaar,Toor Dal,2024-06-17,97,30
-FreshBazaar,Toor Dal,2024-06-18,100,28
-FreshBazaar,Toor Dal,2024-06-19,102,25
-FreshBazaar,Toor Dal,2024-06-20,105,23
-FreshBazaar,Toor Dal,2024-06-21,107,20
-FreshBazaar,Toor Dal,2024-06-22,110,18
-FreshBazaar,Toor Dal,2024-06-23,112,15
-FreshBazaar,Toor Dal,2024-06-24,115,13
-FreshBazaar,Toor Dal,2024-06-25,117,10
-FreshBazaar,Toor Dal,2024-06-26,120,8
-FreshBazaar,Toor Dal,2024-06-27,122,5
-FreshBazaar,Toor Dal,2024-06-28,125,3
-FreshBazaar,Toor Dal,2024-06-29,127,1
-FreshBazaar,Toor Dal,2024-06-30,130,0
-BigMart,Sunflower Oil,2024-06-01,40,60
-BigMart,Sunflower Oil,2024-06-02,42,58
-BigMart,Sunflower Oil,2024-06-03,45,56
-BigMart,Sunflower Oil,2024-06-04,47,54
-BigMart,Sunflower Oil,2024-06-05,50,52
-BigMart,Sunflower Oil,2024-06-06,52,50
-BigMart,Sunflower Oil,2024-06-07,55,48
-BigMart,Sunflower Oil,2024-06-08,57,46
-BigMart,Sunflower Oil,2024-06-09,60,44
-BigMart,Sunflower Oil,2024-06-10,62,42
-BigMart,Sunflower Oil,2024-06-11,65,40
-BigMart,Sunflower Oil,2024-06-12,67,38
-BigMart,Sunflower Oil,2024-06-13,70,36
-BigMart,Sunflower Oil,2024-06-14,72,34
-BigMart,Sunflower Oil,2024-06-15,75,32
-BigMart,Sunflower Oil,2024-06-16,77,30
-BigMart,Sunflower Oil,2024-06-17,80,28
-BigMart,Sunflower Oil,2024-06-18,82,26
-BigMart,Sunflower Oil,2024-06-19,85,24
-BigMart,Sunflower Oil,2024-06-20,87,22
-BigMart,Sunflower Oil,2024-06-21,90,20
-BigMart,Sunflower Oil,2024-06-22,92,18
-BigMart,Sunflower Oil,2024-06-23,95,16
-BigMart,Sunflower Oil,2024-06-24,97,14
-BigMart,Sunflower Oil,2024-06-25,100,12
-BigMart,Sunflower Oil,2024-06-26,102,10
-BigMart,Sunflower Oil,2024-06-27,105,8
-BigMart,Sunflower Oil,2024-06-28,107,6
-BigMart,Sunflower Oil,2024-06-29,110,4
-BigMart,Sunflower Oil,2024-06-30,112,2
-SuperMart,Toor Dal,2024-06-01,60,80
-SuperMart,Toor Dal,2024-06-02,62,78
-SuperMart,Toor Dal,2024-06-03,65,76
-SuperMart,Toor Dal,2024-06-04,67,74
-SuperMart,Toor Dal,2024-06-05,70,72
-SuperMart,Toor Dal,2024-06-06,72,70
-SuperMart,Toor Dal,2024-06-07,75,68
-SuperMart,Toor Dal,2024-06-08,77,66
-SuperMart,Toor Dal,2024-06-09,80,64
-SuperMart,Toor Dal,2024-06-10,82,62
-SuperMart,Toor Dal,2024-06-11,85,60
-SuperMart,Toor Dal,2024-06-12,87,58
-SuperMart,Toor Dal,2024-06-13,90,56
-SuperMart,Toor Dal,2024-06-14,92,54
-SuperMart,Toor Dal,2024-06-15,95,52
-SuperMart,Toor Dal,2024-06-16,97,50
-SuperMart,Toor Dal,2024-06-17,100,48
-SuperMart,Toor Dal,2024-06-18,102,46
-SuperMart,Toor Dal,2024-06-19,105,44
-SuperMart,Toor Dal,2024-06-20,107,42
-SuperMart,Toor Dal,2024-06-21,110,40
-SuperMart,Toor Dal,2024-06-22,112,38
-SuperMart,Toor Dal,2024-06-23,115,36
-SuperMart,Toor Dal,2024-06-24,117,34
-SuperMart,Toor Dal,2024-06-25,120,32
-SuperMart,Toor Dal,2024-06-26,122,30
-SuperMart,Toor Dal,2024-06-27,125,28
-SuperMart,Toor Dal,2024-06-28,127,26
-SuperMart,Toor Dal,2024-06-29,130,24
-SuperMart,Toor Dal,2024-06-30,132,22
-FreshBazaar,Sunflower Oil,2024-06-01,45,70
-FreshBazaar,Sunflower Oil,2024-06-02,47,68
-FreshBazaar,Sunflower Oil,2024-06-03,50,66
-FreshBazaar,Sunflower Oil,2024-06-04,52,64
-FreshBazaar,Sunflower Oil,2024-06-05,55,62
-FreshBazaar,Sunflower Oil,2024-06-06,57,60
-FreshBazaar,Sunflower Oil,2024-06-07,60,58
-FreshBazaar,Sunflower Oil,2024-06-08,62,56
-FreshBazaar,Sunflower Oil,2024-06-09,65,54
-FreshBazaar,Sunflower Oil,2024-06-10,67,52
-FreshBazaar,Sunflower Oil,2024-06-11,70,50
-FreshBazaar,Sunflower Oil,2024-06-12,72,48
-FreshBazaar,Sunflower Oil,2024-06-13,75,46
-FreshBazaar,Sunflower Oil,2024-06-14,77,44
-FreshBazaar,Sunflower Oil,2024-06-15,80,42
-FreshBazaar,Sunflower Oil,2024-06-16,82,40
-FreshBazaar,Sunflower Oil,2024-06-17,85,38
-FreshBazaar,Sunflower Oil,2024-06-18,87,36
-FreshBazaar,Sunflower Oil,2024-06-19,90,34
-FreshBazaar,Sunflower Oil,2024-06-20,92,32
-FreshBazaar,Sunflower Oil,2024-06-21,95,30
-FreshBazaar,Sunflower Oil,2024-06-22,97,28
-FreshBazaar,Sunflower Oil,2024-06-23,100,26
-FreshBazaar,Sunflower Oil,2024-06-24,102,24
-FreshBazaar,Sunflower Oil,2024-06-25,105,22
-FreshBazaar,Sunflower Oil,2024-06-26,107,20
-FreshBazaar,Sunflower Oil,2024-06-27,110,18
-FreshBazaar,Sunflower Oil,2024-06-28,112,16
-FreshBazaar,Sunflower Oil,2024-06-29,115,14
-FreshBazaar,Sunflower Oil,2024-06-30,117,12
+FreshBazaar,Toor Dal,2024-06-01,69,111
+FreshBazaar,Toor Dal,2024-06-02,72,109
+FreshBazaar,Toor Dal,2024-06-03,75,107
+FreshBazaar,Toor Dal,2024-06-04,76,102
+FreshBazaar,Toor Dal,2024-06-05,71,103
+FreshBazaar,Toor Dal,2024-06-06,75,100
+FreshBazaar,Toor Dal,2024-06-07,73,99
+FreshBazaar,Toor Dal,2024-06-08,78,95
+FreshBazaar,Toor Dal,2024-06-09,85,91
+FreshBazaar,Toor Dal,2024-06-10,73,89
+FreshBazaar,Toor Dal,2024-06-11,77,85
+FreshBazaar,Toor Dal,2024-06-12,84,92
+FreshBazaar,Toor Dal,2024-06-13,89,87
+FreshBazaar,Toor Dal,2024-06-14,87,80
+FreshBazaar,Toor Dal,2024-06-15,85,88
+FreshBazaar,Toor Dal,2024-06-16,85,87
+FreshBazaar,Toor Dal,2024-06-17,86,67
+FreshBazaar,Toor Dal,2024-06-18,90,78
+FreshBazaar,Toor Dal,2024-06-19,99,81
+FreshBazaar,Toor Dal,2024-06-20,114,60
+FreshBazaar,Toor Dal,2024-06-21,92,57
+FreshBazaar,Toor Dal,2024-06-22,89,68
+FreshBazaar,Toor Dal,2024-06-23,90,67
+FreshBazaar,Toor Dal,2024-06-24,90,65
+FreshBazaar,Toor Dal,2024-06-25,102,43
+FreshBazaar,Toor Dal,2024-06-26,110,69
+FreshBazaar,Toor Dal,2024-06-27,121,41
+FreshBazaar,Toor Dal,2024-06-28,115,49
+FreshBazaar,Toor Dal,2024-06-29,110,55
+FreshBazaar,Toor Dal,2024-06-30,115,28
+FreshBazaar,Sunflower Oil,2024-06-01,50,98
+FreshBazaar,Sunflower Oil,2024-06-02,54,96
+FreshBazaar,Sunflower Oil,2024-06-03,57,92
+FreshBazaar,Sunflower Oil,2024-06-04,60,92
+FreshBazaar,Sunflower Oil,2024-06-05,64,86
+FreshBazaar,Sunflower Oil,2024-06-06,59,89
+FreshBazaar,Sunflower Oil,2024-06-07,61,81
+FreshBazaar,Sunflower Oil,2024-06-08,57,82
+FreshBazaar,Sunflower Oil,2024-06-09,63,81
+FreshBazaar,Sunflower Oil,2024-06-10,73,80
+FreshBazaar,Sunflower Oil,2024-06-11,66,68
+FreshBazaar,Sunflower Oil,2024-06-12,81,77
+FreshBazaar,Sunflower Oil,2024-06-13,69,79
+FreshBazaar,Sunflower Oil,2024-06-14,73,68
+FreshBazaar,Sunflower Oil,2024-06-15,65,71
+FreshBazaar,Sunflower Oil,2024-06-16,67,64
+FreshBazaar,Sunflower Oil,2024-06-17,93,55
+FreshBazaar,Sunflower Oil,2024-06-18,70,53
+FreshBazaar,Sunflower Oil,2024-06-19,80,56
+FreshBazaar,Sunflower Oil,2024-06-20,72,45
+FreshBazaar,Sunflower Oil,2024-06-21,82,67
+FreshBazaar,Sunflower Oil,2024-06-22,88,59
+FreshBazaar,Sunflower Oil,2024-06-23,94,52
+FreshBazaar,Sunflower Oil,2024-06-24,105,58
+FreshBazaar,Sunflower Oil,2024-06-25,84,38
+FreshBazaar,Sunflower Oil,2024-06-26,107,39
+FreshBazaar,Sunflower Oil,2024-06-27,95,24
+FreshBazaar,Sunflower Oil,2024-06-28,114,31
+FreshBazaar,Sunflower Oil,2024-06-29,93,18
+FreshBazaar,Sunflower Oil,2024-06-30,117,20
+FreshBazaar,Rice,2024-06-01,53,111
+FreshBazaar,Rice,2024-06-02,52,108
+FreshBazaar,Rice,2024-06-03,54,105
+FreshBazaar,Rice,2024-06-04,57,105
+FreshBazaar,Rice,2024-06-05,63,101
+FreshBazaar,Rice,2024-06-06,62,102
+FreshBazaar,Rice,2024-06-07,59,93
+FreshBazaar,Rice,2024-06-08,61,91
+FreshBazaar,Rice,2024-06-09,68,92
+FreshBazaar,Rice,2024-06-10,70,94
+FreshBazaar,Rice,2024-06-11,71,81
+FreshBazaar,Rice,2024-06-12,80,79
+FreshBazaar,Rice,2024-06-13,71,75
+FreshBazaar,Rice,2024-06-14,82,85
+FreshBazaar,Rice,2024-06-15,72,86
+FreshBazaar,Rice,2024-06-16,80,67
+FreshBazaar,Rice,2024-06-17,82,72
+FreshBazaar,Rice,2024-06-18,95,81
+FreshBazaar,Rice,2024-06-19,83,65
+FreshBazaar,Rice,2024-06-20,92,72
+FreshBazaar,Rice,2024-06-21,80,54
+FreshBazaar,Rice,2024-06-22,103,63
+FreshBazaar,Rice,2024-06-23,90,54
+FreshBazaar,Rice,2024-06-24,104,45
+FreshBazaar,Rice,2024-06-25,84,54
+FreshBazaar,Rice,2024-06-26,74,56
+FreshBazaar,Rice,2024-06-27,99,70
+FreshBazaar,Rice,2024-06-28,73,37
+FreshBazaar,Rice,2024-06-29,92,36
+FreshBazaar,Rice,2024-06-30,84,40
+FreshBazaar,Sugar,2024-06-01,37,65
+FreshBazaar,Sugar,2024-06-02,38,62
+FreshBazaar,Sugar,2024-06-03,38,61
+FreshBazaar,Sugar,2024-06-04,36,60
+FreshBazaar,Sugar,2024-06-05,34,57
+FreshBazaar,Sugar,2024-06-06,41,55
+FreshBazaar,Sugar,2024-06-07,45,53
+FreshBazaar,Sugar,2024-06-08,52,46
+FreshBazaar,Sugar,2024-06-09,44,50
+FreshBazaar,Sugar,2024-06-10,49,41
+FreshBazaar,Sugar,2024-06-11,40,48
+FreshBazaar,Sugar,2024-06-12,54,40
+FreshBazaar,Sugar,2024-06-13,42,35
+FreshBazaar,Sugar,2024-06-14,54,44
+FreshBazaar,Sugar,2024-06-15,53,26
+FreshBazaar,Sugar,2024-06-16,66,38
+FreshBazaar,Sugar,2024-06-17,47,26
+FreshBazaar,Sugar,2024-06-18,73,24
+FreshBazaar,Sugar,2024-06-19,58,23
+FreshBazaar,Sugar,2024-06-20,82,25
+FreshBazaar,Sugar,2024-06-21,80,25
+FreshBazaar,Sugar,2024-06-22,80,32
+FreshBazaar,Sugar,2024-06-23,79,9
+FreshBazaar,Sugar,2024-06-24,75,0
+FreshBazaar,Sugar,2024-06-25,80,22
+FreshBazaar,Sugar,2024-06-26,86,0
+FreshBazaar,Sugar,2024-06-27,94,0
+FreshBazaar,Sugar,2024-06-28,67,0
+FreshBazaar,Sugar,2024-06-29,99,0
+FreshBazaar,Sugar,2024-06-30,60,0
+FreshBazaar,Wheat Flour,2024-06-01,47,107
+FreshBazaar,Wheat Flour,2024-06-02,50,104
+FreshBazaar,Wheat Flour,2024-06-03,52,102
+FreshBazaar,Wheat Flour,2024-06-04,54,102
+FreshBazaar,Wheat Flour,2024-06-05,55,99
+FreshBazaar,Wheat Flour,2024-06-06,65,93
+FreshBazaar,Wheat Flour,2024-06-07,55,91
+FreshBazaar,Wheat Flour,2024-06-08,69,89
+FreshBazaar,Wheat Flour,2024-06-09,66,89
+FreshBazaar,Wheat Flour,2024-06-10,59,88
+FreshBazaar,Wheat Flour,2024-06-11,72,88
+FreshBazaar,Wheat Flour,2024-06-12,66,76
+FreshBazaar,Wheat Flour,2024-06-13,77,78
+FreshBazaar,Wheat Flour,2024-06-14,66,73
+FreshBazaar,Wheat Flour,2024-06-15,74,80
+FreshBazaar,Wheat Flour,2024-06-16,67,74
+FreshBazaar,Wheat Flour,2024-06-17,71,65
+FreshBazaar,Wheat Flour,2024-06-18,80,60
+FreshBazaar,Wheat Flour,2024-06-19,83,69
+FreshBazaar,Wheat Flour,2024-06-20,81,76
+FreshBazaar,Wheat Flour,2024-06-21,85,47
+FreshBazaar,Wheat Flour,2024-06-22,85,65
+FreshBazaar,Wheat Flour,2024-06-23,69,71
+FreshBazaar,Wheat Flour,2024-06-24,71,65
+FreshBazaar,Wheat Flour,2024-06-25,83,38
+FreshBazaar,Wheat Flour,2024-06-26,108,67
+FreshBazaar,Wheat Flour,2024-06-27,86,61
+FreshBazaar,Wheat Flour,2024-06-28,98,50
+FreshBazaar,Wheat Flour,2024-06-29,80,54
+FreshBazaar,Wheat Flour,2024-06-30,91,62
+FreshBazaar,Moong Dal,2024-06-01,34,92
+FreshBazaar,Moong Dal,2024-06-02,40,89
+FreshBazaar,Moong Dal,2024-06-03,42,88
+FreshBazaar,Moong Dal,2024-06-04,45,85
+FreshBazaar,Moong Dal,2024-06-05,45,83
+FreshBazaar,Moong Dal,2024-06-06,49,81
+FreshBazaar,Moong Dal,2024-06-07,52,77
+FreshBazaar,Moong Dal,2024-06-08,43,81
+FreshBazaar,Moong Dal,2024-06-09,46,71
+FreshBazaar,Moong Dal,2024-06-10,62,70
+FreshBazaar,Moong Dal,2024-06-11,57,73
+FreshBazaar,Moong Dal,2024-06-12,53,71
+FreshBazaar,Moong Dal,2024-06-13,53,60
+FreshBazaar,Moong Dal,2024-06-14,48,67
+FreshBazaar,Moong Dal,2024-06-15,42,53
+FreshBazaar,Moong Dal,2024-06-16,57,51
+FreshBazaar,Moong Dal,2024-06-17,76,57
+FreshBazaar,Moong Dal,2024-06-18,79,50
+FreshBazaar,Moong Dal,2024-06-19,77,38
+FreshBazaar,Moong Dal,2024-06-20,74,45
+FreshBazaar,Moong Dal,2024-06-21,73,45
+FreshBazaar,Moong Dal,2024-06-22,69,31
+FreshBazaar,Moong Dal,2024-06-23,70,32
+FreshBazaar,Moong Dal,2024-06-24,74,28
+FreshBazaar,Moong Dal,2024-06-25,85,48
+FreshBazaar,Moong Dal,2024-06-26,85,41
+FreshBazaar,Moong Dal,2024-06-27,87,37
+FreshBazaar,Moong Dal,2024-06-28,89,44
+FreshBazaar,Moong Dal,2024-06-29,95,28
+FreshBazaar,Moong Dal,2024-06-30,108,22
+BigMart,Sunflower Oil,2024-06-01,46,80
+BigMart,Sunflower Oil,2024-06-02,47,77
+BigMart,Sunflower Oil,2024-06-03,50,74
+BigMart,Sunflower Oil,2024-06-04,46,71
+BigMart,Sunflower Oil,2024-06-05,57,69
+BigMart,Sunflower Oil,2024-06-06,52,70
+BigMart,Sunflower Oil,2024-06-07,61,67
+BigMart,Sunflower Oil,2024-06-08,58,61
+BigMart,Sunflower Oil,2024-06-09,56,57
+BigMart,Sunflower Oil,2024-06-10,61,59
+BigMart,Sunflower Oil,2024-06-11,60,61
+BigMart,Sunflower Oil,2024-06-12,56,57
+BigMart,Sunflower Oil,2024-06-13,55,56
+BigMart,Sunflower Oil,2024-06-14,59,43
+BigMart,Sunflower Oil,2024-06-15,75,48
+BigMart,Sunflower Oil,2024-06-16,63,45
+BigMart,Sunflower Oil,2024-06-17,75,52
+BigMart,Sunflower Oil,2024-06-18,72,45
+BigMart,Sunflower Oil,2024-06-19,78,26
+BigMart,Sunflower Oil,2024-06-20,84,44
+BigMart,Sunflower Oil,2024-06-21,66,45
+BigMart,Sunflower Oil,2024-06-22,70,39
+BigMart,Sunflower Oil,2024-06-23,67,14
+BigMart,Sunflower Oil,2024-06-24,72,31
+BigMart,Sunflower Oil,2024-06-25,107,34
+BigMart,Sunflower Oil,2024-06-26,75,17
+BigMart,Sunflower Oil,2024-06-27,113,30
+BigMart,Sunflower Oil,2024-06-28,108,31
+BigMart,Sunflower Oil,2024-06-29,86,27
+BigMart,Sunflower Oil,2024-06-30,71,9
+BigMart,Olive Oil,2024-06-01,66,96
+BigMart,Olive Oil,2024-06-02,69,93
+BigMart,Olive Oil,2024-06-03,67,90
+BigMart,Olive Oil,2024-06-04,70,90
+BigMart,Olive Oil,2024-06-05,70,86
+BigMart,Olive Oil,2024-06-06,75,87
+BigMart,Olive Oil,2024-06-07,79,78
+BigMart,Olive Oil,2024-06-08,87,83
+BigMart,Olive Oil,2024-06-09,78,83
+BigMart,Olive Oil,2024-06-10,86,71
+BigMart,Olive Oil,2024-06-11,88,78
+BigMart,Olive Oil,2024-06-12,81,69
+BigMart,Olive Oil,2024-06-13,96,65
+BigMart,Olive Oil,2024-06-14,83,62
+BigMart,Olive Oil,2024-06-15,101,65
+BigMart,Olive Oil,2024-06-16,98,65
+BigMart,Olive Oil,2024-06-17,88,66
+BigMart,Olive Oil,2024-06-18,96,59
+BigMart,Olive Oil,2024-06-19,93,64
+BigMart,Olive Oil,2024-06-20,112,53
+BigMart,Olive Oil,2024-06-21,109,42
+BigMart,Olive Oil,2024-06-22,90,58
+BigMart,Olive Oil,2024-06-23,114,59
+BigMart,Olive Oil,2024-06-24,106,48
+BigMart,Olive Oil,2024-06-25,104,40
+BigMart,Olive Oil,2024-06-26,112,43
+BigMart,Olive Oil,2024-06-27,121,34
+BigMart,Olive Oil,2024-06-28,121,31
+BigMart,Olive Oil,2024-06-29,128,44
+BigMart,Olive Oil,2024-06-30,111,39
+BigMart,Salt,2024-06-01,73,71
+BigMart,Salt,2024-06-02,71,68
+BigMart,Salt,2024-06-03,75,67
+BigMart,Salt,2024-06-04,77,66
+BigMart,Salt,2024-06-05,79,63
+BigMart,Salt,2024-06-06,82,61
+BigMart,Salt,2024-06-07,81,58
+BigMart,Salt,2024-06-08,83,58
+BigMart,Salt,2024-06-09,87,54
+BigMart,Salt,2024-06-10,92,45
+BigMart,Salt,2024-06-11,89,47
+BigMart,Salt,2024-06-12,81,39
+BigMart,Salt,2024-06-13,84,52
+BigMart,Salt,2024-06-14,89,36
+BigMart,Salt,2024-06-15,88,39
+BigMart,Salt,2024-06-16,107,38
+BigMart,Salt,2024-06-17,100,42
+BigMart,Salt,2024-06-18,96,37
+BigMart,Salt,2024-06-19,101,34
+BigMart,Salt,2024-06-20,101,24
+BigMart,Salt,2024-06-21,101,32
+BigMart,Salt,2024-06-22,116,22
+BigMart,Salt,2024-06-23,108,12
+BigMart,Salt,2024-06-24,87,24
+BigMart,Salt,2024-06-25,92,2
+BigMart,Salt,2024-06-26,116,3
+BigMart,Salt,2024-06-27,138,22
+BigMart,Salt,2024-06-28,98,10
+BigMart,Salt,2024-06-29,124,0
+BigMart,Salt,2024-06-30,118,0
+BigMart,Sugar,2024-06-01,66,91
+BigMart,Sugar,2024-06-02,67,89
+BigMart,Sugar,2024-06-03,65,86
+BigMart,Sugar,2024-06-04,69,82
+BigMart,Sugar,2024-06-05,68,80
+BigMart,Sugar,2024-06-06,77,78
+BigMart,Sugar,2024-06-07,71,81
+BigMart,Sugar,2024-06-08,81,76
+BigMart,Sugar,2024-06-09,82,76
+BigMart,Sugar,2024-06-10,85,66
+BigMart,Sugar,2024-06-11,74,68
+BigMart,Sugar,2024-06-12,76,66
+BigMart,Sugar,2024-06-13,85,65
+BigMart,Sugar,2024-06-14,81,58
+BigMart,Sugar,2024-06-15,87,52
+BigMart,Sugar,2024-06-16,91,50
+BigMart,Sugar,2024-06-17,90,55
+BigMart,Sugar,2024-06-18,97,62
+BigMart,Sugar,2024-06-19,80,44
+BigMart,Sugar,2024-06-20,85,44
+BigMart,Sugar,2024-06-21,99,48
+BigMart,Sugar,2024-06-22,108,46
+BigMart,Sugar,2024-06-23,95,55
+BigMart,Sugar,2024-06-24,114,41
+BigMart,Sugar,2024-06-25,122,20
+BigMart,Sugar,2024-06-26,103,17
+BigMart,Sugar,2024-06-27,87,30
+BigMart,Sugar,2024-06-28,92,16
+BigMart,Sugar,2024-06-29,125,34
+BigMart,Sugar,2024-06-30,109,29
+BigMart,Maida,2024-06-01,73,99
+BigMart,Maida,2024-06-02,72,97
+BigMart,Maida,2024-06-03,74,93
+BigMart,Maida,2024-06-04,74,90
+BigMart,Maida,2024-06-05,78,87
+BigMart,Maida,2024-06-06,79,85
+BigMart,Maida,2024-06-07,85,87
+BigMart,Maida,2024-06-08,84,86
+BigMart,Maida,2024-06-09,92,84
+BigMart,Maida,2024-06-10,88,73
+BigMart,Maida,2024-06-11,78,70
+BigMart,Maida,2024-06-12,101,66
+BigMart,Maida,2024-06-13,91,75
+BigMart,Maida,2024-06-14,100,78
+BigMart,Maida,2024-06-15,96,76
+BigMart,Maida,2024-06-16,101,68
+BigMart,Maida,2024-06-17,104,62
+BigMart,Maida,2024-06-18,107,65
+BigMart,Maida,2024-06-19,106,65
+BigMart,Maida,2024-06-20,89,45
+BigMart,Maida,2024-06-21,88,40
+BigMart,Maida,2024-06-22,119,36
+BigMart,Maida,2024-06-23,101,50
+BigMart,Maida,2024-06-24,117,34
+BigMart,Maida,2024-06-25,130,47
+BigMart,Maida,2024-06-26,126,52
+BigMart,Maida,2024-06-27,94,48
+BigMart,Maida,2024-06-28,102,56
+BigMart,Maida,2024-06-29,95,40
+BigMart,Maida,2024-06-30,129,46
+BigMart,Masoor Dal,2024-06-01,67,96
+BigMart,Masoor Dal,2024-06-02,67,93
+BigMart,Masoor Dal,2024-06-03,68,91
+BigMart,Masoor Dal,2024-06-04,71,90
+BigMart,Masoor Dal,2024-06-05,69,85
+BigMart,Masoor Dal,2024-06-06,71,88
+BigMart,Masoor Dal,2024-06-07,83,80
+BigMart,Masoor Dal,2024-06-08,72,76
+BigMart,Masoor Dal,2024-06-09,75,76
+BigMart,Masoor Dal,2024-06-10,79,81
+BigMart,Masoor Dal,2024-06-11,87,67
+BigMart,Masoor Dal,2024-06-12,91,65
+BigMart,Masoor Dal,2024-06-13,93,76
+BigMart,Masoor Dal,2024-06-14,89,69
+BigMart,Masoor Dal,2024-06-15,83,73
+BigMart,Masoor Dal,2024-06-16,87,58
+BigMart,Masoor Dal,2024-06-17,80,60
+BigMart,Masoor Dal,2024-06-18,99,49
+BigMart,Masoor Dal,2024-06-19,92,61
+BigMart,Masoor Dal,2024-06-20,113,44
+BigMart,Masoor Dal,2024-06-21,106,45
+BigMart,Masoor Dal,2024-06-22,108,45
+BigMart,Masoor Dal,2024-06-23,111,51
+BigMart,Masoor Dal,2024-06-24,113,55
+BigMart,Masoor Dal,2024-06-25,118,59
+BigMart,Masoor Dal,2024-06-26,100,35
+BigMart,Masoor Dal,2024-06-27,127,32
+BigMart,Masoor Dal,2024-06-28,113,23
+BigMart,Masoor Dal,2024-06-29,93,13
+BigMart,Masoor Dal,2024-06-30,109,24
+SuperMart,Toor Dal,2024-06-01,59,96
+SuperMart,Toor Dal,2024-06-02,61,93
+SuperMart,Toor Dal,2024-06-03,57,91
+SuperMart,Toor Dal,2024-06-04,63,87
+SuperMart,Toor Dal,2024-06-05,69,89
+SuperMart,Toor Dal,2024-06-06,62,86
+SuperMart,Toor Dal,2024-06-07,70,82
+SuperMart,Toor Dal,2024-06-08,70,75
+SuperMart,Toor Dal,2024-06-09,68,74
+SuperMart,Toor Dal,2024-06-10,76,79
+SuperMart,Toor Dal,2024-06-11,70,76
+SuperMart,Toor Dal,2024-06-12,88,77
+SuperMart,Toor Dal,2024-06-13,77,66
+SuperMart,Toor Dal,2024-06-14,79,71
+SuperMart,Toor Dal,2024-06-15,95,70
+SuperMart,Toor Dal,2024-06-16,76,72
+SuperMart,Toor Dal,2024-06-17,91,60
+SuperMart,Toor Dal,2024-06-18,99,65
+SuperMart,Toor Dal,2024-06-19,101,46
+SuperMart,Toor Dal,2024-06-20,100,49
+SuperMart,Toor Dal,2024-06-21,81,51
+SuperMart,Toor Dal,2024-06-22,80,60
+SuperMart,Toor Dal,2024-06-23,99,46
+SuperMart,Toor Dal,2024-06-24,79,41
+SuperMart,Toor Dal,2024-06-25,87,43
+SuperMart,Toor Dal,2024-06-26,81,55
+SuperMart,Toor Dal,2024-06-27,102,45
+SuperMart,Toor Dal,2024-06-28,111,20
+SuperMart,Toor Dal,2024-06-29,118,49
+SuperMart,Toor Dal,2024-06-30,92,9
+SuperMart,Rice,2024-06-01,64,74
+SuperMart,Rice,2024-06-02,63,72
+SuperMart,Rice,2024-06-03,63,70
+SuperMart,Rice,2024-06-04,62,67
+SuperMart,Rice,2024-06-05,68,63
+SuperMart,Rice,2024-06-06,67,65
+SuperMart,Rice,2024-06-07,69,64
+SuperMart,Rice,2024-06-08,79,62
+SuperMart,Rice,2024-06-09,76,53
+SuperMart,Rice,2024-06-10,81,55
+SuperMart,Rice,2024-06-11,85,52
+SuperMart,Rice,2024-06-12,82,48
+SuperMart,Rice,2024-06-13,84,40
+SuperMart,Rice,2024-06-14,75,35
+SuperMart,Rice,2024-06-15,81,39
+SuperMart,Rice,2024-06-16,84,39
+SuperMart,Rice,2024-06-17,93,45
+SuperMart,Rice,2024-06-18,94,46
+SuperMart,Rice,2024-06-19,75,23
+SuperMart,Rice,2024-06-20,96,24
+SuperMart,Rice,2024-06-21,89,14
+SuperMart,Rice,2024-06-22,76,15
+SuperMart,Rice,2024-06-23,103,24
+SuperMart,Rice,2024-06-24,112,8
+SuperMart,Rice,2024-06-25,98,5
+SuperMart,Rice,2024-06-26,86,13
+SuperMart,Rice,2024-06-27,108,7
+SuperMart,Rice,2024-06-28,125,26
+SuperMart,Rice,2024-06-29,94,21
+SuperMart,Rice,2024-06-30,129,11
+SuperMart,Wheat Flour,2024-06-01,68,84
+SuperMart,Wheat Flour,2024-06-02,68,81
+SuperMart,Wheat Flour,2024-06-03,73,79
+SuperMart,Wheat Flour,2024-06-04,74,78
+SuperMart,Wheat Flour,2024-06-05,73,75
+SuperMart,Wheat Flour,2024-06-06,76,75
+SuperMart,Wheat Flour,2024-06-07,78,72
+SuperMart,Wheat Flour,2024-06-08,78,69
+SuperMart,Wheat Flour,2024-06-09,83,62
+SuperMart,Wheat Flour,2024-06-10,81,64
+SuperMart,Wheat Flour,2024-06-11,93,68
+SuperMart,Wheat Flour,2024-06-12,99,65
+SuperMart,Wheat Flour,2024-06-13,82,61
+SuperMart,Wheat Flour,2024-06-14,81,62
+SuperMart,Wheat Flour,2024-06-15,85,54
+SuperMart,Wheat Flour,2024-06-16,93,46
+SuperMart,Wheat Flour,2024-06-17,78,47
+SuperMart,Wheat Flour,2024-06-18,92,44
+SuperMart,Wheat Flour,2024-06-19,86,52
+SuperMart,Wheat Flour,2024-06-20,89,34
+SuperMart,Wheat Flour,2024-06-21,90,24
+SuperMart,Wheat Flour,2024-06-22,95,51
+SuperMart,Wheat Flour,2024-06-23,95,25
+SuperMart,Wheat Flour,2024-06-24,91,22
+SuperMart,Wheat Flour,2024-06-25,125,18
+SuperMart,Wheat Flour,2024-06-26,116,24
+SuperMart,Wheat Flour,2024-06-27,104,32
+SuperMart,Wheat Flour,2024-06-28,127,3
+SuperMart,Wheat Flour,2024-06-29,125,37
+SuperMart,Wheat Flour,2024-06-30,122,7
+SuperMart,Mustard Oil,2024-06-01,34,97
+SuperMart,Mustard Oil,2024-06-02,33,94
+SuperMart,Mustard Oil,2024-06-03,38,92
+SuperMart,Mustard Oil,2024-06-04,40,90
+SuperMart,Mustard Oil,2024-06-05,35,90
+SuperMart,Mustard Oil,2024-06-06,45,88
+SuperMart,Mustard Oil,2024-06-07,44,83
+SuperMart,Mustard Oil,2024-06-08,53,77
+SuperMart,Mustard Oil,2024-06-09,52,82
+SuperMart,Mustard Oil,2024-06-10,45,78
+SuperMart,Mustard Oil,2024-06-11,52,74
+SuperMart,Mustard Oil,2024-06-12,59,73
+SuperMart,Mustard Oil,2024-06-13,58,75
+SuperMart,Mustard Oil,2024-06-14,57,73
+SuperMart,Mustard Oil,2024-06-15,49,61
+SuperMart,Mustard Oil,2024-06-16,73,62
+SuperMart,Mustard Oil,2024-06-17,62,63
+SuperMart,Mustard Oil,2024-06-18,73,50
+SuperMart,Mustard Oil,2024-06-19,62,62
+SuperMart,Mustard Oil,2024-06-20,74,63
+SuperMart,Mustard Oil,2024-06-21,78,42
+SuperMart,Mustard Oil,2024-06-22,62,48
+SuperMart,Mustard Oil,2024-06-23,59,37
+SuperMart,Mustard Oil,2024-06-24,77,56
+SuperMart,Mustard Oil,2024-06-25,67,40
+SuperMart,Mustard Oil,2024-06-26,64,48
+SuperMart,Mustard Oil,2024-06-27,87,26
+SuperMart,Mustard Oil,2024-06-28,91,50
+SuperMart,Mustard Oil,2024-06-29,74,18
+SuperMart,Mustard Oil,2024-06-30,78,30
+SuperMart,Poha,2024-06-01,49,107
+SuperMart,Poha,2024-06-02,50,104
+SuperMart,Poha,2024-06-03,51,102
+SuperMart,Poha,2024-06-04,55,100
+SuperMart,Poha,2024-06-05,59,97
+SuperMart,Poha,2024-06-06,56,92
+SuperMart,Poha,2024-06-07,65,92
+SuperMart,Poha,2024-06-08,58,92
+SuperMart,Poha,2024-06-09,60,85
+SuperMart,Poha,2024-06-10,72,92
+SuperMart,Poha,2024-06-11,71,81
+SuperMart,Poha,2024-06-12,61,82
+SuperMart,Poha,2024-06-13,64,82
+SuperMart,Poha,2024-06-14,82,78
+SuperMart,Poha,2024-06-15,68,65
+SuperMart,Poha,2024-06-16,79,67
+SuperMart,Poha,2024-06-17,65,63
+SuperMart,Poha,2024-06-18,60,73
+SuperMart,Poha,2024-06-19,90,76
+SuperMart,Poha,2024-06-20,96,77
+SuperMart,Poha,2024-06-21,90,56
+SuperMart,Poha,2024-06-22,72,67
+SuperMart,Poha,2024-06-23,98,57
+SuperMart,Poha,2024-06-24,77,70
+SuperMart,Poha,2024-06-25,73,57
+SuperMart,Poha,2024-06-26,83,60
+SuperMart,Poha,2024-06-27,93,31
+SuperMart,Poha,2024-06-28,114,59
+SuperMart,Poha,2024-06-29,114,48
+SuperMart,Poha,2024-06-30,102,46
+SuperMart,Chana Dal,2024-06-01,67,77
+SuperMart,Chana Dal,2024-06-02,72,75
+SuperMart,Chana Dal,2024-06-03,70,71
+SuperMart,Chana Dal,2024-06-04,71,68
+SuperMart,Chana Dal,2024-06-05,70,67
+SuperMart,Chana Dal,2024-06-06,71,62
+SuperMart,Chana Dal,2024-06-07,80,60
+SuperMart,Chana Dal,2024-06-08,80,65
+SuperMart,Chana Dal,2024-06-09,76,64
+SuperMart,Chana Dal,2024-06-10,86,61
+SuperMart,Chana Dal,2024-06-11,86,61
+SuperMart,Chana Dal,2024-06-12,75,50
+SuperMart,Chana Dal,2024-06-13,86,55
+SuperMart,Chana Dal,2024-06-14,78,48
+SuperMart,Chana Dal,2024-06-15,93,46
+SuperMart,Chana Dal,2024-06-16,85,52
+SuperMart,Chana Dal,2024-06-17,99,36
+SuperMart,Chana Dal,2024-06-18,97,35
+SuperMart,Chana Dal,2024-06-19,86,45
+SuperMart,Chana Dal,2024-06-20,101,24
+SuperMart,Chana Dal,2024-06-21,106,27
+SuperMart,Chana Dal,2024-06-22,99,28
+SuperMart,Chana Dal,2024-06-23,101,12
+SuperMart,Chana Dal,2024-06-24,92,37
+SuperMart,Chana Dal,2024-06-25,104,16
+SuperMart,Chana Dal,2024-06-26,97,16
+SuperMart,Chana Dal,2024-06-27,102,30
+SuperMart,Chana Dal,2024-06-28,93,34
+SuperMart,Chana Dal,2024-06-29,108,14
+SuperMart,Chana Dal,2024-06-30,100,27
+DailyNeeds,Milk Powder,2024-06-01,32,93
+DailyNeeds,Milk Powder,2024-06-02,37,90
+DailyNeeds,Milk Powder,2024-06-03,35,87
+DailyNeeds,Milk Powder,2024-06-04,39,87
+DailyNeeds,Milk Powder,2024-06-05,46,83
+DailyNeeds,Milk Powder,2024-06-06,43,80
+DailyNeeds,Milk Powder,2024-06-07,44,82
+DailyNeeds,Milk Powder,2024-06-08,45,77
+DailyNeeds,Milk Powder,2024-06-09,47,80
+DailyNeeds,Milk Powder,2024-06-10,40,66
+DailyNeeds,Milk Powder,2024-06-11,50,72
+DailyNeeds,Milk Powder,2024-06-12,54,65
+DailyNeeds,Milk Powder,2024-06-13,48,70
+DailyNeeds,Milk Powder,2024-06-14,45,71
+DailyNeeds,Milk Powder,2024-06-15,69,58
+DailyNeeds,Milk Powder,2024-06-16,53,65
+DailyNeeds,Milk Powder,2024-06-17,51,53
+DailyNeeds,Milk Powder,2024-06-18,63,66
+DailyNeeds,Milk Powder,2024-06-19,75,39
+DailyNeeds,Milk Powder,2024-06-20,69,47
+DailyNeeds,Milk Powder,2024-06-21,75,59
+DailyNeeds,Milk Powder,2024-06-22,64,32
+DailyNeeds,Milk Powder,2024-06-23,56,45
+DailyNeeds,Milk Powder,2024-06-24,71,25
+DailyNeeds,Milk Powder,2024-06-25,61,25
+DailyNeeds,Milk Powder,2024-06-26,79,44
+DailyNeeds,Milk Powder,2024-06-27,89,24
+DailyNeeds,Milk Powder,2024-06-28,76,18
+DailyNeeds,Milk Powder,2024-06-29,91,43
+DailyNeeds,Milk Powder,2024-06-30,85,6
+DailyNeeds,Sugar,2024-06-01,50,87
+DailyNeeds,Sugar,2024-06-02,53,85
+DailyNeeds,Sugar,2024-06-03,55,82
+DailyNeeds,Sugar,2024-06-04,57,80
+DailyNeeds,Sugar,2024-06-05,59,75
+DailyNeeds,Sugar,2024-06-06,61,73
+DailyNeeds,Sugar,2024-06-07,56,75
+DailyNeeds,Sugar,2024-06-08,65,66
+DailyNeeds,Sugar,2024-06-09,61,72
+DailyNeeds,Sugar,2024-06-10,65,63
+DailyNeeds,Sugar,2024-06-11,68,60
+DailyNeeds,Sugar,2024-06-12,67,70
+DailyNeeds,Sugar,2024-06-13,73,66
+DailyNeeds,Sugar,2024-06-14,65,50
+DailyNeeds,Sugar,2024-06-15,84,50
+DailyNeeds,Sugar,2024-06-16,81,51
+DailyNeeds,Sugar,2024-06-17,77,62
+DailyNeeds,Sugar,2024-06-18,81,52
+DailyNeeds,Sugar,2024-06-19,90,47
+DailyNeeds,Sugar,2024-06-20,85,56
+DailyNeeds,Sugar,2024-06-21,90,38
+DailyNeeds,Sugar,2024-06-22,95,30
+DailyNeeds,Sugar,2024-06-23,78,51
+DailyNeeds,Sugar,2024-06-24,74,40
+DailyNeeds,Sugar,2024-06-25,104,32
+DailyNeeds,Sugar,2024-06-26,91,43
+DailyNeeds,Sugar,2024-06-27,84,39
+DailyNeeds,Sugar,2024-06-28,99,16
+DailyNeeds,Sugar,2024-06-29,121,27
+DailyNeeds,Sugar,2024-06-30,106,9
+DailyNeeds,Tea,2024-06-01,55,74
+DailyNeeds,Tea,2024-06-02,59,72
+DailyNeeds,Tea,2024-06-03,59,70
+DailyNeeds,Tea,2024-06-04,59,68
+DailyNeeds,Tea,2024-06-05,63,65
+DailyNeeds,Tea,2024-06-06,63,65
+DailyNeeds,Tea,2024-06-07,61,61
+DailyNeeds,Tea,2024-06-08,73,55
+DailyNeeds,Tea,2024-06-09,62,52
+DailyNeeds,Tea,2024-06-10,73,47
+DailyNeeds,Tea,2024-06-11,64,55
+DailyNeeds,Tea,2024-06-12,69,42
+DailyNeeds,Tea,2024-06-13,72,47
+DailyNeeds,Tea,2024-06-14,81,53
+DailyNeeds,Tea,2024-06-15,73,45
+DailyNeeds,Tea,2024-06-16,92,51
+DailyNeeds,Tea,2024-06-17,86,27
+DailyNeeds,Tea,2024-06-18,72,37
+DailyNeeds,Tea,2024-06-19,79,41
+DailyNeeds,Tea,2024-06-20,86,32
+DailyNeeds,Tea,2024-06-21,101,40
+DailyNeeds,Tea,2024-06-22,80,35
+DailyNeeds,Tea,2024-06-23,83,23
+DailyNeeds,Tea,2024-06-24,81,9
+DailyNeeds,Tea,2024-06-25,105,18
+DailyNeeds,Tea,2024-06-26,78,19
+DailyNeeds,Tea,2024-06-27,99,16
+DailyNeeds,Tea,2024-06-28,98,7
+DailyNeeds,Tea,2024-06-29,104,0
+DailyNeeds,Tea,2024-06-30,100,28
+DailyNeeds,Coffee,2024-06-01,77,91
+DailyNeeds,Coffee,2024-06-02,77,89
+DailyNeeds,Coffee,2024-06-03,82,85
+DailyNeeds,Coffee,2024-06-04,81,86
+DailyNeeds,Coffee,2024-06-05,83,81
+DailyNeeds,Coffee,2024-06-06,86,82
+DailyNeeds,Coffee,2024-06-07,88,75
+DailyNeeds,Coffee,2024-06-08,97,78
+DailyNeeds,Coffee,2024-06-09,93,72
+DailyNeeds,Coffee,2024-06-10,93,66
+DailyNeeds,Coffee,2024-06-11,92,73
+DailyNeeds,Coffee,2024-06-12,101,61
+DailyNeeds,Coffee,2024-06-13,93,69
+DailyNeeds,Coffee,2024-06-14,107,58
+DailyNeeds,Coffee,2024-06-15,96,68
+DailyNeeds,Coffee,2024-06-16,110,50
+DailyNeeds,Coffee,2024-06-17,104,43
+DailyNeeds,Coffee,2024-06-18,111,49
+DailyNeeds,Coffee,2024-06-19,97,59
+DailyNeeds,Coffee,2024-06-20,95,46
+DailyNeeds,Coffee,2024-06-21,113,58
+DailyNeeds,Coffee,2024-06-22,121,53
+DailyNeeds,Coffee,2024-06-23,128,34
+DailyNeeds,Coffee,2024-06-24,111,40
+DailyNeeds,Coffee,2024-06-25,126,37
+DailyNeeds,Coffee,2024-06-26,131,40
+DailyNeeds,Coffee,2024-06-27,108,48
+DailyNeeds,Coffee,2024-06-28,111,44
+DailyNeeds,Coffee,2024-06-29,120,21
+DailyNeeds,Coffee,2024-06-30,131,32
+DailyNeeds,Bread Flour,2024-06-01,34,103
+DailyNeeds,Bread Flour,2024-06-02,36,101
+DailyNeeds,Bread Flour,2024-06-03,37,97
+DailyNeeds,Bread Flour,2024-06-04,38,95
+DailyNeeds,Bread Flour,2024-06-05,38,95
+DailyNeeds,Bread Flour,2024-06-06,38,93
+DailyNeeds,Bread Flour,2024-06-07,46,88
+DailyNeeds,Bread Flour,2024-06-08,44,82
+DailyNeeds,Bread Flour,2024-06-09,47,85
+DailyNeeds,Bread Flour,2024-06-10,48,77
+DailyNeeds,Bread Flour,2024-06-11,51,86
+DailyNeeds,Bread Flour,2024-06-12,50,85
+DailyNeeds,Bread Flour,2024-06-13,58,69
+DailyNeeds,Bread Flour,2024-06-14,51,65
+DailyNeeds,Bread Flour,2024-06-15,64,76
+DailyNeeds,Bread Flour,2024-06-16,67,77
+DailyNeeds,Bread Flour,2024-06-17,64,73
+DailyNeeds,Bread Flour,2024-06-18,48,65
+DailyNeeds,Bread Flour,2024-06-19,54,67
+DailyNeeds,Bread Flour,2024-06-20,74,73
+DailyNeeds,Bread Flour,2024-06-21,81,55
+DailyNeeds,Bread Flour,2024-06-22,84,65
+DailyNeeds,Bread Flour,2024-06-23,56,68
+DailyNeeds,Bread Flour,2024-06-24,73,34
+DailyNeeds,Bread Flour,2024-06-25,86,37
+DailyNeeds,Bread Flour,2024-06-26,79,61
+DailyNeeds,Bread Flour,2024-06-27,59,31
+DailyNeeds,Bread Flour,2024-06-28,97,39
+DailyNeeds,Bread Flour,2024-06-29,77,42
+DailyNeeds,Bread Flour,2024-06-30,93,33
+DailyNeeds,Rice,2024-06-01,58,111
+DailyNeeds,Rice,2024-06-02,59,109
+DailyNeeds,Rice,2024-06-03,57,106
+DailyNeeds,Rice,2024-06-04,59,102
+DailyNeeds,Rice,2024-06-05,62,101
+DailyNeeds,Rice,2024-06-06,62,101
+DailyNeeds,Rice,2024-06-07,62,100
+DailyNeeds,Rice,2024-06-08,63,90
+DailyNeeds,Rice,2024-06-09,63,91
+DailyNeeds,Rice,2024-06-10,66,94
+DailyNeeds,Rice,2024-06-11,71,83
+DailyNeeds,Rice,2024-06-12,72,86
+DailyNeeds,Rice,2024-06-13,70,91
+DailyNeeds,Rice,2024-06-14,80,89
+DailyNeeds,Rice,2024-06-15,76,79
+DailyNeeds,Rice,2024-06-16,84,66
+DailyNeeds,Rice,2024-06-17,69,76
+DailyNeeds,Rice,2024-06-18,77,62
+DailyNeeds,Rice,2024-06-19,88,61
+DailyNeeds,Rice,2024-06-20,102,59
+DailyNeeds,Rice,2024-06-21,70,73
+DailyNeeds,Rice,2024-06-22,74,60
+DailyNeeds,Rice,2024-06-23,97,62
+DailyNeeds,Rice,2024-06-24,86,72
+DailyNeeds,Rice,2024-06-25,91,72
+DailyNeeds,Rice,2024-06-26,90,38
+DailyNeeds,Rice,2024-06-27,103,48
+DailyNeeds,Rice,2024-06-28,79,44
+DailyNeeds,Rice,2024-06-29,122,38
+DailyNeeds,Rice,2024-06-30,84,28
+CityMart,Sunflower Oil,2024-06-01,63,62
+CityMart,Sunflower Oil,2024-06-02,67,60
+CityMart,Sunflower Oil,2024-06-03,65,56
+CityMart,Sunflower Oil,2024-06-04,74,53
+CityMart,Sunflower Oil,2024-06-05,78,54
+CityMart,Sunflower Oil,2024-06-06,72,48
+CityMart,Sunflower Oil,2024-06-07,77,45
+CityMart,Sunflower Oil,2024-06-08,84,46
+CityMart,Sunflower Oil,2024-06-09,74,42
+CityMart,Sunflower Oil,2024-06-10,87,39
+CityMart,Sunflower Oil,2024-06-11,80,44
+CityMart,Sunflower Oil,2024-06-12,90,39
+CityMart,Sunflower Oil,2024-06-13,79,32
+CityMart,Sunflower Oil,2024-06-14,84,41
+CityMart,Sunflower Oil,2024-06-15,90,28
+CityMart,Sunflower Oil,2024-06-16,85,34
+CityMart,Sunflower Oil,2024-06-17,110,34
+CityMart,Sunflower Oil,2024-06-18,93,35
+CityMart,Sunflower Oil,2024-06-19,96,33
+CityMart,Sunflower Oil,2024-06-20,84,22
+CityMart,Sunflower Oil,2024-06-21,84,4
+CityMart,Sunflower Oil,2024-06-22,87,0
+CityMart,Sunflower Oil,2024-06-23,96,1
+CityMart,Sunflower Oil,2024-06-24,125,17
+CityMart,Sunflower Oil,2024-06-25,122,13
+CityMart,Sunflower Oil,2024-06-26,107,18
+CityMart,Sunflower Oil,2024-06-27,115,0
+CityMart,Sunflower Oil,2024-06-28,109,9
+CityMart,Sunflower Oil,2024-06-29,99,0
+CityMart,Sunflower Oil,2024-06-30,115,3
+CityMart,Toor Dal,2024-06-01,57,83
+CityMart,Toor Dal,2024-06-02,58,80
+CityMart,Toor Dal,2024-06-03,61,78
+CityMart,Toor Dal,2024-06-04,61,77
+CityMart,Toor Dal,2024-06-05,67,76
+CityMart,Toor Dal,2024-06-06,66,71
+CityMart,Toor Dal,2024-06-07,64,67
+CityMart,Toor Dal,2024-06-08,69,71
+CityMart,Toor Dal,2024-06-09,71,59
+CityMart,Toor Dal,2024-06-10,78,62
+CityMart,Toor Dal,2024-06-11,66,63
+CityMart,Toor Dal,2024-06-12,78,57
+CityMart,Toor Dal,2024-06-13,82,48
+CityMart,Toor Dal,2024-06-14,73,49
+CityMart,Toor Dal,2024-06-15,85,49
+CityMart,Toor Dal,2024-06-16,80,42
+CityMart,Toor Dal,2024-06-17,80,51
+CityMart,Toor Dal,2024-06-18,76,56
+CityMart,Toor Dal,2024-06-19,102,35
+CityMart,Toor Dal,2024-06-20,100,53
+CityMart,Toor Dal,2024-06-21,107,33
+CityMart,Toor Dal,2024-06-22,103,40
+CityMart,Toor Dal,2024-06-23,104,17
+CityMart,Toor Dal,2024-06-24,83,14
+CityMart,Toor Dal,2024-06-25,82,44
+CityMart,Toor Dal,2024-06-26,74,10
+CityMart,Toor Dal,2024-06-27,114,16
+CityMart,Toor Dal,2024-06-28,83,26
+CityMart,Toor Dal,2024-06-29,115,39
+CityMart,Toor Dal,2024-06-30,93,15
+CityMart,Wheat Flour,2024-06-01,41,119
+CityMart,Wheat Flour,2024-06-02,44,116
+CityMart,Wheat Flour,2024-06-03,47,115
+CityMart,Wheat Flour,2024-06-04,52,112
+CityMart,Wheat Flour,2024-06-05,47,112
+CityMart,Wheat Flour,2024-06-06,50,105
+CityMart,Wheat Flour,2024-06-07,52,103
+CityMart,Wheat Flour,2024-06-08,48,100
+CityMart,Wheat Flour,2024-06-09,63,100
+CityMart,Wheat Flour,2024-06-10,59,98
+CityMart,Wheat Flour,2024-06-11,57,99
+CityMart,Wheat Flour,2024-06-12,60,100
+CityMart,Wheat Flour,2024-06-13,69,98
+CityMart,Wheat Flour,2024-06-14,76,83
+CityMart,Wheat Flour,2024-06-15,70,95
+CityMart,Wheat Flour,2024-06-16,56,78
+CityMart,Wheat Flour,2024-06-17,77,81
+CityMart,Wheat Flour,2024-06-18,70,84
+CityMart,Wheat Flour,2024-06-19,85,76
+CityMart,Wheat Flour,2024-06-20,86,74
+CityMart,Wheat Flour,2024-06-21,89,77
+CityMart,Wheat Flour,2024-06-22,94,66
+CityMart,Wheat Flour,2024-06-23,65,55
+CityMart,Wheat Flour,2024-06-24,93,61
+CityMart,Wheat Flour,2024-06-25,68,76
+CityMart,Wheat Flour,2024-06-26,74,76
+CityMart,Wheat Flour,2024-06-27,98,41
+CityMart,Wheat Flour,2024-06-28,68,58
+CityMart,Wheat Flour,2024-06-29,83,72
+CityMart,Wheat Flour,2024-06-30,99,41
+CityMart,Rice,2024-06-01,70,119
+CityMart,Rice,2024-06-02,69,116
+CityMart,Rice,2024-06-03,76,113
+CityMart,Rice,2024-06-04,78,114
+CityMart,Rice,2024-06-05,76,110
+CityMart,Rice,2024-06-06,78,110
+CityMart,Rice,2024-06-07,77,102
+CityMart,Rice,2024-06-08,83,107
+CityMart,Rice,2024-06-09,86,96
+CityMart,Rice,2024-06-10,87,92
+CityMart,Rice,2024-06-11,76,90
+CityMart,Rice,2024-06-12,86,90
+CityMart,Rice,2024-06-13,97,87
+CityMart,Rice,2024-06-14,89,94
+CityMart,Rice,2024-06-15,84,89
+CityMart,Rice,2024-06-16,91,92
+CityMart,Rice,2024-06-17,92,77
+CityMart,Rice,2024-06-18,87,77
+CityMart,Rice,2024-06-19,105,77
+CityMart,Rice,2024-06-20,115,71
+CityMart,Rice,2024-06-21,105,80
+CityMart,Rice,2024-06-22,96,82
+CityMart,Rice,2024-06-23,121,66
+CityMart,Rice,2024-06-24,107,82
+CityMart,Rice,2024-06-25,116,74
+CityMart,Rice,2024-06-26,112,57
+CityMart,Rice,2024-06-27,122,72
+CityMart,Rice,2024-06-28,125,53
+CityMart,Rice,2024-06-29,134,65
+CityMart,Rice,2024-06-30,143,52
+CityMart,Salt,2024-06-01,35,106
+CityMart,Salt,2024-06-02,35,103
+CityMart,Salt,2024-06-03,36,100
+CityMart,Salt,2024-06-04,39,99
+CityMart,Salt,2024-06-05,37,98
+CityMart,Salt,2024-06-06,42,95
+CityMart,Salt,2024-06-07,47,88
+CityMart,Salt,2024-06-08,48,89
+CityMart,Salt,2024-06-09,46,83
+CityMart,Salt,2024-06-10,44,80
+CityMart,Salt,2024-06-11,47,81
+CityMart,Salt,2024-06-12,45,78
+CityMart,Salt,2024-06-13,53,78
+CityMart,Salt,2024-06-14,48,77
+CityMart,Salt,2024-06-15,65,84
+CityMart,Salt,2024-06-16,44,64
+CityMart,Salt,2024-06-17,68,72
+CityMart,Salt,2024-06-18,72,55
+CityMart,Salt,2024-06-19,60,70
+CityMart,Salt,2024-06-20,56,64
+CityMart,Salt,2024-06-21,76,50
+CityMart,Salt,2024-06-22,79,62
+CityMart,Salt,2024-06-23,70,56
+CityMart,Salt,2024-06-24,83,62
+CityMart,Salt,2024-06-25,63,69
+CityMart,Salt,2024-06-26,90,62
+CityMart,Salt,2024-06-27,97,47
+CityMart,Salt,2024-06-28,77,39
+CityMart,Salt,2024-06-29,56,37
+CityMart,Salt,2024-06-30,104,45
+CityMart,Green Gram,2024-06-01,54,77
+CityMart,Green Gram,2024-06-02,55,74
+CityMart,Green Gram,2024-06-03,58,73
+CityMart,Green Gram,2024-06-04,62,69
+CityMart,Green Gram,2024-06-05,63,66
+CityMart,Green Gram,2024-06-06,67,66
+CityMart,Green Gram,2024-06-07,72,63
+CityMart,Green Gram,2024-06-08,66,64
+CityMart,Green Gram,2024-06-09,69,54
+CityMart,Green Gram,2024-06-10,64,62
+CityMart,Green Gram,2024-06-11,65,55
+CityMart,Green Gram,2024-06-12,81,46
+CityMart,Green Gram,2024-06-13,74,47
+CityMart,Green Gram,2024-06-14,71,40
+CityMart,Green Gram,2024-06-15,78,55
+CityMart,Green Gram,2024-06-16,67,37
+CityMart,Green Gram,2024-06-17,70,51
+CityMart,Green Gram,2024-06-18,92,45
+CityMart,Green Gram,2024-06-19,77,49
+CityMart,Green Gram,2024-06-20,93,20
+CityMart,Green Gram,2024-06-21,82,21
+CityMart,Green Gram,2024-06-22,89,35
+CityMart,Green Gram,2024-06-23,87,38
+CityMart,Green Gram,2024-06-24,90,11
+CityMart,Green Gram,2024-06-25,111,17
+CityMart,Green Gram,2024-06-26,75,19
+CityMart,Green Gram,2024-06-27,109,15
+CityMart,Green Gram,2024-06-28,120,34
+CityMart,Green Gram,2024-06-29,87,4
+CityMart,Green Gram,2024-06-30,118,29
+GreenBasket,Organic Rice,2024-06-01,29,84
+GreenBasket,Organic Rice,2024-06-02,32,82
+GreenBasket,Organic Rice,2024-06-03,33,80
+GreenBasket,Organic Rice,2024-06-04,34,78
+GreenBasket,Organic Rice,2024-06-05,32,77
+GreenBasket,Organic Rice,2024-06-06,41,71
+GreenBasket,Organic Rice,2024-06-07,35,70
+GreenBasket,Organic Rice,2024-06-08,42,69
+GreenBasket,Organic Rice,2024-06-09,49,64
+GreenBasket,Organic Rice,2024-06-10,49,69
+GreenBasket,Organic Rice,2024-06-11,51,60
+GreenBasket,Organic Rice,2024-06-12,48,60
+GreenBasket,Organic Rice,2024-06-13,43,48
+GreenBasket,Organic Rice,2024-06-14,56,45
+GreenBasket,Organic Rice,2024-06-15,46,48
+GreenBasket,Organic Rice,2024-06-16,58,54
+GreenBasket,Organic Rice,2024-06-17,63,52
+GreenBasket,Organic Rice,2024-06-18,70,36
+GreenBasket,Organic Rice,2024-06-19,71,52
+GreenBasket,Organic Rice,2024-06-20,52,54
+GreenBasket,Organic Rice,2024-06-21,58,25
+GreenBasket,Organic Rice,2024-06-22,59,24
+GreenBasket,Organic Rice,2024-06-23,68,48
+GreenBasket,Organic Rice,2024-06-24,58,26
+GreenBasket,Organic Rice,2024-06-25,51,12
+GreenBasket,Organic Rice,2024-06-26,80,18
+GreenBasket,Organic Rice,2024-06-27,57,21
+GreenBasket,Organic Rice,2024-06-28,98,30
+GreenBasket,Organic Rice,2024-06-29,98,37
+GreenBasket,Organic Rice,2024-06-30,80,0
+GreenBasket,Brown Sugar,2024-06-01,67,64
+GreenBasket,Brown Sugar,2024-06-02,71,61
+GreenBasket,Brown Sugar,2024-06-03,74,59
+GreenBasket,Brown Sugar,2024-06-04,78,58
+GreenBasket,Brown Sugar,2024-06-05,77,53
+GreenBasket,Brown Sugar,2024-06-06,76,55
+GreenBasket,Brown Sugar,2024-06-07,83,51
+GreenBasket,Brown Sugar,2024-06-08,84,48
+GreenBasket,Brown Sugar,2024-06-09,87,49
+GreenBasket,Brown Sugar,2024-06-10,82,48
+GreenBasket,Brown Sugar,2024-06-11,84,45
+GreenBasket,Brown Sugar,2024-06-12,94,47
+GreenBasket,Brown Sugar,2024-06-13,92,45
+GreenBasket,Brown Sugar,2024-06-14,97,36
+GreenBasket,Brown Sugar,2024-06-15,104,38
+GreenBasket,Brown Sugar,2024-06-16,100,27
+GreenBasket,Brown Sugar,2024-06-17,104,28
+GreenBasket,Brown Sugar,2024-06-18,102,30
+GreenBasket,Brown Sugar,2024-06-19,112,23
+GreenBasket,Brown Sugar,2024-06-20,99,7
+GreenBasket,Brown Sugar,2024-06-21,97,12
+GreenBasket,Brown Sugar,2024-06-22,95,11
+GreenBasket,Brown Sugar,2024-06-23,118,30
+GreenBasket,Brown Sugar,2024-06-24,90,0
+GreenBasket,Brown Sugar,2024-06-25,100,6
+GreenBasket,Brown Sugar,2024-06-26,114,12
+GreenBasket,Brown Sugar,2024-06-27,104,5
+GreenBasket,Brown Sugar,2024-06-28,106,0
+GreenBasket,Brown Sugar,2024-06-29,107,0
+GreenBasket,Brown Sugar,2024-06-30,107,0
+GreenBasket,Olive Oil,2024-06-01,44,68
+GreenBasket,Olive Oil,2024-06-02,50,65
+GreenBasket,Olive Oil,2024-06-03,46,62
+GreenBasket,Olive Oil,2024-06-04,54,59
+GreenBasket,Olive Oil,2024-06-05,50,57
+GreenBasket,Olive Oil,2024-06-06,53,56
+GreenBasket,Olive Oil,2024-06-07,56,53
+GreenBasket,Olive Oil,2024-06-08,57,52
+GreenBasket,Olive Oil,2024-06-09,51,47
+GreenBasket,Olive Oil,2024-06-10,51,48
+GreenBasket,Olive Oil,2024-06-11,69,41
+GreenBasket,Olive Oil,2024-06-12,70,39
+GreenBasket,Olive Oil,2024-06-13,69,35
+GreenBasket,Olive Oil,2024-06-14,59,30
+GreenBasket,Olive Oil,2024-06-15,64,31
+GreenBasket,Olive Oil,2024-06-16,60,25
+GreenBasket,Olive Oil,2024-06-17,82,25
+GreenBasket,Olive Oil,2024-06-18,76,32
+GreenBasket,Olive Oil,2024-06-19,67,16
+GreenBasket,Olive Oil,2024-06-20,61,15
+GreenBasket,Olive Oil,2024-06-21,76,11
+GreenBasket,Olive Oil,2024-06-22,75,21
+GreenBasket,Olive Oil,2024-06-23,74,11
+GreenBasket,Olive Oil,2024-06-24,77,16
+GreenBasket,Olive Oil,2024-06-25,83,12
+GreenBasket,Olive Oil,2024-06-26,100,19
+GreenBasket,Olive Oil,2024-06-27,88,0
+GreenBasket,Olive Oil,2024-06-28,104,22
+GreenBasket,Olive Oil,2024-06-29,96,17
+GreenBasket,Olive Oil,2024-06-30,84,17
+GreenBasket,Moong Dal,2024-06-01,78,113
+GreenBasket,Moong Dal,2024-06-02,76,110
+GreenBasket,Moong Dal,2024-06-03,80,108
+GreenBasket,Moong Dal,2024-06-04,83,107
+GreenBasket,Moong Dal,2024-06-05,85,106
+GreenBasket,Moong Dal,2024-06-06,90,100
+GreenBasket,Moong Dal,2024-06-07,85,95
+GreenBasket,Moong Dal,2024-06-08,89,101
+GreenBasket,Moong Dal,2024-06-09,94,89
+GreenBasket,Moong Dal,2024-06-10,96,91
+GreenBasket,Moong Dal,2024-06-11,96,84
+GreenBasket,Moong Dal,2024-06-12,92,84
+GreenBasket,Moong Dal,2024-06-13,105,81
+GreenBasket,Moong Dal,2024-06-14,98,76
+GreenBasket,Moong Dal,2024-06-15,91,80
+GreenBasket,Moong Dal,2024-06-16,99,72
+GreenBasket,Moong Dal,2024-06-17,99,79
+GreenBasket,Moong Dal,2024-06-18,108,87
+GreenBasket,Moong Dal,2024-06-19,96,65
+GreenBasket,Moong Dal,2024-06-20,118,68
+GreenBasket,Moong Dal,2024-06-21,126,53
+GreenBasket,Moong Dal,2024-06-22,95,51
+GreenBasket,Moong Dal,2024-06-23,93,55
+GreenBasket,Moong Dal,2024-06-24,118,54
+GreenBasket,Moong Dal,2024-06-25,109,64
+GreenBasket,Moong Dal,2024-06-26,135,61
+GreenBasket,Moong Dal,2024-06-27,132,49
+GreenBasket,Moong Dal,2024-06-28,104,68
+GreenBasket,Moong Dal,2024-06-29,97,47
+GreenBasket,Moong Dal,2024-06-30,128,54
+GreenBasket,Quinoa,2024-06-01,59,117
+GreenBasket,Quinoa,2024-06-02,65,114
+GreenBasket,Quinoa,2024-06-03,64,112
+GreenBasket,Quinoa,2024-06-04,64,108
+GreenBasket,Quinoa,2024-06-05,66,108
+GreenBasket,Quinoa,2024-06-06,73,106
+GreenBasket,Quinoa,2024-06-07,72,100
+GreenBasket,Quinoa,2024-06-08,74,98
+GreenBasket,Quinoa,2024-06-09,81,103
+GreenBasket,Quinoa,2024-06-10,77,97
+GreenBasket,Quinoa,2024-06-11,88,94
+GreenBasket,Quinoa,2024-06-12,77,88
+GreenBasket,Quinoa,2024-06-13,77,90
+GreenBasket,Quinoa,2024-06-14,77,84
+GreenBasket,Quinoa,2024-06-15,91,75
+GreenBasket,Quinoa,2024-06-16,95,77
+GreenBasket,Quinoa,2024-06-17,93,81
+GreenBasket,Quinoa,2024-06-18,81,80
+GreenBasket,Quinoa,2024-06-19,103,66
+GreenBasket,Quinoa,2024-06-20,103,76
+GreenBasket,Quinoa,2024-06-21,87,73
+GreenBasket,Quinoa,2024-06-22,101,82
+GreenBasket,Quinoa,2024-06-23,107,52
+GreenBasket,Quinoa,2024-06-24,113,51
+GreenBasket,Quinoa,2024-06-25,119,80
+GreenBasket,Quinoa,2024-06-26,102,58
+GreenBasket,Quinoa,2024-06-27,95,43
+GreenBasket,Quinoa,2024-06-28,121,60
+GreenBasket,Quinoa,2024-06-29,83,74
+GreenBasket,Quinoa,2024-06-30,83,33
+GreenBasket,Oats,2024-06-01,78,91
+GreenBasket,Oats,2024-06-02,78,88
+GreenBasket,Oats,2024-06-03,79,86
+GreenBasket,Oats,2024-06-04,83,83
+GreenBasket,Oats,2024-06-05,85,79
+GreenBasket,Oats,2024-06-06,88,80
+GreenBasket,Oats,2024-06-07,88,78
+GreenBasket,Oats,2024-06-08,93,71
+GreenBasket,Oats,2024-06-09,90,67
+GreenBasket,Oats,2024-06-10,99,72
+GreenBasket,Oats,2024-06-11,99,66
+GreenBasket,Oats,2024-06-12,105,73
+GreenBasket,Oats,2024-06-13,100,65
+GreenBasket,Oats,2024-06-14,94,70
+GreenBasket,Oats,2024-06-15,104,68
+GreenBasket,Oats,2024-06-16,107,67
+GreenBasket,Oats,2024-06-17,91,50
+GreenBasket,Oats,2024-06-18,113,49
+GreenBasket,Oats,2024-06-19,122,41
+GreenBasket,Oats,2024-06-20,115,60
+GreenBasket,Oats,2024-06-21,119,39
+GreenBasket,Oats,2024-06-22,95,52
+GreenBasket,Oats,2024-06-23,127,35
+GreenBasket,Oats,2024-06-24,121,39
+GreenBasket,Oats,2024-06-25,135,26
+GreenBasket,Oats,2024-06-26,138,48
+GreenBasket,Oats,2024-06-27,109,28
+GreenBasket,Oats,2024-06-28,125,12
+GreenBasket,Oats,2024-06-29,136,30
+GreenBasket,Oats,2024-06-30,118,18
+QuickShop,Sugar,2024-06-01,73,89
+QuickShop,Sugar,2024-06-02,72,86
+QuickShop,Sugar,2024-06-03,75,83
+QuickShop,Sugar,2024-06-04,69,83
+QuickShop,Sugar,2024-06-05,73,79
+QuickShop,Sugar,2024-06-06,75,81
+QuickShop,Sugar,2024-06-07,81,77
+QuickShop,Sugar,2024-06-08,85,76
+QuickShop,Sugar,2024-06-09,91,75
+QuickShop,Sugar,2024-06-10,88,64
+QuickShop,Sugar,2024-06-11,84,67
+QuickShop,Sugar,2024-06-12,98,65
+QuickShop,Sugar,2024-06-13,93,67
+QuickShop,Sugar,2024-06-14,86,58
+QuickShop,Sugar,2024-06-15,103,67
+QuickShop,Sugar,2024-06-16,87,53
+QuickShop,Sugar,2024-06-17,99,49
+QuickShop,Sugar,2024-06-18,104,45
+QuickShop,Sugar,2024-06-19,105,58
+QuickShop,Sugar,2024-06-20,108,48
+QuickShop,Sugar,2024-06-21,104,36
+QuickShop,Sugar,2024-06-22,108,30
+QuickShop,Sugar,2024-06-23,101,51
+QuickShop,Sugar,2024-06-24,124,48
+QuickShop,Sugar,2024-06-25,119,20
+QuickShop,Sugar,2024-06-26,116,29
+QuickShop,Sugar,2024-06-27,118,40
+QuickShop,Sugar,2024-06-28,134,12
+QuickShop,Sugar,2024-06-29,110,32
+QuickShop,Sugar,2024-06-30,146,44
+QuickShop,Salt,2024-06-01,58,80
+QuickShop,Salt,2024-06-02,60,77
+QuickShop,Salt,2024-06-03,62,75
+QuickShop,Salt,2024-06-04,65,75
+QuickShop,Salt,2024-06-05,64,72
+QuickShop,Salt,2024-06-06,70,68
+QuickShop,Salt,2024-06-07,68,66
+QuickShop,Salt,2024-06-08,71,63
+QuickShop,Salt,2024-06-09,78,58
+QuickShop,Salt,2024-06-10,72,66
+QuickShop,Salt,2024-06-11,71,55
+QuickShop,Salt,2024-06-12,81,55
+QuickShop,Salt,2024-06-13,75,46
+QuickShop,Salt,2024-06-14,77,60
+QuickShop,Salt,2024-06-15,80,46
+QuickShop,Salt,2024-06-16,79,53
+QuickShop,Salt,2024-06-17,82,37
+QuickShop,Salt,2024-06-18,79,34
+QuickShop,Salt,2024-06-19,83,27
+QuickShop,Salt,2024-06-20,91,49
+QuickShop,Salt,2024-06-21,76,26
+QuickShop,Salt,2024-06-22,87,37
+QuickShop,Salt,2024-06-23,78,16
+QuickShop,Salt,2024-06-24,89,24
+QuickShop,Salt,2024-06-25,108,9
+QuickShop,Salt,2024-06-26,116,14
+QuickShop,Salt,2024-06-27,94,2
+QuickShop,Salt,2024-06-28,98,25
+QuickShop,Salt,2024-06-29,82,23
+QuickShop,Salt,2024-06-30,123,0
+QuickShop,Wheat Flour,2024-06-01,34,83
+QuickShop,Wheat Flour,2024-06-02,39,80
+QuickShop,Wheat Flour,2024-06-03,43,77
+QuickShop,Wheat Flour,2024-06-04,42,75
+QuickShop,Wheat Flour,2024-06-05,47,76
+QuickShop,Wheat Flour,2024-06-06,42,73
+QuickShop,Wheat Flour,2024-06-07,45,66
+QuickShop,Wheat Flour,2024-06-08,50,62
+QuickShop,Wheat Flour,2024-06-09,45,68
+QuickShop,Wheat Flour,2024-06-10,48,64
+QuickShop,Wheat Flour,2024-06-11,52,63
+QuickShop,Wheat Flour,2024-06-12,58,61
+QuickShop,Wheat Flour,2024-06-13,56,62
+QuickShop,Wheat Flour,2024-06-14,59,45
+QuickShop,Wheat Flour,2024-06-15,58,42
+QuickShop,Wheat Flour,2024-06-16,72,47
+QuickShop,Wheat Flour,2024-06-17,67,51
+QuickShop,Wheat Flour,2024-06-18,52,36
+QuickShop,Wheat Flour,2024-06-19,76,43
+QuickShop,Wheat Flour,2024-06-20,54,26
+QuickShop,Wheat Flour,2024-06-21,60,30
+QuickShop,Wheat Flour,2024-06-22,53,30
+QuickShop,Wheat Flour,2024-06-23,71,19
+QuickShop,Wheat Flour,2024-06-24,88,14
+QuickShop,Wheat Flour,2024-06-25,66,34
+QuickShop,Wheat Flour,2024-06-26,60,43
+QuickShop,Wheat Flour,2024-06-27,85,20
+QuickShop,Wheat Flour,2024-06-28,69,19
+QuickShop,Wheat Flour,2024-06-29,77,20
+QuickShop,Wheat Flour,2024-06-30,78,23
+QuickShop,Rice,2024-06-01,72,76
+QuickShop,Rice,2024-06-02,71,73
+QuickShop,Rice,2024-06-03,79,71
+QuickShop,Rice,2024-06-04,82,67
+QuickShop,Rice,2024-06-05,80,66
+QuickShop,Rice,2024-06-06,81,64
+QuickShop,Rice,2024-06-07,85,58
+QuickShop,Rice,2024-06-08,86,57
+QuickShop,Rice,2024-06-09,81,56
+QuickShop,Rice,2024-06-10,97,53
+QuickShop,Rice,2024-06-11,86,54
+QuickShop,Rice,2024-06-12,96,46
+QuickShop,Rice,2024-06-13,95,56
+QuickShop,Rice,2024-06-14,92,48
+QuickShop,Rice,2024-06-15,102,46
+QuickShop,Rice,2024-06-16,93,49
+QuickShop,Rice,2024-06-17,111,47
+QuickShop,Rice,2024-06-18,113,36
+QuickShop,Rice,2024-06-19,100,23
+QuickShop,Rice,2024-06-20,98,22
+QuickShop,Rice,2024-06-21,124,27
+QuickShop,Rice,2024-06-22,108,20
+QuickShop,Rice,2024-06-23,112,18
+QuickShop,Rice,2024-06-24,130,36
+QuickShop,Rice,2024-06-25,131,24
+QuickShop,Rice,2024-06-26,112,4
+QuickShop,Rice,2024-06-27,107,16
+QuickShop,Rice,2024-06-28,114,12
+QuickShop,Rice,2024-06-29,113,3
+QuickShop,Rice,2024-06-30,117,3
+QuickShop,Toor Dal,2024-06-01,37,94
+QuickShop,Toor Dal,2024-06-02,36,92
+QuickShop,Toor Dal,2024-06-03,41,90
+QuickShop,Toor Dal,2024-06-04,44,88
+QuickShop,Toor Dal,2024-06-05,41,84
+QuickShop,Toor Dal,2024-06-06,40,85
+QuickShop,Toor Dal,2024-06-07,44,76
+QuickShop,Toor Dal,2024-06-08,40,79
+QuickShop,Toor Dal,2024-06-09,40,79
+QuickShop,Toor Dal,2024-06-10,43,69
+QuickShop,Toor Dal,2024-06-11,58,65
+QuickShop,Toor Dal,2024-06-12,60,70
+QuickShop,Toor Dal,2024-06-13,45,68
+QuickShop,Toor Dal,2024-06-14,44,63
+QuickShop,Toor Dal,2024-06-15,45,72
+QuickShop,Toor Dal,2024-06-16,64,62
+QuickShop,Toor Dal,2024-06-17,70,52
+QuickShop,Toor Dal,2024-06-18,57,45
+QuickShop,Toor Dal,2024-06-19,59,55
+QuickShop,Toor Dal,2024-06-20,77,42
+QuickShop,Toor Dal,2024-06-21,59,36
+QuickShop,Toor Dal,2024-06-22,54,48
+QuickShop,Toor Dal,2024-06-23,66,59
+QuickShop,Toor Dal,2024-06-24,71,44
+QuickShop,Toor Dal,2024-06-25,69,52
+QuickShop,Toor Dal,2024-06-26,74,26
+QuickShop,Toor Dal,2024-06-27,89,44
+QuickShop,Toor Dal,2024-06-28,72,36
+QuickShop,Toor Dal,2024-06-29,92,43
+QuickShop,Toor Dal,2024-06-30,88,39
+QuickShop,Sunflower Oil,2024-06-01,48,111
+QuickShop,Sunflower Oil,2024-06-02,50,108
+QuickShop,Sunflower Oil,2024-06-03,57,106
+QuickShop,Sunflower Oil,2024-06-04,55,103
+QuickShop,Sunflower Oil,2024-06-05,54,104
+QuickShop,Sunflower Oil,2024-06-06,65,102
+QuickShop,Sunflower Oil,2024-06-07,67,94
+QuickShop,Sunflower Oil,2024-06-08,63,95
+QuickShop,Sunflower Oil,2024-06-09,62,95
+QuickShop,Sunflower Oil,2024-06-10,63,86
+QuickShop,Sunflower Oil,2024-06-11,62,83
+QuickShop,Sunflower Oil,2024-06-12,71,81
+QuickShop,Sunflower Oil,2024-06-13,59,79
+QuickShop,Sunflower Oil,2024-06-14,65,74
+QuickShop,Sunflower Oil,2024-06-15,66,83
+QuickShop,Sunflower Oil,2024-06-16,81,75
+QuickShop,Sunflower Oil,2024-06-17,81,76
+QuickShop,Sunflower Oil,2024-06-18,76,65
+QuickShop,Sunflower Oil,2024-06-19,70,67
+QuickShop,Sunflower Oil,2024-06-20,91,76
+QuickShop,Sunflower Oil,2024-06-21,69,55
+QuickShop,Sunflower Oil,2024-06-22,67,56
+QuickShop,Sunflower Oil,2024-06-23,82,67
+QuickShop,Sunflower Oil,2024-06-24,87,76
+QuickShop,Sunflower Oil,2024-06-25,71,55
+QuickShop,Sunflower Oil,2024-06-26,82,62
+QuickShop,Sunflower Oil,2024-06-27,101,50
+QuickShop,Sunflower Oil,2024-06-28,97,67
+QuickShop,Sunflower Oil,2024-06-29,74,30
+QuickShop,Sunflower Oil,2024-06-30,96,61
+MegaStore,Rice,2024-06-01,68,104
+MegaStore,Rice,2024-06-02,67,101
+MegaStore,Rice,2024-06-03,68,100
+MegaStore,Rice,2024-06-04,69,98
+MegaStore,Rice,2024-06-05,75,97
+MegaStore,Rice,2024-06-06,78,94
+MegaStore,Rice,2024-06-07,72,93
+MegaStore,Rice,2024-06-08,73,84
+MegaStore,Rice,2024-06-09,82,87
+MegaStore,Rice,2024-06-10,83,79
+MegaStore,Rice,2024-06-11,72,88
+MegaStore,Rice,2024-06-12,82,73
+MegaStore,Rice,2024-06-13,95,84
+MegaStore,Rice,2024-06-14,93,77
+MegaStore,Rice,2024-06-15,87,81
+MegaStore,Rice,2024-06-16,83,79
+MegaStore,Rice,2024-06-17,82,67
+MegaStore,Rice,2024-06-18,104,53
+MegaStore,Rice,2024-06-19,96,68
+MegaStore,Rice,2024-06-20,95,56
+MegaStore,Rice,2024-06-21,102,55
+MegaStore,Rice,2024-06-22,85,54
+MegaStore,Rice,2024-06-23,110,42
+MegaStore,Rice,2024-06-24,104,44
+MegaStore,Rice,2024-06-25,108,45
+MegaStore,Rice,2024-06-26,117,59
+MegaStore,Rice,2024-06-27,96,43
+MegaStore,Rice,2024-06-28,89,61
+MegaStore,Rice,2024-06-29,94,52
+MegaStore,Rice,2024-06-30,124,24
+MegaStore,Wheat Flour,2024-06-01,64,93
+MegaStore,Wheat Flour,2024-06-02,70,90
+MegaStore,Wheat Flour,2024-06-03,74,88
+MegaStore,Wheat Flour,2024-06-04,73,86
+MegaStore,Wheat Flour,2024-06-05,72,84
+MegaStore,Wheat Flour,2024-06-06,82,85
+MegaStore,Wheat Flour,2024-06-07,72,77
+MegaStore,Wheat Flour,2024-06-08,79,74
+MegaStore,Wheat Flour,2024-06-09,80,77
+MegaStore,Wheat Flour,2024-06-10,75,71
+MegaStore,Wheat Flour,2024-06-11,90,72
+MegaStore,Wheat Flour,2024-06-12,84,73
+MegaStore,Wheat Flour,2024-06-13,87,72
+MegaStore,Wheat Flour,2024-06-14,93,65
+MegaStore,Wheat Flour,2024-06-15,85,58
+MegaStore,Wheat Flour,2024-06-16,84,52
+MegaStore,Wheat Flour,2024-06-17,106,65
+MegaStore,Wheat Flour,2024-06-18,94,52
+MegaStore,Wheat Flour,2024-06-19,95,62
+MegaStore,Wheat Flour,2024-06-20,92,59
+MegaStore,Wheat Flour,2024-06-21,112,36
+MegaStore,Wheat Flour,2024-06-22,106,50
+MegaStore,Wheat Flour,2024-06-23,113,41
+MegaStore,Wheat Flour,2024-06-24,121,44
+MegaStore,Wheat Flour,2024-06-25,98,41
+MegaStore,Wheat Flour,2024-06-26,112,52
+MegaStore,Wheat Flour,2024-06-27,130,21
+MegaStore,Wheat Flour,2024-06-28,95,33
+MegaStore,Wheat Flour,2024-06-29,120,39
+MegaStore,Wheat Flour,2024-06-30,137,44
+MegaStore,Sunflower Oil,2024-06-01,58,82
+MegaStore,Sunflower Oil,2024-06-02,53,79
+MegaStore,Sunflower Oil,2024-06-03,60,77
+MegaStore,Sunflower Oil,2024-06-04,58,73
+MegaStore,Sunflower Oil,2024-06-05,59,73
+MegaStore,Sunflower Oil,2024-06-06,61,74
+MegaStore,Sunflower Oil,2024-06-07,60,68
+MegaStore,Sunflower Oil,2024-06-08,69,61
+MegaStore,Sunflower Oil,2024-06-09,72,67
+MegaStore,Sunflower Oil,2024-06-10,63,61
+MegaStore,Sunflower Oil,2024-06-11,59,66
+MegaStore,Sunflower Oil,2024-06-12,65,51
+MegaStore,Sunflower Oil,2024-06-13,67,55
+MegaStore,Sunflower Oil,2024-06-14,65,46
+MegaStore,Sunflower Oil,2024-06-15,84,43
+MegaStore,Sunflower Oil,2024-06-16,82,51
+MegaStore,Sunflower Oil,2024-06-17,83,43
+MegaStore,Sunflower Oil,2024-06-18,81,34
+MegaStore,Sunflower Oil,2024-06-19,97,49
+MegaStore,Sunflower Oil,2024-06-20,86,53
+MegaStore,Sunflower Oil,2024-06-21,73,22
+MegaStore,Sunflower Oil,2024-06-22,84,42
+MegaStore,Sunflower Oil,2024-06-23,71,38
+MegaStore,Sunflower Oil,2024-06-24,99,31
+MegaStore,Sunflower Oil,2024-06-25,93,21
+MegaStore,Sunflower Oil,2024-06-26,83,42
+MegaStore,Sunflower Oil,2024-06-27,108,36
+MegaStore,Sunflower Oil,2024-06-28,76,28
+MegaStore,Sunflower Oil,2024-06-29,117,15
+MegaStore,Sunflower Oil,2024-06-30,77,0
+MegaStore,Sugar,2024-06-01,78,62
+MegaStore,Sugar,2024-06-02,78,60
+MegaStore,Sugar,2024-06-03,76,57
+MegaStore,Sugar,2024-06-04,80,56
+MegaStore,Sugar,2024-06-05,89,52
+MegaStore,Sugar,2024-06-06,86,52
+MegaStore,Sugar,2024-06-07,93,46
+MegaStore,Sugar,2024-06-08,89,51
+MegaStore,Sugar,2024-06-09,84,41
+MegaStore,Sugar,2024-06-10,91,41
+MegaStore,Sugar,2024-06-11,86,40
+MegaStore,Sugar,2024-06-12,100,35
+MegaStore,Sugar,2024-06-13,98,30
+MegaStore,Sugar,2024-06-14,108,42
+MegaStore,Sugar,2024-06-15,102,38
+MegaStore,Sugar,2024-06-16,103,31
+MegaStore,Sugar,2024-06-17,99,23
+MegaStore,Sugar,2024-06-18,119,27
+MegaStore,Sugar,2024-06-19,96,26
+MegaStore,Sugar,2024-06-20,100,31
+MegaStore,Sugar,2024-06-21,120,30
+MegaStore,Sugar,2024-06-22,115,20
+MegaStore,Sugar,2024-06-23,119,12
+MegaStore,Sugar,2024-06-24,99,12
+MegaStore,Sugar,2024-06-25,107,14
+MegaStore,Sugar,2024-06-26,115,0
+MegaStore,Sugar,2024-06-27,107,18
+MegaStore,Sugar,2024-06-28,103,0
+MegaStore,Sugar,2024-06-29,100,9
+MegaStore,Sugar,2024-06-30,131,6
+MegaStore,Chana Dal,2024-06-01,74,119
+MegaStore,Chana Dal,2024-06-02,81,116
+MegaStore,Chana Dal,2024-06-03,78,115
+MegaStore,Chana Dal,2024-06-04,78,110
+MegaStore,Chana Dal,2024-06-05,87,109
+MegaStore,Chana Dal,2024-06-06,79,105
+MegaStore,Chana Dal,2024-06-07,86,103
+MegaStore,Chana Dal,2024-06-08,91,108
+MegaStore,Chana Dal,2024-06-09,86,96
+MegaStore,Chana Dal,2024-06-10,92,101
+MegaStore,Chana Dal,2024-06-11,91,93
+MegaStore,Chana Dal,2024-06-12,95,89
+MegaStore,Chana Dal,2024-06-13,104,98
+MegaStore,Chana Dal,2024-06-14,103,93
+MegaStore,Chana Dal,2024-06-15,89,90
+MegaStore,Chana Dal,2024-06-16,110,95
+MegaStore,Chana Dal,2024-06-17,105,80
+MegaStore,Chana Dal,2024-06-18,115,91
+MegaStore,Chana Dal,2024-06-19,105,87
+MegaStore,Chana Dal,2024-06-20,97,81
+MegaStore,Chana Dal,2024-06-21,99,67
+MegaStore,Chana Dal,2024-06-22,105,82
+MegaStore,Chana Dal,2024-06-23,105,72
+MegaStore,Chana Dal,2024-06-24,93,66
+MegaStore,Chana Dal,2024-06-25,135,54
+MegaStore,Chana Dal,2024-06-26,112,52
+MegaStore,Chana Dal,2024-06-27,107,79
+MegaStore,Chana Dal,2024-06-28,138,41
+MegaStore,Chana Dal,2024-06-29,112,54
+MegaStore,Chana Dal,2024-06-30,151,37
+MegaStore,Masoor Dal,2024-06-01,38,93
+MegaStore,Masoor Dal,2024-06-02,42,91
+MegaStore,Masoor Dal,2024-06-03,40,89
+MegaStore,Masoor Dal,2024-06-04,41,86
+MegaStore,Masoor Dal,2024-06-05,40,81
+MegaStore,Masoor Dal,2024-06-06,51,83
+MegaStore,Masoor Dal,2024-06-07,50,78
+MegaStore,Masoor Dal,2024-06-08,52,75
+MegaStore,Masoor Dal,2024-06-09,49,78
+MegaStore,Masoor Dal,2024-06-10,58,70
+MegaStore,Masoor Dal,2024-06-11,60,73
+MegaStore,Masoor Dal,2024-06-12,53,63
+MegaStore,Masoor Dal,2024-06-13,67,62
+MegaStore,Masoor Dal,2024-06-14,64,70
+MegaStore,Masoor Dal,2024-06-15,58,65
+MegaStore,Masoor Dal,2024-06-16,57,68
+MegaStore,Masoor Dal,2024-06-17,60,52
+MegaStore,Masoor Dal,2024-06-18,71,45
+MegaStore,Masoor Dal,2024-06-19,57,39
+MegaStore,Masoor Dal,2024-06-20,84,58
+MegaStore,Masoor Dal,2024-06-21,57,57
+MegaStore,Masoor Dal,2024-06-22,58,46
+MegaStore,Masoor Dal,2024-06-23,57,57
+MegaStore,Masoor Dal,2024-06-24,70,42
+MegaStore,Masoor Dal,2024-06-25,76,40
+MegaStore,Masoor Dal,2024-06-26,78,24
+MegaStore,Masoor Dal,2024-06-27,100,48
+MegaStore,Masoor Dal,2024-06-28,75,50
+MegaStore,Masoor Dal,2024-06-29,108,37
+MegaStore,Masoor Dal,2024-06-30,105,38
+ValueMart,Salt,2024-06-01,44,110
+ValueMart,Salt,2024-06-02,43,107
+ValueMart,Salt,2024-06-03,48,106
+ValueMart,Salt,2024-06-04,48,102
+ValueMart,Salt,2024-06-05,52,100
+ValueMart,Salt,2024-06-06,51,99
+ValueMart,Salt,2024-06-07,54,100
+ValueMart,Salt,2024-06-08,63,97
+ValueMart,Salt,2024-06-09,54,93
+ValueMart,Salt,2024-06-10,58,87
+ValueMart,Salt,2024-06-11,62,87
+ValueMart,Salt,2024-06-12,72,81
+ValueMart,Salt,2024-06-13,60,76
+ValueMart,Salt,2024-06-14,57,76
+ValueMart,Salt,2024-06-15,65,81
+ValueMart,Salt,2024-06-16,76,87
+ValueMart,Salt,2024-06-17,64,84
+ValueMart,Salt,2024-06-18,62,70
+ValueMart,Salt,2024-06-19,64,59
+ValueMart,Salt,2024-06-20,86,67
+ValueMart,Salt,2024-06-21,71,71
+ValueMart,Salt,2024-06-22,72,73
+ValueMart,Salt,2024-06-23,92,72
+ValueMart,Salt,2024-06-24,64,44
+ValueMart,Salt,2024-06-25,72,71
+ValueMart,Salt,2024-06-26,108,63
+ValueMart,Salt,2024-06-27,104,70
+ValueMart,Salt,2024-06-28,89,38
+ValueMart,Salt,2024-06-29,111,56
+ValueMart,Salt,2024-06-30,82,50
+ValueMart,Sugar,2024-06-01,33,73
+ValueMart,Sugar,2024-06-02,32,70
+ValueMart,Sugar,2024-06-03,38,69
+ValueMart,Sugar,2024-06-04,40,68
+ValueMart,Sugar,2024-06-05,37,65
+ValueMart,Sugar,2024-06-06,44,58
+ValueMart,Sugar,2024-06-07,42,62
+ValueMart,Sugar,2024-06-08,47,61
+ValueMart,Sugar,2024-06-09,55,56
+ValueMart,Sugar,2024-06-10,48,56
+ValueMart,Sugar,2024-06-11,44,45
+ValueMart,Sugar,2024-06-12,44,50
+ValueMart,Sugar,2024-06-13,46,52
+ValueMart,Sugar,2024-06-14,59,37
+ValueMart,Sugar,2024-06-15,52,47
+ValueMart,Sugar,2024-06-16,51,36
+ValueMart,Sugar,2024-06-17,60,29
+ValueMart,Sugar,2024-06-18,55,35
+ValueMart,Sugar,2024-06-19,71,27
+ValueMart,Sugar,2024-06-20,50,24
+ValueMart,Sugar,2024-06-21,60,35
+ValueMart,Sugar,2024-06-22,62,38
+ValueMart,Sugar,2024-06-23,55,9
+ValueMart,Sugar,2024-06-24,51,21
+ValueMart,Sugar,2024-06-25,58,31
+ValueMart,Sugar,2024-06-26,93,27
+ValueMart,Sugar,2024-06-27,88,12
+ValueMart,Sugar,2024-06-28,79,24
+ValueMart,Sugar,2024-06-29,62,15
+ValueMart,Sugar,2024-06-30,94,14
+ValueMart,Rice,2024-06-01,48,118
+ValueMart,Rice,2024-06-02,48,115
+ValueMart,Rice,2024-06-03,49,113
+ValueMart,Rice,2024-06-04,51,109
+ValueMart,Rice,2024-06-05,48,106
+ValueMart,Rice,2024-06-06,55,104
+ValueMart,Rice,2024-06-07,58,101
+ValueMart,Rice,2024-06-08,53,99
+ValueMart,Rice,2024-06-09,68,96
+ValueMart,Rice,2024-06-10,68,99
+ValueMart,Rice,2024-06-11,59,96
+ValueMart,Rice,2024-06-12,67,95
+ValueMart,Rice,2024-06-13,70,90
+ValueMart,Rice,2024-06-14,60,92
+ValueMart,Rice,2024-06-15,73,76
+ValueMart,Rice,2024-06-16,77,73
+ValueMart,Rice,2024-06-17,73,81
+ValueMart,Rice,2024-06-18,80,86
+ValueMart,Rice,2024-06-19,74,90
+ValueMart,Rice,2024-06-20,62,61
+ValueMart,Rice,2024-06-21,73,71
+ValueMart,Rice,2024-06-22,70,63
+ValueMart,Rice,2024-06-23,88,52
+ValueMart,Rice,2024-06-24,89,71
+ValueMart,Rice,2024-06-25,91,52
+ValueMart,Rice,2024-06-26,90,65
+ValueMart,Rice,2024-06-27,87,45
+ValueMart,Rice,2024-06-28,74,46
+ValueMart,Rice,2024-06-29,109,69
+ValueMart,Rice,2024-06-30,102,51
+ValueMart,Wheat Flour,2024-06-01,45,62
+ValueMart,Wheat Flour,2024-06-02,42,59
+ValueMart,Wheat Flour,2024-06-03,49,57
+ValueMart,Wheat Flour,2024-06-04,48,57
+ValueMart,Wheat Flour,2024-06-05,51,52
+ValueMart,Wheat Flour,2024-06-06,51,49
+ValueMart,Wheat Flour,2024-06-07,53,44
+ValueMart,Wheat Flour,2024-06-08,55,41
+ValueMart,Wheat Flour,2024-06-09,58,41
+ValueMart,Wheat Flour,2024-06-10,61,40
+ValueMart,Wheat Flour,2024-06-11,56,39
+ValueMart,Wheat Flour,2024-06-12,57,32
+ValueMart,Wheat Flour,2024-06-13,57,32
+ValueMart,Wheat Flour,2024-06-14,62,37
+ValueMart,Wheat Flour,2024-06-15,69,21
+ValueMart,Wheat Flour,2024-06-16,68,32
+ValueMart,Wheat Flour,2024-06-17,76,29
+ValueMart,Wheat Flour,2024-06-18,83,36
+ValueMart,Wheat Flour,2024-06-19,75,32
+ValueMart,Wheat Flour,2024-06-20,94,18
+ValueMart,Wheat Flour,2024-06-21,80,19
+ValueMart,Wheat Flour,2024-06-22,60,27
+ValueMart,Wheat Flour,2024-06-23,91,12
+ValueMart,Wheat Flour,2024-06-24,91,25
+ValueMart,Wheat Flour,2024-06-25,89,16
+ValueMart,Wheat Flour,2024-06-26,81,23
+ValueMart,Wheat Flour,2024-06-27,88,10
+ValueMart,Wheat Flour,2024-06-28,83,17
+ValueMart,Wheat Flour,2024-06-29,84,0
+ValueMart,Wheat Flour,2024-06-30,114,0
+ValueMart,Cooking Oil,2024-06-01,77,72
+ValueMart,Cooking Oil,2024-06-02,74,69
+ValueMart,Cooking Oil,2024-06-03,79,68
+ValueMart,Cooking Oil,2024-06-04,80,63
+ValueMart,Cooking Oil,2024-06-05,80,63
+ValueMart,Cooking Oil,2024-06-06,87,60
+ValueMart,Cooking Oil,2024-06-07,85,57
+ValueMart,Cooking Oil,2024-06-08,83,54
+ValueMart,Cooking Oil,2024-06-09,93,53
+ValueMart,Cooking Oil,2024-06-10,95,53
+ValueMart,Cooking Oil,2024-06-11,100,47
+ValueMart,Cooking Oil,2024-06-12,87,50
+ValueMart,Cooking Oil,2024-06-13,90,41
+ValueMart,Cooking Oil,2024-06-14,93,48
+ValueMart,Cooking Oil,2024-06-15,102,38
+ValueMart,Cooking Oil,2024-06-16,88,42
+ValueMart,Cooking Oil,2024-06-17,100,43
+ValueMart,Cooking Oil,2024-06-18,111,35
+ValueMart,Cooking Oil,2024-06-19,110,21
+ValueMart,Cooking Oil,2024-06-20,93,28
+ValueMart,Cooking Oil,2024-06-21,125,37
+ValueMart,Cooking Oil,2024-06-22,125,16
+ValueMart,Cooking Oil,2024-06-23,126,8
+ValueMart,Cooking Oil,2024-06-24,108,26
+ValueMart,Cooking Oil,2024-06-25,124,9
+ValueMart,Cooking Oil,2024-06-26,97,19
+ValueMart,Cooking Oil,2024-06-27,112,0
+ValueMart,Cooking Oil,2024-06-28,116,0
+ValueMart,Cooking Oil,2024-06-29,118,0
+ValueMart,Cooking Oil,2024-06-30,110,14
+ValueMart,Toor Dal,2024-06-01,67,73
+ValueMart,Toor Dal,2024-06-02,75,71
+ValueMart,Toor Dal,2024-06-03,70,68
+ValueMart,Toor Dal,2024-06-04,74,68
+ValueMart,Toor Dal,2024-06-05,80,64
+ValueMart,Toor Dal,2024-06-06,81,62
+ValueMart,Toor Dal,2024-06-07,79,60
+ValueMart,Toor Dal,2024-06-08,87,58
+ValueMart,Toor Dal,2024-06-09,83,54
+ValueMart,Toor Dal,2024-06-10,90,47
+ValueMart,Toor Dal,2024-06-11,81,43
+ValueMart,Toor Dal,2024-06-12,90,55
+ValueMart,Toor Dal,2024-06-13,95,45
+ValueMart,Toor Dal,2024-06-14,89,36
+ValueMart,Toor Dal,2024-06-15,86,50
+ValueMart,Toor Dal,2024-06-16,109,38
+ValueMart,Toor Dal,2024-06-17,93,41
+ValueMart,Toor Dal,2024-06-18,88,44
+ValueMart,Toor Dal,2024-06-19,93,39
+ValueMart,Toor Dal,2024-06-20,93,35
+ValueMart,Toor Dal,2024-06-21,115,16
+ValueMart,Toor Dal,2024-06-22,103,19
+ValueMart,Toor Dal,2024-06-23,122,33
+ValueMart,Toor Dal,2024-06-24,91,37
+ValueMart,Toor Dal,2024-06-25,120,15
+ValueMart,Toor Dal,2024-06-26,105,34
+ValueMart,Toor Dal,2024-06-27,125,13
+ValueMart,Toor Dal,2024-06-28,115,16
+ValueMart,Toor Dal,2024-06-29,134,5
+ValueMart,Toor Dal,2024-06-30,140,0
+UrbanGrocers,Quinoa,2024-06-01,52,111
+UrbanGrocers,Quinoa,2024-06-02,51,108
+UrbanGrocers,Quinoa,2024-06-03,57,107
+UrbanGrocers,Quinoa,2024-06-04,53,104
+UrbanGrocers,Quinoa,2024-06-05,56,104
+UrbanGrocers,Quinoa,2024-06-06,56,96
+UrbanGrocers,Quinoa,2024-06-07,68,93
+UrbanGrocers,Quinoa,2024-06-08,53,91
+UrbanGrocers,Quinoa,2024-06-09,71,98
+UrbanGrocers,Quinoa,2024-06-10,64,91
+UrbanGrocers,Quinoa,2024-06-11,72,88
+UrbanGrocers,Quinoa,2024-06-12,64,91
+UrbanGrocers,Quinoa,2024-06-13,81,82
+UrbanGrocers,Quinoa,2024-06-14,69,80
+UrbanGrocers,Quinoa,2024-06-15,80,77
+UrbanGrocers,Quinoa,2024-06-16,73,71
+UrbanGrocers,Quinoa,2024-06-17,66,76
+UrbanGrocers,Quinoa,2024-06-18,85,73
+UrbanGrocers,Quinoa,2024-06-19,87,62
+UrbanGrocers,Quinoa,2024-06-20,76,76
+UrbanGrocers,Quinoa,2024-06-21,85,67
+UrbanGrocers,Quinoa,2024-06-22,107,61
+UrbanGrocers,Quinoa,2024-06-23,102,49
+UrbanGrocers,Quinoa,2024-06-24,91,51
+UrbanGrocers,Quinoa,2024-06-25,86,60
+UrbanGrocers,Quinoa,2024-06-26,107,64
+UrbanGrocers,Quinoa,2024-06-27,117,34
+UrbanGrocers,Quinoa,2024-06-28,93,57
+UrbanGrocers,Quinoa,2024-06-29,97,38
+UrbanGrocers,Quinoa,2024-06-30,79,65
+UrbanGrocers,Oats,2024-06-01,52,84
+UrbanGrocers,Oats,2024-06-02,50,82
+UrbanGrocers,Oats,2024-06-03,55,79
+UrbanGrocers,Oats,2024-06-04,56,78
+UrbanGrocers,Oats,2024-06-05,62,77
+UrbanGrocers,Oats,2024-06-06,65,76
+UrbanGrocers,Oats,2024-06-07,62,67
+UrbanGrocers,Oats,2024-06-08,60,64
+UrbanGrocers,Oats,2024-06-09,64,60
+UrbanGrocers,Oats,2024-06-10,60,67
+UrbanGrocers,Oats,2024-06-11,68,67
+UrbanGrocers,Oats,2024-06-12,71,63
+UrbanGrocers,Oats,2024-06-13,70,62
+UrbanGrocers,Oats,2024-06-14,70,56
+UrbanGrocers,Oats,2024-06-15,85,52
+UrbanGrocers,Oats,2024-06-16,83,42
+UrbanGrocers,Oats,2024-06-17,91,52
+UrbanGrocers,Oats,2024-06-18,66,40
+UrbanGrocers,Oats,2024-06-19,64,38
+UrbanGrocers,Oats,2024-06-20,91,46
+UrbanGrocers,Oats,2024-06-21,95,32
+UrbanGrocers,Oats,2024-06-22,90,21
+UrbanGrocers,Oats,2024-06-23,81,20
+UrbanGrocers,Oats,2024-06-24,80,23
+UrbanGrocers,Oats,2024-06-25,94,35
+UrbanGrocers,Oats,2024-06-26,94,13
+UrbanGrocers,Oats,2024-06-27,99,43
+UrbanGrocers,Oats,2024-06-28,89,23
+UrbanGrocers,Oats,2024-06-29,90,28
+UrbanGrocers,Oats,2024-06-30,86,20
+UrbanGrocers,Almonds,2024-06-01,36,98
+UrbanGrocers,Almonds,2024-06-02,39,95
+UrbanGrocers,Almonds,2024-06-03,40,92
+UrbanGrocers,Almonds,2024-06-04,39,90
+UrbanGrocers,Almonds,2024-06-05,41,88
+UrbanGrocers,Almonds,2024-06-06,40,87
+UrbanGrocers,Almonds,2024-06-07,41,82
+UrbanGrocers,Almonds,2024-06-08,51,85
+UrbanGrocers,Almonds,2024-06-09,39,84
+UrbanGrocers,Almonds,2024-06-10,57,72
+UrbanGrocers,Almonds,2024-06-11,56,81
+UrbanGrocers,Almonds,2024-06-12,46,77
+UrbanGrocers,Almonds,2024-06-13,46,63
+UrbanGrocers,Almonds,2024-06-14,57,62
+UrbanGrocers,Almonds,2024-06-15,64,71
+UrbanGrocers,Almonds,2024-06-16,63,67
+UrbanGrocers,Almonds,2024-06-17,74,51
+UrbanGrocers,Almonds,2024-06-18,48,54
+UrbanGrocers,Almonds,2024-06-19,73,53
+UrbanGrocers,Almonds,2024-06-20,57,50
+UrbanGrocers,Almonds,2024-06-21,85,66
+UrbanGrocers,Almonds,2024-06-22,67,40
+UrbanGrocers,Almonds,2024-06-23,78,50
+UrbanGrocers,Almonds,2024-06-24,72,31
+UrbanGrocers,Almonds,2024-06-25,81,59
+UrbanGrocers,Almonds,2024-06-26,93,46
+UrbanGrocers,Almonds,2024-06-27,80,33
+UrbanGrocers,Almonds,2024-06-28,88,46
+UrbanGrocers,Almonds,2024-06-29,74,54
+UrbanGrocers,Almonds,2024-06-30,86,16
+UrbanGrocers,Olive Oil,2024-06-01,58,72
+UrbanGrocers,Olive Oil,2024-06-02,62,70
+UrbanGrocers,Olive Oil,2024-06-03,63,68
+UrbanGrocers,Olive Oil,2024-06-04,59,63
+UrbanGrocers,Olive Oil,2024-06-05,68,63
+UrbanGrocers,Olive Oil,2024-06-06,71,63
+UrbanGrocers,Olive Oil,2024-06-07,69,61
+UrbanGrocers,Olive Oil,2024-06-08,68,60
+UrbanGrocers,Olive Oil,2024-06-09,74,50
+UrbanGrocers,Olive Oil,2024-06-10,71,53
+UrbanGrocers,Olive Oil,2024-06-11,79,48
+UrbanGrocers,Olive Oil,2024-06-12,85,44
+UrbanGrocers,Olive Oil,2024-06-13,72,51
+UrbanGrocers,Olive Oil,2024-06-14,84,35
+UrbanGrocers,Olive Oil,2024-06-15,91,48
+UrbanGrocers,Olive Oil,2024-06-16,93,36
+UrbanGrocers,Olive Oil,2024-06-17,91,27
+UrbanGrocers,Olive Oil,2024-06-18,77,27
+UrbanGrocers,Olive Oil,2024-06-19,102,36
+UrbanGrocers,Olive Oil,2024-06-20,103,42
+UrbanGrocers,Olive Oil,2024-06-21,96,36
+UrbanGrocers,Olive Oil,2024-06-22,83,24
+UrbanGrocers,Olive Oil,2024-06-23,110,13
+UrbanGrocers,Olive Oil,2024-06-24,97,6
+UrbanGrocers,Olive Oil,2024-06-25,82,30
+UrbanGrocers,Olive Oil,2024-06-26,110,12
+UrbanGrocers,Olive Oil,2024-06-27,113,17
+UrbanGrocers,Olive Oil,2024-06-28,123,19
+UrbanGrocers,Olive Oil,2024-06-29,98,19
+UrbanGrocers,Olive Oil,2024-06-30,124,16
+UrbanGrocers,Brown Sugar,2024-06-01,56,92
+UrbanGrocers,Brown Sugar,2024-06-02,57,89
+UrbanGrocers,Brown Sugar,2024-06-03,57,88
+UrbanGrocers,Brown Sugar,2024-06-04,61,87
+UrbanGrocers,Brown Sugar,2024-06-05,58,81
+UrbanGrocers,Brown Sugar,2024-06-06,58,83
+UrbanGrocers,Brown Sugar,2024-06-07,65,77
+UrbanGrocers,Brown Sugar,2024-06-08,69,74
+UrbanGrocers,Brown Sugar,2024-06-09,67,79
+UrbanGrocers,Brown Sugar,2024-06-10,70,66
+UrbanGrocers,Brown Sugar,2024-06-11,73,66
+UrbanGrocers,Brown Sugar,2024-06-12,80,59
+UrbanGrocers,Brown Sugar,2024-06-13,80,72
+UrbanGrocers,Brown Sugar,2024-06-14,81,54
+UrbanGrocers,Brown Sugar,2024-06-15,73,61
+UrbanGrocers,Brown Sugar,2024-06-16,78,52
+UrbanGrocers,Brown Sugar,2024-06-17,94,61
+UrbanGrocers,Brown Sugar,2024-06-18,71,59
+UrbanGrocers,Brown Sugar,2024-06-19,100,58
+UrbanGrocers,Brown Sugar,2024-06-20,95,62
+UrbanGrocers,Brown Sugar,2024-06-21,81,37
+UrbanGrocers,Brown Sugar,2024-06-22,80,39
+UrbanGrocers,Brown Sugar,2024-06-23,85,58
+UrbanGrocers,Brown Sugar,2024-06-24,109,48
+UrbanGrocers,Brown Sugar,2024-06-25,109,21
+UrbanGrocers,Brown Sugar,2024-06-26,111,35
+UrbanGrocers,Brown Sugar,2024-06-27,109,42
+UrbanGrocers,Brown Sugar,2024-06-28,113,36
+UrbanGrocers,Brown Sugar,2024-06-29,79,43
+UrbanGrocers,Brown Sugar,2024-06-30,130,12
+UrbanGrocers,Chia Seeds,2024-06-01,39,61
+UrbanGrocers,Chia Seeds,2024-06-02,40,58
+UrbanGrocers,Chia Seeds,2024-06-03,40,56
+UrbanGrocers,Chia Seeds,2024-06-04,44,56
+UrbanGrocers,Chia Seeds,2024-06-05,43,52
+UrbanGrocers,Chia Seeds,2024-06-06,48,50
+UrbanGrocers,Chia Seeds,2024-06-07,52,48
+UrbanGrocers,Chia Seeds,2024-06-08,51,43
+UrbanGrocers,Chia Seeds,2024-06-09,48,40
+UrbanGrocers,Chia Seeds,2024-06-10,48,40
+UrbanGrocers,Chia Seeds,2024-06-11,48,34
+UrbanGrocers,Chia Seeds,2024-06-12,51,44
+UrbanGrocers,Chia Seeds,2024-06-13,45,33
+UrbanGrocers,Chia Seeds,2024-06-14,53,33
+UrbanGrocers,Chia Seeds,2024-06-15,69,35
+UrbanGrocers,Chia Seeds,2024-06-16,69,25
+UrbanGrocers,Chia Seeds,2024-06-17,57,17
+UrbanGrocers,Chia Seeds,2024-06-18,60,28
+UrbanGrocers,Chia Seeds,2024-06-19,77,20
+UrbanGrocers,Chia Seeds,2024-06-20,63,14
+UrbanGrocers,Chia Seeds,2024-06-21,66,16
+UrbanGrocers,Chia Seeds,2024-06-22,75,0
+UrbanGrocers,Chia Seeds,2024-06-23,89,8
+UrbanGrocers,Chia Seeds,2024-06-24,74,19
+UrbanGrocers,Chia Seeds,2024-06-25,76,12
+UrbanGrocers,Chia Seeds,2024-06-26,98,3
+UrbanGrocers,Chia Seeds,2024-06-27,84,7
+UrbanGrocers,Chia Seeds,2024-06-28,64,0
+UrbanGrocers,Chia Seeds,2024-06-29,80,12
+UrbanGrocers,Chia Seeds,2024-06-30,82,0
+FreshChoice,Rice,2024-06-01,60,94
+FreshChoice,Rice,2024-06-02,65,91
+FreshChoice,Rice,2024-06-03,62,88
+FreshChoice,Rice,2024-06-04,70,86
+FreshChoice,Rice,2024-06-05,68,82
+FreshChoice,Rice,2024-06-06,68,81
+FreshChoice,Rice,2024-06-07,73,82
+FreshChoice,Rice,2024-06-08,72,81
+FreshChoice,Rice,2024-06-09,67,81
+FreshChoice,Rice,2024-06-10,78,69
+FreshChoice,Rice,2024-06-11,74,69
+FreshChoice,Rice,2024-06-12,71,67
+FreshChoice,Rice,2024-06-13,81,61
+FreshChoice,Rice,2024-06-14,80,56
+FreshChoice,Rice,2024-06-15,83,54
+FreshChoice,Rice,2024-06-16,101,69
+FreshChoice,Rice,2024-06-17,102,65
+FreshChoice,Rice,2024-06-18,100,46
+FreshChoice,Rice,2024-06-19,86,51
+FreshChoice,Rice,2024-06-20,96,65
+FreshChoice,Rice,2024-06-21,111,36
+FreshChoice,Rice,2024-06-22,103,36
+FreshChoice,Rice,2024-06-23,77,44
+FreshChoice,Rice,2024-06-24,88,35
+FreshChoice,Rice,2024-06-25,102,52
+FreshChoice,Rice,2024-06-26,113,50
+FreshChoice,Rice,2024-06-27,120,17
+FreshChoice,Rice,2024-06-28,109,50
+FreshChoice,Rice,2024-06-29,116,17
+FreshChoice,Rice,2024-06-30,133,28
+FreshChoice,Sunflower Oil,2024-06-01,53,99
+FreshChoice,Sunflower Oil,2024-06-02,51,96
+FreshChoice,Sunflower Oil,2024-06-03,57,93
+FreshChoice,Sunflower Oil,2024-06-04,55,91
+FreshChoice,Sunflower Oil,2024-06-05,53,88
+FreshChoice,Sunflower Oil,2024-06-06,61,86
+FreshChoice,Sunflower Oil,2024-06-07,61,88
+FreshChoice,Sunflower Oil,2024-06-08,69,82
+FreshChoice,Sunflower Oil,2024-06-09,58,78
+FreshChoice,Sunflower Oil,2024-06-10,71,84
+FreshChoice,Sunflower Oil,2024-06-11,70,75
+FreshChoice,Sunflower Oil,2024-06-12,69,68
+FreshChoice,Sunflower Oil,2024-06-13,70,65
+FreshChoice,Sunflower Oil,2024-06-14,75,71
+FreshChoice,Sunflower Oil,2024-06-15,77,72
+FreshChoice,Sunflower Oil,2024-06-16,84,65
+FreshChoice,Sunflower Oil,2024-06-17,74,52
+FreshChoice,Sunflower Oil,2024-06-18,74,69
+FreshChoice,Sunflower Oil,2024-06-19,82,57
+FreshChoice,Sunflower Oil,2024-06-20,75,57
+FreshChoice,Sunflower Oil,2024-06-21,99,61
+FreshChoice,Sunflower Oil,2024-06-22,84,43
+FreshChoice,Sunflower Oil,2024-06-23,81,54
+FreshChoice,Sunflower Oil,2024-06-24,92,57
+FreshChoice,Sunflower Oil,2024-06-25,103,50
+FreshChoice,Sunflower Oil,2024-06-26,103,49
+FreshChoice,Sunflower Oil,2024-06-27,113,40
+FreshChoice,Sunflower Oil,2024-06-28,77,50
+FreshChoice,Sunflower Oil,2024-06-29,120,18
+FreshChoice,Sunflower Oil,2024-06-30,103,43
+FreshChoice,Toor Dal,2024-06-01,54,68
+FreshChoice,Toor Dal,2024-06-02,56,65
+FreshChoice,Toor Dal,2024-06-03,59,64
+FreshChoice,Toor Dal,2024-06-04,61,62
+FreshChoice,Toor Dal,2024-06-05,61,61
+FreshChoice,Toor Dal,2024-06-06,62,59
+FreshChoice,Toor Dal,2024-06-07,64,51
+FreshChoice,Toor Dal,2024-06-08,67,53
+FreshChoice,Toor Dal,2024-06-09,63,53
+FreshChoice,Toor Dal,2024-06-10,70,47
+FreshChoice,Toor Dal,2024-06-11,73,44
+FreshChoice,Toor Dal,2024-06-12,65,50
+FreshChoice,Toor Dal,2024-06-13,67,34
+FreshChoice,Toor Dal,2024-06-14,69,42
+FreshChoice,Toor Dal,2024-06-15,69,36
+FreshChoice,Toor Dal,2024-06-16,75,23
+FreshChoice,Toor Dal,2024-06-17,68,23
+FreshChoice,Toor Dal,2024-06-18,83,29
+FreshChoice,Toor Dal,2024-06-19,85,32
+FreshChoice,Toor Dal,2024-06-20,88,33
+FreshChoice,Toor Dal,2024-06-21,76,29
+FreshChoice,Toor Dal,2024-06-22,77,31
+FreshChoice,Toor Dal,2024-06-23,101,4
+FreshChoice,Toor Dal,2024-06-24,101,28
+FreshChoice,Toor Dal,2024-06-25,83,29
+FreshChoice,Toor Dal,2024-06-26,105,15
+FreshChoice,Toor Dal,2024-06-27,115,0
+FreshChoice,Toor Dal,2024-06-28,88,13
+FreshChoice,Toor Dal,2024-06-29,96,20
+FreshChoice,Toor Dal,2024-06-30,96,9
+FreshChoice,Sugar,2024-06-01,33,92
+FreshChoice,Sugar,2024-06-02,33,89
+FreshChoice,Sugar,2024-06-03,37,88
+FreshChoice,Sugar,2024-06-04,37,86
+FreshChoice,Sugar,2024-06-05,42,82
+FreshChoice,Sugar,2024-06-06,48,80
+FreshChoice,Sugar,2024-06-07,42,77
+FreshChoice,Sugar,2024-06-08,46,72
+FreshChoice,Sugar,2024-06-09,55,70
+FreshChoice,Sugar,2024-06-10,51,76
+FreshChoice,Sugar,2024-06-11,54,70
+FreshChoice,Sugar,2024-06-12,46,69
+FreshChoice,Sugar,2024-06-13,46,62
+FreshChoice,Sugar,2024-06-14,54,56
+FreshChoice,Sugar,2024-06-15,50,50
+FreshChoice,Sugar,2024-06-16,50,62
+FreshChoice,Sugar,2024-06-17,65,66
+FreshChoice,Sugar,2024-06-18,63,51
+FreshChoice,Sugar,2024-06-19,66,42
+FreshChoice,Sugar,2024-06-20,52,39
+FreshChoice,Sugar,2024-06-21,70,55
+FreshChoice,Sugar,2024-06-22,73,33
+FreshChoice,Sugar,2024-06-23,67,54
+FreshChoice,Sugar,2024-06-24,68,24
+FreshChoice,Sugar,2024-06-25,64,29
+FreshChoice,Sugar,2024-06-26,66,25
+FreshChoice,Sugar,2024-06-27,77,38
+FreshChoice,Sugar,2024-06-28,75,36
+FreshChoice,Sugar,2024-06-29,76,34
+FreshChoice,Sugar,2024-06-30,83,19
+FreshChoice,Wheat Flour,2024-06-01,45,88
+FreshChoice,Wheat Flour,2024-06-02,47,86
+FreshChoice,Wheat Flour,2024-06-03,54,83
+FreshChoice,Wheat Flour,2024-06-04,49,82
+FreshChoice,Wheat Flour,2024-06-05,52,81
+FreshChoice,Wheat Flour,2024-06-06,44,75
+FreshChoice,Wheat Flour,2024-06-07,52,72
+FreshChoice,Wheat Flour,2024-06-08,52,75
+FreshChoice,Wheat Flour,2024-06-09,55,68
+FreshChoice,Wheat Flour,2024-06-10,60,63
+FreshChoice,Wheat Flour,2024-06-11,59,58
+FreshChoice,Wheat Flour,2024-06-12,64,59
+FreshChoice,Wheat Flour,2024-06-13,53,59
+FreshChoice,Wheat Flour,2024-06-14,75,49
+FreshChoice,Wheat Flour,2024-06-15,70,52
+FreshChoice,Wheat Flour,2024-06-16,58,55
+FreshChoice,Wheat Flour,2024-06-17,59,50
+FreshChoice,Wheat Flour,2024-06-18,65,58
+FreshChoice,Wheat Flour,2024-06-19,75,51
+FreshChoice,Wheat Flour,2024-06-20,92,33
+FreshChoice,Wheat Flour,2024-06-21,68,42
+FreshChoice,Wheat Flour,2024-06-22,64,48
+FreshChoice,Wheat Flour,2024-06-23,81,30
+FreshChoice,Wheat Flour,2024-06-24,78,34
+FreshChoice,Wheat Flour,2024-06-25,70,27
+FreshChoice,Wheat Flour,2024-06-26,106,40
+FreshChoice,Wheat Flour,2024-06-27,86,15
+FreshChoice,Wheat Flour,2024-06-28,94,11
+FreshChoice,Wheat Flour,2024-06-29,76,32
+FreshChoice,Wheat Flour,2024-06-30,94,3
+FreshChoice,Moong Dal,2024-06-01,54,90
+FreshChoice,Moong Dal,2024-06-02,58,87
+FreshChoice,Moong Dal,2024-06-03,59,84
+FreshChoice,Moong Dal,2024-06-04,62,85
+FreshChoice,Moong Dal,2024-06-05,57,78
+FreshChoice,Moong Dal,2024-06-06,65,80
+FreshChoice,Moong Dal,2024-06-07,66,73
+FreshChoice,Moong Dal,2024-06-08,66,71
+FreshChoice,Moong Dal,2024-06-09,67,76
+FreshChoice,Moong Dal,2024-06-10,70,72
+FreshChoice,Moong Dal,2024-06-11,65,60
+FreshChoice,Moong Dal,2024-06-12,77,72
+FreshChoice,Moong Dal,2024-06-13,72,55
+FreshChoice,Moong Dal,2024-06-14,68,58
+FreshChoice,Moong Dal,2024-06-15,75,63
+FreshChoice,Moong Dal,2024-06-16,83,46
+FreshChoice,Moong Dal,2024-06-17,73,43
+FreshChoice,Moong Dal,2024-06-18,90,47
+FreshChoice,Moong Dal,2024-06-19,95,43
+FreshChoice,Moong Dal,2024-06-20,100,46
+FreshChoice,Moong Dal,2024-06-21,72,42
+FreshChoice,Moong Dal,2024-06-22,89,38
+FreshChoice,Moong Dal,2024-06-23,72,25
+FreshChoice,Moong Dal,2024-06-24,85,40
+FreshChoice,Moong Dal,2024-06-25,100,39
+FreshChoice,Moong Dal,2024-06-26,85,16
+FreshChoice,Moong Dal,2024-06-27,81,42
+FreshChoice,Moong Dal,2024-06-28,112,41
+FreshChoice,Moong Dal,2024-06-29,80,44
+FreshChoice,Moong Dal,2024-06-30,117,12
+SuperSaver,Wheat Flour,2024-06-01,44,82
+SuperSaver,Wheat Flour,2024-06-02,45,79
+SuperSaver,Wheat Flour,2024-06-03,46,76
+SuperSaver,Wheat Flour,2024-06-04,48,74
+SuperSaver,Wheat Flour,2024-06-05,49,70
+SuperSaver,Wheat Flour,2024-06-06,46,73
+SuperSaver,Wheat Flour,2024-06-07,50,72
+SuperSaver,Wheat Flour,2024-06-08,58,64
+SuperSaver,Wheat Flour,2024-06-09,57,63
+SuperSaver,Wheat Flour,2024-06-10,65,59
+SuperSaver,Wheat Flour,2024-06-11,63,55
+SuperSaver,Wheat Flour,2024-06-12,55,57
+SuperSaver,Wheat Flour,2024-06-13,58,63
+SuperSaver,Wheat Flour,2024-06-14,55,45
+SuperSaver,Wheat Flour,2024-06-15,64,46
+SuperSaver,Wheat Flour,2024-06-16,62,41
+SuperSaver,Wheat Flour,2024-06-17,55,40
+SuperSaver,Wheat Flour,2024-06-18,74,44
+SuperSaver,Wheat Flour,2024-06-19,62,32
+SuperSaver,Wheat Flour,2024-06-20,59,42
+SuperSaver,Wheat Flour,2024-06-21,93,24
+SuperSaver,Wheat Flour,2024-06-22,90,34
+SuperSaver,Wheat Flour,2024-06-23,78,39
+SuperSaver,Wheat Flour,2024-06-24,68,35
+SuperSaver,Wheat Flour,2024-06-25,70,28
+SuperSaver,Wheat Flour,2024-06-26,81,10
+SuperSaver,Wheat Flour,2024-06-27,64,25
+SuperSaver,Wheat Flour,2024-06-28,89,3
+SuperSaver,Wheat Flour,2024-06-29,69,29
+SuperSaver,Wheat Flour,2024-06-30,109,0
+SuperSaver,Rice,2024-06-01,41,102
+SuperSaver,Rice,2024-06-02,41,99
+SuperSaver,Rice,2024-06-03,41,98
+SuperSaver,Rice,2024-06-04,48,95
+SuperSaver,Rice,2024-06-05,50,90
+SuperSaver,Rice,2024-06-06,48,93
+SuperSaver,Rice,2024-06-07,48,85
+SuperSaver,Rice,2024-06-08,56,81
+SuperSaver,Rice,2024-06-09,60,82
+SuperSaver,Rice,2024-06-10,50,83
+SuperSaver,Rice,2024-06-11,61,76
+SuperSaver,Rice,2024-06-12,48,77
+SuperSaver,Rice,2024-06-13,54,67
+SuperSaver,Rice,2024-06-14,62,78
+SuperSaver,Rice,2024-06-15,59,68
+SuperSaver,Rice,2024-06-16,62,76
+SuperSaver,Rice,2024-06-17,56,69
+SuperSaver,Rice,2024-06-18,81,66
+SuperSaver,Rice,2024-06-19,78,49
+SuperSaver,Rice,2024-06-20,68,50
+SuperSaver,Rice,2024-06-21,68,70
+SuperSaver,Rice,2024-06-22,88,52
+SuperSaver,Rice,2024-06-23,83,67
+SuperSaver,Rice,2024-06-24,69,37
+SuperSaver,Rice,2024-06-25,90,46
+SuperSaver,Rice,2024-06-26,77,53
+SuperSaver,Rice,2024-06-27,93,31
+SuperSaver,Rice,2024-06-28,80,50
+SuperSaver,Rice,2024-06-29,80,44
+SuperSaver,Rice,2024-06-30,93,41
+SuperSaver,Salt,2024-06-01,48,89
+SuperSaver,Salt,2024-06-02,46,87
+SuperSaver,Salt,2024-06-03,48,84
+SuperSaver,Salt,2024-06-04,45,83
+SuperSaver,Salt,2024-06-05,50,81
+SuperSaver,Salt,2024-06-06,52,77
+SuperSaver,Salt,2024-06-07,60,79
+SuperSaver,Salt,2024-06-08,59,70
+SuperSaver,Salt,2024-06-09,54,71
+SuperSaver,Salt,2024-06-10,53,75
+SuperSaver,Salt,2024-06-11,61,63
+SuperSaver,Salt,2024-06-12,56,57
+SuperSaver,Salt,2024-06-13,65,56
+SuperSaver,Salt,2024-06-14,69,52
+SuperSaver,Salt,2024-06-15,74,52
+SuperSaver,Salt,2024-06-16,85,50
+SuperSaver,Salt,2024-06-17,67,60
+SuperSaver,Salt,2024-06-18,88,59
+SuperSaver,Salt,2024-06-19,65,60
+SuperSaver,Salt,2024-06-20,82,43
+SuperSaver,Salt,2024-06-21,64,42
+SuperSaver,Salt,2024-06-22,82,38
+SuperSaver,Salt,2024-06-23,73,29
+SuperSaver,Salt,2024-06-24,62,33
+SuperSaver,Salt,2024-06-25,99,48
+SuperSaver,Salt,2024-06-26,80,30
+SuperSaver,Salt,2024-06-27,91,19
+SuperSaver,Salt,2024-06-28,107,13
+SuperSaver,Salt,2024-06-29,91,41
+SuperSaver,Salt,2024-06-30,72,15
+SuperSaver,Sugar,2024-06-01,47,108
+SuperSaver,Sugar,2024-06-02,48,105
+SuperSaver,Sugar,2024-06-03,45,104
+SuperSaver,Sugar,2024-06-04,47,100
+SuperSaver,Sugar,2024-06-05,51,98
+SuperSaver,Sugar,2024-06-06,55,96
+SuperSaver,Sugar,2024-06-07,58,96
+SuperSaver,Sugar,2024-06-08,51,92
+SuperSaver,Sugar,2024-06-09,51,92
+SuperSaver,Sugar,2024-06-10,67,89
+SuperSaver,Sugar,2024-06-11,59,88
+SuperSaver,Sugar,2024-06-12,62,81
+SuperSaver,Sugar,2024-06-13,68,84
+SuperSaver,Sugar,2024-06-14,76,82
+SuperSaver,Sugar,2024-06-15,69,77
+SuperSaver,Sugar,2024-06-16,65,69
+SuperSaver,Sugar,2024-06-17,73,66
+SuperSaver,Sugar,2024-06-18,84,66
+SuperSaver,Sugar,2024-06-19,70,59
+SuperSaver,Sugar,2024-06-20,66,73
+SuperSaver,Sugar,2024-06-21,82,73
+SuperSaver,Sugar,2024-06-22,68,63
+SuperSaver,Sugar,2024-06-23,86,65
+SuperSaver,Sugar,2024-06-24,78,67
+SuperSaver,Sugar,2024-06-25,85,71
+SuperSaver,Sugar,2024-06-26,104,66
+SuperSaver,Sugar,2024-06-27,106,49
+SuperSaver,Sugar,2024-06-28,87,33
+SuperSaver,Sugar,2024-06-29,100,61
+SuperSaver,Sugar,2024-06-30,106,41
+SuperSaver,Sunflower Oil,2024-06-01,56,78
+SuperSaver,Sunflower Oil,2024-06-02,56,76
+SuperSaver,Sunflower Oil,2024-06-03,59,74
+SuperSaver,Sunflower Oil,2024-06-04,56,69
+SuperSaver,Sunflower Oil,2024-06-05,64,67
+SuperSaver,Sunflower Oil,2024-06-06,61,69
+SuperSaver,Sunflower Oil,2024-06-07,66,61
+SuperSaver,Sunflower Oil,2024-06-08,70,61
+SuperSaver,Sunflower Oil,2024-06-09,66,57
+SuperSaver,Sunflower Oil,2024-06-10,72,55
+SuperSaver,Sunflower Oil,2024-06-11,69,54
+SuperSaver,Sunflower Oil,2024-06-12,69,49
+SuperSaver,Sunflower Oil,2024-06-13,71,59
+SuperSaver,Sunflower Oil,2024-06-14,70,52
+SuperSaver,Sunflower Oil,2024-06-15,87,36
+SuperSaver,Sunflower Oil,2024-06-16,84,50
+SuperSaver,Sunflower Oil,2024-06-17,91,32
+SuperSaver,Sunflower Oil,2024-06-18,84,41
+SuperSaver,Sunflower Oil,2024-06-19,77,42
+SuperSaver,Sunflower Oil,2024-06-20,95,22
+SuperSaver,Sunflower Oil,2024-06-21,103,20
+SuperSaver,Sunflower Oil,2024-06-22,99,33
+SuperSaver,Sunflower Oil,2024-06-23,76,23
+SuperSaver,Sunflower Oil,2024-06-24,104,33
+SuperSaver,Sunflower Oil,2024-06-25,76,37
+SuperSaver,Sunflower Oil,2024-06-26,100,21
+SuperSaver,Sunflower Oil,2024-06-27,103,20
+SuperSaver,Sunflower Oil,2024-06-28,113,35
+SuperSaver,Sunflower Oil,2024-06-29,116,2
+SuperSaver,Sunflower Oil,2024-06-30,93,4
+SuperSaver,Chana Dal,2024-06-01,44,95
+SuperSaver,Chana Dal,2024-06-02,45,93
+SuperSaver,Chana Dal,2024-06-03,46,90
+SuperSaver,Chana Dal,2024-06-04,48,88
+SuperSaver,Chana Dal,2024-06-05,44,87
+SuperSaver,Chana Dal,2024-06-06,52,85
+SuperSaver,Chana Dal,2024-06-07,51,83
+SuperSaver,Chana Dal,2024-06-08,49,80
+SuperSaver,Chana Dal,2024-06-09,62,71
+SuperSaver,Chana Dal,2024-06-10,62,73
+SuperSaver,Chana Dal,2024-06-11,57,69
+SuperSaver,Chana Dal,2024-06-12,56,68
+SuperSaver,Chana Dal,2024-06-13,67,72
+SuperSaver,Chana Dal,2024-06-14,62,65
+SuperSaver,Chana Dal,2024-06-15,69,60
+SuperSaver,Chana Dal,2024-06-16,61,51
+SuperSaver,Chana Dal,2024-06-17,66,49
+SuperSaver,Chana Dal,2024-06-18,68,45
+SuperSaver,Chana Dal,2024-06-19,70,46
+SuperSaver,Chana Dal,2024-06-20,66,40
+SuperSaver,Chana Dal,2024-06-21,90,44
+SuperSaver,Chana Dal,2024-06-22,88,59
+SuperSaver,Chana Dal,2024-06-23,83,56
+SuperSaver,Chana Dal,2024-06-24,67,47
+SuperSaver,Chana Dal,2024-06-25,78,40
+SuperSaver,Chana Dal,2024-06-26,71,35
+SuperSaver,Chana Dal,2024-06-27,95,42
+SuperSaver,Chana Dal,2024-06-28,100,36
+SuperSaver,Chana Dal,2024-06-29,90,39
+SuperSaver,Chana Dal,2024-06-30,73,47
+DailyBasket,Milk Powder,2024-06-01,59,60
+DailyBasket,Milk Powder,2024-06-02,54,58
+DailyBasket,Milk Powder,2024-06-03,61,56
+DailyBasket,Milk Powder,2024-06-04,60,55
+DailyBasket,Milk Powder,2024-06-05,61,49
+DailyBasket,Milk Powder,2024-06-06,70,49
+DailyBasket,Milk Powder,2024-06-07,65,43
+DailyBasket,Milk Powder,2024-06-08,63,42
+DailyBasket,Milk Powder,2024-06-09,73,43
+DailyBasket,Milk Powder,2024-06-10,71,45
+DailyBasket,Milk Powder,2024-06-11,70,40
+DailyBasket,Milk Powder,2024-06-12,74,32
+DailyBasket,Milk Powder,2024-06-13,73,26
+DailyBasket,Milk Powder,2024-06-14,81,27
+DailyBasket,Milk Powder,2024-06-15,69,19
+DailyBasket,Milk Powder,2024-06-16,89,20
+DailyBasket,Milk Powder,2024-06-17,79,17
+DailyBasket,Milk Powder,2024-06-18,71,9
+DailyBasket,Milk Powder,2024-06-19,100,19
+DailyBasket,Milk Powder,2024-06-20,85,22
+DailyBasket,Milk Powder,2024-06-21,91,11
+DailyBasket,Milk Powder,2024-06-22,101,6
+DailyBasket,Milk Powder,2024-06-23,76,18
+DailyBasket,Milk Powder,2024-06-24,87,8
+DailyBasket,Milk Powder,2024-06-25,115,20
+DailyBasket,Milk Powder,2024-06-26,95,0
+DailyBasket,Milk Powder,2024-06-27,111,11
+DailyBasket,Milk Powder,2024-06-28,94,0
+DailyBasket,Milk Powder,2024-06-29,112,0
+DailyBasket,Milk Powder,2024-06-30,112,0
+DailyBasket,Coffee,2024-06-01,54,77
+DailyBasket,Coffee,2024-06-02,54,74
+DailyBasket,Coffee,2024-06-03,58,73
+DailyBasket,Coffee,2024-06-04,60,71
+DailyBasket,Coffee,2024-06-05,62,68
+DailyBasket,Coffee,2024-06-06,59,63
+DailyBasket,Coffee,2024-06-07,62,63
+DailyBasket,Coffee,2024-06-08,59,60
+DailyBasket,Coffee,2024-06-09,68,54
+DailyBasket,Coffee,2024-06-10,75,60
+DailyBasket,Coffee,2024-06-11,65,47
+DailyBasket,Coffee,2024-06-12,78,58
+DailyBasket,Coffee,2024-06-13,82,51
+DailyBasket,Coffee,2024-06-14,65,46
+DailyBasket,Coffee,2024-06-15,77,37
+DailyBasket,Coffee,2024-06-16,81,44
+DailyBasket,Coffee,2024-06-17,85,51
+DailyBasket,Coffee,2024-06-18,87,29
+DailyBasket,Coffee,2024-06-19,74,25
+DailyBasket,Coffee,2024-06-20,78,22
+DailyBasket,Coffee,2024-06-21,79,45
+DailyBasket,Coffee,2024-06-22,96,31
+DailyBasket,Coffee,2024-06-23,82,43
+DailyBasket,Coffee,2024-06-24,101,39
+DailyBasket,Coffee,2024-06-25,80,28
+DailyBasket,Coffee,2024-06-26,82,3
+DailyBasket,Coffee,2024-06-27,103,3
+DailyBasket,Coffee,2024-06-28,88,32
+DailyBasket,Coffee,2024-06-29,115,32
+DailyBasket,Coffee,2024-06-30,88,6
+DailyBasket,Tea,2024-06-01,66,89
+DailyBasket,Tea,2024-06-02,73,87
+DailyBasket,Tea,2024-06-03,75,84
+DailyBasket,Tea,2024-06-04,74,80
+DailyBasket,Tea,2024-06-05,75,80
+DailyBasket,Tea,2024-06-06,81,80
+DailyBasket,Tea,2024-06-07,77,76
+DailyBasket,Tea,2024-06-08,81,73
+DailyBasket,Tea,2024-06-09,85,73
+DailyBasket,Tea,2024-06-10,91,72
+DailyBasket,Tea,2024-06-11,85,61
+DailyBasket,Tea,2024-06-12,91,61
+DailyBasket,Tea,2024-06-13,84,61
+DailyBasket,Tea,2024-06-14,82,68
+DailyBasket,Tea,2024-06-15,85,60
+DailyBasket,Tea,2024-06-16,92,63
+DailyBasket,Tea,2024-06-17,89,46
+DailyBasket,Tea,2024-06-18,101,47
+DailyBasket,Tea,2024-06-19,85,57
+DailyBasket,Tea,2024-06-20,107,40
+DailyBasket,Tea,2024-06-21,95,47
+DailyBasket,Tea,2024-06-22,91,34
+DailyBasket,Tea,2024-06-23,93,52
+DailyBasket,Tea,2024-06-24,117,36
+DailyBasket,Tea,2024-06-25,97,43
+DailyBasket,Tea,2024-06-26,95,37
+DailyBasket,Tea,2024-06-27,104,30
+DailyBasket,Tea,2024-06-28,129,14
+DailyBasket,Tea,2024-06-29,117,9
+DailyBasket,Tea,2024-06-30,96,30
+DailyBasket,Sugar,2024-06-01,36,90
+DailyBasket,Sugar,2024-06-02,39,88
+DailyBasket,Sugar,2024-06-03,38,86
+DailyBasket,Sugar,2024-06-04,43,82
+DailyBasket,Sugar,2024-06-05,39,79
+DailyBasket,Sugar,2024-06-06,47,81
+DailyBasket,Sugar,2024-06-07,43,78
+DailyBasket,Sugar,2024-06-08,47,74
+DailyBasket,Sugar,2024-06-09,47,76
+DailyBasket,Sugar,2024-06-10,52,73
+DailyBasket,Sugar,2024-06-11,52,67
+DailyBasket,Sugar,2024-06-12,48,71
+DailyBasket,Sugar,2024-06-13,54,66
+DailyBasket,Sugar,2024-06-14,59,66
+DailyBasket,Sugar,2024-06-15,50,63
+DailyBasket,Sugar,2024-06-16,49,53
+DailyBasket,Sugar,2024-06-17,51,57
+DailyBasket,Sugar,2024-06-18,68,50
+DailyBasket,Sugar,2024-06-19,56,48
+DailyBasket,Sugar,2024-06-20,65,53
+DailyBasket,Sugar,2024-06-21,69,53
+DailyBasket,Sugar,2024-06-22,65,43
+DailyBasket,Sugar,2024-06-23,66,44
+DailyBasket,Sugar,2024-06-24,70,26
+DailyBasket,Sugar,2024-06-25,78,24
+DailyBasket,Sugar,2024-06-26,59,19
+DailyBasket,Sugar,2024-06-27,79,24
+DailyBasket,Sugar,2024-06-28,53,14
+DailyBasket,Sugar,2024-06-29,77,29
+DailyBasket,Sugar,2024-06-30,82,28
+DailyBasket,Rice,2024-06-01,62,93
+DailyBasket,Rice,2024-06-02,63,90
+DailyBasket,Rice,2024-06-03,66,89
+DailyBasket,Rice,2024-06-04,65,84
+DailyBasket,Rice,2024-06-05,67,82
+DailyBasket,Rice,2024-06-06,71,84
+DailyBasket,Rice,2024-06-07,72,81
+DailyBasket,Rice,2024-06-08,76,72
+DailyBasket,Rice,2024-06-09,80,71
+DailyBasket,Rice,2024-06-10,71,76
+DailyBasket,Rice,2024-06-11,83,70
+DailyBasket,Rice,2024-06-12,80,64
+DailyBasket,Rice,2024-06-13,81,65
+DailyBasket,Rice,2024-06-14,90,68
+DailyBasket,Rice,2024-06-15,74,61
+DailyBasket,Rice,2024-06-16,94,54
+DailyBasket,Rice,2024-06-17,94,59
+DailyBasket,Rice,2024-06-18,77,65
+DailyBasket,Rice,2024-06-19,95,46
+DailyBasket,Rice,2024-06-20,106,52
+DailyBasket,Rice,2024-06-21,104,49
+DailyBasket,Rice,2024-06-22,84,45
+DailyBasket,Rice,2024-06-23,100,38
+DailyBasket,Rice,2024-06-24,86,33
+DailyBasket,Rice,2024-06-25,101,37
+DailyBasket,Rice,2024-06-26,87,27
+DailyBasket,Rice,2024-06-27,83,26
+DailyBasket,Rice,2024-06-28,123,23
+DailyBasket,Rice,2024-06-29,116,22
+DailyBasket,Rice,2024-06-30,103,17
+DailyBasket,Wheat Flour,2024-06-01,62,60
+DailyBasket,Wheat Flour,2024-06-02,63,57
+DailyBasket,Wheat Flour,2024-06-03,65,56
+DailyBasket,Wheat Flour,2024-06-04,67,51
+DailyBasket,Wheat Flour,2024-06-05,71,49
+DailyBasket,Wheat Flour,2024-06-06,71,50
+DailyBasket,Wheat Flour,2024-06-07,75,50
+DailyBasket,Wheat Flour,2024-06-08,77,48
+DailyBasket,Wheat Flour,2024-06-09,79,39
+DailyBasket,Wheat Flour,2024-06-10,75,37
+DailyBasket,Wheat Flour,2024-06-11,75,43
+DailyBasket,Wheat Flour,2024-06-12,79,42
+DailyBasket,Wheat Flour,2024-06-13,84,24
+DailyBasket,Wheat Flour,2024-06-14,73,33
+DailyBasket,Wheat Flour,2024-06-15,79,36
+DailyBasket,Wheat Flour,2024-06-16,88,22
+DailyBasket,Wheat Flour,2024-06-17,98,16
+DailyBasket,Wheat Flour,2024-06-18,81,31
+DailyBasket,Wheat Flour,2024-06-19,98,13
+DailyBasket,Wheat Flour,2024-06-20,104,22
+DailyBasket,Wheat Flour,2024-06-21,88,8
+DailyBasket,Wheat Flour,2024-06-22,108,15
+DailyBasket,Wheat Flour,2024-06-23,107,0
+DailyBasket,Wheat Flour,2024-06-24,117,7
+DailyBasket,Wheat Flour,2024-06-25,115,14
+DailyBasket,Wheat Flour,2024-06-26,121,16
+DailyBasket,Wheat Flour,2024-06-27,111,1
+DailyBasket,Wheat Flour,2024-06-28,96,12
+DailyBasket,Wheat Flour,2024-06-29,115,0
+DailyBasket,Wheat Flour,2024-06-30,95,0
+SmartMart,Olive Oil,2024-06-01,74,74
+SmartMart,Olive Oil,2024-06-02,72,71
+SmartMart,Olive Oil,2024-06-03,74,68
+SmartMart,Olive Oil,2024-06-04,77,67
+SmartMart,Olive Oil,2024-06-05,74,67
+SmartMart,Olive Oil,2024-06-06,78,63
+SmartMart,Olive Oil,2024-06-07,78,63
+SmartMart,Olive Oil,2024-06-08,86,62
+SmartMart,Olive Oil,2024-06-09,86,59
+SmartMart,Olive Oil,2024-06-10,79,52
+SmartMart,Olive Oil,2024-06-11,95,48
+SmartMart,Olive Oil,2024-06-12,88,44
+SmartMart,Olive Oil,2024-06-13,85,49
+SmartMart,Olive Oil,2024-06-14,102,43
+SmartMart,Olive Oil,2024-06-15,96,49
+SmartMart,Olive Oil,2024-06-16,104,48
+SmartMart,Olive Oil,2024-06-17,105,49
+SmartMart,Olive Oil,2024-06-18,112,45
+SmartMart,Olive Oil,2024-06-19,105,28
+SmartMart,Olive Oil,2024-06-20,119,28
+SmartMart,Olive Oil,2024-06-21,108,17
+SmartMart,Olive Oil,2024-06-22,124,25
+SmartMart,Olive Oil,2024-06-23,119,29
+SmartMart,Olive Oil,2024-06-24,110,9
+SmartMart,Olive Oil,2024-06-25,104,11
+SmartMart,Olive Oil,2024-06-26,113,1
+SmartMart,Olive Oil,2024-06-27,122,23
+SmartMart,Olive Oil,2024-06-28,104,17
+SmartMart,Olive Oil,2024-06-29,139,15
+SmartMart,Olive Oil,2024-06-30,108,0
+SmartMart,Rice,2024-06-01,70,62
+SmartMart,Rice,2024-06-02,72,60
+SmartMart,Rice,2024-06-03,73,56
+SmartMart,Rice,2024-06-04,77,55
+SmartMart,Rice,2024-06-05,81,50
+SmartMart,Rice,2024-06-06,73,51
+SmartMart,Rice,2024-06-07,76,49
+SmartMart,Rice,2024-06-08,80,44
+SmartMart,Rice,2024-06-09,86,38
+SmartMart,Rice,2024-06-10,85,38
+SmartMart,Rice,2024-06-11,87,41
+SmartMart,Rice,2024-06-12,84,43
+SmartMart,Rice,2024-06-13,97,32
+SmartMart,Rice,2024-06-14,84,24
+SmartMart,Rice,2024-06-15,97,36
+SmartMart,Rice,2024-06-16,100,36
+SmartMart,Rice,2024-06-17,101,17
+SmartMart,Rice,2024-06-18,86,13
+SmartMart,Rice,2024-06-19,86,12
+SmartMart,Rice,2024-06-20,104,29
+SmartMart,Rice,2024-06-21,109,5
+SmartMart,Rice,2024-06-22,100,21
+SmartMart,Rice,2024-06-23,85,16
+SmartMart,Rice,2024-06-24,99,12
+SmartMart,Rice,2024-06-25,131,0
+SmartMart,Rice,2024-06-26,119,12
+SmartMart,Rice,2024-06-27,115,7
+SmartMart,Rice,2024-06-28,111,0
+SmartMart,Rice,2024-06-29,103,0
+SmartMart,Rice,2024-06-30,131,1
+SmartMart,Toor Dal,2024-06-01,49,106
+SmartMart,Toor Dal,2024-06-02,48,103
+SmartMart,Toor Dal,2024-06-03,47,101
+SmartMart,Toor Dal,2024-06-04,47,97
+SmartMart,Toor Dal,2024-06-05,54,98
+SmartMart,Toor Dal,2024-06-06,53,92
+SmartMart,Toor Dal,2024-06-07,53,90
+SmartMart,Toor Dal,2024-06-08,59,88
+SmartMart,Toor Dal,2024-06-09,61,88
+SmartMart,Toor Dal,2024-06-10,67,91
+SmartMart,Toor Dal,2024-06-11,60,81
+SmartMart,Toor Dal,2024-06-12,55,79
+SmartMart,Toor Dal,2024-06-13,59,82
+SmartMart,Toor Dal,2024-06-14,78,85
+SmartMart,Toor Dal,2024-06-15,68,64
+SmartMart,Toor Dal,2024-06-16,80,82
+SmartMart,Toor Dal,2024-06-17,72,78
+SmartMart,Toor Dal,2024-06-18,87,55
+SmartMart,Toor Dal,2024-06-19,93,69
+SmartMart,Toor Dal,2024-06-20,69,75
+SmartMart,Toor Dal,2024-06-21,87,48
+SmartMart,Toor Dal,2024-06-22,96,43
+SmartMart,Toor Dal,2024-06-23,74,64
+SmartMart,Toor Dal,2024-06-24,106,40
+SmartMart,Toor Dal,2024-06-25,72,61
+SmartMart,Toor Dal,2024-06-26,70,58
+SmartMart,Toor Dal,2024-06-27,66,66
+SmartMart,Toor Dal,2024-06-28,77,32
+SmartMart,Toor Dal,2024-06-29,98,50
+SmartMart,Toor Dal,2024-06-30,97,48
+SmartMart,Sugar,2024-06-01,56,94
+SmartMart,Sugar,2024-06-02,61,91
+SmartMart,Sugar,2024-06-03,61,90
+SmartMart,Sugar,2024-06-04,62,86
+SmartMart,Sugar,2024-06-05,64,82
+SmartMart,Sugar,2024-06-06,60,83
+SmartMart,Sugar,2024-06-07,62,78
+SmartMart,Sugar,2024-06-08,73,79
+SmartMart,Sugar,2024-06-09,68,72
+SmartMart,Sugar,2024-06-10,67,70
+SmartMart,Sugar,2024-06-11,67,70
+SmartMart,Sugar,2024-06-12,72,65
+SmartMart,Sugar,2024-06-13,68,61
+SmartMart,Sugar,2024-06-14,90,57
+SmartMart,Sugar,2024-06-15,89,61
+SmartMart,Sugar,2024-06-16,70,61
+SmartMart,Sugar,2024-06-17,97,63
+SmartMart,Sugar,2024-06-18,86,50
+SmartMart,Sugar,2024-06-19,86,42
+SmartMart,Sugar,2024-06-20,92,43
+SmartMart,Sugar,2024-06-21,87,54
+SmartMart,Sugar,2024-06-22,103,58
+SmartMart,Sugar,2024-06-23,93,55
+SmartMart,Sugar,2024-06-24,76,51
+SmartMart,Sugar,2024-06-25,109,53
+SmartMart,Sugar,2024-06-26,106,53
+SmartMart,Sugar,2024-06-27,94,26
+SmartMart,Sugar,2024-06-28,100,15
+SmartMart,Sugar,2024-06-29,128,20
+SmartMart,Sugar,2024-06-30,123,31
+SmartMart,Salt,2024-06-01,61,114
+SmartMart,Salt,2024-06-02,66,111
+SmartMart,Salt,2024-06-03,70,108
+SmartMart,Salt,2024-06-04,66,107
+SmartMart,Salt,2024-06-05,66,106
+SmartMart,Salt,2024-06-06,72,100
+SmartMart,Salt,2024-06-07,70,96
+SmartMart,Salt,2024-06-08,75,99
+SmartMart,Salt,2024-06-09,70,99
+SmartMart,Salt,2024-06-10,78,96
+SmartMart,Salt,2024-06-11,81,94
+SmartMart,Salt,2024-06-12,69,95
+SmartMart,Salt,2024-06-13,89,81
+SmartMart,Salt,2024-06-14,86,75
+SmartMart,Salt,2024-06-15,81,84
+SmartMart,Salt,2024-06-16,98,79
+SmartMart,Salt,2024-06-17,83,74
+SmartMart,Salt,2024-06-18,85,64
+SmartMart,Salt,2024-06-19,78,78
+SmartMart,Salt,2024-06-20,84,70
+SmartMart,Salt,2024-06-21,104,62
+SmartMart,Salt,2024-06-22,93,69
+SmartMart,Salt,2024-06-23,107,68
+SmartMart,Salt,2024-06-24,89,77
+SmartMart,Salt,2024-06-25,106,48
+SmartMart,Salt,2024-06-26,115,58
+SmartMart,Salt,2024-06-27,93,65
+SmartMart,Salt,2024-06-28,118,71
+SmartMart,Salt,2024-06-29,87,61
+SmartMart,Salt,2024-06-30,130,47
+SmartMart,Moong Dal,2024-06-01,35,90
+SmartMart,Moong Dal,2024-06-02,38,88
+SmartMart,Moong Dal,2024-06-03,44,86
+SmartMart,Moong Dal,2024-06-04,39,83
+SmartMart,Moong Dal,2024-06-05,51,82
+SmartMart,Moong Dal,2024-06-06,41,82
+SmartMart,Moong Dal,2024-06-07,46,74
+SmartMart,Moong Dal,2024-06-08,44,73
+SmartMart,Moong Dal,2024-06-09,56,74
+SmartMart,Moong Dal,2024-06-10,51,66
+SmartMart,Moong Dal,2024-06-11,61,66
+SmartMart,Moong Dal,2024-06-12,56,71
+SmartMart,Moong Dal,2024-06-13,57,63
+SmartMart,Moong Dal,2024-06-14,67,58
+SmartMart,Moong Dal,2024-06-15,56,52
+SmartMart,Moong Dal,2024-06-16,67,64
+SmartMart,Moong Dal,2024-06-17,67,49
+SmartMart,Moong Dal,2024-06-18,57,49
+SmartMart,Moong Dal,2024-06-19,78,39
+SmartMart,Moong Dal,2024-06-20,65,33
+SmartMart,Moong Dal,2024-06-21,77,59
+SmartMart,Moong Dal,2024-06-22,83,58
+SmartMart,Moong Dal,2024-06-23,83,34
+SmartMart,Moong Dal,2024-06-24,67,51
+SmartMart,Moong Dal,2024-06-25,62,27
+SmartMart,Moong Dal,2024-06-26,85,36
+SmartMart,Moong Dal,2024-06-27,79,17
+SmartMart,Moong Dal,2024-06-28,77,48
+SmartMart,Moong Dal,2024-06-29,65,18
+SmartMart,Moong Dal,2024-06-30,65,38
+RelianceFreshLite,Rice,2024-06-01,40,117
+RelianceFreshLite,Rice,2024-06-02,43,115
+RelianceFreshLite,Rice,2024-06-03,43,112
+RelianceFreshLite,Rice,2024-06-04,44,110
+RelianceFreshLite,Rice,2024-06-05,44,109
+RelianceFreshLite,Rice,2024-06-06,55,103
+RelianceFreshLite,Rice,2024-06-07,52,101
+RelianceFreshLite,Rice,2024-06-08,49,101
+RelianceFreshLite,Rice,2024-06-09,48,94
+RelianceFreshLite,Rice,2024-06-10,61,97
+RelianceFreshLite,Rice,2024-06-11,64,95
+RelianceFreshLite,Rice,2024-06-12,65,92
+RelianceFreshLite,Rice,2024-06-13,63,84
+RelianceFreshLite,Rice,2024-06-14,67,86
+RelianceFreshLite,Rice,2024-06-15,57,80
+RelianceFreshLite,Rice,2024-06-16,73,93
+RelianceFreshLite,Rice,2024-06-17,68,91
+RelianceFreshLite,Rice,2024-06-18,80,77
+RelianceFreshLite,Rice,2024-06-19,59,75
+RelianceFreshLite,Rice,2024-06-20,55,83
+RelianceFreshLite,Rice,2024-06-21,83,73
+RelianceFreshLite,Rice,2024-06-22,75,61
+RelianceFreshLite,Rice,2024-06-23,76,80
+RelianceFreshLite,Rice,2024-06-24,68,67
+RelianceFreshLite,Rice,2024-06-25,77,67
+RelianceFreshLite,Rice,2024-06-26,71,70
+RelianceFreshLite,Rice,2024-06-27,88,71
+RelianceFreshLite,Rice,2024-06-28,87,41
+RelianceFreshLite,Rice,2024-06-29,76,61
+RelianceFreshLite,Rice,2024-06-30,93,69
+RelianceFreshLite,Wheat Flour,2024-06-01,37,104
+RelianceFreshLite,Wheat Flour,2024-06-02,39,101
+RelianceFreshLite,Wheat Flour,2024-06-03,42,99
+RelianceFreshLite,Wheat Flour,2024-06-04,41,97
+RelianceFreshLite,Wheat Flour,2024-06-05,35,95
+RelianceFreshLite,Wheat Flour,2024-06-06,48,93
+RelianceFreshLite,Wheat Flour,2024-06-07,46,88
+RelianceFreshLite,Wheat Flour,2024-06-08,46,87
+RelianceFreshLite,Wheat Flour,2024-06-09,45,90
+RelianceFreshLite,Wheat Flour,2024-06-10,56,86
+RelianceFreshLite,Wheat Flour,2024-06-11,46,88
+RelianceFreshLite,Wheat Flour,2024-06-12,58,71
+RelianceFreshLite,Wheat Flour,2024-06-13,49,74
+RelianceFreshLite,Wheat Flour,2024-06-14,55,79
+RelianceFreshLite,Wheat Flour,2024-06-15,50,79
+RelianceFreshLite,Wheat Flour,2024-06-16,69,68
+RelianceFreshLite,Wheat Flour,2024-06-17,72,63
+RelianceFreshLite,Wheat Flour,2024-06-18,52,60
+RelianceFreshLite,Wheat Flour,2024-06-19,61,51
+RelianceFreshLite,Wheat Flour,2024-06-20,64,48
+RelianceFreshLite,Wheat Flour,2024-06-21,84,44
+RelianceFreshLite,Wheat Flour,2024-06-22,60,58
+RelianceFreshLite,Wheat Flour,2024-06-23,71,56
+RelianceFreshLite,Wheat Flour,2024-06-24,59,39
+RelianceFreshLite,Wheat Flour,2024-06-25,84,44
+RelianceFreshLite,Wheat Flour,2024-06-26,95,66
+RelianceFreshLite,Wheat Flour,2024-06-27,69,61
+RelianceFreshLite,Wheat Flour,2024-06-28,82,54
+RelianceFreshLite,Wheat Flour,2024-06-29,66,42
+RelianceFreshLite,Wheat Flour,2024-06-30,106,52
+RelianceFreshLite,Sunflower Oil,2024-06-01,63,63
+RelianceFreshLite,Sunflower Oil,2024-06-02,67,60
+RelianceFreshLite,Sunflower Oil,2024-06-03,66,58
+RelianceFreshLite,Sunflower Oil,2024-06-04,70,54
+RelianceFreshLite,Sunflower Oil,2024-06-05,74,56
+RelianceFreshLite,Sunflower Oil,2024-06-06,67,52
+RelianceFreshLite,Sunflower Oil,2024-06-07,71,52
+RelianceFreshLite,Sunflower Oil,2024-06-08,71,44
+RelianceFreshLite,Sunflower Oil,2024-06-09,78,42
+RelianceFreshLite,Sunflower Oil,2024-06-10,76,44
+RelianceFreshLite,Sunflower Oil,2024-06-11,78,39
+RelianceFreshLite,Sunflower Oil,2024-06-12,71,43
+RelianceFreshLite,Sunflower Oil,2024-06-13,80,42
+RelianceFreshLite,Sunflower Oil,2024-06-14,93,31
+RelianceFreshLite,Sunflower Oil,2024-06-15,83,24
+RelianceFreshLite,Sunflower Oil,2024-06-16,79,18
+RelianceFreshLite,Sunflower Oil,2024-06-17,100,34
+RelianceFreshLite,Sunflower Oil,2024-06-18,104,23
+RelianceFreshLite,Sunflower Oil,2024-06-19,86,18
+RelianceFreshLite,Sunflower Oil,2024-06-20,90,6
+RelianceFreshLite,Sunflower Oil,2024-06-21,100,30
+RelianceFreshLite,Sunflower Oil,2024-06-22,99,21
+RelianceFreshLite,Sunflower Oil,2024-06-23,88,24
+RelianceFreshLite,Sunflower Oil,2024-06-24,90,18
+RelianceFreshLite,Sunflower Oil,2024-06-25,121,3
+RelianceFreshLite,Sunflower Oil,2024-06-26,93,17
+RelianceFreshLite,Sunflower Oil,2024-06-27,89,23
+RelianceFreshLite,Sunflower Oil,2024-06-28,120,16
+RelianceFreshLite,Sunflower Oil,2024-06-29,122,7
+RelianceFreshLite,Sunflower Oil,2024-06-30,96,0
+RelianceFreshLite,Sugar,2024-06-01,52,90
+RelianceFreshLite,Sugar,2024-06-02,52,87
+RelianceFreshLite,Sugar,2024-06-03,57,85
+RelianceFreshLite,Sugar,2024-06-04,58,85
+RelianceFreshLite,Sugar,2024-06-05,58,82
+RelianceFreshLite,Sugar,2024-06-06,58,78
+RelianceFreshLite,Sugar,2024-06-07,67,74
+RelianceFreshLite,Sugar,2024-06-08,64,72
+RelianceFreshLite,Sugar,2024-06-09,61,66
+RelianceFreshLite,Sugar,2024-06-10,72,65
+RelianceFreshLite,Sugar,2024-06-11,72,68
+RelianceFreshLite,Sugar,2024-06-12,68,69
+RelianceFreshLite,Sugar,2024-06-13,81,57
+RelianceFreshLite,Sugar,2024-06-14,75,52
+RelianceFreshLite,Sugar,2024-06-15,75,61
+RelianceFreshLite,Sugar,2024-06-16,77,55
+RelianceFreshLite,Sugar,2024-06-17,76,43
+RelianceFreshLite,Sugar,2024-06-18,83,54
+RelianceFreshLite,Sugar,2024-06-19,85,51
+RelianceFreshLite,Sugar,2024-06-20,83,35
+RelianceFreshLite,Sugar,2024-06-21,82,30
+RelianceFreshLite,Sugar,2024-06-22,71,30
+RelianceFreshLite,Sugar,2024-06-23,106,56
+RelianceFreshLite,Sugar,2024-06-24,71,47
+RelianceFreshLite,Sugar,2024-06-25,92,47
+RelianceFreshLite,Sugar,2024-06-26,94,30
+RelianceFreshLite,Sugar,2024-06-27,82,12
+RelianceFreshLite,Sugar,2024-06-28,119,13
+RelianceFreshLite,Sugar,2024-06-29,92,20
+RelianceFreshLite,Sugar,2024-06-30,94,20
+RelianceFreshLite,Masoor Dal,2024-06-01,60,103
+RelianceFreshLite,Masoor Dal,2024-06-02,63,100
+RelianceFreshLite,Masoor Dal,2024-06-03,67,98
+RelianceFreshLite,Masoor Dal,2024-06-04,69,94
+RelianceFreshLite,Masoor Dal,2024-06-05,68,93
+RelianceFreshLite,Masoor Dal,2024-06-06,71,90
+RelianceFreshLite,Masoor Dal,2024-06-07,76,93
+RelianceFreshLite,Masoor Dal,2024-06-08,68,89
+RelianceFreshLite,Masoor Dal,2024-06-09,81,82
+RelianceFreshLite,Masoor Dal,2024-06-10,82,76
+RelianceFreshLite,Masoor Dal,2024-06-11,87,84
+RelianceFreshLite,Masoor Dal,2024-06-12,85,79
+RelianceFreshLite,Masoor Dal,2024-06-13,74,67
+RelianceFreshLite,Masoor Dal,2024-06-14,81,74
+RelianceFreshLite,Masoor Dal,2024-06-15,83,75
+RelianceFreshLite,Masoor Dal,2024-06-16,76,74
+RelianceFreshLite,Masoor Dal,2024-06-17,83,67
+RelianceFreshLite,Masoor Dal,2024-06-18,103,59
+RelianceFreshLite,Masoor Dal,2024-06-19,100,53
+RelianceFreshLite,Masoor Dal,2024-06-20,87,68
+RelianceFreshLite,Masoor Dal,2024-06-21,90,50
+RelianceFreshLite,Masoor Dal,2024-06-22,85,46
+RelianceFreshLite,Masoor Dal,2024-06-23,90,67
+RelianceFreshLite,Masoor Dal,2024-06-24,78,59
+RelianceFreshLite,Masoor Dal,2024-06-25,102,47
+RelianceFreshLite,Masoor Dal,2024-06-26,111,52
+RelianceFreshLite,Masoor Dal,2024-06-27,89,50
+RelianceFreshLite,Masoor Dal,2024-06-28,119,49
+RelianceFreshLite,Masoor Dal,2024-06-29,88,60
+RelianceFreshLite,Masoor Dal,2024-06-30,86,51
+RelianceFreshLite,Mustard Oil,2024-06-01,64,91
+RelianceFreshLite,Mustard Oil,2024-06-02,66,89
+RelianceFreshLite,Mustard Oil,2024-06-03,58,87
+RelianceFreshLite,Mustard Oil,2024-06-04,70,84
+RelianceFreshLite,Mustard Oil,2024-06-05,69,80
+RelianceFreshLite,Mustard Oil,2024-06-06,68,81
+RelianceFreshLite,Mustard Oil,2024-06-07,75,76
+RelianceFreshLite,Mustard Oil,2024-06-08,68,80
+RelianceFreshLite,Mustard Oil,2024-06-09,77,69
+RelianceFreshLite,Mustard Oil,2024-06-10,75,71
+RelianceFreshLite,Mustard Oil,2024-06-11,73,61
+RelianceFreshLite,Mustard Oil,2024-06-12,87,72
+RelianceFreshLite,Mustard Oil,2024-06-13,83,57
+RelianceFreshLite,Mustard Oil,2024-06-14,82,70
+RelianceFreshLite,Mustard Oil,2024-06-15,88,63
+RelianceFreshLite,Mustard Oil,2024-06-16,98,50
+RelianceFreshLite,Mustard Oil,2024-06-17,87,66
+RelianceFreshLite,Mustard Oil,2024-06-18,76,62
+RelianceFreshLite,Mustard Oil,2024-06-19,84,46
+RelianceFreshLite,Mustard Oil,2024-06-20,81,47
+RelianceFreshLite,Mustard Oil,2024-06-21,97,48
+RelianceFreshLite,Mustard Oil,2024-06-22,102,56
+RelianceFreshLite,Mustard Oil,2024-06-23,99,32
+RelianceFreshLite,Mustard Oil,2024-06-24,113,31
+RelianceFreshLite,Mustard Oil,2024-06-25,116,30
+RelianceFreshLite,Mustard Oil,2024-06-26,108,26
+RelianceFreshLite,Mustard Oil,2024-06-27,92,21
+RelianceFreshLite,Mustard Oil,2024-06-28,128,43
+RelianceFreshLite,Mustard Oil,2024-06-29,125,34
+RelianceFreshLite,Mustard Oil,2024-06-30,89,44

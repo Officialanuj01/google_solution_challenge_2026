@@ -47,18 +47,7 @@ app.use('/api/data', dataRoutes);
 
 // ── Health Check ────────────────────────────
 app.get('/', (req, res) => {
-    res.json({
-        status: 'healthy',
-        service: 'Pulse API',
-        version: '2.0.0',
-        architecture: {
-            compute: 'Render',
-            ml: 'Vertex AI',
-            calling: 'Twilio',
-            insights: 'Gemini API'
-        },
-        timestamp: new Date().toISOString()
-    });
+    res.send('I am working');
 });
 
 app.get('/health', (req, res) => {
