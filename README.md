@@ -116,6 +116,8 @@ sequenceDiagram
 * Stores delivery instructions for drivers
 * Intelligent retry system for failed calls
 
+![Customer Responses Dashboard](./assets/customer_responses.png)
+
 ---
 
 ## 📦 Features
