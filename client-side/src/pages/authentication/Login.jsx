@@ -95,7 +95,7 @@ function Login({ onLogin }) {
   function handleDevLogin() {
     setEmail('teamdsa@gmail.com');
     setPassword('teamdsa');
-    setDevStatus('These are test credentials meant to be used for Walmart Sparkathon.');
+    setDevStatus('These are test credentials meant to be used for google solution challenge 2026.');
     setError('');
   }
 

@@ -10,6 +10,7 @@ import { OptimizedCard } from '../components/OptimizedComponents';
 import { useDebounce, useSmoothScroll } from '../hooks/usePerformance';
 import { insightsService } from '../services/insights.service';
 import GeminiInsightsModal from '../components/GeminiInsightsModal';
+import config from '../config';
 
 
 // Floating elements for SmartDrop page
@@ -55,7 +56,7 @@ const FloatingSmartDropElements = ({ scrollY }) => {
   );
 };
 
-const API_BASE = '/api/delivery';
+const API_BASE = `${config.apiUrl}/delivery`;
 
 function SmartDrop() {
   // Navbar height (px)
@@ -334,10 +335,9 @@ function SmartDrop() {
         throw new Error('Demo upload completed but no batchId was returned. Please try again.');
       }
 
-      setBatchId(responseData.batchId);
-      
       // Set the demo file and data
       setCsvFile(demoFile);
+      setBatchId(responseData.batchId);
       setCsvData({ headers, rows, totalRows: lines.length - 1 });
       setUploaded(true);
       
