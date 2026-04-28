@@ -129,12 +129,93 @@ Pulse automates two primary pipelines: Stock Optimization and Last-Mile Delivery
 
 ## ⚙️ How It Works
 
-1. Upload sales or delivery CSV
-2. Backend processes data
-3. Hugging Face generates predictions
-4. Gemini provides insights
-5. Twilio handles customer calls
-6. Results displayed on dashboard
+### 🧮 Stock Prediction Workflow:
+1. Vendor uploads sales CSV via React dashboard.
+2. Backend sends data to **Hugging Face** model for prediction.
+3. **Hugging Face** model predicts next 7 days of demand per store/product.
+4. Results returned to dashboard via API response.
+5. **Gemini API** generates insights and recommendations.
+
+### 📞 Delivery Workflow:
+1. Delivery partner uploads customer CSV.
+2. Backend stores customer data and triggers **Twilio** calls.
+3. **Twilio** makes automated calls with TwiML voice prompts.
+4. Customer responses are recorded via Twilio.
+5. Call status and recordings available on dashboard.
+6. Failed calls queued for retry via dashboard "Retry Call" button.
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js 18+
+- MongoDB connection string
+- Gemini API key
+- Hugging Face project/endpoint
+- Google OAuth client ID
+- Twilio account with verified phone number
+
+### Backend Setup:
+```bash
+cd backend
+cp .env.example .env  # Configure your credentials
+npm install
+npm run dev
+```
+
+### Frontend Setup:
+```bash
+cd client-side
+npm install
+npm run dev
+```
+
+### Deploy (Render + Vercel):
+- Backend: deploy the `backend/` service to Render with your `.env` values.
+- Frontend: deploy `client-side/` to Vercel and set `VITE_API_URL`, `VITE_WS_URL`, and `VITE_GOOGLE_CLIENT_ID`.
+
+---
+
+## 📡 API Documentation
+
+### Authentication
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/auth/register` | Register new user |
+| POST | `/api/auth/login` | Login user |
+| POST | `/api/auth/google` | Google OAuth login |
+| GET | `/api/auth/me` | Get current user |
+| PUT | `/api/auth/role` | Update user role |
+
+### Predictions (Hugging Face)
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/predict` | Upload sales CSV & get predictions |
+| POST | `/api/predict/train` | Submit training job to Hugging Face |
+| GET | `/api/predict/results` | Fetch prediction results |
+
+### Delivery (Twilio)
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/delivery/upload` | Upload delivery customer CSV |
+| POST | `/api/delivery/trigger` | Trigger automated calls |
+| GET | `/api/delivery/results` | Fetch call status & recordings |
+| POST | `/api/delivery/retry` | Retry failed calls |
+
+### Insights (Gemini API)
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/insights/sales` | Generate sales insights |
+| POST | `/api/insights/delivery` | Generate delivery insights |
+| GET | `/api/insights/store/:id` | Get store performance summary |
+| POST | `/api/insights/chat` | Conversational AI chat |
+
+### Events (WebSocket)
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| WS | `/api/events/ws` | Real-time WebSocket |
+| GET | `/api/events/status` | Event system status |
 
 ---
 
