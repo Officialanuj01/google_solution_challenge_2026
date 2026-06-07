@@ -21,12 +21,13 @@ jobs:
       # 1. PR Title Check (Required)
       - name: PR Title Check
         id: title_check
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
         run: |
-          TITLE="${{ github.event.pull_request.title }}"
           # Check if PR title follows conventional commits guidelines
           REGEXP="^(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert)(\(.+\))?: .{1,100}$"
-          if [[ ! "$TITLE" =~ $REGEXP ]]; then
-            echo "Error: PR title '$TITLE' does not match Conventional Commits format."
+          if [[ ! "$PR_TITLE" =~ $REGEXP ]]; then
+            echo "Error: PR title '$PR_TITLE' does not match Conventional Commits format."
             echo "Example: 'feat: add authentication' or 'fix(api): resolve token expiration'"
             exit 1
           fi
@@ -35,9 +36,10 @@ jobs:
       # 2. SDLC Check (Required)
       - name: SDLC Compliance Check
         id: sdlc_check
+        env:
+          PR_BODY: ${{ github.event.pull_request.body }}
         run: |
-          BODY="${{ github.event.pull_request.body }}"
-          if [ -z "$BODY" ] || [ ${#BODY} -lt 15 ]; then
+          if [ -z "$PR_BODY" ] || [ ${#PR_BODY} -lt 15 ]; then
             echo "Error: PR body/description is empty or too short. Please provide clear SDLC context."
             exit 1
           fi
