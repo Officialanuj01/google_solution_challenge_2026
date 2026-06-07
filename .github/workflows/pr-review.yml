@@ -32,6 +32,19 @@ jobs:
             const repo = context.repo.repo;
             const pull_number = pr.number;
             const author = pr.user.login;
+            // Require non-empty title and description (body)
+            const title = (pr.title || '').trim();
+            const body = (pr.body || '').trim();
+
+            if (!title) {
+              core.setFailed('PR must have a non-empty title.');
+              return;
+            }
+
+            if (!body) {
+              core.setFailed('PR must have a non-empty description (PR body).');
+              return;
+            }
             const requiredLabel = (process.env.REQUIRED_SDLC_LABEL || 'sdlc-approved').toLowerCase();
 
             // Keep the latest review state per reviewer and require at least one APPROVED review from non-author.
