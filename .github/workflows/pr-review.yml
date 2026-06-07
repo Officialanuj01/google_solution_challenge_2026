@@ -1,84 +1,86 @@
-name: PR Quality and Compliance Checks
+name: PR Approval Gate
 
 on:
   pull_request:
-    types: [opened, edited, synchronize, reopened]
+    types: [opened, reopened, synchronize, labeled, unlabeled, ready_for_review]
+  pull_request_review:
+    types: [submitted, dismissed]
 
 permissions:
-  contents: read
-  pull-requests: write
-  security-events: write
+  pull-requests: read
 
 jobs:
-  pr-checks:
-    name: Compliance & SAST Checks
+  approval-and-label-gate:
+    name: Require Approval And SDLC Label
     runs-on: ubuntu-latest
+    if: github.event.pull_request.draft == false
 
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v4
-
-      # 1. PR Title Check (Required)
-      - name: PR Title Check
-        id: title_check
+      - name: Validate PR Approval And SDLC Label
+        uses: actions/github-script@v7
         env:
-          PR_TITLE: ${{ github.event.pull_request.title }}
-        run: |
-          # Check if PR title follows conventional commits guidelines
-          REGEXP="^(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert)(\(.+\))?: .{1,100}$"
-          if [[ ! "$PR_TITLE" =~ $REGEXP ]]; then
-            echo "Error: PR title '$PR_TITLE' does not match Conventional Commits format."
-            echo "Example: 'feat: add authentication' or 'fix(api): resolve token expiration'"
-            exit 1
-          fi
-          echo "PR Title matches conventional commit guidelines."
-
-      # 2. SDLC Check (Required)
-      - name: SDLC Compliance Check
-        id: sdlc_check
-        env:
-          PR_BODY: ${{ github.event.pull_request.body }}
-        run: |
-          if [ -z "$PR_BODY" ] || [ ${#PR_BODY} -lt 15 ]; then
-            echo "Error: PR body/description is empty or too short. Please provide clear SDLC context."
-            exit 1
-          fi
-          echo "SDLC check passed: Description has adequate length."
-
-      # 3. SAST Security Check (Optional - continue-on-error: true)
-      - name: Backend Security Audit
-        continue-on-error: true
-        run: |
-          cd backend
-          npm audit --audit-level=high
-
-      # 4. SAST Security Check (Optional - continue-on-error: true)
-      - name: Client-side Security Audit
-        continue-on-error: true
-        run: |
-          cd client-side
-          npm audit --audit-level=high
-
-      # 5. SAST Check with CodeQL (Optional - continue-on-error: true)
-      - name: Initialize CodeQL
-        continue-on-error: true
-        uses: github/codeql-action/init@v3
+          REQUIRED_SDLC_LABEL: sdlc-approved
         with:
-          languages: javascript
+          script: |
+            const pr = context.payload.pull_request;
+            if (!pr) {
+              core.setFailed('This workflow only supports pull request events.');
+              return;
+            }
 
-      - name: Perform CodeQL Analysis
-        continue-on-error: true
-        uses: github/codeql-action/analyze@v3
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const pull_number = pr.number;
+            const author = pr.user.login;
+            const requiredLabel = (process.env.REQUIRED_SDLC_LABEL || 'sdlc-approved').toLowerCase();
 
-      # 6. Request PR Review from Approver (Required)
-      - name: Request PR Review from Approver
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          PR_CREATOR="${{ github.event.pull_request.user.login }}"
-          if [ "$PR_CREATOR" != "Officialanuj01" ]; then
-            gh pr edit ${{ github.event.pull_request.number }} --add-reviewer "Officialanuj01"
-          else
-            echo "PR was created by Officialanuj01. Skipping self-review request."
-          fi
+            // Keep the latest review state per reviewer and require at least one APPROVED review from non-author.
+            const reviews = await github.paginate(github.rest.pulls.listReviews, {
+              owner,
+              repo,
+              pull_number,
+              per_page: 100,
+            });
+
+            const latestReviewStateByUser = new Map();
+            for (const review of reviews) {
+              const reviewer = review.user?.login;
+              if (!reviewer || reviewer === author) continue;
+
+              const existing = latestReviewStateByUser.get(reviewer);
+              const reviewTime = new Date(review.submitted_at || review.created_at || 0).getTime();
+              const existingTime = existing ? existing.time : -1;
+
+              if (reviewTime >= existingTime) {
+                latestReviewStateByUser.set(reviewer, { state: review.state, time: reviewTime });
+              }
+            }
+
+            const hasApproval = [...latestReviewStateByUser.values()].some(
+              (item) => item.state === 'APPROVED'
+            );
+
+            // Fetch labels from the Issues API to avoid stale/missing labels in event payloads.
+            const issueLabels = await github.paginate(github.rest.issues.listLabelsOnIssue, {
+              owner,
+              repo,
+              issue_number: pull_number,
+              per_page: 100,
+            });
+            const labelNames = issueLabels.map((l) => (l.name || '').toLowerCase());
+            const hasSdlcLabel = labelNames.includes(requiredLabel);
+
+            if (!hasApproval) {
+              core.setFailed('PR must be approved by at least one reviewer (not the PR author).');
+              return;
+            }
+
+            if (!hasSdlcLabel) {
+              core.setFailed(
+                `PR must include the SDLC approval label: ${requiredLabel}. Current PR labels: ${labelNames.join(', ') || 'none'}`
+              );
+              return;
+            }
+
+            core.info('Gate passed: PR has reviewer approval and SDLC approval label.');
 
