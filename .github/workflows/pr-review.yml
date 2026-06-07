@@ -60,7 +60,14 @@ jobs:
               (item) => item.state === 'APPROVED'
             );
 
-            const labelNames = (pr.labels || []).map((l) => (l.name || '').toLowerCase());
+            // Fetch labels from the Issues API to avoid stale/missing labels in event payloads.
+            const issueLabels = await github.paginate(github.rest.issues.listLabelsOnIssue, {
+              owner,
+              repo,
+              issue_number: pull_number,
+              per_page: 100,
+            });
+            const labelNames = issueLabels.map((l) => (l.name || '').toLowerCase());
             const hasSdlcLabel = labelNames.includes(requiredLabel);
 
             if (!hasApproval) {
@@ -69,7 +76,9 @@ jobs:
             }
 
             if (!hasSdlcLabel) {
-              core.setFailed(`PR must include the SDLC approval label: ${requiredLabel}`);
+              core.setFailed(
+                `PR must include the SDLC approval label: ${requiredLabel}. Current PR labels: ${labelNames.join(', ') || 'none'}`
+              );
               return;
             }
 
