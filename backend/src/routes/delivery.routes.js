@@ -22,6 +22,7 @@ const upload = multer({
 // ── Customer & Call Endpoints ─────────────────
 router.post('/upload',  upload.single('file'), deliveryController.uploadCustomers);
 router.post('/trigger', deliveryController.triggerCalls);
+router.post('/whatsapp/send', deliveryController.sendWhatsAppUpdates);
 router.get('/results',  deliveryController.getResults);
 router.get('/status',   deliveryController.getBatchStatus);
 router.post('/retry',   deliveryController.retryCalls);
@@ -29,5 +30,7 @@ router.post('/retry',   deliveryController.retryCalls);
 // ── Twilio Webhook Endpoints (called by Twilio, public) ──
 router.all('/voice/:recordId',     deliveryController.voice);
 router.all('/recording/:recordId', deliveryController.recording);
+router.all('/whatsapp',            deliveryController.whatsapp);
+router.all('/whatsapp/:recordId',   deliveryController.whatsapp);
 
 module.exports = router;

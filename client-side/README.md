@@ -44,3 +44,33 @@ Generate the production-ready build artifacts:
 ```bash
 npm run build
 ```
+
+## Deploy on Google Cloud
+
+The client-side app is a Vite single-page application, so the simplest Google Cloud path is **Firebase Hosting**. The repo now includes an SPA rewrite config that serves `dist/index.html` for deep links such as `/predict` and `/smartdrop`.
+
+### 1. Prerequisites
+- Create a Firebase project in Google Cloud
+- Install the Firebase CLI: `npm install -g firebase-tools`
+- Sign in: `firebase login`
+
+### 2. Configure the frontend environment
+Create a `.env` file in `client-side/`:
+```env
+VITE_API_URL=https://your-backend-url/api
+VITE_WS_URL=wss://your-backend-url
+VITE_GOOGLE_CLIENT_ID=your-google-oauth-client-id
+```
+
+### 3. Build and deploy
+```bash
+cd client-side
+npm install
+npm run build
+firebase deploy --only hosting
+```
+
+### 4. Firebase setup notes
+- The hosting root is `dist`
+- SPA routing is handled by a rewrite to `/index.html`
+- If you want a custom domain, configure it from the Firebase Hosting console after the first deploy

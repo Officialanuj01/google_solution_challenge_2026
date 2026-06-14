@@ -31,10 +31,15 @@ jobs:
             const owner = context.repo.owner;
             const repo = context.repo.repo;
             const pull_number = pr.number;
-            const author = pr.user.login;
+            const { data: prDetails } = await github.rest.pulls.get({
+              owner,
+              repo,
+              pull_number,
+            });
+            const author = prDetails.user?.login || pr.user.login;
             // Require non-empty title and description (body)
-            const title = (pr.title || '').trim();
-            const body = (pr.body || '').trim();
+            const title = (prDetails.title || '').trim();
+            const body = (prDetails.body || '').trim();
 
             if (!title) {
               core.setFailed('PR must have a non-empty title.');
@@ -96,4 +101,3 @@ jobs:
             }
 
             core.info('Gate passed: PR has reviewer approval and SDLC approval label.');
-

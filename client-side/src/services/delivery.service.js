@@ -25,6 +25,13 @@ export const deliveryService = {
     },
 
     /**
+     * Send WhatsApp updates for a batch
+     */
+    async sendWhatsAppUpdates(batchId, message = null) {
+        return api.post(`${BASE}/whatsapp/send`, { batchId, message });
+    },
+
+    /**
      * Get call results and transcripts for a batch
      */
     async getResults(batchId) {

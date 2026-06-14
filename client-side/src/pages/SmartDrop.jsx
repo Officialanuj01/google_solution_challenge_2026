@@ -9,6 +9,7 @@ import { SectionTransition } from '../components/PageTransition';
 import { OptimizedCard } from '../components/OptimizedComponents';
 import { useDebounce, useSmoothScroll } from '../hooks/usePerformance';
 import { insightsService } from '../services/insights.service';
+import { deliveryService } from '../services/delivery.service';
 import GeminiInsightsModal from '../components/GeminiInsightsModal';
 import config from '../config';
 
@@ -97,6 +98,8 @@ function SmartDrop() {
   const [waitingForResults, setWaitingForResults] = useState(false);
   const [retrying, setRetrying] = useState(false);
   const [retryResult, setRetryResult] = useState(null);
+  const [sendingWhatsApp, setSendingWhatsApp] = useState(false);
+  const [whatsappResult, setWhatsappResult] = useState(null);
   const [analyzing, setAnalyzing] = useState(false);
   const [showInsightsModal, setShowInsightsModal] = useState(false);
   const [deliveryInsights, setDeliveryInsights] = useState(null);
@@ -448,6 +451,38 @@ function SmartDrop() {
       setRetryResult({ message: 'Retry failed', failed: 1, successful: 0 });
     } finally {
       setRetrying(false);
+    }
+  };
+
+  const handleSendWhatsAppUpdates = async () => {
+    if (!batchId) {
+      setWhatsappResult({ type: 'error', message: 'Missing batchId. Please upload a CSV again.' });
+      return;
+    }
+
+    setSendingWhatsApp(true);
+    setWhatsappResult(null);
+    showLoading('Sending WhatsApp updates...');
+
+    try {
+      const res = await deliveryService.sendWhatsAppUpdates(
+        batchId,
+        'Hello from Pulse. Please reply with your preferred delivery time or any instructions.'
+      );
+
+      setWhatsappResult({
+        type: 'success',
+        message: `WhatsApp updates sent: ${res.data?.sent || 0} sent, ${res.data?.failed || 0} failed, ${res.data?.skipped || 0} skipped.`
+      });
+    } catch (err) {
+      console.error('WhatsApp send failed:', err);
+      setWhatsappResult({
+        type: 'error',
+        message: err?.response?.data?.message || 'Failed to send WhatsApp updates. Please try again.'
+      });
+    } finally {
+      setSendingWhatsApp(false);
+      hideLoading();
     }
   };
 
@@ -876,9 +911,9 @@ function SmartDrop() {
               <div className="flex items-center gap-4">
                 <button
                   onClick={handleMakeCalls}
-                  disabled={calling || loadingResponses}
+                  disabled={calling || loadingResponses || sendingWhatsApp}
                   className={`group relative flex-1 py-4 px-6 rounded-xl font-bold flex items-center justify-center gap-3 transition-all duration-300 transform hover:scale-105 overflow-hidden
-                    ${calling || loadingResponses
+                    ${calling || loadingResponses || sendingWhatsApp
                       ? 'bg-gray-200 cursor-not-allowed text-gray-400' 
                       : 'bg-gradient-to-r from-blue-500 via-sky-500 to-cyan-500 hover:from-blue-600 hover:via-sky-600 hover:to-cyan-600 text-white shadow-xl hover:shadow-2xl'
                     }`}
@@ -898,24 +933,56 @@ function SmartDrop() {
                     )}
                   </div>
                 </button>
+
+                <button
+                  onClick={handleSendWhatsAppUpdates}
+                  disabled={sendingWhatsApp || calling || loadingResponses}
+                  className={`group relative flex-1 py-4 px-6 rounded-xl font-bold flex items-center justify-center gap-3 transition-all duration-300 transform hover:scale-105 overflow-hidden
+                    ${sendingWhatsApp || calling || loadingResponses
+                      ? 'bg-gray-200 cursor-not-allowed text-gray-400'
+                      : 'bg-gradient-to-r from-green-500 via-emerald-500 to-teal-500 hover:from-green-600 hover:via-emerald-600 hover:to-teal-600 text-white shadow-xl hover:shadow-2xl'
+                    }`}
+                >
+                  <div className="relative z-10 flex items-center gap-3">
+                    {sendingWhatsApp ? (
+                      <>
+                        <Loader2 className="h-5 w-5 animate-spin" />
+                        <span>Sending WhatsApp...</span>
+                      </>
+                    ) : (
+                      <>
+                        <span className="text-lg">💬</span>
+                        <span>Send WhatsApp Updates</span>
+                      </>
+                    )}
+                  </div>
+                </button>
                 
                 {/* Call Progress Indicator */}
-                {(calling || loadingResponses) && (
+                {(calling || loadingResponses || sendingWhatsApp) && (
                   <div className="flex items-center gap-3 px-6 py-4 bg-blue-50 border border-blue-200 rounded-xl min-w-fit">
                     <div className="flex items-center gap-2">
                       <Loader2 className="w-5 h-5 animate-spin text-blue-600" />
                       <div className="text-sm">
                         <div className="font-medium text-blue-700">
-                          {calling ? 'Processing Calls...' : 'Fetching Responses...'}
+                          {calling ? 'Processing Calls...' : sendingWhatsApp ? 'Sending WhatsApp...' : 'Fetching Responses...'}
                         </div>
                         <div className="text-blue-600">
-                          {calling ? 'Calling customers' : 'Loading results'}
+                          {calling ? 'Calling customers' : sendingWhatsApp ? 'Messaging customers' : 'Loading results'}
                         </div>
                       </div>
                     </div>
                   </div>
                 )}
               </div>
+
+              {whatsappResult && (
+                <div className={`mt-6 text-center p-4 rounded-xl border ${whatsappResult.type === 'success' ? 'bg-green-50 border-green-200' : 'bg-red-50 border-red-200'}`}>
+                  <div className={`flex items-center justify-center gap-2 ${whatsappResult.type === 'success' ? 'text-green-700' : 'text-red-700'}`}>
+                    <span className="text-sm font-medium">{whatsappResult.message}</span>
+                  </div>
+                </div>
+              )}
 
               {/* Call Status */}
               {callDone && !loadingResponses && !showResponses && (

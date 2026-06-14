@@ -79,6 +79,26 @@ const deliveryController = {
     },
 
     /**
+     * POST /api/delivery/whatsapp/send
+     * Send WhatsApp updates to all customers in a batch.
+     */
+    sendWhatsAppUpdates: async (req, res) => {
+        try {
+            const { batchId, message } = req.body;
+
+            if (!batchId) {
+                return res.status(400).json({ status: 'error', message: 'batchId is required.' });
+            }
+
+            const results = await twilioService.sendWhatsAppUpdates(batchId, message);
+            res.json({ status: 'completed', ...results });
+        } catch (error) {
+            logger.error('Send WhatsApp updates error:', error);
+            res.status(500).json({ status: 'error', message: error.message });
+        }
+    },
+
+    /**
      * GET /api/delivery/results?batch_id=xxx
      * Fetch all call records for a batch from MongoDB.
      */
@@ -166,13 +186,15 @@ const deliveryController = {
     recording: async (req, res) => {
         try {
             const { recordId } = req.params;
+            const payload = { ...req.query, ...req.body };
 
             const recordingData = {
-                SpeechResult:      req.body.SpeechResult      || req.query.SpeechResult      || '',
-                Confidence:        req.body.Confidence         || req.query.Confidence         || '',
-                RecordingUrl:      req.body.RecordingUrl       || req.query.RecordingUrl       || '',
-                RecordingDuration: req.body.RecordingDuration  || req.query.RecordingDuration  || '',
-                RecordingSid:      req.body.RecordingSid       || req.query.RecordingSid       || ''
+                SpeechResult:      payload.SpeechResult       || '',
+                Confidence:        payload.Confidence         || '',
+                RecordingUrl:      payload.RecordingUrl       || '',
+                RecordingDuration: payload.RecordingDuration  || '',
+                RecordingSid:      payload.RecordingSid        || '',
+                Body:              payload.Body               || ''
             };
 
             const twiml = await twilioService.handleRecording(recordId, recordingData);
@@ -180,6 +202,23 @@ const deliveryController = {
         } catch (error) {
             logger.error('Recording webhook error:', error);
             res.type('text/xml').send('<Response><Say>Thank you. Goodbye.</Say></Response>');
+        }
+    },
+
+    /**
+     * POST/GET /api/delivery/whatsapp/:recordId
+     * Twilio WhatsApp webhook — stores inbound user messages.
+     */
+    whatsapp: async (req, res) => {
+        try {
+            const { recordId } = req.params;
+            const payload = { ...req.query, ...req.body };
+
+            const twiml = await twilioService.handleWhatsAppReply(recordId, payload);
+            res.type('text/xml').send(twiml);
+        } catch (error) {
+            logger.error('WhatsApp webhook error:', error);
+            res.type('text/xml').send('<Response><Message>Thank you. Goodbye.</Message></Response>');
         }
     }
 };
