@@ -13,6 +13,13 @@ const callRecordSchema = new mongoose.Schema({
 
     // Filled in after Twilio recording webhook fires
     response: { type: String, default: '' },
+    response_text: { type: String, default: '' },
+    response_channel: { type: String, default: '' },
+    response_payload: { type: mongoose.Schema.Types.Mixed, default: {} },
+    whatsapp_status: { type: String, default: '' },
+    whatsapp_message_sid: { type: String, default: '' },
+    whatsapp_sentAt: { type: Date, default: null },
+    whatsapp_error: { type: String, default: '' },
     recording_duration: { type: String, default: '' },
     recording_sid: { type: String, default: '' },
     transcription: { type: String, default: '' },

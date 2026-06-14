@@ -28,6 +28,16 @@ function getTwilioClient() {
     return twilioClient;
 }
 
+function getWhatsAppSender() {
+    return process.env.TWILIO_WHATSAPP_NUMBER || 'whatsapp:+14155238886';
+}
+
+function normalizeWhatsAppAddress(number) {
+    const raw = String(number || '').trim();
+    if (!raw) return '';
+    return raw.toLowerCase().startsWith('whatsapp:') ? raw : `whatsapp:${raw}`;
+}
+
 // ── Helpers ───────────────────────────────────────────────────────────────────
 function resolveWebhookUrl(provided) {
     const url = process.env.PUBLIC_BASE_URL || provided;
@@ -38,6 +48,33 @@ function resolveWebhookUrl(provided) {
 
 // ── Service ───────────────────────────────────────────────────────────────────
 const twilioService = {
+
+    /**
+     * Persist a user response on a CallRecord.
+     */
+    async saveUserResponse(record, responseData) {
+        const normalizedResponse = responseData.responseText
+            || responseData.transcription
+            || responseData.body
+            || responseData.recordingUrl
+            || 'No response';
+
+        record.response = normalizedResponse;
+        record.response_text = responseData.responseText || responseData.transcription || responseData.body || '';
+        record.response_channel = responseData.channel || '';
+        record.response_payload = responseData.payload || {};
+        record.recording_duration = responseData.recordingDuration || '';
+        record.recording_sid = responseData.recordingSid || '';
+        record.transcription = responseData.transcription || '';
+        record.confidence = responseData.confidence || '';
+        record.status = 'success';
+
+        if (responseData.calledAt) {
+            record.calledAt = responseData.calledAt;
+        }
+
+        await record.save();
+    },
 
     /**
      * STEP 1 — UPLOAD
@@ -157,6 +194,70 @@ const twilioService = {
     },
 
     /**
+     * Send a WhatsApp update to every customer in a batch.
+     */
+    async sendWhatsAppUpdates(batchId, messageText) {
+        const customers = batchStore[batchId];
+        if (!customers || customers.length === 0) {
+            throw new Error('No customers found for this batch');
+        }
+
+        const client = getTwilioClient();
+        const fromNumber = getWhatsAppSender();
+        const body = messageText || 'Hello from Pulse. Please reply with your delivery preference or instructions.';
+
+        const results = {
+            batchId,
+            totalCustomers: customers.length,
+            sent: 0,
+            failed: 0,
+            skipped: 0,
+            errors: []
+        };
+
+        for (const customer of customers) {
+            const toNumber = normalizeWhatsAppAddress(customer.mobile_number);
+            if (!toNumber) {
+                results.failed += 1;
+                results.errors.push({ row: customer.index, number: '', error: 'Missing mobile number' });
+                continue;
+            }
+
+            if (customer.whatsapp_message_sid) {
+                results.skipped += 1;
+                continue;
+            }
+
+            try {
+                const message = await client.messages.create({
+                    from: fromNumber,
+                    to: toNumber,
+                    body
+                });
+
+                customer.whatsapp_status = 'sent';
+                customer.whatsapp_message_sid = message.sid;
+                customer.whatsapp_sentAt = new Date();
+                customer.whatsapp_error = '';
+                results.sent += 1;
+
+                logger.info(`✅ WhatsApp message sent to ${customer.name} at ${toNumber} (SID: ${message.sid})`);
+                await new Promise(r => setTimeout(r, 1000));
+            } catch (error) {
+                const errMsg = error.message || String(error);
+                customer.whatsapp_status = 'failed';
+                customer.whatsapp_error = errMsg;
+                results.failed += 1;
+                results.errors.push({ row: customer.index, number: toNumber, error: errMsg });
+
+                logger.error(`❌ WhatsApp send failed for ${customer.name}: ${errMsg}`);
+            }
+        }
+
+        return results;
+    },
+
+    /**
      * STEP 3 — VOICE WEBHOOK (called by Twilio when customer picks up)
      * Returns TwiML that asks for delivery preference.
      */
@@ -196,19 +297,60 @@ const twilioService = {
         logger.info(`[RECORDING] 🔗 RecordingURL: ${RecordingUrl || 'N/A'}`);
 
         // Persist response to MongoDB — NO CSV
-        record.response           = transcription || RecordingUrl || 'No response';
-        record.recording_duration = RecordingDuration || '';
-        record.recording_sid      = RecordingSid || '';
-        record.transcription      = transcription || '[No speech detected]';
-        record.confidence         = Confidence || '';
-        record.status             = 'success';
-
-        await record.save();
+        await this.saveUserResponse(record, {
+            channel: 'voice',
+            responseText: transcription,
+            transcription: transcription || '[No speech detected]',
+            confidence: Confidence || '',
+            recordingUrl: RecordingUrl || '',
+            recordingDuration: RecordingDuration || '',
+            recordingSid: RecordingSid || '',
+            payload: recordingData
+        });
         logger.info(`[RECORDING] ✅ Saved to MongoDB — batchId=${record.batchId} | status=success`);
 
         return `<?xml version="1.0" encoding="UTF-8"?>
 <Response>
     <Say voice="Polly.Joanna">Thank you ${record.name}. Your preference has been noted: ${transcription || 'no response received'}. Have a great day! Goodbye.</Say>
+</Response>`;
+    },
+
+    /**
+     * STEP 4B — WHATSAPP WEBHOOK (Twilio posts inbound message here)
+     * Saves the user's text response to MongoDB.
+     */
+    async handleWhatsAppReply(recordId, messageData) {
+        logger.info(`[WHATSAPP] ▶ Twilio posted inbound message for recordId=${recordId || '(lookup by sender)'}`);
+
+        let record = recordId ? await CallRecord.findById(recordId) : null;
+        if (!record) {
+            const senderNumber = String(messageData.From || messageData.WaId || '').replace(/^whatsapp:/i, '').trim();
+            if (senderNumber) {
+                record = await CallRecord.findOne({ mobile_number: senderNumber }).sort({ createdAt: -1 });
+            }
+        }
+
+        if (!record) {
+            logger.error(`[WHATSAPP] ❌ No CallRecord found in MongoDB for recordId=${recordId || 'n/a'} or sender=${messageData.From || messageData.WaId || 'n/a'}`);
+            return `<?xml version="1.0" encoding="UTF-8"?>\n<Response><Message>Thank you. Your response was received.</Message></Response>`;
+        }
+
+        const body = messageData.Body || '';
+        logger.info(`[WHATSAPP] 💬 Customer   : ${record.name}`);
+        logger.info(`[WHATSAPP] 📝 Message    : "${body || '(none)'}"`);
+
+        await this.saveUserResponse(record, {
+            channel: 'whatsapp',
+            responseText: body,
+            transcription: body,
+            payload: messageData
+        });
+
+        logger.info(`[WHATSAPP] ✅ Saved to MongoDB — batchId=${record.batchId} | status=success`);
+
+        return `<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+    <Message>Thank you ${record.name}. Your response has been recorded.</Message>
 </Response>`;
     },
 
