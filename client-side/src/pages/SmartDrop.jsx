@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { useDemoModal } from '../context/DemoModalContext';
-import { UploadCloud, PhoneCall, FileSpreadsheet, Loader2, CheckCircle, AlertCircle, Users, ArrowLeft, Package, Download, Brain, Target, TrendingUp, Search, Eye, Filter, ChevronLeft, ChevronRight, ArrowUpDown, ArrowUp, ArrowDown, RefreshCw, DatabaseIcon, Sparkles } from 'lucide-react';
+import { UploadCloud, PhoneCall, FileSpreadsheet, Loader2, CheckCircle, AlertCircle, Users, ArrowLeft, Package, Download, Brain, Target, TrendingUp, Search, Eye, Filter, ChevronLeft, ChevronRight, ArrowUpDown, ArrowUp, ArrowDown, RefreshCw, DatabaseIcon, Sparkles, X, MessageSquare, Volume2 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useLoading } from '../context/LoadingContext';
-import { motion } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
 import { useSmartDropState } from '../hooks/useSmartDropState';
 import { SectionTransition } from '../components/PageTransition';
 import { OptimizedCard } from '../components/OptimizedComponents';
@@ -103,6 +103,9 @@ function SmartDrop() {
   const [analyzing, setAnalyzing] = useState(false);
   const [showInsightsModal, setShowInsightsModal] = useState(false);
   const [deliveryInsights, setDeliveryInsights] = useState(null);
+  const [selectedResponse, setSelectedResponse] = useState(null);
+  const [showDetailsModal, setShowDetailsModal] = useState(false);
+  const [activeTab, setActiveTab] = useState('all'); // 'all', 'voice', 'whatsapp'
   // Use global demo modal context
   const { showDemoModal, setShowDemoModal } = useDemoModal();
   
@@ -381,6 +384,7 @@ function SmartDrop() {
       setWaitingForResults(true);
       setTimer(180); // 3 minutes = 180 seconds
       setTimerActive(true);
+      setActiveTab('voice');
       hideLoading();
       
     } catch (err) {
@@ -474,6 +478,10 @@ function SmartDrop() {
         type: 'success',
         message: `WhatsApp updates sent: ${res.data?.sent || 0} sent, ${res.data?.failed || 0} failed, ${res.data?.skipped || 0} skipped.`
       });
+      
+      // Auto-switch to WhatsApp tab and fetch responses immediately
+      setActiveTab('whatsapp');
+      await handleFetchResults();
     } catch (err) {
       console.error('WhatsApp send failed:', err);
       setWhatsappResult({
@@ -583,6 +591,13 @@ function SmartDrop() {
       )
     );
 
+    // Filter by channel activeTab
+    if (activeTab === 'voice') {
+      filtered = filtered.filter(item => item.response_channel === 'voice');
+    } else if (activeTab === 'whatsapp') {
+      filtered = filtered.filter(item => item.response_channel === 'whatsapp');
+    }
+
     if (sortField) {
       filtered.sort((a, b) => {
         const aVal = a[sortField];
@@ -595,7 +610,7 @@ function SmartDrop() {
     }
 
     return filtered;
-  }, [responses, searchTerm, sortField, sortDirection]);
+  }, [responses, searchTerm, sortField, sortDirection, activeTab]);
 
   const paginationData = useMemo(() => {
     const totalPages = Math.ceil(filteredAndSortedData.length / itemsPerPage);
@@ -1141,17 +1156,54 @@ function SmartDrop() {
           {showResponses && responses && responses.length > 0 && (
             <div className="bg-white/95 backdrop-blur-xl rounded-2xl shadow-xl border border-cyan-200/50 overflow-hidden">
               <div className="bg-gradient-to-r from-cyan-50 to-blue-50 px-6 py-4 border-b border-cyan-200">
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-10 h-10 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl flex items-center justify-center">
-                      <Users className="w-5 h-5 text-white" />
+                <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-10 h-10 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl flex items-center justify-center">
+                        <Users className="w-5 h-5 text-white" />
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-bold text-sky-700">Customer Responses</h3>
+                        <p className="text-sm text-sky-600">{filteredAndSortedData.length} of {responses.length} responses</p>
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="text-xl font-bold text-sky-700">Customer Responses</h3>
-                      <p className="text-sm text-sky-600">{filteredAndSortedData.length} of {responses.length} responses</p>
+                    
+                    {/* Channel Filter Tabs */}
+                    <div className="flex bg-sky-100/50 p-1 rounded-xl border border-sky-200/50 self-start sm:self-auto">
+                      <button
+                        onClick={() => { setActiveTab('all'); setCurrentPage(1); }}
+                        className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all duration-200 ${
+                          activeTab === 'all'
+                            ? 'bg-white text-sky-700 shadow-sm font-bold'
+                            : 'text-sky-600 hover:text-sky-800'
+                        }`}
+                      >
+                        All
+                      </button>
+                      <button
+                        onClick={() => { setActiveTab('voice'); setCurrentPage(1); }}
+                        className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all duration-200 flex items-center gap-1.5 ${
+                          activeTab === 'voice'
+                            ? 'bg-cyan-500 text-white shadow-sm font-bold'
+                            : 'text-cyan-600 hover:text-cyan-800'
+                        }`}
+                      >
+                        <PhoneCall className="w-3 h-3" /> Voice Calls
+                      </button>
+                      <button
+                        onClick={() => { setActiveTab('whatsapp'); setCurrentPage(1); }}
+                        className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all duration-200 flex items-center gap-1.5 ${
+                          activeTab === 'whatsapp'
+                            ? 'bg-green-600 text-white shadow-sm font-bold'
+                            : 'text-green-600 hover:text-green-800'
+                        }`}
+                      >
+                        <MessageSquare className="w-3 h-3" /> WhatsApp
+                      </button>
                     </div>
                   </div>
-                  <div className="flex items-center gap-3">
+                  
+                  <div className="flex flex-wrap items-center gap-3">
                     <div className="relative">
                       <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
                       <input type="text" placeholder="Search..." value={searchTerm}
@@ -1183,36 +1235,127 @@ function SmartDrop() {
                 <table className="w-full">
                   <thead className="bg-gray-50 border-b border-gray-200">
                     <tr>
-                      {Object.keys(responses[0])
-                        .filter(key => !['recording_sid', 'recording_duration', 'confidence', 'response'].includes(key))
-                        .map((key, idx) => (
-                        <th key={idx} className="px-6 py-3 text-left">
-                          <button onClick={() => handleSort(key)}
-                            className="flex items-center space-x-2 font-semibold text-gray-700 hover:text-cyan-600 transition-colors">
-                            <span>{key.replace(/_/g, ' ').toUpperCase()}</span>
-                            {getSortIcon(key)}
-                          </button>
-                        </th>
-                      ))}
+                      <th className="px-6 py-3 text-left">
+                        <button onClick={() => handleSort('name')} className="flex items-center space-x-2 font-semibold text-gray-700 hover:text-cyan-600 transition-colors">
+                          <span>CUSTOMER</span>
+                          {getSortIcon('name')}
+                        </button>
+                      </th>
+                      <th className="px-6 py-3 text-left">
+                        <button onClick={() => handleSort('mobile_number')} className="flex items-center space-x-2 font-semibold text-gray-700 hover:text-cyan-600 transition-colors">
+                          <span>PHONE</span>
+                          {getSortIcon('mobile_number')}
+                        </button>
+                      </th>
+                      <th className="px-6 py-3 text-left">
+                        <button onClick={() => handleSort('response_channel')} className="flex items-center space-x-2 font-semibold text-gray-700 hover:text-cyan-600 transition-colors">
+                          <span>CHANNEL</span>
+                          {getSortIcon('response_channel')}
+                        </button>
+                      </th>
+                      <th className="px-6 py-3 text-left">
+                        <button onClick={() => handleSort('status')} className="flex items-center space-x-2 font-semibold text-gray-700 hover:text-cyan-600 transition-colors">
+                          <span>STATUS</span>
+                          {getSortIcon('status')}
+                        </button>
+                      </th>
+                      <th className="px-6 py-3 text-left font-semibold text-gray-700">
+                        RESPONSE
+                      </th>
+                      <th className="px-6 py-3 text-left">
+                        <button onClick={() => handleSort('calledAt')} className="flex items-center space-x-2 font-semibold text-gray-700 hover:text-cyan-600 transition-colors">
+                          <span>TIME</span>
+                          {getSortIcon('calledAt')}
+                        </button>
+                      </th>
+                      <th className="px-6 py-3 text-center font-semibold text-gray-700">
+                        ACTIONS
+                      </th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-gray-200">
                     {paginatedData.map((row, idx) => (
                       <tr key={idx} className="hover:bg-cyan-50/50 transition-colors">
-                        {Object.entries(row)
-                          .filter(([key]) => !['recording_sid', 'recording_duration', 'confidence', 'response'].includes(key))
-                          .map(([key, value], vIdx) => (
-                          <td key={vIdx} className="px-6 py-3 text-sm">
-                            <span className={`${
-                              key === 'name' ? 'font-semibold text-cyan-600' :
-                              key === 'mobile_number' ? 'font-mono text-blue-600' :
-                              key === 'transcription' ? 'font-medium text-gray-900 italic' :
-                              'text-gray-900'
-                            }`}>
-                              {value || <span className="text-gray-400 italic">No response yet</span>}
+                        {/* Customer Name */}
+                        <td className="px-6 py-3 text-sm font-semibold text-cyan-600">
+                          {row.name || <span className="text-gray-400 italic">Unknown</span>}
+                        </td>
+                        
+                        {/* Phone Number */}
+                        <td className="px-6 py-3 text-sm font-mono text-blue-600">
+                          {row.mobile_number}
+                        </td>
+                        
+                        {/* Channel */}
+                        <td className="px-6 py-3 text-sm">
+                          {row.response_channel === 'voice' ? (
+                            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-cyan-100 text-cyan-800 border border-cyan-200">
+                              <PhoneCall className="w-3 h-3" /> Voice Call
                             </span>
-                          </td>
-                        ))}
+                          ) : row.response_channel === 'whatsapp' ? (
+                            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-green-100 text-green-800 border border-green-200">
+                              <MessageSquare className="w-3 h-3" /> WhatsApp
+                            </span>
+                          ) : (
+                            <span className="text-gray-450 italic text-xs">No response yet</span>
+                          )}
+                        </td>
+                        
+                        {/* Status */}
+                        <td className="px-6 py-3 text-sm">
+                          {row.status === 'success' ? (
+                            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800 border border-emerald-200">
+                              <CheckCircle className="w-3 h-3" /> Success
+                            </span>
+                          ) : row.status === 'failed' ? (
+                            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-rose-100 text-rose-800 border border-rose-200">
+                              <AlertCircle className="w-3 h-3" /> Failed
+                            </span>
+                          ) : (
+                            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-amber-100 text-amber-800 border border-amber-200">
+                              <Loader2 className="w-3 h-3 animate-spin" /> Pending
+                            </span>
+                          )}
+                        </td>
+                        
+                        {/* Response (Transcription/Message) */}
+                        <td className="px-6 py-3 text-sm text-gray-900 italic max-w-xs truncate">
+                          {row.transcription || row.response_text || row.response || (
+                            <span className="text-gray-405 not-italic">No response yet</span>
+                          )}
+                        </td>
+                        
+                        {/* Time */}
+                        <td className="px-6 py-3 text-sm text-gray-650">
+                          {row.calledAt ? new Date(row.calledAt).toLocaleString('en-IN') : 
+                           row.createdAt ? new Date(row.createdAt).toLocaleString('en-IN') : '—'}
+                        </td>
+                        
+                        {/* Actions */}
+                        <td className="px-6 py-3 text-sm text-center">
+                          {row.response_channel === 'voice' ? (
+                            <button
+                              onClick={() => { setSelectedResponse(row); setShowDetailsModal(true); }}
+                              className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-cyan-50 hover:bg-cyan-100 text-cyan-700 hover:text-cyan-800 border border-cyan-200 hover:border-cyan-300 rounded-lg text-xs font-semibold shadow-sm transition-all duration-200 transform hover:scale-105"
+                            >
+                              <PhoneCall className="w-3.5 h-3.5" /> View Call Response
+                            </button>
+                          ) : row.response_channel === 'whatsapp' ? (
+                            <button
+                              onClick={() => { setSelectedResponse(row); setShowDetailsModal(true); }}
+                              className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-green-50 hover:bg-green-100 text-green-700 hover:text-green-800 border border-green-200 hover:border-green-300 rounded-lg text-xs font-semibold shadow-sm transition-all duration-200 transform hover:scale-105"
+                            >
+                              <MessageSquare className="w-3.5 h-3.5" /> View WhatsResponse
+                            </button>
+                          ) : (
+                            <button
+                              disabled
+                              className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gray-50 text-gray-400 border border-gray-200 rounded-lg text-xs font-semibold cursor-not-allowed opacity-60"
+                            >
+                              <Eye className="w-3.5 h-3.5" /> No Response Data
+                            </button>
+                          )}
+                        </td>
                       </tr>
                     ))}
                   </tbody>
@@ -1321,8 +1464,176 @@ function SmartDrop() {
         insights={deliveryInsights}
         type="delivery"
       />
+
+      <ResponseDetailsModal 
+        isOpen={showDetailsModal} 
+        onClose={() => { setShowDetailsModal(false); setSelectedResponse(null); }} 
+        record={selectedResponse} 
+      />
     </div>
   );
 }
+
+// Details modal for customer voice/whatsapp responses
+const ResponseDetailsModal = ({ isOpen, onClose, record }) => {
+  if (!isOpen || !record) return null;
+
+  const isVoice = record.response_channel === 'voice';
+  const isWhatsApp = record.response_channel === 'whatsapp';
+  
+  // Safe extraction of payload properties
+  const payload = record.response_payload || {};
+  const recordingUrl = payload.RecordingUrl || record.recording_url || '';
+
+  return (
+    <AnimatePresence>
+      <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6">
+        {/* Backdrop */}
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={onClose}
+          className="absolute inset-0 bg-sky-900/40 backdrop-blur-sm"
+        />
+        
+        {/* Modal Card */}
+        <motion.div
+          initial={{ scale: 0.9, opacity: 0, y: 20 }}
+          animate={{ scale: 1, opacity: 1, y: 0 }}
+          exit={{ scale: 0.9, opacity: 0, y: 20 }}
+          className="relative w-full max-w-lg bg-white rounded-3xl shadow-2xl border border-cyan-100 overflow-hidden flex flex-col z-10"
+        >
+          {/* Header */}
+          <div className={`p-6 text-white flex items-center justify-between bg-gradient-to-r ${
+            isVoice 
+              ? 'from-cyan-600 via-sky-600 to-blue-600' 
+              : 'from-green-600 via-emerald-600 to-teal-600'
+          }`}>
+            <div className="flex items-center gap-3">
+              <div className="p-2 bg-white/20 rounded-lg backdrop-blur-md">
+                {isVoice ? <PhoneCall className="w-5 h-5 text-white" /> : <MessageSquare className="w-5 h-5 text-white" />}
+              </div>
+              <div>
+                <h3 className="text-lg font-bold">
+                  {isVoice ? 'Voice Call Response' : 'WhatsApp Response'}
+                </h3>
+                <p className="text-white/80 text-xs">Customer details and response logs</p>
+              </div>
+            </div>
+            <button 
+              onClick={onClose}
+              className="p-2 hover:bg-white/20 rounded-full transition-colors text-white"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </div>
+
+          {/* Body */}
+          <div className="p-6 space-y-6 overflow-y-auto max-h-[70vh]">
+            {/* Customer Basic Info */}
+            <div className="bg-gray-50 rounded-2xl p-4 border border-gray-100">
+              <h4 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Customer Profile</h4>
+              <div className="grid grid-cols-2 gap-3 text-sm">
+                <div>
+                  <span className="text-gray-500 block text-xs">Name</span>
+                  <span className="font-semibold text-gray-800">{record.name || 'Unknown'}</span>
+                </div>
+                <div>
+                  <span className="text-gray-500 block text-xs">Phone Number</span>
+                  <span className="font-mono font-semibold text-blue-600">{record.mobile_number}</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Response Content Section */}
+            <div className="space-y-4">
+              <div>
+                <h4 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">
+                  {isVoice ? 'Call Transcription' : 'Message Body'}
+                </h4>
+                <div className={`p-4 rounded-2xl border ${
+                  isVoice ? 'bg-cyan-50/50 border-cyan-100 text-cyan-950' : 'bg-green-50/50 border-green-100 text-green-950'
+                } italic text-base leading-relaxed`}>
+                  "{record.transcription || record.response_text || record.response || 'No response captured.'}"
+                </div>
+              </div>
+
+              {/* Channel-Specific Details */}
+              {isVoice && (
+                <div className="grid grid-cols-2 gap-3 text-sm">
+                  <div className="p-3 bg-gray-50 rounded-xl border border-gray-100">
+                    <span className="text-gray-500 block text-xs">Duration</span>
+                    <span className="font-semibold text-gray-800">
+                      {record.recording_duration ? `${record.recording_duration} seconds` : 'N/A'}
+                    </span>
+                  </div>
+                  <div className="p-3 bg-gray-50 rounded-xl border border-gray-100">
+                    <span className="text-gray-500 block text-xs">Speech Confidence</span>
+                    <span className="font-semibold text-gray-800">
+                      {record.confidence ? `${Math.round(parseFloat(record.confidence) * 100)}%` : 'N/A'}
+                    </span>
+                  </div>
+                </div>
+              )}
+
+              {isVoice && recordingUrl && (
+                <div className="p-4 bg-cyan-50/30 rounded-2xl border border-cyan-100/60">
+                  <h4 className="text-xs font-bold text-cyan-800 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                    <Volume2 className="w-3.5 h-3.5" /> Listen to Recording
+                  </h4>
+                  <audio src={recordingUrl} controls className="w-full mt-2 focus:outline-none" />
+                </div>
+              )}
+
+              {isWhatsApp && (
+                <div className="grid grid-cols-2 gap-3 text-sm">
+                  <div className="p-3 bg-gray-50 rounded-xl border border-gray-100">
+                    <span className="text-gray-500 block text-xs">WhatsApp Profile Name</span>
+                    <span className="font-semibold text-gray-800">{payload.ProfileName || 'N/A'}</span>
+                  </div>
+                  <div className="p-3 bg-gray-50 rounded-xl border border-gray-100">
+                    <span className="text-gray-500 block text-xs">MessageType</span>
+                    <span className="font-semibold text-gray-800">{payload.MessageType || 'text'}</span>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Time Metrics */}
+            <div className="border-t border-gray-100 pt-4 text-xs text-gray-550 flex flex-col gap-1.5">
+              {record.calledAt && (
+                <div className="flex justify-between">
+                  <span>Attempted At:</span>
+                  <span className="font-medium text-gray-750">{new Date(record.calledAt).toLocaleString('en-IN')}</span>
+                </div>
+              )}
+              {record.createdAt && (
+                <div className="flex justify-between">
+                  <span>Record Created:</span>
+                  <span className="font-medium text-gray-750">{new Date(record.createdAt).toLocaleString('en-IN')}</span>
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* Footer */}
+          <div className="p-4 border-t border-gray-100 bg-gray-50 flex justify-end">
+            <button
+              onClick={onClose}
+              className={`px-5 py-2 text-white font-bold rounded-xl shadow-md transition-all text-sm ${
+                isVoice 
+                  ? 'bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700' 
+                  : 'bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700'
+              }`}
+            >
+              Close Details
+            </button>
+          </div>
+        </motion.div>
+      </div>
+    </AnimatePresence>
+  );
+};
 
 export default SmartDrop; 

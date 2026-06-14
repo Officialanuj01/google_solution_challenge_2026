@@ -18,7 +18,7 @@ let twilioClient = null;
 function getTwilioClient() {
     if (!twilioClient) {
         const accountSid = process.env.TWILIO_ACCOUNT_SID;
-        const authToken  = process.env.TWILIO_AUTH_TOKEN;
+        const authToken = process.env.TWILIO_AUTH_TOKEN;
         if (!accountSid || !authToken) {
             throw new Error('Twilio credentials not configured. Set TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN.');
         }
@@ -160,7 +160,7 @@ const twilioService = {
                 const call = await getTwilioClient().calls.create({ to: toNumber, from: fromNumber, url: webhookUrl });
 
                 logger.info(`[TRIGGER] ✅ Call initiated — SID: ${call.sid} | marking status=success in DB`);
-                record.status   = 'success';
+                record.status = 'success';
                 record.calledAt = new Date();
                 await record.save();
 
@@ -432,7 +432,7 @@ const twilioService = {
                 });
 
                 logger.info(`[RETRY] ✅ Retry call initiated — SID: ${call.sid} | marking status=success`);
-                record.status   = 'success';
+                record.status = 'success';
                 record.calledAt = new Date();
                 await record.save();
                 successful += 1;
