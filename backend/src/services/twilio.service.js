@@ -197,7 +197,7 @@ const twilioService = {
      * Send a WhatsApp update to every customer in a batch.
      */
     async sendWhatsAppUpdates(batchId, messageText) {
-        const customers = batchStore[batchId];
+        const customers = await CallRecord.find({ batchId }).sort({ createdAt: 1 });
         if (!customers || customers.length === 0) {
             throw new Error('No customers found for this batch');
         }
@@ -219,7 +219,7 @@ const twilioService = {
             const toNumber = normalizeWhatsAppAddress(customer.mobile_number);
             if (!toNumber) {
                 results.failed += 1;
-                results.errors.push({ row: customer.index, number: '', error: 'Missing mobile number' });
+                results.errors.push({ id: String(customer._id), number: '', error: 'Missing mobile number' });
                 continue;
             }
 
@@ -239,6 +239,7 @@ const twilioService = {
                 customer.whatsapp_message_sid = message.sid;
                 customer.whatsapp_sentAt = new Date();
                 customer.whatsapp_error = '';
+                await customer.save();
                 results.sent += 1;
 
                 logger.info(`✅ WhatsApp message sent to ${customer.name} at ${toNumber} (SID: ${message.sid})`);
@@ -247,8 +248,9 @@ const twilioService = {
                 const errMsg = error.message || String(error);
                 customer.whatsapp_status = 'failed';
                 customer.whatsapp_error = errMsg;
+                await customer.save();
                 results.failed += 1;
-                results.errors.push({ row: customer.index, number: toNumber, error: errMsg });
+                results.errors.push({ id: String(customer._id), number: toNumber, error: errMsg });
 
                 logger.error(`❌ WhatsApp send failed for ${customer.name}: ${errMsg}`);
             }
