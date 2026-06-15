@@ -2,10 +2,10 @@
 
 The frontend client-side web application for **Pulse**, an AI-powered retail supply chain optimization platform. This dashboard enables users to manage inventory, forecast demand, and optimize logistics with rich, interactive visualizations and smooth, premium animations.
 
-## Key Features & Pages
+## Key Features & Pages  
 
 - **Home & Dashboard**: A comprehensive landing page and dashboard summarizing platform metrics, supply chain status, and quick actions.
-- **Predict (Demand Forecasting)**: Interactive charts and analytics utilizing **Recharts** to visualize sales trends, seasonal demands, and AI-driven supply forecasting.
+- **Predict (Demand Forecasting)**: Interactive charts and analytics utilizing **Recharts** to visualize sales trends, seasonal demands, and AI-driven supply forecasting .
 - **SmartDrop (Logistics Optimizer)**: A utility to streamline distribution planning, manage routes, and coordinate intelligent drop-offs.
 - **Google OAuth Authentication**: Secure authentication via `@react-oauth/google` for seamless sign-in.
 
