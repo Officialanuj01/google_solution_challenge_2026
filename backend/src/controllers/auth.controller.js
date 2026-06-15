@@ -75,8 +75,16 @@ const authController = {
             let user = await User.findOne({ email });
 
             if (!user) {
+                // Ensure unique username for Google users to prevent collisions
+                let username = name;
+                const usernameExists = await User.findOne({ username });
+                if (usernameExists) {
+                    const uniqueSuffix = sub ? sub.slice(-5) : Math.floor(1000 + Math.random() * 9000);
+                    username = `${name}_${uniqueSuffix}`;
+                }
+
                 const newUserData = {
-                    username: name,
+                    username: username,
                     email: email,
                     isGoogleUser: true,
                     googleId: sub,
