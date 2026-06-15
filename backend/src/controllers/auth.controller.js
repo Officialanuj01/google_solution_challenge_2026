@@ -46,9 +46,8 @@ const generateRefreshToken = (userId) => {
 
 const verifyGoogleToken = async (access_token) => {
     try {
-        const response = await fetch('https://www.googleapis.com/oauth2/v3/tokeninfo', {
-            method: 'GET',
-            headers: { 'Authorization': `Bearer ${access_token}` }
+        const response = await fetch(`https://www.googleapis.com/oauth2/v3/tokeninfo?access_token=${access_token}`, {
+            method: 'GET'
         });
 
         if (!response.ok) {
