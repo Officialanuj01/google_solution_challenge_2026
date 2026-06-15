@@ -23,13 +23,19 @@ jest.mock('mongoose', () => {
   return mMongoose;
 });
 
-jest.mock('../../src/models/user.model');
+jest.mock('../../src/models/user.model', () => {
+  const MockUser = jest.fn();
+  MockUser.findOne = jest.fn();
+  MockUser.findById = jest.fn();
+  return MockUser;
+});
 jest.mock('../../src/utils/logger', () => ({
   logger: { info: jest.fn(), warn: jest.fn(), error: jest.fn() }
 }));
 
 const User = require('../../src/models/user.model');
 const app = require('../../src/index');
+
 
 const SECRET = process.env.JWT_ACCESS_SECRET || 'your-access-secret-key';
 
