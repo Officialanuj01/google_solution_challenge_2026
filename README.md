@@ -40,11 +40,11 @@ Retailers and dark stores face critical challenges:
 ## 🏗️ Architecture & Process Flows
 
 ### 1. Technical Sequence Architecture
-<img src="assets/workflowdiagram.jpeg" alt="🤖">
+<img src="assets/prediction1.jpeg" alt="🤖">
 
 ### 2. Core Process Flows
 Pulse automates two primary pipelines: Stock Optimization and Last-Mile Delivery.
-<img src="assets/prediction1.png"  alt="🤖">
+<img src="assets/corediagram.jpeg"  alt="🤖">
 
 ## 💡 What Does Pulse Do?
 
@@ -83,6 +83,7 @@ Pulse automates two primary pipelines: Stock Optimization and Last-Mile Delivery
 * **WhatsApp Notification Engine:** Send WhatsApp updates to customers and track their real-time responses.
 * **Unified Control:** Centralized triggers for both phone calls and WhatsApp requests.
 
+<img src="assets/workflowdiagram.jpeg" alt="Delivery and WhatsApp Workflow Diagram" width="800"/>
 <img src="assets/deliveryandwhatsapprequest.jpeg" alt="Delivery and WhatsApp Request Buttons" width="800"/>
 
 ### 🤖 Response Capture & Feedback Integration
