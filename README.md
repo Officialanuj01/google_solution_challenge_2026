@@ -57,19 +57,29 @@ Pulse automates two primary pipelines: Stock Optimization and Last-Mile Delivery
 <img src="assets/prediction2.png" alt="🤖">
 <img src="assets/stock_optimization.png" alt="Stock Optimization Dashboard" width="800"/>
 
-### 📞 Automated Delivery Coordination
+### 📞 Automated Delivery Coordination & WhatsApp Updates
 
-* AI-powered voice calls to customers
-* Confirms availability and delivery instructions
-* Eliminates manual coordination
+* **Automated Voice Calls:** AI-powered voice calls to customers to confirm availability and delivery instructions.
+* **WhatsApp Notification Engine:** Send WhatsApp updates to customers and track their real-time responses.
+* **Unified Control:** Centralized triggers for both phone calls and WhatsApp requests.
 
-<img src="assets/delivery_coordination.png" alt="Delivery Coordination Dashboard" width="800"/>
+<img src="assets/deliveryandwhatsapprequest.jpeg" alt="Delivery and WhatsApp Request Buttons" width="800"/>
 
-### 🤖 Response Capture & Retry
+### 🤖 Response Capture & Feedback Integration
 
-* Converts voice responses to structured data
-* Stores delivery instructions for drivers
-* Intelligent retry system for failed calls
+* Converts customer voice responses into structured data and logs driver instructions.
+* Captures real-time WhatsApp replies directly within the vendor's dashboard.
+* Smart retry system to quickly handle failed delivery updates.
+
+<img src="assets/whatsappresponse.jpeg" alt="WhatsApp Response" width="800"/>
+
+### 🔐 Secure Authentication & Google OAuth
+
+* Simple, secure vendor and delivery partner onboarding.
+* Traditional email/password accounts secured via JWT.
+* Seamless Google OAuth integration for quick access.
+
+<img src="assets/googlelogin.jpeg" alt="Google Login" width="800"/>
 
 
 ---
@@ -107,7 +117,7 @@ Pulse automates two primary pipelines: Stock Optimization and Last-Mile Delivery
 | ------------- | ------------------------- | ----------------- |
 | Communication | Twilio                    | ₹1,000 - ₹2,000   |
 | AI Processing | Gemini                    | ₹200 - ₹500       |
-| Cloud & DB    | Firebase Hosting + MongoDB + Render | ₹500 - ₹1,000     |
+| Cloud & DB    | Vercel + MongoDB + Render | ₹500 - ₹1,000     |
 | **Total**     |                           | **₹1.7k - ₹3.5k** |
 
 **Per User Cost:** ₹2 - ₹3.5/month
@@ -125,7 +135,7 @@ Pulse automates two primary pipelines: Stock Optimization and Last-Mile Delivery
 | **AI Insights** | Google Gemini API |
 | **Database** | MongoDB |
 | **Authentication** | JWT + Google OAuth 2.0 |
-| **Deployment** | Render (backend), Firebase Hosting (frontend), GitHub |
+| **Deployment** | Render (backend), Vercel (frontend), GitHub |
 
 ---
 
@@ -206,9 +216,9 @@ npm install
 npm run dev
 ```
 
-### Deploy (Render + Firebase Hosting):
+### Deploy (Render + Vercel):
 - Backend: deploy the `backend/` service to Render with your `.env` values.
-- Frontend: deploy `client-side/` to Firebase Hosting and set `VITE_API_URL`, `VITE_WS_URL`, and `VITE_GOOGLE_CLIENT_ID` in your GitHub secrets or local env.
+- Frontend: deploy `client-side/` to Vercel and set `VITE_API_URL`, `VITE_WS_URL`, and `VITE_GOOGLE_CLIENT_ID`.
 
 ---
 
