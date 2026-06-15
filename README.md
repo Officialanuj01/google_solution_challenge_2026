@@ -57,19 +57,29 @@ Pulse automates two primary pipelines: Stock Optimization and Last-Mile Delivery
 <img src="assets/prediction2.png" alt="🤖">
 <img src="assets/stock_optimization.png" alt="Stock Optimization Dashboard" width="800"/>
 
-### 📞 Automated Delivery Coordination
+### 📞 Automated Delivery Coordination & WhatsApp Updates
 
-* AI-powered voice calls to customers
-* Confirms availability and delivery instructions
-* Eliminates manual coordination
+* **Automated Voice Calls:** AI-powered voice calls to customers to confirm availability and delivery instructions.
+* **WhatsApp Notification Engine:** Send WhatsApp updates to customers and track their real-time responses.
+* **Unified Control:** Centralized triggers for both phone calls and WhatsApp requests.
 
-<img src="assets/delivery_coordination.png" alt="Delivery Coordination Dashboard" width="800"/>
+<img src="assets/deliveryandwhatsapprequest.jpeg" alt="Delivery and WhatsApp Request Buttons" width="800"/>
 
-### 🤖 Response Capture & Retry
+### 🤖 Response Capture & Feedback Integration
 
-* Converts voice responses to structured data
-* Stores delivery instructions for drivers
-* Intelligent retry system for failed calls
+* Converts customer voice responses into structured data and logs driver instructions.
+* Captures real-time WhatsApp replies directly within the vendor's dashboard.
+* Smart retry system to quickly handle failed delivery updates.
+
+<img src="assets/whatsappresponse.jpeg" alt="WhatsApp Response" width="800"/>
+
+### 🔐 Secure Authentication & Google OAuth
+
+* Simple, secure vendor and delivery partner onboarding.
+* Traditional email/password accounts secured via JWT.
+* Seamless Google OAuth integration for quick access.
+
+<img src="assets/googlelogin.jpeg" alt="Google Login" width="800"/>
 
 
 ---
