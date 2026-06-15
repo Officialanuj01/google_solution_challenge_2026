@@ -4,6 +4,7 @@
  */
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { render, screen, waitFor, act } from '@testing-library/react';
+import { useEffect } from 'react';
 import { AuthProvider, useAuth } from '../context/AuthContext';
 
 // ── Mock authService ───────────────────────────────────────────────────────
@@ -24,6 +25,9 @@ import { authService } from '../services/auth.service';
 // ── Helper consumer component ──────────────────────────────────────────────
 function AuthConsumer({ action }) {
   const ctx = useAuth();
+  useEffect(() => {
+    if (action) action(ctx);
+  }, [action, ctx]);
   return (
     <div>
       <span data-testid="user">{ctx.user ? ctx.user.username : 'none'}</span>
