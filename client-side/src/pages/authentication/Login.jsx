@@ -2,17 +2,7 @@ import { useState } from 'react';
 import { LogIn, Mail, Lock, Zap } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 import config from '../../config';
-
-// Only import useGoogleLogin if clientId is configured
-let useGoogleLogin = null;
-if (config.googleClientId) {
-  try {
-    const googleOAuth = await import('@react-oauth/google');
-    useGoogleLogin = googleOAuth.useGoogleLogin;
-  } catch (e) {
-    // Google OAuth module not available
-  }
-}
+import { useGoogleLogin } from '@react-oauth/google';
 
 function Login({ onLogin }) {
   const [email, setEmail] = useState('');
@@ -21,15 +11,50 @@ function Login({ onLogin }) {
   const [devStatus, setDevStatus] = useState('');
   const [loading, setLoading] = useState(false);
   const [googleLoading, setGoogleLoading] = useState(false);
-  const googleAvailable = !!useGoogleLogin && !!config.googleClientId;
-  
+  const googleAvailable = !!config.googleClientId;
+
   const { login, googleAuth } = useAuth();
+
+  const triggerGoogleLogin = useGoogleLogin({
+    onSuccess: async (codeResponse) => {
+      try {
+        const userInfoResponse = await fetch('https://www.googleapis.com/oauth2/v3/userinfo', {
+          headers: { Authorization: `Bearer ${codeResponse.access_token}` }
+        });
+        const userInfo = await userInfoResponse.json();
+
+        const data = await googleAuth({
+          access_token: codeResponse.access_token,
+          id_token: codeResponse.id_token,
+          userInfo
+        });
+
+        if (onLogin) {
+          onLogin({
+            name: data.user.username,
+            email: data.user.email,
+            id: data.user.id,
+            role: data.user.role
+          });
+        }
+      } catch (err) {
+        setError(err.message || 'Google login failed');
+      } finally {
+        setGoogleLoading(false);
+      }
+    },
+    onError: () => {
+      setError('Google login failed');
+      setGoogleLoading(false);
+    },
+    flow: 'implicit'
+  });
 
   async function handleSubmit(e) {
     e.preventDefault();
     setError('');
     setLoading(true);
-    
+
     try {
       const data = await login(email, password);
       if (onLogin) {
@@ -51,41 +76,7 @@ function Login({ onLogin }) {
     if (!googleAvailable) return;
     setGoogleLoading(true);
     try {
-      // This will be called only when Google OAuth is properly configured
-      useGoogleLogin({
-        onSuccess: async (codeResponse) => {
-          try {
-            const userInfoResponse = await fetch('https://www.googleapis.com/oauth2/v3/userinfo', {
-              headers: { Authorization: `Bearer ${codeResponse.access_token}` }
-            });
-            const userInfo = await userInfoResponse.json();
-            
-            const data = await googleAuth({
-              access_token: codeResponse.access_token,
-              id_token: codeResponse.id_token,
-              userInfo
-            });
-            
-            if (onLogin) {
-              onLogin({
-                name: data.user.username,
-                email: data.user.email,
-                id: data.user.id,
-                role: data.user.role
-              });
-            }
-          } catch (err) {
-            setError(err.message || 'Google login failed');
-          } finally {
-            setGoogleLoading(false);
-          }
-        },
-        onError: () => {
-          setError('Google login failed');
-          setGoogleLoading(false);
-        },
-        flow: 'implicit'
-      })();
+      triggerGoogleLogin();
     } catch (err) {
       setError('Google login not available');
       setGoogleLoading(false);
@@ -163,7 +154,7 @@ function Login({ onLogin }) {
               <span>Demo Credentials</span>
             </div>
           </button>
-          
+
           <button
             type="submit"
             disabled={loading}

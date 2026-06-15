@@ -57,15 +57,13 @@ const AppContent = () => {
 
 // Wrapper that conditionally applies GoogleOAuthProvider only when client ID exists
 function OAuthWrapper({ children }) {
-  if (config.googleClientId) {
-    return (
-      <GoogleOAuthProvider clientId={config.googleClientId}>
-        {children}
-      </GoogleOAuthProvider>
-    );
-  }
-  // Skip OAuth provider if no client ID configured — Login will still work without Google
-  return <>{children}</>;
+  // Always render GoogleOAuthProvider so useGoogleLogin hook doesn't crash,
+  // using a dummy ID if none is configured.
+  return (
+    <GoogleOAuthProvider clientId={config.googleClientId || "dummy-id"}>
+      {children}
+    </GoogleOAuthProvider>
+  );
 }
 
 function App() {
