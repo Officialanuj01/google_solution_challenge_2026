@@ -40,7 +40,7 @@ Retailers and dark stores face critical challenges:
 ## 🏗️ Architecture & Process Flows
 
 ### 1. Technical Sequence Architecture
-<img src="assets/detailedDiagram.png" alt="🤖">
+<img src="assets/workflowdiagram.jpeg" alt="🤖">
 
 ### 2. Core Process Flows
 Pulse automates two primary pipelines: Stock Optimization and Last-Mile Delivery.
@@ -56,6 +56,19 @@ Pulse automates two primary pipelines: Stock Optimization and Last-Mile Delivery
 <img src="assets/prediction1.png" alt="🤖">
 <img src="assets/prediction2.png" alt="🤖">
 <img src="assets/stock_optimization.png" alt="Stock Optimization Dashboard" width="800"/>
+
+### 🤖 Deployed ML Forecasting Model
+
+* **Interactive Hugging Face Space:** The core demand prediction engine is deployed as a Gradio Space at [anujdev/PULSE](https://huggingface.co/spaces/anujdev/PULSE).
+* **Model Architecture:** Leverages a **Supervised Random Forest Regressor** (`RandomForestRegressor(n_estimators=100, max_depth=10, n_jobs=-1)`) optimized for fast, multi-threaded inference and resilient generalization.
+* **Advanced Feature Engineering:**
+  * **Temporal Vectors:** Extracts date ordinal, day of the week, and month to model cyclic seasonality.
+  * **Sequential Lags:** Tracks `lag_1d` (the immediate preceding day's sales) to capture short-term demand shocks.
+  * **Rolling Context:** Calculates a `rolling_avg_7d` per unique store-product combination to smooth out noise and capture weekly baseline trends.
+* **Validation & Performance Metrics:** Tracks $R^2$ coefficient of determination, Mean Squared Error (MSE), and Mean Absolute Error (MAE) via an automated 80/20 train-test validation split during retraining cycles.
+* **Dynamic Training & Inference:** Exposes RESTful endpoints for both on-the-fly model training and generation of 7-day predictive stock horizons from a simple CSV interface.
+
+<img src="assets/huggingfacemodel.jpeg" alt="Hugging Face Model Deployment" width="800"/>
 
 ### 🧠 AI-Powered Insights & Recommendations
 
