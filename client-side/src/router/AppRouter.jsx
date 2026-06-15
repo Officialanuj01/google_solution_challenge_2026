@@ -13,7 +13,6 @@ import PageLoader from '../components/PageLoader';
 import { useLoading } from '../context/LoadingContext';
 import { useDemoModal } from '../context/DemoModalContext';
 import { AlertCircle, DatabaseIcon, Users } from 'lucide-react';
-import RoleSelectionDialog from "../components/RoleSelectionDialog";
 
 function ProtectedRoute({ children }) {
   const { user, loading } = useAuth();
@@ -54,13 +53,11 @@ function ProtectedRoute({ children }) {
 
 function AppContent() {
   const [authOpen, setAuthOpen] = useState(false);
-  const { user, logout, loading, updateRole } = useAuth();
+  const { user, logout, loading } = useAuth();
   const { showLoading, hideLoading } = useLoading();
   const location = useLocation();
   // Global demo modal context
   const { showDemoModal, setShowDemoModal } = useDemoModal();
-  const [roleDialogOpen, setRoleDialogOpen] = useState(false);
-  const navigate = useNavigate();
 
   // Handle initial authentication loading
   useEffect(() => {
@@ -71,30 +68,8 @@ function AppContent() {
     }
   }, [loading, showLoading, hideLoading]);
 
-  // Open role selection dialog if user is logged in but has no role selected
-  useEffect(() => {
-    if (user && user.role === null) {
-      setRoleDialogOpen(true);
-    } else {
-      setRoleDialogOpen(false);
-    }
-  }, [user]);
-
-  const handleRoleSelect = async (role) => {
-    try {
-      await updateRole(role);
-      setRoleDialogOpen(false);
-    } catch (err) {
-      console.error('Failed to update role:', err);
-    }
-  };
-
-  const handleRoleClose = async () => {
-    // If user cancels role selection, log them out to ensure consistent state
-    await logout();
-    setRoleDialogOpen(false);
-    navigate('/');
-  };
+  // Handler for dialog open/close
+  const navigate = useNavigate();
 
   function handleAuthOpenChange(open) {
     setAuthOpen(open);
@@ -178,11 +153,6 @@ function AppContent() {
         onOpenChange={handleAuthOpenChange}
         onLogin={handleLoginSuccess}
         showTrigger={false}
-      />
-      <RoleSelectionDialog
-        open={roleDialogOpen}
-        onRoleSelect={handleRoleSelect}
-        onClose={handleRoleClose}
       />
       <main className="flex-grow pt-[66px]">
         <Routes>
