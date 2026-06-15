@@ -9,20 +9,20 @@ permissions:
   contents: read
 
 jobs:
-  # ── Backend: Jest unit + integration tests ──────────────────────────────
-  backend-tests:
-    name: Backend Tests (Jest)
+  # ─────────────────────────────────────────────────────────────────────────
+  # 1. Backend — Unit Tests
+  # ─────────────────────────────────────────────────────────────────────────
+  backend-unit-tests:
+    name: "Backend · Unit Tests"
     runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: backend
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: npm
@@ -31,38 +31,67 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run tests
-        run: npm test
+      - name: Run unit tests
+        run: npx jest tests/unit --runInBand --forceExit
         env:
           NODE_ENV: test
           JWT_ACCESS_SECRET: test-access-secret
           JWT_REFRESH_SECRET: test-refresh-secret
           ALLOW_DEMO_WITHOUT_DB: "true"
 
-  # ── Frontend: Vitest unit tests ─────────────────────────────────────────
-  frontend-tests:
-    name: Frontend Tests (Vitest)
+  # ─────────────────────────────────────────────────────────────────────────
+  # 2. Backend — Integration Tests
+  # ─────────────────────────────────────────────────────────────────────────
+  backend-integration-tests:
+    name: "Backend · Integration Tests"
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: backend/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run integration tests
+        run: npx jest tests/integration --runInBand --forceExit
+        env:
+          NODE_ENV: test
+          JWT_ACCESS_SECRET: test-access-secret
+          JWT_REFRESH_SECRET: test-refresh-secret
+          ALLOW_DEMO_WITHOUT_DB: "true"
+
+  # ─────────────────────────────────────────────────────────────────────────
+  # 3. Frontend — Unit Tests
+  # ─────────────────────────────────────────────────────────────────────────
+  frontend-unit-tests:
+    name: "Frontend · Unit Tests"
     runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: client-side
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
-          cache-dependency-path: client-side/package.json
+          # No cache — package-lock.json is gitignored for client-side
 
       - name: Install dependencies
         run: npm install
 
-      - name: Run tests
-        run: npm test
+      - name: Run unit tests
+        run: npx vitest run
         env:
           VITE_API_URL: http://localhost:5001/api
           VITE_GOOGLE_CLIENT_ID: test-client-id.apps.googleusercontent.com
