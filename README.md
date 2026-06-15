@@ -40,7 +40,7 @@ Retailers and dark stores face critical challenges:
 ## 🏗️ Architecture & Process Flows
 
 ### 1. Technical Sequence Architecture
-<img src="assets/prediction1.jpeg" alt="🤖">
+<img src="assets/detailedDiagram.png" alt="🤖">
 
 ### 2. Core Process Flows
 Pulse automates two primary pipelines: Stock Optimization and Last-Mile Delivery.
