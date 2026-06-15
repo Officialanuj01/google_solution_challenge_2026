@@ -107,7 +107,7 @@ Pulse automates two primary pipelines: Stock Optimization and Last-Mile Delivery
 | ------------- | ------------------------- | ----------------- |
 | Communication | Twilio                    | ₹1,000 - ₹2,000   |
 | AI Processing | Gemini                    | ₹200 - ₹500       |
-| Cloud & DB    | Vercel + MongoDB + Render | ₹500 - ₹1,000     |
+| Cloud & DB    | Firebase Hosting + MongoDB + Render | ₹500 - ₹1,000     |
 | **Total**     |                           | **₹1.7k - ₹3.5k** |
 
 **Per User Cost:** ₹2 - ₹3.5/month
@@ -125,7 +125,7 @@ Pulse automates two primary pipelines: Stock Optimization and Last-Mile Delivery
 | **AI Insights** | Google Gemini API |
 | **Database** | MongoDB |
 | **Authentication** | JWT + Google OAuth 2.0 |
-| **Deployment** | Render (backend), Vercel (frontend), GitHub |
+| **Deployment** | Render (backend), Firebase Hosting (frontend), GitHub |
 
 ---
 
@@ -206,9 +206,9 @@ npm install
 npm run dev
 ```
 
-### Deploy (Render + Vercel):
+### Deploy (Render + Firebase Hosting):
 - Backend: deploy the `backend/` service to Render with your `.env` values.
-- Frontend: deploy `client-side/` to Vercel and set `VITE_API_URL`, `VITE_WS_URL`, and `VITE_GOOGLE_CLIENT_ID`.
+- Frontend: deploy `client-side/` to Firebase Hosting and set `VITE_API_URL`, `VITE_WS_URL`, and `VITE_GOOGLE_CLIENT_ID` in your GitHub secrets or local env.
 
 ---
 

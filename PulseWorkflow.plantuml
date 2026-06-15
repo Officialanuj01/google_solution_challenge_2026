@@ -1,0 +1,32 @@
+@startuml PulseWorkflow
+
+header Pulse - Google Solution Challenge 2026
+title Pulse: Core Process Flows (Horizontal Layout)
+
+skinparam activityShape roundedBox
+skinparam shadowing true
+skinparam roundcorner 20
+skinparam ActivityBackgroundColor #F0F0F0
+skinparam ActivityBorderColor #333333
+skinparam PartitionBackgroundColor #FFFFFF
+skinparam PartitionBorderColor #333333
+skinparam ArrowColor #333333
+
+partition "Stock Optimization" {
+    (*) -right-> "Upload Sales CSV"
+    "Upload Sales CSV" -right-> "HuggingFace ML Forecast"
+    "HuggingFace ML Forecast" -right-> "Gemini Insights"
+    "Gemini Insights" -right-> "Vendor Dashboard"
+}
+
+"Vendor Dashboard" -down-> "Upload Customer CSV"
+
+partition "Last-Mile Delivery" {
+    "Upload Customer CSV" -right-> "Twilio Call Trigger"
+    "Twilio Call Trigger" -right-> "Customer Voice Response"
+    "Customer Voice Response" -right-> "WhatsApp Follow-up"
+    "WhatsApp Follow-up" -right-> "Gemini Call Analysis"
+    "Gemini Call Analysis" -right-> "Delivery Dashboard"
+}
+
+@enduml

@@ -21,13 +21,13 @@ const technologies = [
   { icon: Brain, name: 'Machine Learning & AI', desc: 'Gemini, Scikit-learn, Pandas/NumPy, Hugging Face', color: 'from-purple-500 to-indigo-600' },
   { icon: PhoneCall, name: 'Communication', desc: 'Twilio API, Automated voice calls, Speech Recognition', color: 'from-orange-500 to-red-600' },
   { icon: Database, name: 'Data & Auth', desc: 'MongoDB, Predictions & logs, Google Auth', color: 'from-blue-500 to-cyan-600' },
-  { icon: Cloud, name: 'Cloud & Ops', desc: 'Vercel, Render, Git, GitHub, Postman, CSV Input', color: 'from-pink-500 to-yellow-500' },
+  { icon: Cloud, name: 'Cloud & Ops', desc: 'Firebase Hosting, Render, Git, GitHub, Postman, CSV Input', color: 'from-pink-500 to-yellow-500' },
 ];
 
 const costEstimates = [
   { icon: PhoneCall, title: 'Communication', desc: 'Using Twilio, ~1 min avg. call', stat: '₹1000 - ₹2000' },
   { icon: Brain, title: 'AI Processing', desc: 'Google Gemini, Negligible usage', stat: '₹200 - ₹500' },
-  { icon: Cloud, title: 'Cloud & DB', desc: 'Vercel, Render & MongoDB', stat: '₹500 - ₹1000' },
+  { icon: Cloud, title: 'Cloud & DB', desc: 'Firebase Hosting, Render & MongoDB', stat: '₹500 - ₹1000' },
   { icon: Wallet, title: 'Total Monthly Cost', desc: 'Estimated for 1000 Users', stat: '₹1.7k - ₹3.5k' },
 ];
 

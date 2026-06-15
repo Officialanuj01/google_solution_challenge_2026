@@ -25,8 +25,8 @@ skinparam sequence {
 }
 
 actor "User (Vendor/Partner)" as User
-participant "React Frontend" as Frontend
-participant "Express Backend" as Backend
+participant "React Frontend\n(Firebase Hosting)" as Frontend
+participant "Express Backend\n(Render)" as Backend
 database "MongoDB" as DB
 participant "Hugging Face" as HuggingFace
 participant "Gemini AI" as Gemini
