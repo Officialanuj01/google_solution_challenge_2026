@@ -32,7 +32,7 @@ jobs:
         run: npm ci
 
       - name: Run unit tests
-        run: npx jest tests/unit --runInBand --forceExit
+        run: ./node_modules/.bin/jest tests/unit --runInBand --forceExit
         env:
           NODE_ENV: test
           JWT_ACCESS_SECRET: test-access-secret
@@ -62,7 +62,7 @@ jobs:
         run: npm ci
 
       - name: Run integration tests
-        run: npx jest tests/integration --runInBand --forceExit
+        run: ./node_modules/.bin/jest tests/integration --runInBand --forceExit
         env:
           NODE_ENV: test
           JWT_ACCESS_SECRET: test-access-secret
@@ -91,7 +91,7 @@ jobs:
         run: npm install
 
       - name: Run unit tests
-        run: npx vitest run
+        run: ./node_modules/.bin/vitest run
         env:
           VITE_API_URL: http://localhost:5001/api
           VITE_GOOGLE_CLIENT_ID: test-client-id.apps.googleusercontent.com
