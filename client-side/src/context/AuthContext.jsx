@@ -48,9 +48,9 @@ export function AuthProvider({ children }) {
         }
     };
 
-    const googleAuth = async (accessToken) => {
+    const googleAuth = async (googleData) => {
         try {
-            const data = await authService.googleAuth(accessToken);
+            const data = await authService.googleAuth(googleData);
             if (data && data.user) {
                 setUser(data.user);
             }
