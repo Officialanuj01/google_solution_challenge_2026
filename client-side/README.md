@@ -29,8 +29,9 @@ npm install
 ### 2. Configure Environment Variables
 Create a `.env` file in the root of the `client-side` folder (refer to configuration in `src/config.js`):
 ```env
-VITE_API_URL=http://localhost:5000
-VITE_GOOGLE_CLIENT_ID=your-google-client-id
+VITE_API_URL=http://localhost:5001/api
+VITE_WS_URL=ws://localhost:5001
+VITE_GOOGLE_CLIENT_ID=your-google-oauth-client-id.apps.googleusercontent.com
 ```
 
 ### 3. Run Development Server
