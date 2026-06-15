@@ -57,6 +57,13 @@ Pulse automates two primary pipelines: Stock Optimization and Last-Mile Delivery
 <img src="assets/prediction2.png" alt="🤖">
 <img src="assets/stock_optimization.png" alt="Stock Optimization Dashboard" width="800"/>
 
+### 🧠 AI-Powered Insights & Recommendations
+
+* **Trend & Anomaly Detection:** Leverages Google Gemini to automatically discover sales patterns, highlight anomalies, and recommend restock items.
+* **Conversational AI Assistant:** Ask questions in real-time about your dark store's metrics.
+
+<img src="assets/ai-insights-vid.gif" alt="AI Insights Demo" width="800"/>
+
 ### 📞 Automated Delivery Coordination & WhatsApp Updates
 
 * **Automated Voice Calls:** AI-powered voice calls to customers to confirm availability and delivery instructions.
