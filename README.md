@@ -287,7 +287,7 @@ npm run dev
 ## 🔭 Future Development Roadmap
 
 * 🌍 Multilingual voice support
-* 📱 WhatsApp, SMS, and app notifications
+* 📱 SMS, and app notifications
 * 🧠 Advanced anomaly detection
 * 🔗 ERP & logistics integrations
 
