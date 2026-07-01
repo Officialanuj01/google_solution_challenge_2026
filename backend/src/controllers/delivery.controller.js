@@ -168,8 +168,9 @@ const deliveryController = {
     voice: async (req, res) => {
         try {
             const { recordId } = req.params;
-            const baseUrl = `${req.protocol}://${req.get('host')}`;
-            const gatherCallbackUrl = `${baseUrl}/delivery/recording/${recordId}`;
+            const rawBaseUrl = process.env.PUBLIC_BASE_URL || `${req.protocol}://${req.get('host')}`;
+            const baseUrl = rawBaseUrl.startsWith('http') ? rawBaseUrl : `https://${rawBaseUrl}`;
+            const gatherCallbackUrl = `${baseUrl.replace(/\/+$/, '')}/api/delivery/recording/${recordId}`;
 
             const twiml = twilioService.generateVoiceTwiml(recordId, gatherCallbackUrl);
             res.type('text/xml').send(twiml);
